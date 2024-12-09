@@ -1,0 +1,39 @@
+{
+  "name": "@kameo/core",
+  "description": "Kameo library powered by ProseMirror and Tiptap",
+  "version": "0.0.11",
+  "license": "",
+  "keywords": [
+    "kameo",
+    "prosemirror",
+    "tiptap",
+    "editor"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@tiptap/core": "^2.10.2"
+  },
+  "devDependencies": {
+    "@tiptap/pm": "^2.10.2"
+  },
+  "peerDependencies": {
+    "@tiptap/pm": "^2.10.2"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "watch": "rollup -c -w",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}
