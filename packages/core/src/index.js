@@ -1,2 +1,2 @@
-export * from './base/index.js';
-export * as extensions from './extensions/index.js';
+export * from './core/index.js';
+export * as kameoExtensions from './extensions/index.js';

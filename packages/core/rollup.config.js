@@ -1,5 +1,8 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
+import alias from '@rollup/plugin-alias';
+
+import { fileURLToPath, URL } from 'node:url';
 import pkg from './package.json' with { type: 'json' };
 
 export default {
@@ -32,5 +35,10 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
+    alias({
+      entries: {
+        '@core': fileURLToPath(new URL('./src/core', import.meta.url))
+      },
+    }),
   ],
 };
