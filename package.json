@@ -6,7 +6,12 @@
     "shared/*"
   ],
   "packageManager": "npm@10.9.0",
-  "scripts": {},
+  "scripts": {
+    "start": "npm --prefix ./dev-playground run dev",
+    "dev": "npm run start",
+    "clean:packages": "rm -rf ./packages/*/dist",
+    "reset": "npm run clean:packages && rm -rf ./**/.cache && rm -rf ./**/node_modules && rm -rf ./package-lock.json && npm install"
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.1",
