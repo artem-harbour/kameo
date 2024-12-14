@@ -1,10 +1,10 @@
 import './style.css';
-import { Kameo, kameoExtensions } from '@kameo/core';
+import { Kameo, kExtensions } from '@kameo/core';
 
 new Kameo({
   element: document.querySelector('#app'),
   extensions: [
-    ...Object.values(kameoExtensions),
+    ...Object.values(kExtensions),
   ],
   content: '<p>Kameo World!</p>',
 })

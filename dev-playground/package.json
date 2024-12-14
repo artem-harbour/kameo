@@ -1,5 +1,5 @@
 {
-  "name": "@kameo/dev-playground",
+  "name": "dev-playground",
   "version": "0.0.0",
   "private": true,
   "type": "module",
