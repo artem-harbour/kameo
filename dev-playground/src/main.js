@@ -4,5 +4,5 @@ import '@kameo/core/style/main.css';
 import { initKameo } from './scripts/index.js';
 
 initKameo({
-  element: document.querySelector('#app'),
+  element: document.querySelector('#kameo'),
 });
