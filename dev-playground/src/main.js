@@ -1,4 +1,4 @@
-import './style.css';
+import './assets/css/main.css';
 import { Kameo, kExtensions } from '@kameo/core';
 
 new Kameo({
