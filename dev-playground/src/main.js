@@ -1,10 +1,9 @@
-import './assets/css/main.css';
-import { Kameo, kExtensions } from '@kameo/core';
+import './assets/styles/main.css';
+import '@kameo/core/style/prosemirror.css';
+import '@kameo/core/style/main.css';
 
-new Kameo({
+import { initKameo } from './scripts/index.js';
+
+initKameo({
   element: document.querySelector('#app'),
-  extensions: [
-    ...Object.values(kExtensions),
-  ],
-  content: '<p>Kameo World!</p>',
-})
+});

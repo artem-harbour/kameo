@@ -16,8 +16,14 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./style/prosemirror.css": "./style/prosemirror.css",
+    "./style/main.css": "./style/main.css"
   },
+  "sideEffects": [
+    "./style/prosemirror.css",
+    "./style/main.css"
+  ],
   "files": [
     "dist"
   ],
@@ -30,7 +36,6 @@
   "peerDependencies": {
     "@tiptap/pm": "^2.10.2"
   },
-  "sideEffects": false,
   "scripts": {
     "watch": "rollup -c -w",
     "clean": "rm -rf dist",
