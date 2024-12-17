@@ -9,6 +9,5 @@ export const initKameo = ({
       ...Object.values(kExtensions),
     ],
     content: '<p>Kameo World!</p>',
-    injectCSS: false,
-  })
+  });
 };
