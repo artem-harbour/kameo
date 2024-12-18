@@ -12,6 +12,7 @@ dist
 *.local
 
 .cache
+.turbo
 .temp
 .DS_Store
 .env

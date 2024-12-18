@@ -1,4 +1,4 @@
-import { Node } from '@core';
+import { Node } from '@kameo/core';
 
 export const Document = Node.create({
   name: 'doc',

@@ -1,8 +1,21 @@
 import './assets/styles/main.css';
 import '@kameo/core/style/prosemirror.css';
 import '@kameo/core/style/main.css';
-import { initKameo } from './scripts/index.js';
+import { Kameo } from '@kameo/core';
+import { Document } from '@kameo/extension-document'; 
+import { Paragraph } from '@kameo/extension-paragraph'
+import { Text } from '@kameo/extension-text'; 
 
-initKameo({
-  element: document.querySelector('#kameo'),
-});
+const initKameo = () => {
+  new Kameo({
+    element: document.querySelector('#kameo'),
+    extensions: [
+      Document,
+      Text,
+      Paragraph,
+    ],
+    content: '<p>Kameo World!</p>',
+  });
+};
+
+initKameo();

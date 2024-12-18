@@ -37,7 +37,6 @@
     "@tiptap/pm": "^2.10.2"
   },
   "scripts": {
-    "watch": "rollup -c -w",
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c"
   }

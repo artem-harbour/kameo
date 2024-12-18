@@ -1,4 +1,4 @@
-import { Node, mergeAttributes } from '@core';
+import { Node, mergeAttributes } from '@kameo/core';
 
 export const Paragraph = Node.create({
   name: 'paragraph',
