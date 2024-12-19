@@ -20,6 +20,9 @@
     "src",
     "dist"
   ],
+  "dependencies": {
+    "lit": "^3.2.1"
+  },
   "devDependencies": {
     "@kameo/core": "^0.0.12"
   },
