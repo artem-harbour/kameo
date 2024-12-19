@@ -25,6 +25,7 @@
     "./style/main.css"
   ],
   "files": [
+    "src",
     "dist"
   ],
   "dependencies": {
