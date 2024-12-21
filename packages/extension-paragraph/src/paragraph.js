@@ -8,7 +8,7 @@ export const Paragraph = Node.create({
   addOptions() {
     return {
       HTMLAttributes: {},
-    }
+    };
   },
 
   group: 'block',
@@ -18,10 +18,24 @@ export const Paragraph = Node.create({
   parseHTML() {
     return [
       { tag: 'p' },
-    ]
+    ];
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['p', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0]
+    return ['p', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
+  },
+
+  addCommands() {
+    return {
+      setParagraph: () => ({ commands }) => {
+        return commands.setNode(this.name);
+      },
+    };
+  },
+
+  addKeyboardShortcuts() {
+    return {
+      'Mod-Alt-0': () => this.editor.commands.setParagraph(),
+    };
   },
 });
