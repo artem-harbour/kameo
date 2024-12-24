@@ -1,10 +1,12 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import autoExternal from 'rollup-plugin-auto-external';
+import aliasPlugin from '@rollup/plugin-alias';
 
 export const baseConfig = ({
   input = 'src/index.js',
   pkg,
+  alias = {},
 }) => {
   let externalDependencies = true;
 
@@ -42,6 +44,9 @@ export const baseConfig = ({
       }),
       resolve(),
       commonjs(),
+      aliasPlugin({
+        entries: { ...alias },
+      }),
     ],
   };
 };

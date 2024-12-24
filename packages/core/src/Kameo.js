@@ -3,12 +3,38 @@ import { Editor } from '@tiptap/core';
 export class Kameo extends Editor {
 
   constructor(options = {}) {
-    options = {
+    let allOptions = {
+      documentMode: 'builder',
       ...options,
+
+      // always overwritten
       injectCSS: false,
     };
-    
-    super(options);
+
+    super(allOptions);
+
+    this.#init(allOptions);
+  }
+  
+  #init(options) {
+    this.setDocumentMode(options.documentMode);
+  }
+
+  setDocumentMode(mode) {
+    let modes = {
+      builder: () => {
+        this.setOptions({ documentMode: mode });
+        this.setEditable(true, false);
+      },
+      render: () => {
+        this.setOptions({ documentMode: mode });
+        this.setEditable(false, false);
+      },
+    };
+
+    let handleMode = modes[mode] ?? modes.builder;
+
+    handleMode();
   }
 
   prependClass() {

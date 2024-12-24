@@ -28,13 +28,12 @@
     "src",
     "dist"
   ],
-  "dependencies": {
-    "@tiptap/core": "^2.10.2"
-  },
   "devDependencies": {
+    "@tiptap/core": "^2.10.2",
     "@tiptap/pm": "^2.10.2"
   },
   "peerDependencies": {
+    "@tiptap/core": "^2.10.2",
     "@tiptap/pm": "^2.10.2"
   },
   "scripts": {

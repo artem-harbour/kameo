@@ -1,6 +1,6 @@
 {
-  "name": "@kameo/extension-form-input-text",
-  "description": "form input text extension for kameo",
+  "name": "@kameo/extension-form-fields",
+  "description": "form fields extension for kameo",
   "version": "0.0.12",
   "license": "",
   "keywords": [

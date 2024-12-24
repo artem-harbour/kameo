@@ -2,6 +2,10 @@ import { Node, mergeAttributes } from '@kameo/core';
 
 export const Paragraph = Node.create({
   name: 'paragraph',
+  
+  group: 'block',
+
+  content: 'inline*',
 
   priority: 1000,
 
@@ -10,10 +14,6 @@ export const Paragraph = Node.create({
       HTMLAttributes: {},
     };
   },
-
-  group: 'block',
-
-  content: 'inline*',
 
   parseHTML() {
     return [
