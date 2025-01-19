@@ -10,7 +10,7 @@ export const FormInputText = Node.create({
 
   draggable: false, // ?
 
-  selectable: false, // ?
+  selectable: true, // ?
 
   addOptions() {
     return {

@@ -5,6 +5,7 @@ import aliasPlugin from '@rollup/plugin-alias';
 
 // https://www.npmjs.com/package/rollup-plugin-css-only
 // https://github.com/jleeson/rollup-plugin-import-css
+// https://github.com/shoelace-style/rollup-example/blob/master/rollup.config.js
 
 export const baseConfig = ({
   input = 'src/index.js',
