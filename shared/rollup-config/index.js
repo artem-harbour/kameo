@@ -3,17 +3,16 @@ import commonjs from '@rollup/plugin-commonjs';
 import autoExternal from 'rollup-plugin-auto-external';
 import aliasPlugin from '@rollup/plugin-alias';
 
+// https://www.npmjs.com/package/rollup-plugin-css-only
+// https://github.com/jleeson/rollup-plugin-import-css
+
 export const baseConfig = ({
   input = 'src/index.js',
   pkg,
   alias = {},
+  externalDependencies = true,
+  externalPeerDependencies = true,
 }) => {
-  let externalDependencies = true;
-
-  if (pkg.name === '@kameo/core') {
-    externalDependencies = false;
-  }
-
   return {
     input,
     output: [
@@ -40,7 +39,7 @@ export const baseConfig = ({
       autoExternal({
         packagePath: './package.json',
         dependencies: externalDependencies,
-        peerDependencies: true,
+        peerDependencies: externalPeerDependencies,
       }),
       resolve(),
       commonjs(),

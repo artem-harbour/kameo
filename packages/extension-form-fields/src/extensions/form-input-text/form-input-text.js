@@ -15,7 +15,7 @@ export const FormInputText = Node.create({
   addOptions() {
     return {
       HTMLAttributes: {},
-      tagName: 'k-form-input-text',
+      tagName: 'sl-input',
     };
   },
 
@@ -50,11 +50,26 @@ export const FormInputText = Node.create({
         default: false,
         parseHTML: (elem) => elem.hasAttribute('required'),
       },
+
+      type: {
+        default: 'text',
+      },
     };
   },
 
   parseHTML() {
-    return [{ tag: this.options.tagName }];
+    return [{ 
+      tag: this.options.tagName, 
+      getAttrs(node) {
+        let type = node.getAttribute('type');
+
+        if (type !== 'text' && type !== null) {
+          return false;
+        }
+        
+        return null;
+      },
+    }];
   },
 
   renderHTML({ HTMLAttributes }) {

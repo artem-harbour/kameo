@@ -1,5 +1,5 @@
 import { NodeView } from '@base/index.js';
-import './FormInputTextElement.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
 
 export class FormInputTextView extends NodeView {
   editor;
