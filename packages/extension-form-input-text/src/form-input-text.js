@@ -15,7 +15,7 @@ export const FormInputText = Node.create({
   addOptions() {
     return {
       HTMLAttributes: {},
-      tagName: 'sl-input',
+      tagName: 'wa-input',
     };
   },
 

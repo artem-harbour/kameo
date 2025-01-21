@@ -17,8 +17,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./style/main.css": "./style/main.css",
-    "./themes/light.css": "./dist/themes/light.css"
+    "./style/main.css": "./style/main.css"
   },
   "sideEffects": [
     "./style/main.css"

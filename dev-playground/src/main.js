@@ -1,5 +1,4 @@
 import './assets/styles/main.css';
-import '@kameo/core/themes/light.css';
 
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';

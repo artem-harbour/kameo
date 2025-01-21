@@ -1,7 +1,7 @@
 export const baseForm = `
   <p>Base form</p>
 
-  <sl-input
+  <wa-input
     id="first_name"
     name="first_name"
     value="Joe"
@@ -10,9 +10,9 @@ export const baseForm = `
     type="text"
     required
   >
-  </sl-input>
+  </wa-input>
 
-  <sl-input
+  <wa-input
     id="last_name"
     name="last_name"
     value="Doe"
@@ -21,7 +21,7 @@ export const baseForm = `
     type="text"
     required
   >
-  </sl-input>
+  </wa-input>
 
   <p>Some content</p>
 `;

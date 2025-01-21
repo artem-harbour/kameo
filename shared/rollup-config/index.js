@@ -1,18 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import autoExternal from 'rollup-plugin-auto-external';
-import aliasPlugin from '@rollup/plugin-alias';
-import copy from 'rollup-plugin-copy';
-
-// https://www.npmjs.com/package/rollup-plugin-css-only
-// https://github.com/jleeson/rollup-plugin-import-css
-// https://github.com/shoelace-style/rollup-example/blob/master/rollup.config.js
 
 export const baseConfig = ({
   input = 'src/index.js',
   pkg,
-  alias = {},
-  copyOptions = {},
   externalDependencies = true,
   externalPeerDependencies = true,
 }) => {
@@ -46,10 +38,6 @@ export const baseConfig = ({
       }),
       resolve(),
       commonjs(),
-      aliasPlugin({
-        entries: { ...alias },
-      }),
-      copy(copyOptions),
     ],
   };
 };

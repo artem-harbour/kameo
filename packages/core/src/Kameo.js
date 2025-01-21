@@ -1,7 +1,6 @@
 import { Editor } from '@tiptap/core';
 import { style } from './style.js';
 import { createStyleTag } from './utilities/createStyleTag.js';
-import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 
 export class Kameo extends Editor {
 
@@ -51,9 +50,5 @@ export class Kameo extends Editor {
    */
   prependClass() {
     this.view.dom.className = `kameo ${this.view.dom.className}`;
-  }
-
-  static setAssetsBasePath(path) {
-    setBasePath(path);
   }
 }
