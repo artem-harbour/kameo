@@ -1,0 +1,37 @@
+{
+  "name": "@kameo/starter-kit",
+  "description": "starter kit for kameo",
+  "version": "0.0.12",
+  "license": "",
+  "keywords": [
+    "kameo",
+    "extension"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {
+    "@kameo/core": "^0.0.12",
+    "@kameo/extension-document": "^0.0.12",
+    "@kameo/extension-paragraph": "^0.0.12",
+    "@kameo/extension-text": "^0.0.12",
+    "@kameo/extension-form-input-text": "^0.0.12",
+    "@kameo/extension-form-submit": "^0.0.12",
+    "@tiptap/pm": "^2.11.2"
+  },
+
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}

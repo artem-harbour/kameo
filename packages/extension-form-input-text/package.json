@@ -1,13 +1,11 @@
 {
-  "name": "@kameo/core",
-  "description": "Kameo library powered by ProseMirror and Tiptap",
+  "name": "@kameo/extension-form-input-text",
+  "description": "form input text extension for kameo",
   "version": "0.0.12",
   "license": "",
   "keywords": [
     "kameo",
-    "prosemirror",
-    "tiptap",
-    "editor"
+    "extension"
   ],
   "type": "module",
   "main": "dist/index.cjs",
@@ -16,27 +14,20 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./style/main.css": "./style/main.css",
-    "./themes/light.css": "./dist/themes/light.css"
+    }
   },
-  "sideEffects": [
-    "./style/main.css"
-  ],
   "files": [
     "src",
     "dist"
   ],
   "dependencies": {
-    "@tiptap/core": "^2.10.2"
+    "@shoelace-style/shoelace": "^2.19.1"
   },
   "devDependencies": {
-    "@shoelace-style/shoelace": "^2.19.1",
-    "@tiptap/pm": "^2.10.2"
+    "@kameo/core": "^0.0.12"
   },
   "peerDependencies": {
-    "@shoelace-style/shoelace": "^2.19.1",
-    "@tiptap/pm": "^2.10.2"
+    "@kameo/core": "^0.0.12"
   },
   "scripts": {
     "clean": "rm -rf dist",

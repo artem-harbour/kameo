@@ -3,5 +3,6 @@ export * from '@tiptap/core';
 
 // Kameo core
 export * from './Kameo.js';
-export * as kmHelpers from './helpers/index.js';
-export * as kmUtils from './utilities/index.js';
+export * from './FormView.js';
+export * as kameoHelpers from './helpers/index.js';
+export * as kameoUtils from './utilities/index.js';

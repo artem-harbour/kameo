@@ -1,4 +1,6 @@
 import { Editor } from '@tiptap/core';
+import { style } from './style.js';
+import { createStyleTag } from './utilities/createStyleTag.js';
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 
 export class Kameo extends Editor {
@@ -7,9 +9,6 @@ export class Kameo extends Editor {
     let allOptions = {
       documentMode: 'builder',
       ...options,
-
-      // always overwritten
-      injectCSS: false,
     };
 
     super(allOptions);
@@ -38,7 +37,18 @@ export class Kameo extends Editor {
     handleMode();
   }
 
-  /* Override */
+  /**
+   * Overridden method.
+   */
+  injectCSS() {
+    if (this.options.injectCSS && document) {
+      this.css = createStyleTag(style, this.options.injectNonce);
+    }
+  }
+
+  /**
+   * Overridden method.
+   */
   prependClass() {
     this.view.dom.className = `kameo ${this.view.dom.className}`;
   }

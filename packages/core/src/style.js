@@ -1,4 +1,4 @@
-.ProseMirror {
+export const style = `.ProseMirror {
   position: relative;
 }
 
@@ -73,3 +73,13 @@ img.ProseMirror-separator {
 .ProseMirror-focused .ProseMirror-gapcursor {
   display: block;
 }
+
+.kameo {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  padding: 16px;
+  position: relative;
+  caret-color: #000;
+  outline: none;
+}`;

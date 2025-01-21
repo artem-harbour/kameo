@@ -1,5 +1,5 @@
 
-export class NodeView {
+export class FormView {
 
   updateAttributes(attrs) {
     this.editor.commands.command(({ tr }) => {

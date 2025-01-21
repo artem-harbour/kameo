@@ -1,7 +1,7 @@
-import { NodeView } from '@base/index.js';
+import { FormView } from '@kameo/core';
 import '@shoelace-style/shoelace/dist/components/input/input.js';
 
-export class FormInputTextView extends NodeView {
+export class FormInputTextView extends FormView {
   editor;
 
   node;
