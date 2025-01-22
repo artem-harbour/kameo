@@ -42,6 +42,7 @@ export class FormInputTextView extends FormView {
   }
 
   createDOM() {
+    // todo
     let dom = document.createElement(this.tagName);
 
     updateDomAttributes(dom, this.node.attrs);
@@ -52,16 +53,16 @@ export class FormInputTextView extends FormView {
   }
 
   attachEventListeners() {
-    this.dom.addEventListener('field-input', this.handleFieldInput);
+    this.dom.addEventListener('wa-input', this.handleFieldInput);
   }
 
   removeEventListeners() {
-    this.dom.removeEventListener('field-input', this.handleFieldInput);
+    this.dom.removeEventListener('wa-input', this.handleFieldInput);
   }
 
   handleFieldInput(event) {
     this.updateAttributes({
-      value: event.detail.value,
+      value: event.target.value,
     });
 
     // emit editor event here?

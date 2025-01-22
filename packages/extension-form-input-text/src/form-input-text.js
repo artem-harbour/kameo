@@ -1,6 +1,8 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormInputTextView } from './view/FormInputTextView.js';
 
+// TODO: create BaseFormField and extend it.
+
 export const FormInputText = Node.create({
   name: 'formInputText',
 
@@ -14,7 +16,9 @@ export const FormInputText = Node.create({
 
   addOptions() {
     return {
-      HTMLAttributes: {},
+      HTMLAttributes: {
+        class: 'km-form-field',
+      },
       tagName: 'wa-input',
     };
   },
@@ -58,7 +62,7 @@ export const FormInputText = Node.create({
   },
 
   parseHTML() {
-    return [{ 
+    return [{
       tag: this.options.tagName, 
       getAttrs(node) {
         let type = node.getAttribute('type');
@@ -66,7 +70,7 @@ export const FormInputText = Node.create({
         if (type !== 'text' && type !== null) {
           return false;
         }
-        
+
         return null;
       },
     }];
@@ -76,7 +80,6 @@ export const FormInputText = Node.create({
     return [this.options.tagName, mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)];
   },
 
-  // TODO: add update, delete commands, etc
   addCommands() {
     return {
       insertFormInputText: (pos, attrs = {}) => ({
@@ -85,9 +88,9 @@ export const FormInputText = Node.create({
         commands,
       }) => {
         if (dispatch) {
-          let posMap = tr.mapping.map(pos);
+          let posMapped = tr.mapping.map(pos);
 
-          return commands.insertContentAt(posMap, {
+          return commands.insertContentAt(posMapped, {
             type: this.name,
             attrs,
           }, { updateSelection: false });

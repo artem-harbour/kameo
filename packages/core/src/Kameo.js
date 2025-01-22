@@ -6,7 +6,7 @@ export class Kameo extends Editor {
 
   constructor(options = {}) {
     let allOptions = {
-      documentMode: 'builder',
+      documentMode: 'edit',
       ...options,
     };
 
@@ -20,18 +20,25 @@ export class Kameo extends Editor {
   }
 
   setDocumentMode(mode) {
+    let [editModeClass, viewModeClass] = ['kameo--edit-mode', 'kameo--view-mode'];
+
     let modes = {
-      builder: () => {
+      edit: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(true, false);
+        this.view.dom.classList.add(editModeClass);
+        this.view.dom.classList.remove(viewModeClass);
+        
       },
-      render: () => {
+      view: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(false, false);
+        this.view.dom.classList.add(viewModeClass);
+        this.view.dom.classList.remove(editModeClass);
       },
     };
 
-    let handleMode = modes[mode] ?? modes.builder;
+    let handleMode = modes[mode] ?? modes.edit;
 
     handleMode();
   }
@@ -51,4 +58,8 @@ export class Kameo extends Editor {
   prependClass() {
     this.view.dom.className = `kameo ${this.view.dom.className}`;
   }
+
+  submit() {}
+
+  validateForm() {}
 }
