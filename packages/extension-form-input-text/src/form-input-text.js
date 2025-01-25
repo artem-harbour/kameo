@@ -2,7 +2,6 @@ import { Node, mergeAttributes } from '@kameo/core';
 import { FormInputTextView } from './view/FormInputTextView.js';
 
 // TODO: create BaseFormField and extend it.
-
 export const FormInputText = Node.create({
   name: 'formInputText',
 
@@ -49,35 +48,31 @@ export const FormInputText = Node.create({
         default: '',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
       },
-
+      
       required: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('required'),
-      },
-
-      type: {
-        default: 'text',
+        parseHTML: (elem) => {
+          if (elem.getAttribute('required') === 'false') {
+            return false;
+          }
+          return elem.hasAttribute('required');
+        },
       },
     };
   },
 
   parseHTML() {
-    return [{
-      tag: this.options.tagName, 
-      getAttrs(node) {
-        let type = node.getAttribute('type');
-
-        if (type !== 'text' && type !== null) {
-          return false;
-        }
-
-        return null;
-      },
-    }];
+    return [{ tag: `${this.options.tagName}[data-type="${this.name}"]` }];
   },
-
+  
+  // Handle attrs/layout the same as in NodeView?
   renderHTML({ HTMLAttributes }) {
-    return [this.options.tagName, mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)];
+    return [
+      this.options.tagName,
+      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
+        'data-type': this.name,
+      }),
+    ];
   },
 
   addCommands() {
@@ -100,7 +95,7 @@ export const FormInputText = Node.create({
       },
     };
   },
-
+  
   addNodeView() {
     return (props) => {
       return new FormInputTextView({

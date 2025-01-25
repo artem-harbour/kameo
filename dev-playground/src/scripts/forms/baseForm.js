@@ -9,7 +9,7 @@ export const baseForm = `
     placeholder="Enter your first name" 
     type="text"
     required
-  >
+    data-type="formInputText">
   </wa-input>
 
   <wa-input
@@ -19,8 +19,7 @@ export const baseForm = `
     label="Last name"
     placeholder="Enter your last name" 
     type="text"
-    required
-  >
+    data-type="formInputText">
   </wa-input>
 
   <p>Some content</p>
