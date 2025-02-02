@@ -1,10 +1,12 @@
 import { FormElementView } from '@kameo/core';
-import '@shoelace-style/shoelace/dist/components/input/input.js';
+import { kameoHelpers } from '@kameo/core';
+
+const { updateDOMAttributes } = kameoHelpers;
 
 export class FormInputTextView extends FormElementView {
 
-  constructor(props) {
-    super(props);
+  constructor(props, options) {
+    super(props, options);
 
     this.onInput = this.onInput.bind(this);
 
@@ -12,21 +14,11 @@ export class FormInputTextView extends FormElementView {
   }
 
   mount() {
-    this.element = this.createElement();
-  }
+    this.component = this.createComponent();
 
-  createElement() {
-    const element = document.createElement('div');
-    const component = document.createElement(this.tagName);
-
-    element.classList.add('km-form-element');
-    element.append(component);
-
-    updateDOMAttributes(component, this.node.attrs);
-
-    this.component = component;
-
-    return element;
+    this.root = this.createElement({
+      component: this.component,
+    });
   }
 
   onInput(event) {
@@ -44,39 +36,11 @@ export class FormInputTextView extends FormElementView {
   }
 
   update(node) {
-    if (node.type !== this.node.type) {
-      return false;
-    }
-
-    this.node = node;
-    
-    updateDOMAttributes(this.component, node.attrs);
-
-    return true;
+    return super.update(node);
   }
 
   destroy() {
+    super.destroy();
     this.removeEventListeners();
   }
-}
-
-function updateDOMAttributes(dom, attrs = {}) {
-  Object.entries(attrs).forEach(([key, value]) => {
-    const handlers = {
-      required: () => {
-        if (!value) {
-          dom.removeAttribute(key);
-          return;
-        }
-        dom.setAttribute(key, '');
-      },
-      default: () => {
-        dom.setAttribute(key, value);
-      },
-    };
-    
-    const update = handlers[key] ?? handlers.default;
-
-    update()
-  });
 }

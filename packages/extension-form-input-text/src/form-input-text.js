@@ -12,12 +12,10 @@ export const FormInputText = Node.create({
   draggable: false, // ?
 
   selectable: true, // ?
-
+  
   addOptions() {
     return {
-      HTMLAttributes: {
-        class: 'km-form-field',
-      },
+      HTMLAttributes: {},
       tagName: 'wa-input',
     };
   },
@@ -48,7 +46,7 @@ export const FormInputText = Node.create({
         default: '',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
       },
-      
+
       required: {
         default: false,
         parseHTML: (elem) => {
@@ -95,7 +93,7 @@ export const FormInputText = Node.create({
       },
     };
   },
-  
+
   addNodeView() {
     return (props) => {
       return new FormInputTextView({

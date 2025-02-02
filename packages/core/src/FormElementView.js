@@ -1,3 +1,7 @@
+import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
+
+const formElementClass = 'km-form-element';
+const formComponentClass = 'km-form-component';
 
 export class FormElementView {
   editor;
@@ -18,15 +22,19 @@ export class FormElementView {
 
   HTMLAttributes;
 
+  root;
+
   tagName;
 
-  element;
-
   component;
+
+  isDragging = false;
 
   constructor(props, options) {
     this.editor = props.editor;
     this.options = {
+      stopEvent: null,
+      ignoreMutation: null,
       ...options,
     };
     this.extension = props.extension;
@@ -45,13 +53,45 @@ export class FormElementView {
   }
 
   get dom() {
-    return this.element;
+    return this.root;
   }
 
   get contentDOM() {
     return null;
   }
 
+  /**
+   * Create root element.
+   */
+  createElement({ component }) {
+    const element = document.createElement('div');
+
+    element.classList.add(formElementClass);
+
+    if (component) element.append(component);
+
+    return element;
+  }
+
+  /**
+   * Create component element.
+   */
+  createComponent() {
+    const component = document.createElement(this.tagName);
+    
+    component.classList.add(formComponentClass);
+    
+    updateDOMAttributes(component, this.node.attrs);
+    
+    return component;
+  }
+
+  // TODO
+  onDragStart(event) {}
+
+  /**
+   * Update the attributes of the prosemirror node.
+   */
   updateAttributes(attrs) {
     this.editor.commands.command(({ tr }) => {
       const pos = this.getPos();
@@ -69,6 +109,9 @@ export class FormElementView {
     });
   }
 
+  /**
+   * Delete the node.
+   */
   deleteNode() {
     const from = this.getPos();
 
@@ -77,9 +120,29 @@ export class FormElementView {
     }
 
     const to = from + this.node.nodeSize;
-    this.editor.commands.deleteRange({ from, to })
+    this.editor.commands.deleteRange({ from, to });
   }
 
+  /**
+   * Update NodeView (otherwise the NodeView is recreated).
+   */
+  update(node) {
+    if (node.type !== this.node.type) {
+      return false;
+    }
+
+    this.node = node;
+
+    updateDOMAttributes(this.component, node.attrs);
+
+    return true;
+  }
+
+  destroy() {
+    this.options.destroy?.();
+    this.dom.remove();
+  }
+  
   /// TODO
   stopEvent(event) {
     let target = event.target;
@@ -94,15 +157,11 @@ export class FormElementView {
     return false;
   }
 
+  /// TODO
   ignoreMutation(mutation) {
     // https://github.com/ueberdosis/tiptap/blob/main/packages/core/src/NodeView.ts
     // a leaf/atom node is like a black box for ProseMirror
     // and should be fully handled by the node view.
     return true;
   }
-
-  // update⁠() {}
-  // stopEvent⁠() {}
-  // ignoreMutation⁠() {}
-  // destroy⁠() {}
 }
