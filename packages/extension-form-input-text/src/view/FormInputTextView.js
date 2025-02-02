@@ -1,7 +1,4 @@
 import { FormElementView } from '@kameo/core';
-import { kameoHelpers } from '@kameo/core';
-
-const { updateDOMAttributes } = kameoHelpers;
 
 export class FormInputTextView extends FormElementView {
 
@@ -14,10 +11,14 @@ export class FormInputTextView extends FormElementView {
   }
 
   mount() {
-    this.component = this.createComponent();
+    this.element = this.createElement();
 
-    this.root = this.createElement({
-      component: this.component,
+    const nodeName = this.node.type.name;
+    this.element.dataset.type = nodeName;
+    this.element.classList.add(`km-form-element--${nodeName}`);
+    
+    this.root = this.createDOM({
+      element: this.element,
     });
   }
 
@@ -28,11 +29,11 @@ export class FormInputTextView extends FormElementView {
   }
 
   addEventListeners() {
-    this.component.addEventListener('wa-input', this.onInput);
+    this.element.addEventListener('wa-input', this.onInput);
   }
 
   removeEventListeners() {
-    this.component.removeEventListener('wa-input', this.onInput);
+    this.element.removeEventListener('wa-input', this.onInput);
   }
 
   update(node) {

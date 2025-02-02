@@ -62,8 +62,7 @@ export const FormInputText = Node.create({
   parseHTML() {
     return [{ tag: `${this.options.tagName}[data-type="${this.name}"]` }];
   },
-  
-  // Handle attrs/layout the same as in NodeView?
+
   renderHTML({ HTMLAttributes }) {
     return [
       this.options.tagName,

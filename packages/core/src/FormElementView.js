@@ -1,7 +1,7 @@
 import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
 
-const formElementClass = 'km-form-element';
-const formComponentClass = 'km-form-component';
+const rootClass = 'km-form-element-view';
+const elementClass = 'km-form-element';
 
 export class FormElementView {
   editor;
@@ -24,9 +24,9 @@ export class FormElementView {
 
   root;
 
-  tagName;
+  element;
 
-  component;
+  tagName;
 
   isDragging = false;
 
@@ -61,29 +61,29 @@ export class FormElementView {
   }
 
   /**
-   * Create root element.
+   * Create DOM.
    */
-  createElement({ component }) {
-    const element = document.createElement('div');
+  createDOM({ element }) {
+    const dom = document.createElement('div');
 
-    element.classList.add(formElementClass);
+    dom.classList.add(rootClass);
 
-    if (component) element.append(component);
+    if (element) dom.append(element);
 
-    return element;
+    return dom;
   }
 
   /**
-   * Create component element.
+   * Create element.
    */
-  createComponent() {
-    const component = document.createElement(this.tagName);
+  createElement() {
+    const element = document.createElement(this.tagName);
     
-    component.classList.add(formComponentClass);
+    element.classList.add(elementClass);
     
-    updateDOMAttributes(component, this.node.attrs);
+    updateDOMAttributes(element, this.node.attrs);
     
-    return component;
+    return element;
   }
 
   // TODO
@@ -133,7 +133,7 @@ export class FormElementView {
 
     this.node = node;
 
-    updateDOMAttributes(this.component, node.attrs);
+    updateDOMAttributes(this.element, node.attrs);
 
     return true;
   }
@@ -142,7 +142,7 @@ export class FormElementView {
     this.options.destroy?.();
     this.dom.remove();
   }
-  
+
   /// TODO
   stopEvent(event) {
     let target = event.target;
