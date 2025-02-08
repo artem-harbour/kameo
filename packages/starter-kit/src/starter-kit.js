@@ -2,6 +2,7 @@ import { Extension } from '@kameo/core';
 import { Document } from '@kameo/extension-document';
 import { Paragraph } from '@kameo/extension-paragraph'
 import { Text } from '@kameo/extension-text';
+import { Dropcursor } from '@kameo/extension-dropcursor';
 import { FormInputText } from '@kameo/extension-form-input-text';
 import { FormSubmit } from '@kameo/extension-form-submit';
  
@@ -13,6 +14,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.document !== false) {
       extensions.push(Document.configure(this.options?.document));
+    }
+
+    if (this.options.dropcursor !== false) {
+      extensions.push(Dropcursor.configure(this.options?.dropcursor));
     }
 
     if (this.options.paragraph !== false) {
