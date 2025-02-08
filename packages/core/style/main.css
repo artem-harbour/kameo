@@ -1,5 +1,6 @@
 :root {
   --km-side-indent: 32px;
+  --km-drag-handle-size: 16px;
 }
 
 .kameo {
@@ -13,9 +14,10 @@
 }
 
 .kameo--edit-mode .km-form-element-view {
-  padding: 0 var(--km-side-indent);
-  margin-left: calc(var(--km-side-indent) * -1);
-  margin-right: calc(var(--km-side-indent) * -1);
+  --offset: 4px;
+  padding: 0 calc(var(--km-drag-handle-size) + var(--offset));
+  margin-left: calc((var(--km-drag-handle-size) + var(--offset)) * -1);
+  margin-right: calc((var(--km-drag-handle-size) + var(--offset)) * -1);
 }
 
 .km-form-element-view {
@@ -31,11 +33,10 @@ https://github.com/ueberdosis/tiptap/blob/develop/demos/src/GuideNodeViews/DragH
   --width: 16px;
   --height: 16px;
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: var(--km-drag-handle-size);
+  height: var(--km-drag-handle-size);
   top: 5px;
-  /* left: calc(-10px); */
-  left: calc(var(--km-side-indent) - var(--width) - 5px);
+  left: calc(0px);
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path fill-opacity="0.2" d="M4 14c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zM2 6C.9 6 0 6.9 0 8s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6C.9 0 0 .9 0 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>');
   background-repeat: no-repeat;
   background-size: contain;
