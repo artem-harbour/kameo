@@ -14,7 +14,7 @@
 }
 
 .kameo--edit-mode .km-form-element-view {
-  --offset: 4px;
+  --offset: 6px;
   padding: 0 calc(var(--km-drag-handle-size) + var(--offset));
   margin-left: calc((var(--km-drag-handle-size) + var(--offset)) * -1);
   margin-right: calc((var(--km-drag-handle-size) + var(--offset)) * -1);
