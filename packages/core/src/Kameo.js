@@ -14,12 +14,16 @@ export class Kameo extends Editor {
 
     this.#init(allOptions);
   }
+
+  get documentMode() {
+    return this.options.documentMode;
+  }
   
   #init(options) {
-    this.setDocumentMode(options.documentMode);
+    this.setDocumentMode(options.documentMode, { isInit: true });
   }
 
-  setDocumentMode(mode) {
+  setDocumentMode(mode, { isInit = false } = {}) {
     let [editModeClass, viewModeClass] = ['kameo--edit-mode', 'kameo--view-mode'];
 
     let modes = {
@@ -28,13 +32,22 @@ export class Kameo extends Editor {
         this.setEditable(true, false);
         this.view.dom.classList.add(editModeClass);
         this.view.dom.classList.remove(viewModeClass);
-        
+        this.emit('documentModeUpdate', {
+          editor: this,
+          mode: 'edit',
+          isInit,
+        });
       },
       view: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(false, false);
         this.view.dom.classList.add(viewModeClass);
         this.view.dom.classList.remove(editModeClass);
+        this.emit('documentModeUpdate', {
+          editor: this,
+          mode: 'view',
+          isInit,
+        });
       },
     };
 
@@ -61,5 +74,5 @@ export class Kameo extends Editor {
 
   submit() {}
 
-  validateForm() {}
+  validate() {}
 }

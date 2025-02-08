@@ -1,9 +1,58 @@
+:root {
+  --km-side-indent: 32px;
+}
+
 .kameo {
   display: block;
   width: 100%;
   min-height: 150px;
-  padding: 16px;
+  padding: 16px var(--km-side-indent);
   position: relative;
   caret-color: #000;
   outline: none;
+}
+
+.kameo--edit-mode .km-form-element-view {
+  padding-left: var(--km-side-indent);
+  margin-left: calc(var(--km-side-indent) * -1);
+}
+
+.km-form-element-view {
+  position: relative;
+  margin: 16px 0;
+}
+
+/**
+https://github.com/steven-tey/novel/blob/main/apps/web/styles/prosemirror.css#L131
+https://github.com/ueberdosis/tiptap/blob/develop/demos/src/GuideNodeViews/DragHandle/Vue/Component.vue#L38 
+*/
+.km-form-element-view .drag-handle {
+  --width: 16px;
+  --height: 16px;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 5px;
+  left: calc(var(--km-side-indent) - var(--width) - 5px);
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path fill-opacity="0.2" d="M4 14c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zM2 6C.9 6 0 6.9 0 8s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6C.9 0 0 .9 0 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 10;
+  cursor: grab;
+  display: none;
+}
+
+.km-form-element-view .drag-handle.hide,
+.km-form-element-view:hover .drag-handle.hide {
+  display: none;
+  pointer-events: none;
+}
+
+.km-form-element-view:hover .drag-handle {
+  display: block;
+}
+
+.km-form-element-view .drag-handle:active {
+  cursor: grabbing;
 }

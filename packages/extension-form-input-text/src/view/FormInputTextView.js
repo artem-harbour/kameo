@@ -3,7 +3,7 @@ import { FormElementView } from '@kameo/core';
 export class FormInputTextView extends FormElementView {
 
   constructor(props, options) {
-    super(props, options);
+    super(props, { ...options });
 
     this.onInput = this.onInput.bind(this);
 
@@ -11,13 +11,13 @@ export class FormInputTextView extends FormElementView {
   }
 
   mount() {
-    this.element = this.createElement();
+    const nodeTypeName = this.node.type.name;
 
-    const nodeName = this.node.type.name;
-    this.element.dataset.type = nodeName;
-    this.element.classList.add(`km-form-element--${nodeName}`);
-    
-    this.root = this.createDOM({
+    this.element = this.createElement();
+    this.element.dataset.type = nodeTypeName;
+    this.element.classList.add(`km-form-element--${nodeTypeName}`);
+
+    this.root = this.createView({
       element: this.element,
     });
   }
