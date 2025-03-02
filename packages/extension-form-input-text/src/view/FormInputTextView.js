@@ -29,6 +29,7 @@ export class FormInputTextView extends FormElementView {
   }
 
   addEventListeners() {
+    // TODO: double check, wa-input or input event.
     this.element.addEventListener('wa-input', this.onInput);
   }
 

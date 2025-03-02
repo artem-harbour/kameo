@@ -47,3 +47,8 @@ https://github.com/ueberdosis/tiptap/blob/develop/demos/src/GuideNodeViews/DragH
 .km-form-element-view .drag-handle:active {
   cursor: grabbing;
 }
+
+.km-form-element-view--formSubmit {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -72,7 +72,9 @@ export class Kameo extends Editor {
     this.view.dom.className = `kameo ${this.view.dom.className}`;
   }
 
-  submit() {}
+  submit() {
+    console.log('Submit');
+  }
 
   validate() {}
 }

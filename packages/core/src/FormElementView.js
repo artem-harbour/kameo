@@ -1,4 +1,4 @@
-import { isiOS } from '@tiptap/core';
+import { isiOS, getRenderedAttributes } from '@tiptap/core';
 import { NodeSelection } from '@tiptap/pm/state';
 import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
 
@@ -76,6 +76,8 @@ export class FormElementView {
     const wrapper = document.createElement('div');
 
     wrapper.classList.add(wrapperClass);
+    wrapper.classList.add(`${wrapperClass}--${this.node.type.name}`);
+    
     wrapper.dataset.nodeViewWrapper = '';
 
     const { documentMode } = this.editor;
@@ -104,7 +106,7 @@ export class FormElementView {
     
     element.classList.add(elementClass);
     
-    updateDOMAttributes(element, this.node.attrs);
+    updateDOMAttributes(element, this.HTMLAttributes); // node.attrs
     
     return element;
   }
@@ -201,10 +203,18 @@ export class FormElementView {
     }
 
     this.node = node;
+    this.updateHTMLAttributes();
 
-    updateDOMAttributes(this.element, node.attrs);
+    updateDOMAttributes(this.element, this.HTMLAttributes); // node.attrs
 
     return true;
+  }
+
+  updateHTMLAttributes() {
+    const { extensionManager } = this.editor;
+    const { attributes } = extensionManager;
+    const extensionAttrs = attributes.filter((i) => i.type === this.node.type.name);
+    this.HTMLAttributes = getRenderedAttributes(this.node, extensionAttrs);
   }
 
   stopEvent(event) {

@@ -23,4 +23,11 @@ export const baseForm = `
   </wa-input>
 
   <p>Some content</p>
+
+  <wa-button
+    id="submit"
+    variant="brand"
+    data-text="Submit"
+    data-type="formSubmit">
+  </wa-input>
 `;
