@@ -2,7 +2,7 @@ import { FormElementView } from '@kameo/core';
 
 export class FormInputTextView extends FormElementView {
 
-  constructor(props, options) {
+  constructor(props, options = {}) {
     super(props, { ...options });
 
     this.onInput = this.onInput.bind(this);

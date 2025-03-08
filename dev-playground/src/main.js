@@ -11,15 +11,30 @@ const initKameo = () => {
     extensions: [StarterKit],
     content: baseForm,
     documentMode: 'edit',
+    onSubmit: async (event) => {
+      // console.log('onSubmit callback', { event });
+    },
   });
 };
 
-let kameo = initKameo();
+const kameo = initKameo(); 
+window.kameo = kameo;
+
+// Example: override submit method.
+const originalSubmit = kameo.submit;
+kameo.submit = function(props = {}) {
+  const customProps = { ...props, customSubmit: true };
+  return originalSubmit.apply(this, [customProps]);
+}
+
+kameo.on('submit', async (event) => {
+  console.log(`on 'submit' event`, { event });
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  event.setSubmitResult(true, 'Form is submitted');
+});
+
+kameo.on('submitted', (event) => {
+  console.log(`on 'submitted' event`, { event });
+});
 
 // kameo.setDocumentMode('view');
-
-// kameo.commands.insertFormInputText(0, {
-//   id: 'test',
-//   name: 'test',
-//   value: 'Test value',
-// });

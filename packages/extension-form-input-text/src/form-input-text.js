@@ -56,6 +56,11 @@ export const FormInputText = Node.create({
           return elem.hasAttribute('required');
         },
       },
+
+      fieldType: {
+        default: 'input',
+        rendered: false,
+      },
     };
   },
 

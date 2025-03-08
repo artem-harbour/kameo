@@ -38,6 +38,7 @@ export class FormElementView {
       stopEvent: null,
       ignoreMutation: null,
       enableDrag: true,
+      booleanAttrs: [],
       ...options,
     };
     this.extension = props.extension;
@@ -106,7 +107,7 @@ export class FormElementView {
     
     element.classList.add(elementClass);
     
-    updateDOMAttributes(element, this.HTMLAttributes); // node.attrs
+    updateDOMAttributes(element, this.HTMLAttributes, this.options.booleanAttrs);
     
     return element;
   }
@@ -205,7 +206,7 @@ export class FormElementView {
     this.node = node;
     this.updateHTMLAttributes();
 
-    updateDOMAttributes(this.element, this.HTMLAttributes); // node.attrs
+    updateDOMAttributes(this.element, this.HTMLAttributes, this.options.booleanAttrs);
 
     return true;
   }

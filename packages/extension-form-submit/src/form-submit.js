@@ -16,6 +16,9 @@ export const FormSubmit = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-button',
+      submitProps: {},
+      disableOnSubmit: true,
+      handleClick: null,
     };
   },
 
@@ -31,6 +34,16 @@ export const FormSubmit = Node.create({
         parseHTML: (elem) => elem.getAttribute('data-text'),
       },
 
+      loading: {
+        default: false,
+        parseHTML: (elem) => elem.hasAttribute('loading'),
+      },
+
+      disabled: {
+        default: false,
+        parseHTML: (elem) => elem.hasAttribute('disabled'),
+      },
+      
       variant: {
         default: 'brand',
         parseHTML: (elem) => elem.getAttribute('variant'),
@@ -74,10 +87,16 @@ export const FormSubmit = Node.create({
   
   addNodeView() {
     return (props) => {
+      const options = {
+        submitProps: this.options.submitProps,
+        disableOnSubmit: this.options.disableOnSubmit,
+        handleClick: this.options.handleClick,
+      };
+
       return new FormSubmitView({
         ...props,
         tagName: this.options.tagName,
-      });
+      }, options);
     };
   },
 });

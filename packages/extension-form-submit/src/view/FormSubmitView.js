@@ -1,11 +1,12 @@
-import { FormElementView, kameoHelpers } from '@kameo/core';
+import { FormElementView } from '@kameo/core';
 
 export class FormSubmitView extends FormElementView {
 
-  constructor(props, options) {
+  constructor(props, options = {}) {
     super(props, { ...options });
 
     this.onClick = this.onClick.bind(this);
+    this.onSubmitted = this.onSubmitted.bind(this);
 
     this.addEventListeners();
   }
@@ -23,17 +24,55 @@ export class FormSubmitView extends FormElementView {
     });
   }
 
-  // TODO: handle submit action and logic.
   onClick(event) {
-    const formData = kameoHelpers.getFormData(this.editor.state);
-    console.log('Submit', { formData });
+    if (this.editor.documentMode === 'edit') {
+      return;
+    }
+
+    if (typeof this.options.handleClick === 'function') {
+      this.options.handleClick({
+        event,
+        editor: this.editor,
+        nodeView: this,
+      });
+      return;
+    }
+
+    const { loading, disabled } = this.node.attrs;
+    const { submitProps, disableOnSubmit } = this.options;
+
+    if (loading || disabled) {
+      return;
+    }
+
+    if (disableOnSubmit) {
+      this.updateAttributes({ 
+        loading: true, 
+        disabled: true, 
+      });
+    }
+
+    this.editor.submit({ ...submitProps });
+  }
+
+  onSubmitted() {
+    const { disableOnSubmit } = this.options;
+
+    if (disableOnSubmit) {
+      this.updateAttributes({ 
+        loading: false, 
+        disabled: false, 
+      });
+    }
   }
 
   addEventListeners() {
+    this.editor.on('submitted', this.onSubmitted);
     this.element.addEventListener('click', this.onClick);
   }
 
   removeEventListeners() {
+    this.editor.off('submitted', this.onSubmitted);
     this.element.removeEventListener('click', this.onClick);
   }
 

@@ -1,12 +1,16 @@
 import { Editor } from '@tiptap/core';
 import { style } from './style.js';
 import { createStyleTag } from './utilities/createStyleTag.js';
+import { getFormData } from './helpers/getFormData.js';
 
 export class Kameo extends Editor {
 
   constructor(options = {}) {
-    let allOptions = {
+    const allOptions = {
       documentMode: 'edit',
+      enableValidation: false,
+      onSubmit: () => null,
+      onSubmitted: () => null,
       ...options,
     };
 
@@ -21,12 +25,15 @@ export class Kameo extends Editor {
   
   #init(options) {
     this.setDocumentMode(options.documentMode, { isInit: true });
+    
+    this.on('submit', this.options.onSubmit);
+    this.on('submitted', this.options.onSubmitted);
   }
 
   setDocumentMode(mode, { isInit = false } = {}) {
-    let [editModeClass, viewModeClass] = ['kameo--edit-mode', 'kameo--view-mode'];
+    const [editModeClass, viewModeClass] = ['kameo--edit-mode', 'kameo--view-mode'];
 
-    let modes = {
+    const modes = {
       edit: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(true, false);
@@ -72,8 +79,29 @@ export class Kameo extends Editor {
     this.view.dom.className = `kameo ${this.view.dom.className}`;
   }
 
-  submit() {
-    console.log('Submit');
+  /**
+   * TODO: Validation, check if submit in progress?
+   */
+  submit(props = {}, options = {}) {
+    const formData = getFormData(this.state.doc);
+
+    const submitEvent = {
+      formData,
+      timestamp: new Date(),
+      setSubmitResult: (success, message = '') => {
+        this.emit('submitted', {
+          formData,
+          success,
+          message,
+          ...props,
+        });
+      },
+      ...props,
+    };
+
+    this.emit('submit', submitEvent);
+
+    return submitEvent;
   }
 
   validate() {}
