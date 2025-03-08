@@ -72,3 +72,9 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+
+.kameo-app__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}

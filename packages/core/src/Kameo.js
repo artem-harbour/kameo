@@ -80,7 +80,7 @@ export class Kameo extends Editor {
   }
 
   /**
-   * TODO: Validation, check if submit in progress?
+   * TODO: Add validation, check if submit in progress?
    */
   submit(props = {}, options = {}) {
     const formData = getFormData(this.state.doc);
