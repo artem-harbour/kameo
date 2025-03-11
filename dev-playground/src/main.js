@@ -20,20 +20,24 @@ const initKameo = () => {
   });
 };
 
+const handleDocumentMode = (kameo) => {
+  if (documentModeElem) documentModeElem.value = documentMode;
+  documentModeElem?.addEventListener('change', (event) => {
+    kameo.setDocumentMode(event.target.value);
+  });
+};
+
 const kameo = initKameo(); 
 window.kameo = kameo;
 
-if (documentModeElem) documentModeElem.value = documentMode;
-documentModeElem?.addEventListener('change', (event) => {
-  kameo.setDocumentMode(event.target.value);
-});
+handleDocumentMode(kameo);
 
 // Example: override submit method.
 const originalSubmit = kameo.submit;
 kameo.submit = function(props = {}, options = {}) {
   const customProps = { ...props, customSubmit: true };
   return originalSubmit.apply(this, [customProps, options]);
-}
+};
 
 kameo.on('submit', async (event) => {
   console.log(`on 'submit' event`, { event });
