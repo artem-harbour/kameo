@@ -5,6 +5,7 @@ import { Text } from '@kameo/extension-text';
 import { Dropcursor } from '@kameo/extension-dropcursor';
 import { FormBase } from '@kameo/extension-form-base';
 import { FormInputText } from '@kameo/extension-form-input-text';
+import { FormInputName } from '@kameo/extension-form-input-name';
 import { FormSubmit } from '@kameo/extension-form-submit';
  
 export const StarterKit = Extension.create({
@@ -35,6 +36,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.formInputText !== false) {
       extensions.push(FormInputText.configure(this.options?.formInputText));
+    }
+
+    if (this.options.formInputName !== false) {
+      extensions.push(FormInputName.configure(this.options?.formInputName));
     }
 
     if (this.options.formSubmit !== false) {
