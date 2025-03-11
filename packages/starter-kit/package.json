@@ -27,6 +27,7 @@
     "@kameo/extension-text": "^0.0.12",
     "@kameo/extension-dropcursor": "^0.0.12",
     "@kameo/extension-form-input-text": "^0.0.12",
+    "@kameo/extension-form-input-name": "^0.0.12",
     "@kameo/extension-form-submit": "^0.0.12",
     "@tiptap/pm": "^2.11.2"
   },
