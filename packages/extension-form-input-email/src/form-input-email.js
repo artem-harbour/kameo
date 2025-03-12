@@ -1,9 +1,9 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputTextView } from './view/FormInputTextView.js';
+import { FormInputEmailView } from './view/FormInputEmailView.js';
 
 // TODO: create BaseFormField and extend it.
-export const FormInputText = Node.create({
-  name: 'formInputText',
+export const FormInputEmail = Node.create({
+  name: 'formInputEmail',
 
   group: 'formField block',
 
@@ -28,8 +28,8 @@ export const FormInputText = Node.create({
       },
 
       type: {
-        default: 'text',
-        parseHTML: (elem) => elem.getAttribute('type') || 'text',
+        default: 'email',
+        parseHTML: (elem) => elem.getAttribute('type') || 'email',
       },
 
       name: {
@@ -84,7 +84,7 @@ export const FormInputText = Node.create({
 
   addCommands() {
     return {
-      insertFormInputText: (pos, attrs = {}) => ({
+      insertFormInputEmail: (pos, attrs = {}) => ({
         dispatch,
         tr,
         commands,
@@ -105,7 +105,7 @@ export const FormInputText = Node.create({
 
   addNodeView() {
     return (props) => {
-      return new FormInputTextView({
+      return new FormInputEmailView({
         ...props,
         tagName: this.options.tagName,
       });

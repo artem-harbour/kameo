@@ -18,14 +18,22 @@ export const baseForm = `
     value="Doe"
     label="Last name"
     placeholder="Enter your last name" 
-    type="text"
     data-type="formInputName">
+  </wa-input>
+
+  <wa-input
+    id="email"
+    name="email"
+    label="Email"
+    placeholder="Enter your email" 
+    type="email"
+    data-type="formInputEmail">
   </wa-input>
 
   <wa-input
     id="base_text"
     name="base_text"
-    label="Text field"
+    label="Your info"
     placeholder="Enter your info" 
     type="text"
     data-type="formInputText">

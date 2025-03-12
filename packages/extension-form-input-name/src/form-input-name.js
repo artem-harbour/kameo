@@ -27,6 +27,11 @@ export const FormInputName = Node.create({
         parseHTML: (elem) => elem.getAttribute('id'),
       },
 
+      type: {
+        default: 'text',
+        parseHTML: (elem) => elem.getAttribute('type') || 'text',
+      },
+
       name: {
         default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
