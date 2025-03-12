@@ -215,6 +215,7 @@ export class FormElementView {
     const { extensionManager } = this.editor;
     const { attributes } = extensionManager;
     const extensionAttrs = attributes.filter((i) => i.type === this.node.type.name);
+    console.log({ extensionAttrs });
     this.HTMLAttributes = getRenderedAttributes(this.node, extensionAttrs);
   }
 

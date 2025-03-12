@@ -1,6 +1,6 @@
 {
-  "name": "@kameo/extension-form-input-email",
-  "description": "form input email extension for kameo",
+  "name": "@kameo/extension-form-field-base",
+  "description": "form field base extension for kameo",
   "version": "0.0.12",
   "license": "",
   "keywords": [
@@ -20,16 +20,11 @@
     "src",
     "dist"
   ],
-  "dependencies": {
-    "@shoelace-style/shoelace": "^2.19.1"
-  },
   "devDependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/extension-form-field-base": "^0.0.12"
+    "@kameo/core": "^0.0.12"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/extension-form-field-base": "^0.0.12"
+    "@kameo/core": "^0.0.12"
   },
   "scripts": {
     "clean": "rm -rf dist",

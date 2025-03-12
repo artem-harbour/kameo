@@ -1,8 +1,8 @@
 import { Node, mergeAttributes } from '@kameo/core';
+import { FormFieldBase } from '@kameo/extension-form-field-base';
 import { FormInputTextView } from './view/FormInputTextView.js';
 
-// TODO: create BaseFormField and extend it.
-export const FormInputText = Node.create({
+export const FormInputText = FormFieldBase.extend({
   name: 'formInputText',
 
   group: 'formField block',
@@ -22,46 +22,8 @@ export const FormInputText = Node.create({
 
   addAttributes() {
     return {
-      id: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
-      },
-
-      type: {
-        default: 'text',
-        parseHTML: (elem) => elem.getAttribute('type') || 'text',
-      },
-
-      name: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('name'),
-      },
-
-      value: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('value'),
-      },
-
-      label: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('label'),
-      },
-
-      placeholder: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('placeholder'),
-      },
-
-      required: {
-        default: false,
-        parseHTML: (elem) => {
-          if (elem.getAttribute('required') === 'false') {
-            return false;
-          }
-          return elem.hasAttribute('required');
-        },
-      },
-
+      ...this.parent?.(),
+      
       fieldType: {
         default: 'input',
         rendered: false,

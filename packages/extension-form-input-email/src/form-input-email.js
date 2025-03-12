@@ -1,8 +1,8 @@
 import { Node, mergeAttributes } from '@kameo/core';
+import { FormFieldBase } from '@kameo/extension-form-field-base';
 import { FormInputEmailView } from './view/FormInputEmailView.js';
 
-// TODO: create BaseFormField and extend it.
-export const FormInputEmail = Node.create({
+export const FormInputEmail = FormFieldBase.extend({
   name: 'formInputEmail',
 
   group: 'formField block',
@@ -22,46 +22,13 @@ export const FormInputEmail = Node.create({
 
   addAttributes() {
     return {
-      id: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
-      },
+      ...this.parent?.(),
 
       type: {
         default: 'email',
         parseHTML: (elem) => elem.getAttribute('type') || 'email',
       },
-
-      name: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('name'),
-      },
-
-      value: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('value'),
-      },
-
-      label: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('label'),
-      },
-
-      placeholder: {
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('placeholder'),
-      },
-
-      required: {
-        default: false,
-        parseHTML: (elem) => {
-          if (elem.getAttribute('required') === 'false') {
-            return false;
-          }
-          return elem.hasAttribute('required');
-        },
-      },
-
+      
       fieldType: {
         default: 'input',
         rendered: false,
