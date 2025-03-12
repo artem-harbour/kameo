@@ -46,21 +46,8 @@ export const FormInputText = FormFieldBase.extend({
 
   addCommands() {
     return {
-      insertFormInputText: (pos, attrs = {}) => ({
-        dispatch,
-        tr,
-        commands,
-      }) => {
-        if (dispatch) {
-          let posMapped = tr.mapping.map(pos);
-
-          return commands.insertContentAt(posMapped, {
-            type: this.name,
-            attrs,
-          }, { updateSelection: false });
-        }
-
-        return true;
+      insertFormInputText: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormField(this.name, pos, attrs);
       },
     };
   },
