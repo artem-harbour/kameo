@@ -1,8 +1,8 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormFieldBase } from '@kameo/extension-form-field-base';
+import { FormInputBase } from '@kameo/extension-form-input-base';
 import { FormInputEmailView } from './view/FormInputEmailView.js';
 
-export const FormInputEmail = FormFieldBase.extend({
+export const FormInputEmail = FormInputBase.extend({
   name: 'formInputEmail',
 
   group: 'formField block',

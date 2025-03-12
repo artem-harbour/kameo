@@ -1,6 +1,6 @@
 import { Node } from '@kameo/core';
 
-export const FormFieldBase = Node.create({
+export const FormInputBase = Node.create({
 
   addAttributes() {
     return {
