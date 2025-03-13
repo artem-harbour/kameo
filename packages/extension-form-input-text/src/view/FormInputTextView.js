@@ -5,36 +5,63 @@ export class FormInputTextView extends FormElementView {
   constructor(props, options = {}) {
     super(props, { ...options });
 
-    this.onInput = this.onInput.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
 
     this.addEventListeners();
   }
 
   mount() {
-    const nodeTypeName = this.node.type.name;
+    const nodeType = this.node.type.name;
 
     this.element = this.createElement();
-    this.element.dataset.type = nodeTypeName;
-    this.element.classList.add(`km-form-element--${nodeTypeName}`);
+    this.element.dataset.type = nodeType;
+    this.element.classList.add(`km-form-element--${nodeType}`);
 
     this.root = this.createView({
       element: this.element,
     });
   }
 
-  onInput(event) {
+  handleInput(event) {
     this.updateAttributes({
       value: event.target.value,
+    });
+
+    this.editor.emitNodeEvent(this.node.type.name, 'input', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
+    });
+  }
+
+  handleFocus(event) {
+    this.editor.emitNodeEvent(this.node.type.name, 'focus', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
+    });
+  }
+
+  handleBlur(event) {
+    this.editor.emitNodeEvent(this.node.type.name, 'blur', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
     });
   }
 
   addEventListeners() {
-    // TODO: double check, wa-input or input event.
-    this.element.addEventListener('wa-input', this.onInput);
+    this.element.addEventListener('input', this.handleInput);
+    this.element.addEventListener('focus', this.handleFocus);
+    this.element.addEventListener('blur', this.handleBlur);
   }
 
   removeEventListeners() {
-    this.element.removeEventListener('wa-input', this.onInput);
+    this.element.removeEventListener('input', this.handleInput);
+    this.element.removeEventListener('focus', this.handleFocus);
+    this.element.removeEventListener('blur', this.handleBlur);
   }
 
   update(node) {

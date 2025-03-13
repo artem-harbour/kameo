@@ -105,4 +105,19 @@ export class Kameo extends Editor {
   }
 
   validate() {}
+
+  /**
+   * Helper method for broadcasting node events.
+   */
+  emitNodeEvent(nodeType, eventName, props = {}) {
+    this.emit(`node:${nodeType}:${eventName}`, props);
+  }
+
+  /**
+   * Helper method for listening to node events.
+   */
+  onNodeEvent(nodeType, eventName, callback) {
+    this.on(`node:${nodeType}:${eventName}`, callback);
+    return this;
+  }
 }

@@ -5,8 +5,10 @@ export class FormSubmitView extends FormElementView {
   constructor(props, options = {}) {
     super(props, { ...options });
 
-    this.onClick = this.onClick.bind(this);
-    this.onSubmitted = this.onSubmitted.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleSubmitted = this.handleSubmitted.bind(this);
 
     this.addEventListeners();
   }
@@ -24,7 +26,7 @@ export class FormSubmitView extends FormElementView {
     });
   }
 
-  onClick(event) {
+  handleClick(event) {
     if (this.editor.documentMode === 'edit') {
       return;
     }
@@ -37,7 +39,27 @@ export class FormSubmitView extends FormElementView {
       });
       return;
     }
+    
+    this.handleSubmit(event);
+  }
 
+  handleFocus(event) {
+    this.editor.emitNodeEvent(this.node.type.name, 'focus', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
+    });
+  }
+
+  handleBlur(event) {
+    this.editor.emitNodeEvent(this.node.type.name, 'blur', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
+    });
+  }
+
+  handleSubmit(event) {
     const { loading, disabled } = this.node.attrs;
     const { submitProps, disableOnSubmit } = this.options;
 
@@ -53,9 +75,14 @@ export class FormSubmitView extends FormElementView {
     }
 
     this.editor.submit({ ...submitProps });
+    this.editor.emitNodeEvent(this.node.type.name, 'click', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
+    });
   }
 
-  onSubmitted() {
+  handleSubmitted() {
     const { disableOnSubmit } = this.options;
 
     if (disableOnSubmit) {
@@ -67,13 +94,17 @@ export class FormSubmitView extends FormElementView {
   }
 
   addEventListeners() {
-    this.editor.on('submitted', this.onSubmitted);
-    this.element.addEventListener('click', this.onClick);
+    this.editor.on('submitted', this.handleSubmitted);
+    this.element.addEventListener('click', this.handleClick);
+    this.element.addEventListener('focus', this.handleFocus);
+    this.element.addEventListener('blur', this.handleBlur);
   }
 
   removeEventListeners() {
-    this.editor.off('submitted', this.onSubmitted);
-    this.element.removeEventListener('click', this.onClick);
+    this.editor.off('submitted', this.handleSubmitted);
+    this.element.removeEventListener('click', this.handleClick);
+    this.element.removeEventListener('focus', this.handleFocus);
+    this.element.removeEventListener('blur', this.handleBlur);
   }
 
   update(node) {

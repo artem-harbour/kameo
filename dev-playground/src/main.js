@@ -48,3 +48,9 @@ kameo.on('submit', async (event) => {
 kameo.on('submitted', (event) => {
   console.log(`on 'submitted' event`, { event });
 });
+
+// kameo
+//   .onNodeEvent('formInputText', 'input', (props) => console.log({ props }))
+//   .onNodeEvent('formInputName', 'input', (props) => console.log({ props }))
+//   .onNodeEvent('formInputEmail', 'focus', (props) => console.log({ props }))
+//   .onNodeEvent('formSubmit', 'click', (props) => console.log({ props }));
