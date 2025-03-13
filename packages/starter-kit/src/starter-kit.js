@@ -3,6 +3,7 @@ import { Document } from '@kameo/extension-document';
 import { Paragraph } from '@kameo/extension-paragraph'
 import { Text } from '@kameo/extension-text';
 import { Dropcursor } from '@kameo/extension-dropcursor';
+import { History } from '@kameo/extension-history';
 import { FormBase } from '@kameo/extension-form-base';
 import { FormInputText } from '@kameo/extension-form-input-text';
 import { FormInputName } from '@kameo/extension-form-input-name';
@@ -23,14 +24,10 @@ export const StarterKit = Extension.create({
       extensions.push(Dropcursor.configure(this.options?.dropcursor));
     }
 
-    if (this.options.paragraph !== false) {
-      extensions.push(Paragraph.configure(this.options?.paragraph));
+    if (this.options.history !== false) {
+      extensions.push(History.configure(this.options?.history))
     }
-
-    if (this.options.text !== false) {
-      extensions.push(Text.configure(this.options?.text));
-    }
-
+    
     if (this.options.formBase !== false) {
       extensions.push(FormBase.configure(this.options?.formBase));
     }
@@ -49,6 +46,14 @@ export const StarterKit = Extension.create({
 
     if (this.options.formSubmit !== false) {
       extensions.push(FormSubmit.configure(this.options?.formSubmit));
+    }
+
+    if (this.options.paragraph !== false) {
+      extensions.push(Paragraph.configure(this.options?.paragraph));
+    }
+
+    if (this.options.text !== false) {
+      extensions.push(Text.configure(this.options?.text));
     }
 
     return extensions;
