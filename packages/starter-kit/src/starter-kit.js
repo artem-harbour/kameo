@@ -8,6 +8,7 @@ import { FormBase } from '@kameo/extension-form-base';
 import { FormInputText } from '@kameo/extension-form-input-text';
 import { FormInputName } from '@kameo/extension-form-input-name';
 import { FormInputEmail } from '@kameo/extension-form-input-email';
+import { FormInputJobTitle } from '@kameo/extension-form-input-job-title';
 import { FormSubmit } from '@kameo/extension-form-submit';
  
 export const StarterKit = Extension.create({
@@ -42,6 +43,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.formInputEmail !== false) {
       extensions.push(FormInputEmail.configure(this.options?.formInputEmail));
+    }
+
+    if (this.options.formInputJobTitle !== false) {
+      extensions.push(FormInputJobTitle.configure(this.options?.formInputJobTitle));
     }
 
     if (this.options.formSubmit !== false) {
