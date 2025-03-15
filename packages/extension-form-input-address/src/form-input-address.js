@@ -1,9 +1,9 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormInputBase } from '@kameo/extension-form-input-base';
-import { FormInputJobTitleView } from './view/FormInputJobTitleView.js';
+import { FormInputAddressView } from './view/FormInputAddressView.js';
 
-export const FormInputJobTitle = FormInputBase.extend({
-  name: 'formInputJobTitle',
+export const FormInputAddress = FormInputBase.extend({
+  name: 'formInputAddress',
 
   group: 'formField block',
 
@@ -25,12 +25,12 @@ export const FormInputJobTitle = FormInputBase.extend({
       ...this.parent?.(),
 
       label: {
-        default: 'Enter job title',
+        default: 'Enter your full address',
         parseHTML: (elem) => elem.getAttribute('label'),
       },
 
       placeholder: {
-        default: 'Enter job title',
+        default: 'Enter full address',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
       },
 
@@ -56,7 +56,7 @@ export const FormInputJobTitle = FormInputBase.extend({
 
   addCommands() {
     return {
-      insertFormInputJobTitle: (pos, attrs = {}) => ({ commands }) => {
+      insertFormInputAddress: (pos, attrs = {}) => ({ commands }) => {
         return commands.insertFormField(this.name, pos, attrs);
       },
     };
@@ -64,7 +64,7 @@ export const FormInputJobTitle = FormInputBase.extend({
 
   addNodeView() {
     return (props) => {
-      return new FormInputJobTitleView({
+      return new FormInputAddressView({
         ...props,
         tagName: this.options.tagName,
       });
