@@ -24,6 +24,16 @@ export const FormInputEmail = FormInputBase.extend({
     return {
       ...this.parent?.(),
 
+      label: {
+        default: 'Enter your email',
+        parseHTML: (elem) => elem.getAttribute('label'),
+      },
+
+      placeholder: {
+        default: 'Enter email',
+        parseHTML: (elem) => elem.getAttribute('placeholder'),
+      },
+
       type: {
         default: 'email',
         parseHTML: (elem) => elem.getAttribute('type') || 'email',

@@ -1,6 +1,7 @@
 import { Node } from '@kameo/core';
 
 export const FormInputBase = Node.create({
+  name: 'formInputBase',
 
   addAttributes() {
     return {

@@ -12,7 +12,7 @@ const initKameo = () => {
   return new Kameo({
     element: document.querySelector('#kameo'),
     extensions: [StarterKit],
-    content: baseForm,
+    // content: baseForm,
     documentMode,
     onSubmit: async (event) => {
       // console.log('onSubmit callback', { event });
@@ -27,9 +27,23 @@ const handleDocumentMode = (kameo) => {
   });
 };
 
+const createSimpleForm = (kameo) => {
+  const pos = kameo.state.doc.content.size;
+
+  kameo
+    .chain()
+    .insertContentAt(pos, 'Simple form')
+    .insertFormInputName(pos)
+    .insertFormInputEmail(pos)
+    .insertFormInputText(pos)
+    .insertFormSubmit(pos)
+    .run();
+};
+
 const kameo = initKameo(); 
 window.kameo = kameo;
 
+createSimpleForm(kameo);
 handleDocumentMode(kameo);
 
 // Example: override submit method.
