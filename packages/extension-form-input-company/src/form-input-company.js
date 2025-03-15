@@ -24,6 +24,11 @@ export const FormInputCompany = FormInputBase.extend({
     return {
       ...this.parent?.(),
 
+      name: {
+        default: 'company',
+        parseHTML: (elem) => elem.getAttribute('name'),
+      },
+
       label: {
         default: 'Enter company name',
         parseHTML: (elem) => elem.getAttribute('label'),

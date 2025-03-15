@@ -24,6 +24,11 @@ export const FormInputJobTitle = FormInputBase.extend({
     return {
       ...this.parent?.(),
 
+      name: {
+        default: 'job_title',
+        parseHTML: (elem) => elem.getAttribute('name'),
+      },
+
       label: {
         default: 'Enter job title',
         parseHTML: (elem) => elem.getAttribute('label'),

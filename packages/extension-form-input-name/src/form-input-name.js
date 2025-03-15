@@ -24,6 +24,11 @@ export const FormInputName = FormInputBase.extend({
     return {
       ...this.parent?.(),
 
+      name: {
+        default: 'name',
+        parseHTML: (elem) => elem.getAttribute('name'),
+      },
+
       label: {
         default: 'Enter your full name',
         parseHTML: (elem) => elem.getAttribute('label'),
