@@ -68,9 +68,10 @@ body {
 
 .kameo-app__content {
   display: flex;
+  flex-direction: column;
   flex: 1;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .kameo-app__actions {

@@ -1,0 +1,42 @@
+export const formFields = [
+  {
+    id: 'formfield-text',
+    title: 'Text field',
+    description: 'Enter info',
+    icon: 'SVG',
+    fieldType: 'formInputText',
+    group: ['all'],
+  },
+  {
+    id: 'formfield-name',
+    title: 'Name',
+    description: 'Enter name',
+    icon: 'SVG',
+    fieldType: 'formInputName',
+    group: ['all'],
+  },
+  {
+    id: 'formfield-email',
+    title: 'Email',
+    description: 'Enter email',
+    icon: 'SVG',
+    fieldType: 'formInputEmail',
+    group: ['all'],
+  },
+  {
+    id: 'formfield-jobtitle',
+    title: 'Job title',
+    description: 'Enter job title',
+    icon: 'SVG',
+    fieldType: 'formInputJobTitle',
+    group: ['all'],
+  },
+  {
+    id: 'formfield-company',
+    title: 'Company',
+    description: 'Enter company',
+    icon: 'SVG',
+    fieldType: 'formInputCompany',
+    group: ['all'],
+  },
+];

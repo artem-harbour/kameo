@@ -35,7 +35,6 @@
     "@kameo/extension-form-submit": "^0.0.12",
     "@tiptap/pm": "^2.11.2"
   },
-
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c"

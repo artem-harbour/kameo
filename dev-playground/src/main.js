@@ -4,6 +4,7 @@ import '@kameo/core/style/main.css';
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
 import { baseForm } from './scripts/forms/baseForm.js';
+import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
 
 const documentMode = 'edit';
 const documentModeElem = document.querySelector('.kameo-app__document-mode select');
@@ -18,6 +19,14 @@ const initKameo = () => {
       // console.log('onSubmit callback', { event });
     },
   });
+};
+
+const initToolbar = () => {
+  const content = document.querySelector('.kameo-app__content');
+  const toolbar = document.createElement('km-toolbar-form-fields');
+  toolbar.classList.add('kameo-toolbar');
+  toolbar.fields = formFields;
+  content.prepend(toolbar);
 };
 
 const handleDocumentMode = (kameo) => {
@@ -43,6 +52,7 @@ const createSimpleForm = (kameo) => {
 const kameo = initKameo(); 
 window.kameo = kameo;
 
+initToolbar();
 createSimpleForm(kameo);
 handleDocumentMode(kameo);
 
