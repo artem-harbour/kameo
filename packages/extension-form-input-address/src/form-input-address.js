@@ -24,6 +24,11 @@ export const FormInputAddress = FormInputBase.extend({
     return {
       ...this.parent?.(),
 
+      name: {
+        default: 'address',
+        parseHTML: (elem) => elem.getAttribute('name'),
+      },
+
       label: {
         default: 'Enter your full address',
         parseHTML: (elem) => elem.getAttribute('label'),
