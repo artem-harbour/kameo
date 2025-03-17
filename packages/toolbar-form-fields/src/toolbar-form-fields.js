@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 export class ToolbarFormFields extends LitElement {
   static properties = {
@@ -35,7 +34,9 @@ export class ToolbarFormFields extends LitElement {
           ${this.fields.map(
             (item, index) => html`
               <div class="toolbar-form-fields__field" data-id=${item.id} draggable="true" @dragstart=${this._onDragStart}>
-                <div class="toolbar-form-fields__field-icon"></div>
+                <div class="toolbar-form-fields__field-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/></svg>
+                </div>
                 <div class="toolbar-form-fields__field-title" .title=${item.title}>${item.title}</div>
               </div>
             `
@@ -48,22 +49,24 @@ export class ToolbarFormFields extends LitElement {
   static styles = css`
     :host {
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-      display: flex;
+      display: grid;
       width: 100%;
       overflow: hidden;
     }
-      
+  
     .toolbar-form-fields {
       display: flex;
-      flex: 1;
+      width: 100%;
       padding: 6px 12px;
       overflow-x: auto;
       scrollbar-width: thin;
+      box-sizing: border-box;
     }
 
     .toolbar-form-fields__fields {
       display: flex;
       gap: 10px;
+      flex: 1;
     }
 
     .toolbar-form-fields__field {
@@ -74,12 +77,23 @@ export class ToolbarFormFields extends LitElement {
       flex-shrink: 0;
       cursor: grab;
     }
-      
+
     .toolbar-form-fields__field-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 20px;
       height: 20px;
+      padding: 5px;
       border-radius: 50%;
       border: 1px solid rgba(0, 0, 0, 0.25);
+      box-sizing: border-box;
+    }
+
+    .toolbar-form-fields__field-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
       
     .toolbar-form-fields__field-title {
