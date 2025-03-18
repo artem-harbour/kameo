@@ -1,6 +1,7 @@
 import { Extension } from '@kameo/core';
 import { Document } from '@kameo/extension-document';
-import { Paragraph } from '@kameo/extension-paragraph'
+import { Paragraph } from '@kameo/extension-paragraph';
+import { Heading } from '@kameo/extension-heading';
 import { Text } from '@kameo/extension-text';
 import { Dropcursor } from '@kameo/extension-dropcursor';
 import { History } from '@kameo/extension-history';
@@ -29,6 +30,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.history !== false) {
       extensions.push(History.configure(this.options?.history))
+    }
+
+    if (this.options.heading !== false) {
+      extensions.push(Heading.configure(this.options?.heading))
     }
     
     if (this.options.formBase !== false) {
