@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
-          example: resolve(__dirname, 'examples/example.html'),
+          example: resolve(__dirname, 'pages/example.html'),
         },
       },
     },

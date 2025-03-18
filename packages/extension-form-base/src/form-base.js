@@ -19,6 +19,8 @@ export const FormBase = Extension.create({
         commands,
       }) => {
         if (dispatch) {
+          tr.setMeta('addToHistory', false);
+
           let posMapped = tr.mapping.map(pos);
 
           return commands.insertContentAt(posMapped, {

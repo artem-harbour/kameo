@@ -25,7 +25,7 @@ export const History = Extension.create({
   addProseMirrorPlugins() {
     return [
       history(this.options),
-    ]
+    ];
   },
 
   addKeyboardShortcuts() {

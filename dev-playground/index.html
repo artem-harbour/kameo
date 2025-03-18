@@ -21,7 +21,19 @@
           <div class="kameo-app__view">
 
             <div class="kameo-app__actions">
-              <div class="kameo-app__document-mode">
+              <div class="kameo-app__base-form base-form">
+                <button>Create base form</button>
+              </div>
+
+              <div class="kameo-app__import-form import-form">
+                <button>Import form</button>
+              </div>
+
+              <div class="kameo-app__export-form export-form">
+                <button>Export form</button>
+              </div>
+
+              <div class="kameo-app__document-mode document-mode">
                 <select>
                   <option value="" selected disabled>--Document mode--</option>
                   <option value="edit">Edit</option>
@@ -31,6 +43,7 @@
             </div>
 
             <div class="kameo-app__content">
+              <div id="kameo-toolbar" class="kameo-toolbar-container"></div>
               <div id="kameo" class="kameo-container"></div>
             </div>
 
