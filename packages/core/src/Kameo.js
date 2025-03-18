@@ -107,6 +107,20 @@ export class Kameo extends Editor {
   validate() {}
 
   /**
+   * Get the document as JSON.
+   */
+  getJSON() {
+    return super.getJSON();
+  }
+
+  /**
+   * Get the document as HTML.
+   */
+  getHTML() {
+    return super.getHTML();
+  }
+
+  /**
    * Helper method for broadcasting node events.
    */
   emitNodeEvent(nodeType, eventName, props = {}) {
@@ -115,6 +129,7 @@ export class Kameo extends Editor {
 
   /**
    * Helper method for listening to node events.
+   * TODO: add general event emit.
    */
   onNodeEvent(nodeType, eventName, callback) {
     this.on(`node:${nodeType}:${eventName}`, callback);

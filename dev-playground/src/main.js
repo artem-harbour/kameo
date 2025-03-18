@@ -4,6 +4,10 @@ import './assets/styles/main.css';
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
 import { formFields } from '@kameo/toolbar-form-fields';
+import { createToolbar } from './helpers/createToolbar.js';
+import { createBaseForm } from './helpers/createBaseForm.js';
+import { createDownload } from './helpers/createDownload.js';
+import { getFileOpener } from './helpers/getFileOpener.js';
 
 const documentMode = 'edit';
 
@@ -14,26 +18,6 @@ const initKameo = () => {
     documentMode,
   });
   return kameo;
-};
-
-const createToolbar = () => {
-  const container = document.querySelector('#kameo-toolbar');
-  const toolbar = document.createElement('km-toolbar-form-fields');
-  toolbar.classList.add('kameo-toolbar');
-  toolbar.fields = formFields;
-  container.append(toolbar);
-};
-
-const createBaseForm = (kameo) => {
-  const pos = kameo.state.doc.content.size;
-  kameo
-    .chain()
-    .insertContentAt(pos, '<h1>Simple form</h1>')
-    .insertFormInputName(pos)
-    .insertFormInputEmail(pos)
-    .insertFormInputText(pos)
-    .insertFormSubmit(pos)
-    .run();
 };
 
 const handleDocumentMode = (kameo) => {
@@ -56,23 +40,32 @@ const handleBaseForm = (kameo) => {
 const handleExportForm = (kameo) => {
   const button = document.querySelector('.export-form button');
   button?.addEventListener('click', (event) => {
-    console.log('Export form');
+    const jsonStr = JSON.stringify(kameo.getJSON());
+    const blob = new Blob([jsonStr], { type: 'application/json' });
+    createDownload({
+      name: 'exported-form',
+      extension: 'json',
+      blob,
+    });
   });
 };
 
 const handleImportForm = (kameo) => {
   const button = document.querySelector('.import-form button');
-  button?.addEventListener('click', (event) => {
-    console.log('Import form');
+  button?.addEventListener('click', async (event) => {
+    const open = getFileOpener();
+    const result = await open();
+    if (!result) return;
+    try {
+      const doc = JSON.parse(result.text);
+      kameo.commands.setContent(doc);
+    } catch (err) {
+      console.error(err);
+    }
   });
 };
 
-const attachEvents = (kameo) => {
-  handleBaseForm(kameo);
-  handleDocumentMode(kameo);
-  handleExportForm();
-  handleImportForm();
-
+const listenKameoEvents = () => {
   // example: override original submit method.
   const originalSubmit = kameo.submit;
   kameo.submit = function(props = {}, options = {}) {
@@ -97,11 +90,19 @@ const attachEvents = (kameo) => {
   //   .onNodeEvent('formSubmit', 'click', (props) => console.log({ props }));
 };
 
+const attachEvents = (kameo) => {
+  handleBaseForm(kameo);
+  handleDocumentMode(kameo);
+  handleExportForm(kameo);
+  handleImportForm(kameo);
+  listenKameoEvents();
+};
+
 const init = () => {
   const kameo = initKameo();
   window.kameo = kameo;
 
-  createToolbar();
+  createToolbar({ fields: formFields });
   attachEvents(kameo);
 };
 
