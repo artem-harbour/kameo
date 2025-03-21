@@ -1,0 +1,36 @@
+{
+  "name": "@kameo/extension-underline",
+  "description": "underline extension for kameo",
+  "version": "0.0.12",
+  "license": "",
+  "keywords": [
+    "kameo",
+    "extension"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.19.1"
+  },
+  "devDependencies": {
+    "@kameo/core": "^0.0.12"
+  },
+  "peerDependencies": {
+    "@kameo/core": "^0.0.12"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}

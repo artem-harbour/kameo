@@ -6,8 +6,8 @@ export const Dropcursor = Extension.create({
 
   addOptions() {
     return {
-      color: 'currentColor',
-      width: 1,
+      color: '#7c3aed',
+      width: 3,
       class: undefined,
     };
   },

@@ -3,6 +3,10 @@ import { Document } from '@kameo/extension-document';
 import { Paragraph } from '@kameo/extension-paragraph';
 import { Heading } from '@kameo/extension-heading';
 import { Text } from '@kameo/extension-text';
+import { Bold } from '@kameo/extension-bold';
+import { Italic } from '@kameo/extension-italic';
+import { Underline } from '@kameo/extension-underline';
+import { Strike } from '@kameo/extension-strike';
 import { Dropcursor } from '@kameo/extension-dropcursor';
 import { History } from '@kameo/extension-history';
 import { FormBase } from '@kameo/extension-form-base';
@@ -19,6 +23,22 @@ export const StarterKit = Extension.create({
 
   addExtensions() {
     const extensions = []
+
+    if (this.options.bold !== false) {
+      extensions.push(Bold.configure(this.options?.bold));
+    }
+
+    if (this.options.italic !== false) {
+      extensions.push(Italic.configure(this.options?.italic));
+    }
+
+    if (this.options.underline !== false) {
+      extensions.push(Underline.configure(this.options?.underline));
+    }
+
+    if (this.options.strike !== false) {
+      extensions.push(Strike.configure(this.options?.strike));
+    }
 
     if (this.options.document !== false) {
       extensions.push(Document.configure(this.options?.document));
