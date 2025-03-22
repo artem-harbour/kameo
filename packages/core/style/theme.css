@@ -1,5 +1,4 @@
 :root {
-  --km-side-indent: 20px;
   --km-drag-handle-size: 16px;
 }
 
@@ -7,7 +6,6 @@
   display: block;
   width: 100%;
   min-height: 150px;
-  padding: 16px var(--km-side-indent);
   position: relative;
   caret-color: #000;
   outline: none;
