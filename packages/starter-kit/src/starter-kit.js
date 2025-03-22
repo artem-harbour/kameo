@@ -2,6 +2,7 @@ import { Extension } from '@kameo/core';
 import { Document } from '@kameo/extension-document';
 import { Paragraph } from '@kameo/extension-paragraph';
 import { Heading } from '@kameo/extension-heading';
+import { Blockquote } from '@kameo/extension-blockquote';
 import { Text } from '@kameo/extension-text';
 import { Bold } from '@kameo/extension-bold';
 import { Italic } from '@kameo/extension-italic';
@@ -49,11 +50,15 @@ export const StarterKit = Extension.create({
     }
 
     if (this.options.history !== false) {
-      extensions.push(History.configure(this.options?.history))
+      extensions.push(History.configure(this.options?.history));
     }
 
     if (this.options.heading !== false) {
-      extensions.push(Heading.configure(this.options?.heading))
+      extensions.push(Heading.configure(this.options?.heading));
+    }
+
+    if (this.options.blockquote !== false) {
+      extensions.push(Blockquote.configure(this.options?.blockquote));
     }
     
     if (this.options.formBase !== false) {

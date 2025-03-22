@@ -18,7 +18,7 @@
       "require": "./dist/index.cjs"
     },
     "./style/prosemirror.css": "./style/prosemirror.css",
-    "./style/main.css": "./style/main.css"
+    "./style/theme.css": "./style/theme.css"
   },
   "sideEffects": [
     "./style/prosemirror.css",

@@ -1,8 +1,12 @@
-import '@kameo/core/style/main.css';
+import '@kameo/core/style/theme.css';
 import './assets/styles/main.css';
 
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
+import { TextStyle } from '@kameo/extension-text-style';
+import { FontFamily } from '@kameo/extension-font-family';
+import { Color } from '@kameo/extension-color';
+import { Image } from '@kameo/extension-image';
 import { formFields } from '@kameo/toolbar-form-fields';
 import { createToolbar } from './helpers/createToolbar.js';
 import { createBaseForm } from './helpers/createBaseForm.js';
@@ -14,7 +18,13 @@ const documentMode = 'edit';
 const initKameo = () => {
   const kameo = new Kameo({
     element: document.querySelector('#kameo'),
-    extensions: [StarterKit],
+    extensions: [
+      StarterKit,
+      TextStyle,
+      FontFamily,
+      Color,
+      Image,
+    ],
     documentMode,
   });
   return kameo;
