@@ -1,12 +1,5 @@
 export const formFields = [
   {
-    id: 'formfield-submit',
-    title: 'Submit',
-    description: 'Submit your form',
-    fieldType: 'formSubmit',
-    group: ['all'],
-  },
-  {
     id: 'formfield-text',
     title: 'Text field',
     description: 'Enter info',
@@ -25,6 +18,13 @@ export const formFields = [
     title: 'Email',
     description: 'Enter email',
     fieldType: 'formInputEmail',
+    group: ['all'],
+  },
+  {
+    id: 'formfield-submit',
+    title: 'Submit',
+    description: 'Submit your form',
+    fieldType: 'formSubmit',
     group: ['all'],
   },
 ];
