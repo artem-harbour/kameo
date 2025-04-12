@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase } from '@kameo/extension-form-input-base';
+import { FormInputBase } from '@kameo/form-input-base';
 import { FormInputJobTitleView } from './view/FormInputJobTitleView.js';
 
 export const FormInputJobTitle = FormInputBase.extend({

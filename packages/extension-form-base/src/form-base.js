@@ -46,6 +46,6 @@ export const FormBase = Extension.create({
           }),
         ]
         : []),
-    ]
+    ];
   },
 });

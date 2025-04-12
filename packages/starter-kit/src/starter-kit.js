@@ -1,3 +1,4 @@
+import '@kameo/form-input-base';
 import { Extension } from '@kameo/core';
 import { Document } from '@kameo/extension-document';
 import { Paragraph } from '@kameo/extension-paragraph';

@@ -39,6 +39,7 @@
     "@kameo/extension-form-input-company": "^0.0.12",
     "@kameo/extension-form-input-address": "^0.0.12",
     "@kameo/extension-form-submit": "^0.0.12",
+    "@kameo/form-input-base": "^0.0.12",
     "@tiptap/pm": "^2.11.2"
   },
   "scripts": {

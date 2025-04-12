@@ -1,6 +1,6 @@
 {
-  "name": "@kameo/extension-form-input-base",
-  "description": "form input base extension for kameo",
+  "name": "@kameo/form-input-base",
+  "description": "form input base for kameo",
   "version": "0.0.12",
   "license": "",
   "keywords": [
