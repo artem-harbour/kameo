@@ -8,7 +8,7 @@ export const History = Extension.create({
     return {
       depth: 100,
       newGroupDelay: 500,
-    }
+    };
   },
 
   addCommands() {
@@ -19,7 +19,7 @@ export const History = Extension.create({
       redo: () => ({ state, dispatch }) => {
         return redo(state, dispatch)
       },
-    }
+    };
   },
 
   addProseMirrorPlugins() {

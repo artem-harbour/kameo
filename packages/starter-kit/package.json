@@ -32,6 +32,7 @@
     "@kameo/extension-strike": "^0.0.12",
     "@kameo/extension-blockquote": "^0.0.12",
     "@kameo/extension-dropcursor": "^0.0.12",
+    "@kameo/extension-gapcursor": "^0.0.12",
     "@kameo/extension-form-input-text": "^0.0.12",
     "@kameo/extension-form-input-name": "^0.0.12",
     "@kameo/extension-form-input-email": "^0.0.12",

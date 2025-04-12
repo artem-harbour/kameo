@@ -10,6 +10,7 @@ import { Italic } from '@kameo/extension-italic';
 import { Underline } from '@kameo/extension-underline';
 import { Strike } from '@kameo/extension-strike';
 import { Dropcursor } from '@kameo/extension-dropcursor';
+import { Gapcursor } from '@kameo/extension-gapcursor';
 import { History } from '@kameo/extension-history';
 import { FormBase } from '@kameo/extension-form-base';
 import { FormInputText } from '@kameo/extension-form-input-text';
@@ -48,6 +49,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.dropcursor !== false) {
       extensions.push(Dropcursor.configure(this.options?.dropcursor));
+    }
+
+    if (this.options.gapcursor !== false) {
+      extensions.push(Gapcursor.configure(this.options?.gapcursor))
     }
 
     if (this.options.history !== false) {
