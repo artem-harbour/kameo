@@ -27,18 +27,4 @@ export const formFields = [
     fieldType: 'formInputEmail',
     group: ['all'],
   },
-  {
-    id: 'formfield-jobtitle',
-    title: 'Job title',
-    description: 'Enter job title',
-    fieldType: 'formInputJobTitle',
-    group: ['all'],
-  },
-  {
-    id: 'formfield-company',
-    title: 'Company',
-    description: 'Enter company',
-    fieldType: 'formInputCompany',
-    group: ['all'],
-  },
 ];
