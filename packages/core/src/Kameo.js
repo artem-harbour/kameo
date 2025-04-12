@@ -122,10 +122,12 @@ export class Kameo extends Editor {
 
   /**
    * Helper method for broadcasting node events.
-   * TODO: add general event emit.
    */
   emitNodeEvent(nodeType, eventName, props = {}) {
     this.emit(`node:${nodeType}:${eventName}`, props);
+
+    // Emit general event.
+    this.emit(`node:${eventName}`, props);
   }
 
   /**
