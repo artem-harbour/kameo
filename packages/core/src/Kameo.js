@@ -89,7 +89,7 @@ export class Kameo extends Editor {
       formData,
       timestamp: new Date(),
       props: { ...props },
-      setSubmitResult: (success, message = '') => {
+      setSubmitResult: ({ success, message = '' }) => {
         this.emit('submitted', {
           formData,
           success,
