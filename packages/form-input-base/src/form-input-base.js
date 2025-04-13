@@ -37,12 +37,17 @@ export const FormInputBase = Node.create({
 
       required: {
         default: false,
-        parseHTML: (elem) => {
-          if (elem.getAttribute('required') === 'false') {
-            return false;
-          }
-          return elem.hasAttribute('required');
-        },
+        parseHTML: (elem) => elem.hasAttribute('required'),
+      },
+
+      readonly: {
+        default: false,
+        parseHTML: (elem) => elem.hasAttribute('readonly'),
+      },
+
+      disabled: {
+        default: false,
+        parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
     };
   },
