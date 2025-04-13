@@ -20,7 +20,9 @@ export const updateDOMAttributes = (dom, attrs = {}, customBooleans = []) => {
       else dom.setAttribute(key, '');
       return;
     }
-    
-    dom.setAttribute(key, value);
+
+    if (value != null) {
+      dom.setAttribute(key, value);
+    }
   });
 };

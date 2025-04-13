@@ -6,6 +6,7 @@ export const createBaseForm = (kameo) => {
     .insertFormInputName(pos)
     .insertFormInputEmail(pos)
     .insertFormInputText(pos)
+    .insertFormRating(pos)
     .insertFormSubmit(pos)
     .run();
 };

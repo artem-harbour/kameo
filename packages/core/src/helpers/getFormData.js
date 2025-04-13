@@ -4,11 +4,11 @@ export const getFormData = (doc) => {
   const formData = new Map();
 
   const types = {
-    input: (node) => node.attrs.value || '',
-    textarea: (node) => node.attrs.value || '',
-    select: (node) => node.attrs.selected || '',
-    checkbox: (node) => node.attrs.checked || false,
-    default: (node) => node.attrs.value || '',
+    input: (node) => node.attrs.value ?? '',
+    textarea: (node) => node.attrs.value ?? '',
+    select: (node) => node.attrs.selected ?? '',
+    checkbox: (node) => node.attrs.checked ?? false,
+    default: (node) => node.attrs.value ?? '',
   };
 
   doc.descendants((node) => {
