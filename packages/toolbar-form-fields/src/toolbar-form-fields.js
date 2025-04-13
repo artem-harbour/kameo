@@ -17,16 +17,28 @@ export class ToolbarFormFields extends LitElement {
     
     const { id } = event.currentTarget.dataset;
     const sourceField = this.fields.find((i) => i.id === id);
-
+    
     if (sourceField) {
+      const attrs = {};
+
+      const name = sourceField.name 
+        ? `${sourceField.name}-${this._getRandomId()}`
+        : null;
+        
+      if (name) attrs.name = name;
+      
       const params = JSON.stringify({ 
         fieldType: sourceField.fieldType,
-        attrs: {},
+        attrs,
       });
       event.dataTransfer.setData('formField', params);
     }
   }
 
+  _getRandomId = () => {
+    return Math.floor(Math.random() * 0xffffffff).toString();
+  };
+  
   render() {
     return html`
       <div class="toolbar-form-fields">
