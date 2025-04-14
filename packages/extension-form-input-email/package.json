@@ -20,9 +20,7 @@
     "src",
     "dist"
   ],
-  "dependencies": {
-    "@shoelace-style/shoelace": "^2.19.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@kameo/core": "^0.0.12",
     "@kameo/extension-form-base": "^0.0.12",

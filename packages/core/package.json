@@ -32,11 +32,9 @@
     "@tiptap/core": "^2.10.2"
   },
   "devDependencies": {
-    "@shoelace-style/shoelace": "^2.19.1",
     "@tiptap/pm": "^2.10.2"
   },
   "peerDependencies": {
-    "@shoelace-style/shoelace": "^2.19.1",
     "@tiptap/pm": "^2.10.2"
   },
   "scripts": {
