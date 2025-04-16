@@ -22,11 +22,11 @@
   ],
   "devDependencies": {
     "@kameo/core": "^0.0.12",
-    "@tiptap/pm": "^2.10.2"
+    "@tiptap/pm": "^2.11.7"
   },
   "peerDependencies": {
     "@kameo/core": "^0.0.12",
-    "@tiptap/pm": "^2.10.2"
+    "@tiptap/pm": "^2.11.7"
   },
   "scripts": {
     "clean": "rm -rf dist",

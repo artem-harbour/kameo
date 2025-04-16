@@ -29,14 +29,14 @@
     "dist"
   ],
   "dependencies": {
-    "@tiptap/core": "^2.10.2"
+    "@tiptap/core": "^2.11.7"
   },
   "devDependencies": {
-    "@tiptap/pm": "^2.10.2",
+    "@tiptap/pm": "^2.11.7",
     "lit": "^3.2.1"
   },
   "peerDependencies": {
-    "@tiptap/pm": "^2.10.2",
+    "@tiptap/pm": "^2.11.7",
     "lit": "^3.2.1"
   },
   "scripts": {
