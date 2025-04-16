@@ -11,7 +11,7 @@
   outline: none;
 }
 
-.kameo :first-child {
+.kameo > :first-child {
   margin-top: 0;
 }
 
@@ -26,37 +26,21 @@
   margin: 24px 0;
 }
 
-/**
-https://github.com/steven-tey/novel/blob/main/apps/web/styles/prosemirror.css
-https://github.com/ueberdosis/tiptap/blob/develop/demos/src/GuideNodeViews/DragHandle/Vue/Component.vue
-*/
-.km-form-element-view .drag-handle {
-  --width: 16px;
-  --height: 16px;
-  position: absolute;
-  width: var(--km-drag-handle-size);
-  height: var(--km-drag-handle-size);
-  top: 5px;
-  left: calc((var(--width) + 2px) * -1);
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 16"><path fill-opacity="0.2" d="M4 14c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zM2 6C.9 6 0 6.9 0 8s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-6C.9 0 0 .9 0 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6 4c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" /></svg>');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  z-index: 10;
-  cursor: grab;
-}
-
-.km-form-element-view .drag-handle.hide,
-.km-form-element-view:hover .drag-handle.hide {
-  display: none;
-  pointer-events: none;
-}
-
-.km-form-element-view .drag-handle:active {
-  cursor: grabbing;
-}
-
 .km-form-element-view--formSubmit {
   display: flex;
   justify-content: flex-end;
+}
+
+.km-form-actions {
+  visibility: hidden;
+}
+
+.km-form-element-view:hover .km-form-actions {
+  visibility: visible;
+}
+
+.km-form-actions.hide,
+.km-form-element-view:hover .km-form-actions.hide {
+  display: none;
+  pointer-events: none;
 }

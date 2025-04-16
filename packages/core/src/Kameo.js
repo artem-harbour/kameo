@@ -2,6 +2,7 @@ import { Editor } from '@tiptap/core';
 import { style } from './style.js';
 import { createStyleTag } from './utilities/createStyleTag.js';
 import { getFormData } from './helpers/getFormData.js';
+import * as UIComponents from './ui/index.js';
 
 export class Kameo extends Editor {
 
@@ -138,3 +139,5 @@ export class Kameo extends Editor {
     return this;
   }
 }
+
+console.debug('UI Components defined', UIComponents);

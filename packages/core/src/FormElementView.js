@@ -32,6 +32,8 @@ export class FormElementView {
 
   isDragging = false;
 
+  formActions = null;
+
   constructor(props, options) {
     this.editor = props.editor;
     this.options = {
@@ -50,8 +52,8 @@ export class FormElementView {
     this.tagName = props.tagName;
     this.getPos = props.getPos;
 
-    // this.onDragStart = this.onDragStart.bind(this);
     this.onDocumentModeUpdate = this.onDocumentModeUpdate.bind(this);
+    this.handleActionEvent = this.handleActionEvent.bind(this);
 
     this.editor.on('documentModeUpdate', this.onDocumentModeUpdate);
 
@@ -89,7 +91,8 @@ export class FormElementView {
     }
 
     if (enableDrag && documentMode === 'edit') {
-      wrapper.prepend(this.createDragHandle());
+      this.formActions = this.createFormActions();
+      wrapper.prepend(this.formActions);
     }
 
     if (element) {
@@ -112,16 +115,54 @@ export class FormElementView {
     return element;
   }
 
+  createFormActions() {
+    const formActions = document.createElement('km-form-actions');
+    formActions.classList.add('km-form-actions');
+    if (this.editor.documentMode === 'view') {
+      formActions.classList.add('hide');
+    }
+    formActions.dataset.formActions = '';
+    const dragHandle = this.createDragHandle();
+    dragHandle.setAttribute('slot', 'drag');
+    formActions.append(dragHandle);
+    formActions.addEventListener('action', this.handleActionEvent);
+    return formActions;
+  }
+
+  removeFormActions() {
+    this.formActions?.removeEventListener('action', this.handleActionEvent);
+    this.formActions?.remove();
+    this.formActions = null;
+  }
+
   createDragHandle() {
     const dragHandle = document.createElement('div');
-    dragHandle.classList.add('drag-handle');
-    if (this.editor.documentMode === 'view') {
-      dragHandle.classList.add('hide');
-    }
+    dragHandle.classList.add('km-drag-handle');
     dragHandle.draggable = 'true';
     dragHandle.contentEditable = 'false';
     dragHandle.dataset.dragHandle = '';
     return dragHandle;
+  }
+
+  handleActionEvent(event) {
+    const { type } = event.detail;
+    const actions = {
+      add: () => {
+        // TODO: Probably later it will be a slash menu.
+        const pos = this.getPos() + this.node.nodeSize;
+        this.editor.commands.insertContentAt(pos, {
+          type: 'text',
+          text: ' ',
+        });
+      },
+      default: () => {
+        console.log('Not defined action');
+      },
+    };
+
+    const handler = actions[type] ?? actions.default;
+
+    handler();    
   }
 
   onDocumentModeUpdate({ mode, isInit }) {
@@ -129,22 +170,18 @@ export class FormElementView {
       return;
     }
 
-    const removeDragHandle = () => {
-      const element = this.dom.querySelector('.drag-handle');
-      element?.remove();
-    };
-
     const modes = {
       edit: () => {
-        removeDragHandle();
-        this.dom.prepend(this.createDragHandle());
+        this.removeFormActions();
+        this.formActions = this.createFormActions();
+        this.dom.prepend(this.formActions);
       },
       view: () => {
-        removeDragHandle();
+        this.removeFormActions();
       },
     };
 
-    let handleMode = modes[mode] ?? modes.edit;
+    const handleMode = modes[mode] ?? modes.edit;
 
     handleMode();
   }
@@ -366,7 +403,7 @@ export class FormElementView {
   destroy() {
     this.options.destroy?.();
     this.dom.remove();
-    // this.dom.removeEventListener('dragstart', this.onDragStart);
+    this.removeFormActions();
     this.editor.off('documentModeUpdate', this.onDocumentModeUpdate);
   }
 

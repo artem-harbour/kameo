@@ -7,7 +7,7 @@ import { TextStyle } from '@kameo/extension-text-style';
 import { FontFamily } from '@kameo/extension-font-family';
 import { Color } from '@kameo/extension-color';
 import { Image } from '@kameo/extension-image';
-import { formFields } from '@kameo/toolbar-form-fields';
+import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
 import { createToolbar } from './helpers/createToolbar.js';
 import { createBaseForm } from './helpers/createBaseForm.js';
 import { createDownload } from './helpers/createDownload.js';
@@ -120,3 +120,5 @@ const init = () => {
 };
 
 init();
+
+createBaseForm(window.kameo); // 
