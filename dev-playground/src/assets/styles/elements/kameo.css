@@ -1,9 +1,12 @@
 .kameo-container {
   width: 100%;
   max-width: var(--kameo-max-width);
-  padding: 16px 54px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 6px;
+}
+
+.kameo-container .kameo {
+  padding: 16px 54px;
 }
 
 .kameo-toolbar-container {

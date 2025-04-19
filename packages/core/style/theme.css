@@ -6,9 +6,14 @@
   display: block;
   width: 100%;
   min-height: 150px;
+  padding: 16px 20px;
   position: relative;
   caret-color: #000;
   outline: none;
+}
+
+.kameo--edit-mode {
+  padding: 16px 54px;
 }
 
 .kameo > :first-child {
@@ -32,15 +37,11 @@
 }
 
 .km-form-actions {
-  visibility: hidden;
+  transition: opacity ease-in 0.15s;
 }
 
-.km-form-element-view:hover .km-form-actions {
-  visibility: visible;
-}
-
-.km-form-actions.hide,
-.km-form-element-view:hover .km-form-actions.hide {
-  display: none;
+.km-form-actions.hide {
+  opacity: 0;
   pointer-events: none;
+  transition: none;
 }

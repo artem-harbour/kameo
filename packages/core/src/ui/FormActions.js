@@ -35,12 +35,14 @@ export class FormActions extends LitElement {
 
   static styles = css`
     :host {
+      --form-actions-width: 52px;
+
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
       display: flex;
-      width: 100px;
+      width: var(--form-actions-width);
       position: absolute;
       top: 0;
-      left: -100px;
+      left: calc(var(--form-actions-width) * -1);
       z-index: 3;
     }
 

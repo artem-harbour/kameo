@@ -2,6 +2,7 @@ import { Editor } from '@tiptap/core';
 import { style } from './style.js';
 import { createStyleTag } from './utilities/createStyleTag.js';
 import { getFormData } from './helpers/getFormData.js';
+import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
 import * as UIComponents from './ui/index.js';
 
 export class Kameo extends Editor {
@@ -38,6 +39,7 @@ export class Kameo extends Editor {
       edit: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(true, false);
+        this.registerPlugin(FormActionsPlugin({ editor: this }));
         this.view.dom.classList.add(editModeClass);
         this.view.dom.classList.remove(viewModeClass);
         this.emit('documentModeUpdate', {
@@ -49,6 +51,7 @@ export class Kameo extends Editor {
       view: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(false, false);
+        this.unregisterPlugin(FormActionsPluginKey);
         this.view.dom.classList.add(viewModeClass);
         this.view.dom.classList.remove(editModeClass);
         this.emit('documentModeUpdate', {
@@ -140,4 +143,4 @@ export class Kameo extends Editor {
   }
 }
 
-console.debug('UI Components defined', UIComponents);
+console.debug('Kameo: UI Components defined', UIComponents);

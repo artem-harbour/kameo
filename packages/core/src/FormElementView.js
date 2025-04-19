@@ -117,10 +117,7 @@ export class FormElementView {
 
   createFormActions() {
     const formActions = document.createElement('km-form-actions');
-    formActions.classList.add('km-form-actions');
-    if (this.editor.documentMode === 'view') {
-      formActions.classList.add('hide');
-    }
+    formActions.classList.add('km-form-actions', 'hide');
     formActions.dataset.formActions = '';
     const dragHandle = this.createDragHandle();
     dragHandle.setAttribute('slot', 'drag');
