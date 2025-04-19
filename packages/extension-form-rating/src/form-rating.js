@@ -42,12 +42,12 @@ export const FormRating = Node.create({
       },
 
       max: {
-        default: 5,
+        default: null,
         parseHTML: (elem) => elem.getAttribute('max'),
       },
 
       precision: {
-        default: 1,
+        default: null,
         parseHTML: (elem) => elem.getAttribute('precision'),
       },
 
@@ -62,7 +62,7 @@ export const FormRating = Node.create({
       },
 
       fieldType: {
-        default: '',
+        default: 'custom',
         rendered: false,
       },
     };
