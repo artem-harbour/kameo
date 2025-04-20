@@ -53,7 +53,7 @@ export class FormElementView {
     this.getPos = props.getPos;
 
     this.onDocumentModeUpdate = this.onDocumentModeUpdate.bind(this);
-    this.handleActionEvent = this.handleActionEvent.bind(this);
+    this.handleAction = this.handleAction.bind(this);
 
     this.editor.on('documentModeUpdate', this.onDocumentModeUpdate);
 
@@ -122,12 +122,12 @@ export class FormElementView {
     const dragHandle = this.createDragHandle();
     dragHandle.setAttribute('slot', 'drag');
     formActions.append(dragHandle);
-    formActions.addEventListener('action', this.handleActionEvent);
+    formActions.addEventListener('action', this.handleAction);
     return formActions;
   }
 
   removeFormActions() {
-    this.formActions?.removeEventListener('action', this.handleActionEvent);
+    this.formActions?.removeEventListener('action', this.handleAction);
     this.formActions?.remove();
     this.formActions = null;
   }
@@ -141,19 +141,39 @@ export class FormElementView {
     return dragHandle;
   }
 
-  handleActionEvent(event) {
+  handleAction(event) {
     const { type } = event.detail;
     const actions = {
       add: () => {
-        // TODO: Probably later it will be a slash menu.
-        const pos = this.getPos() + this.node.nodeSize;
-        this.editor.commands.insertContentAt(pos, {
-          type: 'text',
-          text: ' ',
-        });
+        this.editor
+          .chain()
+          .command(({ commands }) => {
+            const pos = this.getPos() + this.node.nodeSize;
+            commands.insertContentAt(pos, {
+              type: 'text',
+              text: ' ',
+            });
+            return true;
+          })
+          .run();
+      },
+      delete: () => {
+        this.deleteNode();
+      },
+      duplicate: () => {
+        this.editor
+          .chain()
+          .command(({ state, dispatch }) => {
+            const tr = state.tr;
+            const pos = this.getPos() + this.node.nodeSize;
+            tr.insert(pos, this.node.type.create(this.node.attrs));
+            dispatch(tr);
+            return true;
+          })
+          .run();
       },
       default: () => {
-        console.log('Not defined action');
+        console.log('Not implemented.');
       },
     };
 
