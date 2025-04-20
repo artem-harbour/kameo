@@ -129,8 +129,8 @@ export class Kameo extends Editor {
    */
   emitNodeEvent(nodeType, eventName, props = {}) {
     this.emit(`node:${nodeType}:${eventName}`, props);
-
-    // Emit general event.
+    
+    // general event.
     this.emit(`node:${eventName}`, props);
   }
 

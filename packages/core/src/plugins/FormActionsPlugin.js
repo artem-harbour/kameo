@@ -17,10 +17,19 @@ export const FormActionsPlugin = ({
     formActionsElements = [...document.querySelectorAll('[data-form-actions]')];
   };
 
-  const hideFormActions = () => {
-    formActionsElements.forEach((element) => {
-      element.classList.add('hide');
+  const hideFormActions = ({ 
+    skipCurrent = false, 
+    skipActiveCheck = false, 
+  } = {}) => {
+    if (!skipActiveCheck && checkSomeActive()) return;
+    formActionsElements.forEach((el) => {
+      if (skipCurrent && el === currentFormActions) return;
+      el.classList.add('hide');
     });
+  };
+
+  const checkSomeActive = () => {
+    return formActionsElements.some((el) => el.hasAttribute('data-active'));
   };
 
   const showCurrentFormActions = () => {
@@ -73,7 +82,7 @@ export const FormActionsPlugin = ({
     props: {
       handleDOMEvents: {
         mousemove: (view, event) => {
-          if (!editor.isEditable) {
+          if (!editor.isEditable || checkSomeActive()) {
             return;
           }
 
@@ -99,7 +108,7 @@ export const FormActionsPlugin = ({
 
           currentFormActions = formActions;
 
-          hideFormActions();
+          hideFormActions({ skipCurrent: true });
           showCurrentFormActions();
         },
         keydown: () => {
@@ -117,14 +126,12 @@ export const FormActionsPlugin = ({
 };
 
 function nodeDOMAtCoords(coords, options) {
-  const selectors = [
-    '.km-form-element-view',
-  ].join(', ');
+  const selectors = ['.km-form-element-view'].join(', ');
   return document
     .elementsFromPoint(coords.x, coords.y)
     .find(
       (elem) =>
-        elem.parentElement?.matches?.('.ProseMirror.kameo') &&
+        elem.parentElement?.matches?.('.kameo.ProseMirror') &&
         elem.matches(selectors)
     );
 }
