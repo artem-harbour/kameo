@@ -47,10 +47,30 @@ body {
   position: relative;
 }
 
+.kameo-app__kameo-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
 .kameo-app__title {
   font-size: 36px;
   font-weight: 500;
-  color: #fff;
+  color: #2d3436;
+  line-height: 1.1;
+}
+
+.kameo-app__logo {
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+}
+
+.kameo-app__logo-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .kameo-app__main {
