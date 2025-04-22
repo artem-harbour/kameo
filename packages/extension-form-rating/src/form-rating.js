@@ -32,12 +32,12 @@ export const FormRating = Node.create({
       },
 
       label: {
-        default: '',
+        default: null,
         parseHTML: (elem) => elem.getAttribute('label'),
       },
 
       value: {
-        default: 0,
+        default: null,
         parseHTML: (elem) => elem.getAttribute('value'),
       },
 
