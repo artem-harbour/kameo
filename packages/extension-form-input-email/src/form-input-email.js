@@ -15,7 +15,9 @@ export const FormInputEmail = FormInputBase.extend({
   
   addOptions() {
     return {
-      HTMLAttributes: {},
+      HTMLAttributes: {
+        type: 'email',
+      },
       tagName: 'wa-input',
     };
   },
@@ -37,11 +39,6 @@ export const FormInputEmail = FormInputBase.extend({
       placeholder: {
         default: 'Enter email',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
-      },
-
-      type: {
-        default: 'email',
-        parseHTML: (elem) => elem.getAttribute('type') || 'email',
       },
       
       fieldType: {
@@ -77,7 +74,7 @@ export const FormInputEmail = FormInputBase.extend({
       return new FormInputEmailView({
         ...props,
         tagName: this.options.tagName,
-      });
+      }, this.options);
     };
   },
 });

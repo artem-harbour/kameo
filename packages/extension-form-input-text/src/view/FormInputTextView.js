@@ -3,7 +3,7 @@ import { FormElementView } from '@kameo/core';
 export class FormInputTextView extends FormElementView {
 
   constructor(props, options = {}) {
-    super(props, { ...options });
+    super(props, options);
 
     this.handleInput = this.handleInput.bind(this);
     this.handleFocus = this.handleFocus.bind(this);

@@ -5,7 +5,6 @@ const defaultBooleans = [
   'checked',
   'multiple',
   'autofocus',
-  'loading',
 ];
 
 export const updateDOMAttributes = (dom, attrs = {}, customBooleans = []) => {

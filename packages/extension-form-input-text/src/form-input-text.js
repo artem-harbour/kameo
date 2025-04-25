@@ -15,7 +15,9 @@ export const FormInputText = FormInputBase.extend({
   
   addOptions() {
     return {
-      HTMLAttributes: {},
+      HTMLAttributes: {
+        type: 'text',
+      },
       tagName: 'wa-input',
     };
   },
@@ -25,7 +27,7 @@ export const FormInputText = FormInputBase.extend({
       ...this.parent?.(),
 
       name: {
-        default: 'info',
+        default: 'text',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
 
@@ -69,10 +71,10 @@ export const FormInputText = FormInputBase.extend({
 
   addNodeView() {
     return (props) => {
-      return new FormInputTextView({
+      return new FormInputTextView({ 
         ...props,
         tagName: this.options.tagName,
-      });
+      }, this.options);
     };
   },
 });

@@ -1,9 +1,20 @@
-import { isiOS, getRenderedAttributes } from '@tiptap/core';
+import { isiOS, getRenderedAttributes, mergeAttributes } from '@tiptap/core';
 import { NodeSelection } from '@tiptap/pm/state';
 import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
 
 const wrapperClass = 'km-form-element-view';
 const elementClass = 'km-form-element';
+
+const customBooleans = [
+  'loading',
+  'pill',
+  'clearable',
+  'password-toggle',
+  'password-visible',
+  'no-spin-buttons',
+  'autofocus',
+  'spellcheck',
+];
 
 export class FormElementView {
   editor;
@@ -109,8 +120,10 @@ export class FormElementView {
     const element = document.createElement(this.tagName);
     
     element.classList.add(elementClass);
-    
-    updateDOMAttributes(element, this.HTMLAttributes, this.options.booleanAttrs);
+
+    const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
+    const booleanAttrs = [...customBooleans, ...this.options.booleanAttrs];
+    updateDOMAttributes(element, attrs, booleanAttrs);
     
     return element;
   }
@@ -260,7 +273,9 @@ export class FormElementView {
     this.node = node;
     this.updateHTMLAttributes();
 
-    updateDOMAttributes(this.element, this.HTMLAttributes, this.options.booleanAttrs);
+    const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
+    const booleanAttrs = [...customBooleans, ...this.options.booleanAttrs];
+    updateDOMAttributes(this.element, attrs, booleanAttrs);
 
     return true;
   }

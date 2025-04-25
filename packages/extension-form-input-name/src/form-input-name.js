@@ -15,7 +15,9 @@ export const FormInputName = FormInputBase.extend({
   
   addOptions() {
     return {
-      HTMLAttributes: {},
+      HTMLAttributes: {
+        type: 'text',
+      },
       tagName: 'wa-input',
     };
   },
@@ -72,7 +74,7 @@ export const FormInputName = FormInputBase.extend({
       return new FormInputNameView({
         ...props,
         tagName: this.options.tagName,
-      });
+      }, this.options);
     };
   },
 });
