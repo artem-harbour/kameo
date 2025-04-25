@@ -43,10 +43,23 @@ export const FormSubmit = Node.create({
         default: false,
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
-      
+
+      // Additional attributes.
       variant: {
-        default: 'brand',
+        default: null,
         parseHTML: (elem) => elem.getAttribute('variant'),
+      },
+      appearance: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('appearance'),
+      },
+      size: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('size'),
+      },
+      pill: {
+        default: false,
+        parseHTML: (elem) => elem.hasAttribute('pill'),
       },
     };
   },

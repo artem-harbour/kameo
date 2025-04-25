@@ -61,6 +61,11 @@ export const FormRating = Node.create({
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
 
+      size: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('size'),
+      },
+
       fieldType: {
         default: 'custom',
         rendered: false,
