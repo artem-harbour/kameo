@@ -5,7 +5,6 @@ import pkg from './package.json' with { type: 'json' };
 export default baseConfig({ 
   input: 'src/index.js', 
   pkg,
-  externalDependencies: false,
   // for reference
   // copyOptions: {
   //   copyOnce: true,

@@ -100,3 +100,9 @@ body {
   gap: 12px;
   margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+  .kameo-app__actions {
+    display: none;
+  }
+}
