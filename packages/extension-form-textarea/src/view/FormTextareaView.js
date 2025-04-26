@@ -45,7 +45,6 @@ export class FormTextareaView extends FormElementView {
   }
 
   handleBlur(event) {
-    console.log(event);
     this.editor.emitNodeEvent(this.node.type.name, 'blur', { 
       event, 
       node: this.node, 

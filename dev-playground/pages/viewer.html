@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kameo - Playground</title>
+    <title>Kameo - Viewer</title>
 
     <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-alpha.9/dist/styles/themes/default.css" />
     <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-alpha.9/dist/webawesome.loader.js"></script>
@@ -34,26 +34,13 @@
                 <button>Import form</button>
               </div>
 
-              <div class="kameo-app__export-form export-form">
-                <button>Export form</button>
-              </div>
-
               <div class="kameo-app__clear-content clear-content">
                 <button>Clear content</button>
-              </div>
-
-              <div class="kameo-app__document-mode document-mode">
-                <select>
-                  <option value="" selected disabled>--Document mode--</option>
-                  <option value="edit">Edit</option>
-                  <option value="view">View</option>
-                </select>
               </div>
             </div>
 
             <div class="kameo-app__content">
-              <div id="kameo-toolbar" class="kameo-toolbar-container"></div>
-              <div id="kameo" class="kameo-container"></div>
+              <div id="kameo" class="kameo-container kameo-container--viewer"></div>
             </div>
 
           </div>
@@ -62,6 +49,6 @@
       </div>
     </div>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main-viewer.js"></script>
   </body>
 </html>

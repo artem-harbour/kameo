@@ -1,5 +1,5 @@
 import '@kameo/core/style/theme.css';
-import './assets/styles/main.css';
+import './assets/styles/main-editor.css';
 
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
@@ -10,11 +10,9 @@ import { Image } from '@kameo/extension-image';
 import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
 import { createToolbar } from './helpers/createToolbar.js';
 import { handleBaseForm } from './helpers/handleBaseForm.js';
-import { handleDocumentMode } from './helpers/handleDocumentMode.js';
 import { handleImportForm } from './helpers/handleImportForm.js';
 import { handleExportForm } from './helpers/handleExportForm.js';
 import { handleClearContent } from './helpers/handleClearContent.js';
-import baseForm from './forms/base-form.json';
 
 const documentMode = 'edit';
 
@@ -29,44 +27,15 @@ const initKameo = () => {
       Image,
     ],
     documentMode,
-
-    // Uncomment for faster development/testing.
-    // content: baseForm,
   });
   return kameo;
 };
 
-const listenKameoEvents = (kameo) => {
-  // Example: override original submit method.
-  const originalSubmit = kameo.submit;
-  kameo.submit = function(props = {}, options = {}) {
-    const customProps = { ...props, customSubmit: true };
-    return originalSubmit.apply(this, [customProps, options]);
-  };
-
-  kameo.on('submit', async (event) => {
-    console.log(`on 'submit' event`, { event });
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    event.setSubmitResult({
-      success: true,
-      message: 'Form is submitted',
-    });
-  });
-
-  kameo.on('submitted', (event) => {
-    console.log(`on 'submitted' event`, { event });
-  });
-
-  // kameo.onNodeEvent('formInputText', 'input', (props) => console.log({ props }));
-};
-
 const attachEvents = (kameo) => {
   handleBaseForm(kameo);
-  handleDocumentMode(kameo, documentMode);
   handleExportForm(kameo);
   handleImportForm(kameo);
   handleClearContent(kameo);
-  listenKameoEvents(kameo);
 };
 
 const init = () => {

@@ -1,0 +1,156 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "paragraph"
+    },
+    {
+      "type": "heading",
+      "attrs": {
+        "level": 1
+      },
+      "content": [
+        {
+          "type": "text",
+          "text": "Basic form"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "This is a "
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "basic"
+        },
+        {
+          "type": "text",
+          "text": " form"
+        }
+      ]
+    },
+    {
+      "type": "formInputName",
+      "attrs": {
+        "id": null,
+        "name": "name",
+        "value": "",
+        "label": "Enter your full name",
+        "hint": null,
+        "placeholder": "Enter full name",
+        "readonly": false,
+        "required": false,
+        "disabled": false,
+        "size": null,
+        "appearance": null,
+        "pill": false,
+        "clearable": false,
+        "pattern": null,
+        "minlength": null,
+        "maxlength": null,
+        "autocapitalize": null,
+        "autocorrect": null,
+        "autocomplete": null,
+        "autofocus": false,
+        "enterkeyhint": null,
+        "spellcheck": false,
+        "inputmode": null,
+        "fieldType": "input"
+      }
+    },
+    {
+      "type": "formInputEmail",
+      "attrs": {
+        "id": null,
+        "name": "email",
+        "value": "",
+        "label": "Enter your email",
+        "hint": null,
+        "placeholder": "Enter email",
+        "readonly": false,
+        "required": false,
+        "disabled": false,
+        "size": null,
+        "appearance": null,
+        "pill": false,
+        "clearable": false,
+        "pattern": null,
+        "minlength": null,
+        "maxlength": null,
+        "autocapitalize": null,
+        "autocorrect": null,
+        "autocomplete": null,
+        "autofocus": false,
+        "enterkeyhint": null,
+        "spellcheck": false,
+        "inputmode": null,
+        "fieldType": "input"
+      }
+    },
+    {
+      "type": "formTextarea",
+      "attrs": {
+        "id": null,
+        "name": "textarea",
+        "value": "",
+        "label": "Enter your info",
+        "hint": null,
+        "placeholder": "Enter info",
+        "rows": null,
+        "resize": null,
+        "readonly": false,
+        "required": false,
+        "disabled": false,
+        "size": null,
+        "appearance": null,
+        "minlength": null,
+        "maxlength": null,
+        "autocapitalize": null,
+        "autocorrect": null,
+        "autocomplete": null,
+        "autofocus": false,
+        "enterkeyhint": null,
+        "spellcheck": false,
+        "inputmode": null,
+        "fieldType": "textarea"
+      }
+    },
+    {
+      "type": "formRating",
+      "attrs": {
+        "id": null,
+        "name": "rating",
+        "label": null,
+        "value": null,
+        "max": null,
+        "precision": null,
+        "readonly": false,
+        "disabled": false,
+        "size": null,
+        "fieldType": "custom"
+      }
+    },
+    {
+      "type": "formSubmit",
+      "attrs": {
+        "id": null,
+        "text": "Submit",
+        "loading": false,
+        "disabled": false,
+        "variant": null,
+        "appearance": null,
+        "size": null,
+        "pill": false
+      }
+    }
+  ]
+}
