@@ -75,7 +75,7 @@ const handleImportForm = (kameo) => {
   });
 };
 
-const listenKameoEvents = () => {
+const listenKameoEvents = (kameo) => {
   // example: override original submit method.
   const originalSubmit = kameo.submit;
   kameo.submit = function(props = {}, options = {}) {
@@ -108,7 +108,7 @@ const attachEvents = (kameo) => {
   handleDocumentMode(kameo);
   handleExportForm(kameo);
   handleImportForm(kameo);
-  listenKameoEvents();
+  listenKameoEvents(kameo);
 };
 
 const init = () => {

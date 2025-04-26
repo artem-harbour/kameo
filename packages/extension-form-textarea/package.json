@@ -1,6 +1,6 @@
 {
-  "name": "@kameo/toolbar-form-fields",
-  "description": "toolbar with draggable fields for kameo",
+  "name": "@kameo/extension-form-textarea",
+  "description": "form textarea extension for kameo",
   "version": "0.0.12",
   "license": "",
   "keywords": [
@@ -20,11 +20,14 @@
     "src",
     "dist"
   ],
+  "dependencies": {},
   "devDependencies": {
-    "lit": "3.1.4"
+    "@kameo/core": "^0.0.12",
+    "@kameo/extension-form-base": "^0.0.12"
   },
   "peerDependencies": {
-    "lit": "3.1.4"
+    "@kameo/core": "^0.0.12",
+    "@kameo/extension-form-base": "^0.0.12"
   },
   "scripts": {
     "clean": "rm -rf dist",

@@ -1,7 +1,23 @@
-import { Node } from '@kameo/core';
+import { Node, mergeAttributes } from '@kameo/core';
+import { FormTextareaView } from './view/FormTextareaView.js';
 
-export const FormInputBase = Node.create({
-  name: 'formInputBase',
+export const FormTextarea = Node.create({
+  name: 'formTextarea',
+
+  group: 'formField block',
+
+  atom: true,
+
+  draggable: true,
+
+  selectable: true,
+  
+  addOptions() {
+    return {
+      HTMLAttributes: {},
+      tagName: 'wa-textarea',
+    };
+  },
 
   addAttributes() {
     return {
@@ -11,7 +27,7 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.getAttribute('id'),
       },
       name: {
-        default: '',
+        default: 'textarea',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: {
@@ -19,7 +35,7 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.getAttribute('value'),
       },
       label: {
-        default: null,
+        default: 'Enter your info',
         parseHTML: (elem) => elem.getAttribute('label'),
       },
       hint: {
@@ -27,8 +43,16 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.getAttribute('hint'),
       },
       placeholder: {
-        default: null,
+        default: 'Enter info',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
+      },
+      rows: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('rows'),
+      },
+      resize: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('resize'),
       },
       readonly: {
         default: false,
@@ -51,18 +75,6 @@ export const FormInputBase = Node.create({
       appearance: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('appearance'),
-      },
-      pill: {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('pill'),
-      },
-      clearable: {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('pill'),
-      },
-      pattern: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('pattern'),
       },
       minlength: {
         default: null,
@@ -100,38 +112,40 @@ export const FormInputBase = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('inputmode'),
       },
+      fieldType: {
+        default: 'textarea',
+        rendered: false,
+      },
+    };
+  },
 
-      /* 
-      // Only applies to password input types.
-      'password-toggle': {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('password-toggle'),
-      },
-      'password-visible': {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('password-visible'),
-      },
+  parseHTML() {
+    return [{ tag: `${this.options.tagName}[data-type="${this.name}"]` }];
+  },
 
-      // Only applies to number input types.
-      'no-spin-buttons': {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('no-spin-buttons'),
-      },
+  renderHTML({ HTMLAttributes }) {
+    return [
+      this.options.tagName,
+      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
+        'data-type': this.name,
+      }),
+    ];
+  },
 
-      // Only applies to date and number input types.
-      min: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('min'),
+  addCommands() {
+    return {
+      insertFormTextarea: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormField(this.name, pos, attrs);
       },
-      max: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('max'),
-      }, 
-      step: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('step'),
-      }, 
-      */
+    };
+  },
+
+  addNodeView() {
+    return (props) => {
+      return new FormTextareaView({ 
+        ...props,
+        tagName: this.options.tagName,
+      }, this.options);
     };
   },
 });

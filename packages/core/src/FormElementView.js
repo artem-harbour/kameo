@@ -16,6 +16,12 @@ const customBooleans = [
   'spellcheck',
 ];
 
+const customElements = [
+  'wa-input',
+  'wa-textarea',
+  'wa-button',
+];
+
 export class FormElementView {
   editor;
 
@@ -306,8 +312,13 @@ export class FormElementView {
 
     const isDragEvent = event.type.startsWith('drag');
     const isDropEvent = event.type === 'drop';
-    const isInput = ['INPUT', 'BUTTON', 'SELECT', 'TEXTAREA', 'WA-INPUT'].includes(target.tagName) 
-      || target.isContentEditable;
+    const isInput = [
+      'INPUT', 
+      'BUTTON', 
+      'SELECT', 
+      'TEXTAREA',
+      ...customElements.map((i) => i.toUpperCase()),
+    ].includes(target.tagName) || target.isContentEditable;
 
     // any input event within node views should be ignored by ProseMirror
     if (isInput && !isDropEvent && !isDragEvent) {
