@@ -57,7 +57,8 @@ export class FormElementView {
       stopEvent: null,
       ignoreMutation: null,
       enableDrag: true,
-      booleanAttrs: [],
+      customBooleans: [],
+      customElements: [],
       ...options,
     };
     this.extension = props.extension;
@@ -128,7 +129,7 @@ export class FormElementView {
     element.classList.add(elementClass);
 
     const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
-    const booleanAttrs = [...customBooleans, ...this.options.booleanAttrs];
+    const booleanAttrs = [...customBooleans, ...this.options.customBooleans];
     updateDOMAttributes(element, attrs, booleanAttrs);
     
     return element;
@@ -280,7 +281,7 @@ export class FormElementView {
     this.updateHTMLAttributes();
 
     const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
-    const booleanAttrs = [...customBooleans, ...this.options.booleanAttrs];
+    const booleanAttrs = [...customBooleans, ...this.options.customBooleans];
     updateDOMAttributes(this.element, attrs, booleanAttrs);
 
     return true;
@@ -318,6 +319,7 @@ export class FormElementView {
       'SELECT', 
       'TEXTAREA',
       ...customElements.map((i) => i.toUpperCase()),
+      ...this.options.customElements.map((i) => i.toUpperCase()),
     ].includes(target.tagName) || target.isContentEditable;
 
     // any input event within node views should be ignored by ProseMirror
