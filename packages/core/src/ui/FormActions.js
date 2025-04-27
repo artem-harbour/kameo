@@ -191,7 +191,8 @@ export class FormActions extends LitElement {
 
     .form-actions-menu {
       --width: 200px;
-
+      
+      flex-direction: column;
       position: absolute;
       top: 0;
       right: 25px;
@@ -208,7 +209,7 @@ export class FormActions extends LitElement {
     }
 
     .form-actions-menu--open {
-      display: block;
+      display: flex;
     }
 
     .form-actions-menu__menu {
