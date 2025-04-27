@@ -5,19 +5,22 @@ import { getFormData } from './helpers/getFormData.js';
 import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
 import * as UIComponents from './ui/index.js';
 
+// TODO:
+// - Validation.
+
 export class Kameo extends Editor {
 
   constructor(options = {}) {
     const allOptions = {
       documentMode: 'edit',
       enableValidation: false,
+      handlers: {},
       onSubmit: () => null,
       onSubmitted: () => null,
       ...options,
     };
 
     super(allOptions);
-
     this.#init(allOptions);
   }
 
@@ -26,7 +29,9 @@ export class Kameo extends Editor {
   }
   
   #init(options) {
-    this.setDocumentMode(options.documentMode, { isInit: true });
+    this.submit = this.options.handlers?.submit ?? this.submit.bind(this);
+
+    this.setDocumentMode(this.options.documentMode, { isInit: true });
     
     this.on('submit', this.options.onSubmit);
     this.on('submitted', this.options.onSubmitted);
@@ -84,9 +89,10 @@ export class Kameo extends Editor {
   }
 
   /**
-   * TODO: Add validation, check if submit in progress?
+   * Submit method.
+   * TODO: check if submit in progres?
    */
-  submit(props = {}, options = {}) {
+  submit(props = {}) {
     const formData = getFormData(this.state.doc);
 
     const submitEvent = {

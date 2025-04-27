@@ -1,7 +1,7 @@
 import '@kameo/core/style/theme.css';
 import './assets/styles/main.css';
 
-import { Kameo } from '@kameo/core';
+import { Kameo, kameoHelpers } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
 import { TextStyle } from '@kameo/extension-text-style';
 import { FontFamily } from '@kameo/extension-font-family';
@@ -30,6 +30,20 @@ const initKameo = () => {
     ],
     documentMode,
 
+    // Override default handlers.
+    // handlers: {
+    //   async submit(props = {}) {
+    //     const formData = kameoHelpers.getFormData(this.state.doc);
+    //     await new Promise((resolve) => setTimeout(resolve, 3000));
+    //     this.emit('submitted', {
+    //       formData,
+    //       success: true,
+    //       message: 'Form is submitted',
+    //       props: { ...props, custom: true },
+    //     });
+    //   },
+    // },
+
     // Uncomment for faster development/testing.
     // content: baseForm,
   });
@@ -37,13 +51,6 @@ const initKameo = () => {
 };
 
 const listenKameoEvents = (kameo) => {
-  // Example: override original submit method.
-  const originalSubmit = kameo.submit;
-  kameo.submit = function(props = {}, options = {}) {
-    const customProps = { ...props, customSubmit: true };
-    return originalSubmit.apply(this, [customProps, options]);
-  };
-
   kameo.on('submit', async (event) => {
     console.log(`on 'submit' event`, { event });
     await new Promise((resolve) => setTimeout(resolve, 3000));
