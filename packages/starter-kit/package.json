@@ -37,6 +37,7 @@
     "@kameo/extension-form-input-name": "^0.0.12",
     "@kameo/extension-form-input-email": "^0.0.12",
     "@kameo/extension-form-input-date": "^0.0.12",
+    "@kameo/extension-form-input-time": "^0.0.12",
     "@kameo/extension-form-textarea": "^0.0.12",
     "@kameo/extension-form-submit": "^0.0.12",
     "@kameo/extension-form-rating": "^0.0.12",

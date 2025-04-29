@@ -23,9 +23,16 @@ export const formFields = [
   {
     id: 'formInputDate',
     title: 'Date',
-    description: 'Date',
+    description: 'Select date',
     name: 'date',
     fieldType: 'formInputDate',
+  },
+  {
+    id: 'formInputTime',
+    title: 'Time',
+    description: 'Select time',
+    name: 'time',
+    fieldType: 'formInputTime',
   },
   {
     id: 'formTextarea',
