@@ -1,0 +1,38 @@
+{
+  "name": "@kameo/extension-form-input-date",
+  "description": "form input date extension for kameo",
+  "version": "0.0.12",
+  "license": "",
+  "keywords": [
+    "kameo",
+    "extension"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@kameo/core": "^0.0.12",
+    "@kameo/extension-form-base": "^0.0.12",
+    "@kameo/form-input-base": "^0.0.12"
+  },
+  "peerDependencies": {
+    "@kameo/core": "^0.0.12",
+    "@kameo/extension-form-base": "^0.0.12",
+    "@kameo/form-input-base": "^0.0.12"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}
