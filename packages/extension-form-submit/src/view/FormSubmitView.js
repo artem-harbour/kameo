@@ -17,7 +17,7 @@ export class FormSubmitView extends FormElementView {
     const nodeTypeName = this.node.type.name;
 
     this.element = this.createElement();
-    this.element.textContent = this.node.attrs.text;
+    this.element.textContent = this.node.attrs.label;
     this.element.dataset.type = nodeTypeName;
     this.element.classList.add(`km-form-element--${nodeTypeName}`);
 
@@ -114,7 +114,7 @@ export class FormSubmitView extends FormElementView {
       return false;
     }
 
-    this.element.textContent = this.node.attrs.text;
+    this.element.textContent = this.node.attrs.label;
     
     return true;
   }

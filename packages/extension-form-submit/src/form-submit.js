@@ -29,9 +29,15 @@ export const FormSubmit = Node.create({
         parseHTML: (elem) => elem.getAttribute('id'),
       },
 
-      text: {
+      label: {
         default: 'Submit',
-        parseHTML: (elem) => elem.getAttribute('data-text'),
+        parseHTML: (elem) => elem.getAttribute('data-label'),
+        renderHTML: (attrs) => {
+          if (!attrs.label) return {};
+          return {
+            'data-label': attrs.label,
+          };
+        },
       },
 
       loading: {
