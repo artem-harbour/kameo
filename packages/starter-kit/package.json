@@ -41,6 +41,7 @@
     "@kameo/extension-form-input-time": "^0.0.12",
     "@kameo/extension-form-textarea": "^0.0.12",
     "@kameo/extension-form-submit": "^0.0.12",
+    "@kameo/extension-form-checkbox": "^0.0.12",
     "@kameo/extension-form-rating": "^0.0.12",
     "@kameo/form-input-base": "^0.0.12",
     "@tiptap/pm": "^2.11.7"

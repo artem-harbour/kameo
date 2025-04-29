@@ -49,6 +49,13 @@ export const formFields = [
     fieldType: 'formTextarea',
   },
   {
+    id: 'formCheckbox',
+    title: 'Checkbox',
+    description: 'Checkbox',
+    name: 'checkbox',
+    fieldType: 'formCheckbox',
+  },
+  {
     id: 'formRating',
     title: 'Rating',
     description: 'Rating',

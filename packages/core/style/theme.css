@@ -31,6 +31,14 @@
   margin: 24px 0;
 }
 
+.km-form-element-view--formCheckbox {
+  margin: 10px 0;
+}
+
+.km-form-element-view--formCheckbox .km-form-actions {
+  top: -4px;
+}
+
 .km-form-element-view--formSubmit {
   display: flex;
   justify-content: flex-end;

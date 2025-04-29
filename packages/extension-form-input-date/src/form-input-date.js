@@ -58,7 +58,7 @@ export const FormInputDate = FormInputBase.extend({
 
   addCommands() {
     return {
-      insertFormInputText: (pos, attrs = {}) => ({ commands }) => {
+      insertFormInputDate: (pos, attrs = {}) => ({ commands }) => {
         return commands.insertFormField(this.name, pos, attrs);
       },
     };

@@ -20,6 +20,7 @@ import { FormInputNumber } from '@kameo/extension-form-input-number';
 import { FormInputDate } from '@kameo/extension-form-input-date';
 import { FormInputTime } from '@kameo/extension-form-input-time';
 import { FormTextarea } from '@kameo/extension-form-textarea';
+import { FormCheckbox } from '@kameo/extension-form-checkbox';
 import { FormRating } from '@kameo/extension-form-rating';
 import { FormSubmit } from '@kameo/extension-form-submit';
  
@@ -99,6 +100,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.formTextarea !== false) {
       extensions.push(FormTextarea.configure(this.options?.formTextarea));
+    }
+
+    if (this.options.formCheckbox !== false) {
+      extensions.push(FormCheckbox.configure(this.options?.formCheckbox));
     }
 
     if (this.options.formRating !== false) {

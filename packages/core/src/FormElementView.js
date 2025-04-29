@@ -14,11 +14,13 @@ const customBooleans = [
   'no-spin-buttons',
   'autofocus',
   'spellcheck',
+  'indeterminate',
 ];
 
 const customElements = [
   'wa-input',
   'wa-textarea',
+  'wa-checkbox',
   'wa-button',
 ];
 
