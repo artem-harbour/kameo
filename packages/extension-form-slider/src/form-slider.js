@@ -1,8 +1,8 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormCheckboxView } from './view/FormCheckboxView.js';
+import { FormSliderView } from './view/FormSliderView.js';
 
-export const FormCheckbox = Node.create({
-  name: 'formCheckbox',
+export const FormSlider = Node.create({
+  name: 'formSlider',
 
   group: 'formField block',
 
@@ -15,10 +15,10 @@ export const FormCheckbox = Node.create({
   addOptions() {
     return {
       HTMLAttributes: {},
-      tagName: 'wa-checkbox',
+      tagName: 'wa-slider',
     };
   },
-
+  
   addAttributes() {
     return {
       id: {
@@ -26,51 +26,43 @@ export const FormCheckbox = Node.create({
         parseHTML: (elem) => elem.getAttribute('id'),
       },
       name: {
-        default: 'checkbox',
+        default: 'slider',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-      value: { // to double check
-        default: '',
-        parseHTML: (elem) => elem.getAttribute('value'),
-      },
       label: {
-        default: 'Checkbox',
-        parseHTML: (elem) => elem.getAttribute('data-label'),
-        renderHTML: (attrs) => {
-          if (!attrs.label) return {};
-          return {
-            'data-label': attrs.label,
-          };
-        },
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('label'),
       },
       hint: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('hint'),
       },
-      checked: {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('checked'),
+      value: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('value'),
       },
-      required: {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('required'),
-      },
-      disabled: {
+      disabled: { 
         default: false,
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
-      indeterminate: {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('indeterminate'),
-      },
-      
-      // Additional attributes.
-      size: {
+      min: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('size'),
+        parseHTML: (elem) => elem.getAttribute('min'),
+      },
+      max: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('max'),
+      }, 
+      step: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('step'),
+      },
+      tooltip: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('tooltip'),
       },
       fieldType: {
-        default: 'checkbox',
+        default: 'custom',
         rendered: false,
       },
     };
@@ -91,7 +83,7 @@ export const FormCheckbox = Node.create({
 
   addCommands() {
     return {
-      insertFormCheckbox: (pos, attrs = {}) => ({ commands }) => {
+      insertFormSlider: (pos, attrs = {}) => ({ commands }) => {
         return commands.insertFormField(this.name, pos, attrs);
       },
     };
@@ -99,10 +91,10 @@ export const FormCheckbox = Node.create({
 
   addNodeView() {
     return (props) => {
-      return new FormCheckboxView({ 
+      return new FormSliderView({
         ...props,
         tagName: this.options.tagName,
-      }, this.options);
+      });
     };
   },
 });

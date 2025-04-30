@@ -21,6 +21,10 @@ export const FormSwitch = Node.create({
 
   addAttributes() {
     return {
+      id: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('id'),
+      },
       name: {
         default: 'checkbox',
         parseHTML: (elem) => elem.getAttribute('name'),

@@ -70,6 +70,13 @@ export const formFields = [
     fieldType: 'formRating',
   },
   {
+    id: 'formSlider',
+    title: 'Slider',
+    description: 'Slider',
+    name: 'slider',
+    fieldType: 'formSlider',
+  },
+  {
     id: 'formSubmit',
     title: 'Submit',
     description: 'Submit your form',

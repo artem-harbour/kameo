@@ -22,6 +22,7 @@ const customElements = [
   'wa-textarea',
   'wa-checkbox',
   'wa-switch',
+  'wa-slider',
   'wa-button',
 ];
 
