@@ -56,6 +56,13 @@ export const formFields = [
     fieldType: 'formCheckbox',
   },
   {
+    id: 'formSwitch',
+    title: 'Switch',
+    description: 'Switch',
+    name: 'switch',
+    fieldType: 'formSwitch',
+  },
+  {
     id: 'formRating',
     title: 'Rating',
     description: 'Rating',

@@ -31,11 +31,13 @@
   margin: 24px 0;
 }
 
-.km-form-element-view--formCheckbox {
+.km-form-element-view--formCheckbox,
+.km-form-element-view--formSwitch {
   margin: 10px 0;
 }
 
-.km-form-element-view--formCheckbox .km-form-actions {
+.km-form-element-view--formCheckbox .km-form-actions,
+.km-form-element-view--formSwitch .km-form-actions {
   top: -4px;
 }
 
