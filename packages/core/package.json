@@ -1,13 +1,12 @@
 {
   "name": "@kameo/core",
-  "description": "Kameo library powered by ProseMirror and Tiptap",
+  "description": "Kameo library powered by ProseMirror",
   "version": "0.0.12",
   "license": "",
   "keywords": [
     "kameo",
-    "prosemirror",
-    "tiptap",
-    "editor"
+    "form editor",
+    "prosemirror"
   ],
   "type": "module",
   "main": "dist/index.cjs",
