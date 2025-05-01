@@ -5,7 +5,7 @@
   "license": "",
   "keywords": [
     "kameo",
-    "extension"
+    "kameo starter kit"
   ],
   "type": "module",
   "main": "dist/index.cjs",
