@@ -1,4 +1,3 @@
-import '@kameo/form-input-base';
 import { Extension } from '@kameo/core';
 import { Document } from '@kameo/extension-document';
 import { Paragraph } from '@kameo/extension-paragraph';
@@ -25,7 +24,7 @@ import { FormSwitch } from '@kameo/extension-form-switch';
 import { FormRating } from '@kameo/extension-form-rating';
 import { FormSlider } from '@kameo/extension-form-slider';
 import { FormSubmit } from '@kameo/extension-form-submit';
- 
+
 export const StarterKit = Extension.create({
   name: 'starterKit',
 

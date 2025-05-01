@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "@kameo/core": "^0.0.12",
+    "@kameo/extension-form-base": "^0.0.12",
     "@kameo/extension-document": "^0.0.12",
     "@kameo/extension-paragraph": "^0.0.12",
     "@kameo/extension-heading": "^0.0.12",
