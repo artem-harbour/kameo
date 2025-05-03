@@ -11,20 +11,20 @@ export class FormActions extends LitElement {
   constructor() {
     super();
     this.isMenuActive = false;
-    this.closeMenuOnClickOutside = this.closeMenuOnClickOutside.bind(this);
+    this._closeMenuOnClickOutside = this._closeMenuOnClickOutside.bind(this);
   }
 
-  handleAddClick() {
-    this.dispatchActionEvent({ type: 'add' });
+  _handleAddClick() {
+    this._dispatchActionEvent({ type: 'add' });
   }
 
-  handleMoveClick(event) {
+  _handleMoveClick(event) {
     event.stopPropagation();
     this.isMenuActive = !this.isMenuActive;
   }
 
-  handleMenuItemClick({ type } = {}) {
-    this.dispatchActionEvent({ type });
+  _handleMenuItemClick({ type } = {}) {
+    this._dispatchActionEvent({ type });
     this.closeMenu();
   }
 
@@ -32,7 +32,7 @@ export class FormActions extends LitElement {
     this.isMenuActive = false;
   }
 
-  closeMenuOnClickOutside(event) {
+  _closeMenuOnClickOutside(event) {
     if (!this.isMenuActive) {
       return;
     }
@@ -48,7 +48,7 @@ export class FormActions extends LitElement {
     }
   }
 
-  dispatchActionEvent({ type }) {
+  _dispatchActionEvent({ type }) {
     const event = new CustomEvent('action', {
       detail: { type },
       bubbles: true,
@@ -69,39 +69,39 @@ export class FormActions extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    document.addEventListener('click', this.closeMenuOnClickOutside);
+    document.addEventListener('click', this._closeMenuOnClickOutside);
   }
   
   disconnectedCallback() {
-    document.removeEventListener('click', this.closeMenuOnClickOutside);
+    document.removeEventListener('click', this._closeMenuOnClickOutside);
     super.disconnectedCallback();
   }
 
   render() {
     return html`
       <div class="form-actions">
-        <div class="form-actions__button form-actions__button--add" @click=${this.handleAddClick}>
+        <div class="form-actions__button form-actions__button--add" @click=${this._handleAddClick}>
           <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
         </div>
-        <div class="form-actions__button form-actions__button--move" @click=${this.handleMoveClick}>
+        <div class="form-actions__button form-actions__button--move" @click=${this._handleMoveClick}>
           <slot name="drag"></slot>
         </div>
 
         <div class="form-actions-menu ${this.isMenuActive ? 'form-actions-menu--open' : ''}">
             <div class="form-actions-menu__menu">
-              <div class="form-actions-menu__item form-actions-menu__item--disabled">
+              <div class="form-actions-menu__item" @click=${() => this._handleMenuItemClick({ type: 'settings' })}>
                 <div class="form-actions-menu__item-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
                 </div>
                 <div class="form-actions-menu__item-title"><span>Settings</span></div>
               </div>
-              <div class="form-actions-menu__item" @click=${() => this.handleMenuItemClick({ type: 'duplicate' })}>
+              <div class="form-actions-menu__item" @click=${() => this._handleMenuItemClick({ type: 'duplicate' })}>
                 <div class="form-actions-menu__item-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy-icon lucide-copy"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 </div>
                 <div class="form-actions-menu__item-title"><span>Duplicate</span></div>
               </div>
-              <div class="form-actions-menu__item" @click=${() => this.handleMenuItemClick({ type: 'delete' })}>
+              <div class="form-actions-menu__item" @click=${() => this._handleMenuItemClick({ type: 'delete' })}>
                 <div class="form-actions-menu__item-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
                 </div>

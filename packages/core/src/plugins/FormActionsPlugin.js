@@ -1,4 +1,3 @@
-
 import { Plugin, PluginKey } from '@tiptap/pm/state';
 
 export const FormActionsPluginKey = new PluginKey('FormActions');
