@@ -5,6 +5,7 @@ export class FormInputTextView extends FormElementView {
   constructor(props, options = {}) {
     super(props, options);
 
+    // TODO: use _handleInput instead?
     this.handleInput = this.handleInput.bind(this);
     this.handleFocus = this.handleFocus.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
