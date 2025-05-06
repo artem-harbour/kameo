@@ -3,6 +3,7 @@ import { style } from './style.js';
 import { createStyleTag } from './utilities/createStyleTag.js';
 import { getFormData } from './helpers/getFormData.js';
 import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
+import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 import * as UIComponents from './ui/index.js';
 
 // TODO:
@@ -45,6 +46,7 @@ export class Kameo extends Editor {
         this.setOptions({ documentMode: mode });
         this.setEditable(true, false);
         this.registerPlugin(FormActionsPlugin({ editor: this }));
+        this.registerPlugin(FormSettingsPlugin({ editor: this }));
         this.view.dom.classList.add(editModeClass);
         this.view.dom.classList.remove(viewModeClass);
         this.emit('documentModeUpdate', {
@@ -57,6 +59,7 @@ export class Kameo extends Editor {
         this.setOptions({ documentMode: mode });
         this.setEditable(false, false);
         this.unregisterPlugin(FormActionsPluginKey);
+        this.unregisterPlugin(FormSettingsPluginKey);
         this.view.dom.classList.add(viewModeClass);
         this.view.dom.classList.remove(editModeClass);
         this.emit('documentModeUpdate', {

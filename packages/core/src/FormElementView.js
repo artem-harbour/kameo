@@ -1,6 +1,7 @@
 import { isiOS, getRenderedAttributes, mergeAttributes } from '@tiptap/core';
 import { NodeSelection } from '@tiptap/pm/state';
 import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
+import { FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 
 const wrapperClass = 'km-form-element-view';
 const elementClass = 'km-form-element';
@@ -195,6 +196,13 @@ export class FormElementView {
             return true;
           })
           .run();
+      },
+      settings: () => {
+        this.editor.emit('openFormSettings', {
+          editor: this.editor,
+          node: this.node,
+          nodeView: this,
+        });
       },
       default: () => {
         console.log('Not implemented.');
