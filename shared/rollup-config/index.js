@@ -28,7 +28,7 @@ export const baseConfig = ({
       },
     ],
     external: [
-      /@tiptap\/pm\/.*/,
+      /@kameo\/pm\/.*/,
     ],
     plugins: [
       autoExternal({
