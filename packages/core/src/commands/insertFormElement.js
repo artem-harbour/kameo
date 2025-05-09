@@ -1,15 +1,14 @@
 export const insertFormElement = 
   (typeName, pos, attrs = {}) => 
-  ({ tr, dispatch, commands }) => {
+  ({ editor, tr, dispatch }) => {
+    const { schema } = editor;
+
     if (dispatch) {
       tr.setMeta('addToHistory', false);
 
       const insertPos = tr.mapping.map(pos);
-
-      return commands.insertContentAt(insertPos, {
-        type: typeName,
-        attrs,
-      }, { updateSelection: false });
+      const node = schema.nodes[typeName].create({ ...attrs }, null, null);
+      tr.insert(insertPos, node);
     }
 
     return true;
