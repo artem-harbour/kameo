@@ -1,6 +1,6 @@
 import { Extension, isNodeSelection } from '@kameo/core';
-import { Plugin, PluginKey } from '@tiptap/pm/state';
-import { Decoration, DecorationSet } from '@tiptap/pm/view';
+import { Plugin, PluginKey } from '@kameo/pm/state';
+import { Decoration, DecorationSet } from '@kameo/pm/view';
 
 export const Selection = Extension.create({
   name: 'selection',

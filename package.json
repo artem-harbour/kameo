@@ -10,6 +10,7 @@
     "start": "npm --prefix ./dev-playground run start",
     "dev": "npm run start",
     "build": "turbo run build",
+    "build:pm": "turbo run build --filter=@kameo/pm",
     "build:core": "turbo run build --filter=@kameo/core",
     "publish": "npm run build && npm run changeset publish",
     "clean:packages": "rm -rf ./packages/*/dist",
@@ -25,6 +26,8 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "rollup": "^4.28.1",
     "rollup-plugin-auto-external": "^2.0.0",
-    "turbo": "^2.3.3"
+    "tsup": "^8.4.0",
+    "turbo": "^2.3.3",
+    "typescript": "^5.8.3"
   }
 }

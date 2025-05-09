@@ -1,5 +1,5 @@
 import { Extension } from '@kameo/core';
-import { dropCursor } from '@tiptap/pm/dropcursor';
+import { dropCursor } from '@kameo/pm/dropcursor';
 
 export const Dropcursor = Extension.create({
   name: 'dropCursor',

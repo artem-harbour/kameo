@@ -1,5 +1,5 @@
 import { Extension } from '@kameo/core';
-import { history, redo, undo } from '@tiptap/pm/history';
+import { history, redo, undo } from '@kameo/pm/history';
 
 export const UndoRedo = Extension.create({
   name: 'undoRedo',

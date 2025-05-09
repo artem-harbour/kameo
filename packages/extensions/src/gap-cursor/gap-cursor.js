@@ -1,5 +1,5 @@
 import { Extension, callOrReturn, getExtensionField } from '@kameo/core';
-import { gapCursor } from '@tiptap/pm/gapcursor';
+import { gapCursor } from '@kameo/pm/gapcursor';
 
 export const Gapcursor = Extension.create({
   name: 'gapCursor',

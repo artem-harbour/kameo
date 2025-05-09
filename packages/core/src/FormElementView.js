@@ -1,7 +1,6 @@
 import { isiOS, getRenderedAttributes, mergeAttributes } from '@tiptap/core';
-import { NodeSelection } from '@tiptap/pm/state';
+import { NodeSelection } from '@kameo/pm/state';
 import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
-import { FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 
 const wrapperClass = 'km-form-element-view';
 const elementClass = 'km-form-element';
