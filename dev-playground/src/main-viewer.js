@@ -3,9 +3,8 @@ import './assets/styles/main-viewer.css';
 
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
-import { TextStyle } from '@kameo/extension-text-style';
-import { FontFamily } from '@kameo/extension-font-family';
-import { Color } from '@kameo/extension-color';
+import { FormKit } from '@kameo/form-kit';
+import { TextStyleKit } from '@kameo/extension-text-style';
 import { Image } from '@kameo/extension-image';
 import { handleBaseForm } from './helpers/handleBaseForm.js';
 import { handleImportForm } from './helpers/handleImportForm.js';
@@ -19,9 +18,8 @@ const initKameo = () => {
     element: document.querySelector('#kameo'),
     extensions: [
       StarterKit,
-      TextStyle,
-      FontFamily,
-      Color,
+      FormKit,
+      TextStyleKit,
       Image,
     ],
     content: baseForm,

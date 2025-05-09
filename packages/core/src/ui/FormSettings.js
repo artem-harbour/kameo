@@ -45,12 +45,6 @@ export class FormSettings extends LitElement {
   }
 
   render() {
-    console.log({
-      editor: this.editor,
-      node: this.node,
-      nodeView: this.nodeView,
-    });
-
     return html`
       <div class="form-settings">
         <div class="form-settings__settings">

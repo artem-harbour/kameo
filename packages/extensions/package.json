@@ -1,0 +1,47 @@
+{
+  "name": "@kameo/extensions",
+  "description": "various extensions for kameo",
+  "version": "0.0.12",
+  "license": "",
+  "keywords": [
+    "kameo",
+    "kameo extension"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./drop-cursor": {
+      "import": "./dist/drop-cursor/index.js",
+      "require": "./dist/drop-cursor/index.cjs"
+    },
+    "./gap-cursor": {
+      "import": "./dist/gap-cursor/index.js",
+      "require": "./dist/gap-cursor/index.cjs"
+    },
+    "./undo-redo": {
+      "import": "./dist/undo-redo/index.js",
+      "require": "./dist/undo-redo/index.cjs"
+    },
+    "./selection": {
+      "import": "./dist/selection/index.js",
+      "require": "./dist/selection/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {
+    "@kameo/core": "^0.0.12",
+    "@tiptap/pm": "^3.0.0-beta.5"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}

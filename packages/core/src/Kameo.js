@@ -1,6 +1,7 @@
 import { Editor } from '@tiptap/core';
 import { style } from './style.js';
-import { createStyleTag } from './utilities/createStyleTag.js';
+import { Commands, FormDrop } from './extensions/index.js'
+import { createStyleTag } from './utilities/index.js';
 import { getFormData } from './helpers/getFormData.js';
 import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
 import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
@@ -12,15 +13,26 @@ import * as UIComponents from './ui/index.js';
 export class Kameo extends Editor {
 
   constructor(options = {}) {
+    const coreExtensions = [
+      Commands,
+      FormDrop.configure({
+        handleDropOutside: options.coreExtensionOptions?.formDrop?.handleDropOutside ?? false,
+      }),
+    ];
+
     const allOptions = {
       documentMode: 'edit',
-      enableValidation: false,
       handlers: {},
       onSubmit: () => null,
       onSubmitted: () => null,
       ...options,
+      // to include kameo core extensions.
+      extensions: [
+        ...coreExtensions,
+        ...(options.extensions ? options.extensions : []),
+      ],
     };
-
+    
     super(allOptions);
     this.#init(allOptions);
   }
@@ -93,7 +105,6 @@ export class Kameo extends Editor {
 
   /**
    * Submit method.
-   * TODO: check if submit in progres?
    */
   submit(props = {}) {
     const formData = getFormData(this.state.doc);

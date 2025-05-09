@@ -5,7 +5,7 @@
   "license": "",
   "keywords": [
     "kameo",
-    "extension"
+    "kameo extension"
   ],
   "type": "module",
   "main": "dist/index.cjs",
@@ -14,6 +14,34 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./background-color": {
+      "import": "./dist/background-color/index.js",
+      "require": "./dist/background-color/index.cjs"
+    },
+    "./color": {
+      "import": "./dist/color/index.js",
+      "require": "./dist/color/index.cjs"
+    },
+    "./font-family": {
+      "import": "./dist/font-family/index.js",
+      "require": "./dist/font-family/index.cjs"
+    },
+    "./font-size": {
+      "import": "./dist/font-size/index.js",
+      "require": "./dist/font-size/index.cjs"
+    },
+    "./line-height": {
+      "import": "./dist/line-height/index.js",
+      "require": "./dist/line-height/index.cjs"
+    },
+    "./text-style": {
+      "import": "./dist/text-style/index.js",
+      "require": "./dist/text-style/index.cjs"
+    },
+    "./text-style-kit": {
+      "import": "./dist/text-style-kit/index.js",
+      "require": "./dist/text-style-kit/index.cjs"
     }
   },
   "files": [

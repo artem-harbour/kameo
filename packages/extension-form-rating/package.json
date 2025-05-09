@@ -22,12 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/extension-form-base": "^0.0.12"
+    "@kameo/core": "^0.0.12"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/extension-form-base": "^0.0.12"
+    "@kameo/core": "^0.0.12"
   },
   "scripts": {
     "clean": "rm -rf dist",
