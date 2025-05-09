@@ -172,8 +172,10 @@ export class FormElementView {
         this.editor
           .chain()
           .command(({ commands }) => {
-            const pos = this.getPos() + this.node.nodeSize;
-            commands.insertContentAt(pos, {
+            const pos = this.getPos();
+            if (typeof pos !== 'number') return;
+            const insertPos = pos + this.node.nodeSize;
+            commands.insertContentAt(insertPos, {
               type: 'text',
               text: ' ',
             });
@@ -189,8 +191,10 @@ export class FormElementView {
           .chain()
           .command(({ state, dispatch }) => {
             const tr = state.tr;
-            const pos = this.getPos() + this.node.nodeSize;
-            tr.insert(pos, this.node.type.create(this.node.attrs));
+            const pos = this.getPos();
+            if (typeof pos !== 'number') return;
+            const insertPos = pos + this.node.nodeSize;
+            tr.insert(insertPos, this.node.type.create(this.node.attrs));
             dispatch(tr);
             return true;
           })
@@ -283,12 +287,14 @@ export class FormElementView {
   /**
    * Update NodeView (otherwise the NodeView is recreated).
    */
-  update(node) {
+  update(node, decorations, innerDecorations) {
     if (node.type !== this.node.type) {
       return false;
     }
 
     this.node = node;
+    this.decorations = decorations;
+    this.innerDecorations = innerDecorations;
     this.updateHTMLAttributes();
 
     const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
@@ -368,15 +374,15 @@ export class FormElementView {
         this.isDragging = true;
 
         document.addEventListener('dragend', () => {
-          this.isDragging = false
+          this.isDragging = false;
         }, { once: true });
 
         document.addEventListener('drop', () => {
-          this.isDragging = false
-        }, { once: true })
+          this.isDragging = false;
+        }, { once: true });
 
         document.addEventListener('mouseup', () => {
-          this.isDragging = false
+          this.isDragging = false;
         }, { once: true });
       }
     }
@@ -437,7 +443,7 @@ export class FormElementView {
 
       // we’ll check if every changed node is contentEditable
       // to make sure it’s probably mutated by ProseMirror
-      if (changedNodes.every(node => node.isContentEditable)) {
+      if (changedNodes.every((node) => node.isContentEditable)) {
         return false;
       }
     }

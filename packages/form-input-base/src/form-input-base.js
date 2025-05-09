@@ -108,7 +108,7 @@ export const FormInputBase = Node.create({
       },
 
       /* 
-      // Only applies to password input types.
+      Only applies to password input types.
       'password-toggle': {
         default: false,
         parseHTML: (elem) => elem.hasAttribute('password-toggle'),
@@ -118,13 +118,13 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.hasAttribute('password-visible'),
       },
 
-      // Only applies to number input types.
+      Only applies to number input types.
       'no-spin-buttons': {
         default: false,
         parseHTML: (elem) => elem.hasAttribute('no-spin-buttons'),
       },
 
-      // Only applies to date and number input types.
+      Only applies to date and number input types.
       min: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('min'),
