@@ -47,7 +47,7 @@
     "@kameo/extension-form-rating": "^0.0.12",
     "@kameo/extension-form-slider": "^0.0.12",
     "@kameo/form-input-base": "^0.0.12",
-    "@tiptap/pm": "^2.11.7"
+    "@tiptap/pm": "^3.0.0-beta.5"
   },
   "scripts": {
     "clean": "rm -rf dist",

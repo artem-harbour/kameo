@@ -19,16 +19,14 @@ export const TextAlign = Extension.create({
           textAlign: {
             default: this.options.defaultAlignment,
             parseHTML: (element) => {
-              const alignment = element.style.textAlign
-
-              return this.options.alignments.includes(alignment) ? alignment : this.options.defaultAlignment
+              const alignment = element.style.textAlign;
+              return this.options.alignments.includes(alignment) ? alignment : this.options.defaultAlignment;
             },
             renderHTML: (attributes) => {
               if (!attributes.textAlign) {
-                return {}
+                return {};
               }
-
-              return { style: `text-align: ${attributes.textAlign}` }
+              return { style: `text-align: ${attributes.textAlign}` };
             },
           },
         },
@@ -52,6 +50,17 @@ export const TextAlign = Extension.create({
         return this.options.types
           .map(type => commands.resetAttributes(type, 'textAlign'))
           .every(response => response);
+      },
+
+      toggleTextAlign: (alignment) => ({ editor, commands }) => {
+        if (!this.options.alignments.includes(alignment)) {
+          return false;
+        }
+        
+        if (editor.isActive({ textAlign: alignment })) {
+          return commands.unsetTextAlign();
+        }
+        return commands.setTextAlign(alignment);
       },
     };
   },

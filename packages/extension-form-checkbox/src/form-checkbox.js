@@ -29,7 +29,8 @@ export const FormCheckbox = Node.create({
         default: 'checkbox',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-      value: { // to double check
+      // to double check
+      value: { 
         default: '',
         parseHTML: (elem) => elem.getAttribute('value'),
       },
@@ -63,8 +64,6 @@ export const FormCheckbox = Node.create({
         default: false,
         parseHTML: (elem) => elem.hasAttribute('indeterminate'),
       },
-      
-      // Additional attributes.
       size: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
@@ -92,7 +91,7 @@ export const FormCheckbox = Node.create({
   addCommands() {
     return {
       insertFormCheckbox: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

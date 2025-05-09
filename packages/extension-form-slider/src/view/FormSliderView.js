@@ -5,12 +5,12 @@ export class FormSliderView extends FormElementView {
   constructor(props, options = {}) {
     super(props, { ...options });
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
+    this._handleChange = this._handleChange.bind(this);
+    this._handleInput = this._handleInput.bind(this);
+    this._handleFocus = this._handleFocus.bind(this);
+    this._handleBlur = this._handleBlur.bind(this);
 
-    this.addEventListeners();
+    this._addEventListeners();
   }
 
   mount() {
@@ -25,7 +25,7 @@ export class FormSliderView extends FormElementView {
     });
   }
 
-  handleChange(event) {
+  _handleChange(event) {
     this.updateAttributes({
       value: event.target.value,
     });
@@ -37,7 +37,7 @@ export class FormSliderView extends FormElementView {
     });
   }
 
-  handleInput(event) {
+  _handleInput(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'input', { 
       event, 
       node: this.node, 
@@ -45,7 +45,7 @@ export class FormSliderView extends FormElementView {
     });
   }
 
-  handleFocus(event) {
+  _handleFocus(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'focus', { 
       event, 
       node: this.node, 
@@ -53,7 +53,7 @@ export class FormSliderView extends FormElementView {
     });
   }
 
-  handleBlur(event) {
+  _handleBlur(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'blur', { 
       event, 
       node: this.node, 
@@ -61,18 +61,18 @@ export class FormSliderView extends FormElementView {
     });
   }
 
-  addEventListeners() {
-    this.element.addEventListener('wa-change', this.handleChange);
-    this.element.addEventListener('input', this.handleInput);
-    this.element.addEventListener('focus', this.handleFocus);
-    this.element.addEventListener('blur', this.handleBlur);
+  _addEventListeners() {
+    this.element.addEventListener('wa-change', this._handleChange);
+    this.element.addEventListener('input', this._handleInput);
+    this.element.addEventListener('focus', this._handleFocus);
+    this.element.addEventListener('blur', this._handleBlur);
   }
 
-  removeEventListeners() {
-    this.element.removeEventListener('wa-change', this.handleChange);
-    this.element.removeEventListener('input', this.handleInput);
-    this.element.removeEventListener('focus', this.handleFocus);
-    this.element.removeEventListener('blur', this.handleBlur);
+  _removeEventListeners() {
+    this.element.removeEventListener('wa-change', this._handleChange);
+    this.element.removeEventListener('input', this._handleInput);
+    this.element.removeEventListener('focus', this._handleFocus);
+    this.element.removeEventListener('blur', this._handleBlur);
   }
 
   update(node) {
@@ -81,6 +81,6 @@ export class FormSliderView extends FormElementView {
 
   destroy() {
     super.destroy();
-    this.removeEventListeners();
+    this._removeEventListeners();
   }
 }

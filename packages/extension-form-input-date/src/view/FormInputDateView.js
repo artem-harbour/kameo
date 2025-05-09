@@ -5,11 +5,11 @@ export class FormInputDateView extends FormElementView {
   constructor(props, options = {}) {
     super(props, options);
 
-    this.handleInput = this.handleInput.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
+    this._handleInput = this._handleInput.bind(this);
+    this._handleFocus = this._handleFocus.bind(this);
+    this._handleBlur = this._handleBlur.bind(this);
 
-    this.addEventListeners();
+    this._addEventListeners();
   }
 
   mount() {
@@ -24,7 +24,7 @@ export class FormInputDateView extends FormElementView {
     });
   }
 
-  handleInput(event) {
+  _handleInput(event) {
     this.updateAttributes({
       value: event.target.value,
     });
@@ -36,7 +36,7 @@ export class FormInputDateView extends FormElementView {
     });
   }
 
-  handleFocus(event) {
+  _handleFocus(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'focus', { 
       event, 
       node: this.node, 
@@ -44,7 +44,7 @@ export class FormInputDateView extends FormElementView {
     });
   }
 
-  handleBlur(event) {
+  _handleBlur(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'blur', { 
       event, 
       node: this.node, 
@@ -52,16 +52,16 @@ export class FormInputDateView extends FormElementView {
     });
   }
 
-  addEventListeners() {
-    this.element.addEventListener('input', this.handleInput);
-    this.element.addEventListener('focus', this.handleFocus);
-    this.element.addEventListener('blur', this.handleBlur);
+  _addEventListeners() {
+    this.element.addEventListener('input', this._handleInput);
+    this.element.addEventListener('focus', this._handleFocus);
+    this.element.addEventListener('blur', this._handleBlur);
   }
 
-  removeEventListeners() {
-    this.element.removeEventListener('input', this.handleInput);
-    this.element.removeEventListener('focus', this.handleFocus);
-    this.element.removeEventListener('blur', this.handleBlur);
+  _removeEventListeners() {
+    this.element.removeEventListener('input', this._handleInput);
+    this.element.removeEventListener('focus', this._handleFocus);
+    this.element.removeEventListener('blur', this._handleBlur);
   }
 
   update(node) {
@@ -70,6 +70,6 @@ export class FormInputDateView extends FormElementView {
 
   destroy() {
     super.destroy();
-    this.removeEventListeners();
+    this._removeEventListeners();
   }
 }

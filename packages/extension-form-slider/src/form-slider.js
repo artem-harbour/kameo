@@ -84,7 +84,7 @@ export const FormSlider = Node.create({
   addCommands() {
     return {
       insertFormSlider: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

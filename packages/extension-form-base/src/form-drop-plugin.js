@@ -39,7 +39,7 @@ export const FormDropPlugin = (options = {}) => {
 
             if (coordinates) {
               const { fieldType, attrs } = formFieldData;
-              editor.commands.insertFormField(fieldType, coordinates.pos, { ...attrs });
+              editor.commands.insertFormElement(fieldType, coordinates.pos, { ...attrs });
             }
           }
           

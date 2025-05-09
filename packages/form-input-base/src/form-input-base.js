@@ -101,6 +101,12 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.getAttribute('inputmode'),
       },
 
+      // Custom attributes.
+      fieldType: {
+        default: 'input',
+        rendered: false,
+      },
+
       /* 
       // Only applies to password input types.
       'password-toggle': {

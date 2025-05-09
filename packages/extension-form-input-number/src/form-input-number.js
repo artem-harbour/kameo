@@ -30,20 +30,13 @@ export const FormInputNumber = FormInputBase.extend({
         default: 'number',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-
       label: {
         default: 'Enter number',
         parseHTML: (elem) => elem.getAttribute('label'),
       },
-
       placeholder: {
         default: 'Enter number',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
-      },
-      
-      fieldType: {
-        default: 'input',
-        rendered: false,
       },
     };
   },
@@ -64,7 +57,7 @@ export const FormInputNumber = FormInputBase.extend({
   addCommands() {
     return {
       insertFormInputNumber: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

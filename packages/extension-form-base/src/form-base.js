@@ -13,7 +13,7 @@ export const FormBase = Extension.create({
 
   addCommands() {
     return {
-      insertFormField: (typeName, pos, attrs = {}) => ({
+      insertFormElement: (typeName, pos, attrs = {}) => ({
         dispatch,
         tr,
         commands,
@@ -21,9 +21,9 @@ export const FormBase = Extension.create({
         if (dispatch) {
           tr.setMeta('addToHistory', false);
 
-          let posMapped = tr.mapping.map(pos);
+          const insertPos = tr.mapping.map(pos);
 
-          return commands.insertContentAt(posMapped, {
+          return commands.insertContentAt(insertPos, {
             type: typeName,
             attrs,
           }, { updateSelection: false });

@@ -35,10 +35,8 @@ export const Heading = Node.create({
 
   renderHTML({ node, HTMLAttributes }) {
     const hasLevel = this.options.levels.includes(node.attrs.level);
-    const level = hasLevel
-      ? node.attrs.level
-      : this.options.levels[0];
-
+    const level = hasLevel ? node.attrs.level : this.options.levels[0];
+    
     return [`h${level}`, mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0];
   },
 

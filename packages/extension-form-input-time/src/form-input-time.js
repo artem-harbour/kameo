@@ -30,15 +30,9 @@ export const FormInputTime = FormInputBase.extend({
         default: 'time',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-
       label: {
         default: 'Select time',
         parseHTML: (elem) => elem.getAttribute('label'),
-      },
-      
-      fieldType: {
-        default: 'input',
-        rendered: false,
       },
     };
   },
@@ -59,7 +53,7 @@ export const FormInputTime = FormInputBase.extend({
   addCommands() {
     return {
       insertFormInputTime: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

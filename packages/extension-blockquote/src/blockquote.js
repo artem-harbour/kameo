@@ -21,9 +21,7 @@ export const Blockquote = Node.create({
   },
 
   parseHTML() {
-    return [
-      { tag: 'blockquote' },
-    ];
+    return [{ tag: 'blockquote' }];
   },
 
   renderHTML({ HTMLAttributes }) {

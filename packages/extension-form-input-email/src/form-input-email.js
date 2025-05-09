@@ -30,20 +30,13 @@ export const FormInputEmail = FormInputBase.extend({
         default: 'email',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-
       label: {
         default: 'Enter your email',
         parseHTML: (elem) => elem.getAttribute('label'),
       },
-
       placeholder: {
         default: 'Enter email',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
-      },
-      
-      fieldType: {
-        default: 'input',
-        rendered: false,
       },
     };
   },
@@ -64,7 +57,7 @@ export const FormInputEmail = FormInputBase.extend({
   addCommands() {
     return {
       insertFormInputEmail: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

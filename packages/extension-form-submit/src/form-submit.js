@@ -28,7 +28,6 @@ export const FormSubmit = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('id'),
       },
-
       label: {
         default: 'Submit',
         parseHTML: (elem) => elem.getAttribute('data-label'),
@@ -39,18 +38,14 @@ export const FormSubmit = Node.create({
           };
         },
       },
-
       loading: {
         default: false,
         parseHTML: (elem) => elem.hasAttribute('loading'),
       },
-
       disabled: {
         default: false,
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
-
-      // Additional attributes.
       variant: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('variant'),
@@ -85,21 +80,8 @@ export const FormSubmit = Node.create({
 
   addCommands() {
     return {
-      insertFormSubmit: (pos, attrs = {}) => ({
-        dispatch,
-        tr,
-        commands,
-      }) => {
-        if (dispatch) {
-          let posMapped = tr.mapping.map(pos);
-
-          return commands.insertContentAt(posMapped, {
-            type: this.name,
-            attrs,
-          }, { updateSelection: false });
-        }
-
-        return true;
+      insertFormSubmit: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

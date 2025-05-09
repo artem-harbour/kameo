@@ -30,20 +30,13 @@ export const FormInputName = FormInputBase.extend({
         default: 'name',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-
       label: {
         default: 'Enter your full name',
         parseHTML: (elem) => elem.getAttribute('label'),
       },
-
       placeholder: {
         default: 'Enter full name',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
-      },
-
-      fieldType: {
-        default: 'input',
-        rendered: false,
       },
     };
   },
@@ -64,7 +57,7 @@ export const FormInputName = FormInputBase.extend({
   addCommands() {
     return {
       insertFormInputName: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

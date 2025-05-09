@@ -37,6 +37,12 @@ export const Image = Node.create({
       title: {
         default: null,
       },
+      width: {
+        default: null,
+      },
+      height: {
+        default: null,
+      },
     };
   },
 

@@ -5,12 +5,12 @@ export class FormSubmitView extends FormElementView {
   constructor(props, options = {}) {
     super(props, { ...options });
 
-    this.handleClick = this.handleClick.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.handleSubmitted = this.handleSubmitted.bind(this);
+    this._handleClick = this._handleClick.bind(this);
+    this._handleFocus = this._handleFocus.bind(this);
+    this._handleBlur = this._handleBlur.bind(this);
+    this._handleSubmitted = this._handleSubmitted.bind(this);
 
-    this.addEventListeners();
+    this._addEventListeners();
   }
 
   mount() {
@@ -26,7 +26,7 @@ export class FormSubmitView extends FormElementView {
     });
   }
 
-  handleClick(event) {
+  _handleClick(event) {
     if (this.editor.documentMode === 'edit') {
       return;
     }
@@ -40,10 +40,10 @@ export class FormSubmitView extends FormElementView {
       return;
     }
     
-    this.handleSubmit(event);
+    this._handleSubmit(event);
   }
 
-  handleFocus(event) {
+  _handleFocus(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'focus', { 
       event, 
       node: this.node, 
@@ -51,7 +51,7 @@ export class FormSubmitView extends FormElementView {
     });
   }
 
-  handleBlur(event) {
+  _handleBlur(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'blur', { 
       event, 
       node: this.node, 
@@ -59,7 +59,7 @@ export class FormSubmitView extends FormElementView {
     });
   }
 
-  handleSubmit(event) {
+  _handleSubmit(event) {
     const { loading, disabled } = this.node.attrs;
     const { submitProps, disableOnSubmit } = this.options;
 
@@ -82,7 +82,7 @@ export class FormSubmitView extends FormElementView {
     });
   }
 
-  handleSubmitted() {
+  _handleSubmitted() {
     const { disableOnSubmit } = this.options;
 
     if (disableOnSubmit) {
@@ -93,18 +93,18 @@ export class FormSubmitView extends FormElementView {
     }
   }
 
-  addEventListeners() {
-    this.editor.on('submitted', this.handleSubmitted);
-    this.element.addEventListener('click', this.handleClick);
-    this.element.addEventListener('focus', this.handleFocus);
-    this.element.addEventListener('blur', this.handleBlur);
+  _addEventListeners() {
+    this.editor.on('submitted', this._handleSubmitted);
+    this.element.addEventListener('click', this._handleClick);
+    this.element.addEventListener('focus', this._handleFocus);
+    this.element.addEventListener('blur', this._handleBlur);
   }
 
-  removeEventListeners() {
-    this.editor.off('submitted', this.handleSubmitted);
-    this.element.removeEventListener('click', this.handleClick);
-    this.element.removeEventListener('focus', this.handleFocus);
-    this.element.removeEventListener('blur', this.handleBlur);
+  _removeEventListeners() {
+    this.editor.off('submitted', this._handleSubmitted);
+    this.element.removeEventListener('click', this._handleClick);
+    this.element.removeEventListener('focus', this._handleFocus);
+    this.element.removeEventListener('blur', this._handleBlur);
   }
 
   update(node) {
@@ -121,6 +121,6 @@ export class FormSubmitView extends FormElementView {
 
   destroy() {
     super.destroy();
-    this.removeEventListeners();
+    this._removeEventListeners();
   }
 }

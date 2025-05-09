@@ -26,10 +26,11 @@ export const FormSwitch = Node.create({
         parseHTML: (elem) => elem.getAttribute('id'),
       },
       name: {
-        default: 'checkbox',
+        default: 'switch',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-      value: { // to double check
+      // to double check
+      value: {
         default: '',
         parseHTML: (elem) => elem.getAttribute('value'),
       },
@@ -59,8 +60,6 @@ export const FormSwitch = Node.create({
         default: false,
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
-      
-      // Additional attributes.
       size: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
@@ -88,7 +87,7 @@ export const FormSwitch = Node.create({
   addCommands() {
     return {
       insertFormSwitch: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

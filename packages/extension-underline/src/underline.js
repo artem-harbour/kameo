@@ -17,7 +17,7 @@ export const Underline = Mark.create({
       {
         style: 'text-decoration',
         consuming: false,
-        getAttrs: style => (style.includes('underline') ? {} : false),
+        getAttrs: (style) => (style.includes('underline') ? {} : false),
       },
     ];
   },

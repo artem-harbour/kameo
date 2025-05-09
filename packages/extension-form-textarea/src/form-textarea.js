@@ -21,7 +21,6 @@ export const FormTextarea = Node.create({
 
   addAttributes() {
     return {
-      // Main attributes.
       id: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('id'),
@@ -66,8 +65,6 @@ export const FormTextarea = Node.create({
         default: false,
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
-
-      // Additional attributes.
       size: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
@@ -135,7 +132,7 @@ export const FormTextarea = Node.create({
   addCommands() {
     return {
       insertFormTextarea: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

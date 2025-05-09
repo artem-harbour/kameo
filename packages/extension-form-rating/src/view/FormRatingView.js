@@ -5,10 +5,10 @@ export class FormRatingView extends FormElementView {
   constructor(props, options = {}) {
     super(props, { ...options });
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleHover = this.handleHover.bind(this);
+    this._handleChange = this._handleChange.bind(this);
+    this._handleHover = this._handleHover.bind(this);
 
-    this.addEventListeners();
+    this._addEventListeners();
   }
 
   mount() {
@@ -23,7 +23,7 @@ export class FormRatingView extends FormElementView {
     });
   }
 
-  handleChange(event) {
+  _handleChange(event) {
     this.updateAttributes({
       value: event.target.value,
     });
@@ -35,7 +35,7 @@ export class FormRatingView extends FormElementView {
     });
   }
 
-  handleHover(event) {
+  _handleHover(event) {
     this.editor.emitNodeEvent(this.node.type.name, 'hover', { 
       event, 
       node: this.node, 
@@ -43,14 +43,14 @@ export class FormRatingView extends FormElementView {
     });
   }
 
-  addEventListeners() {
-    this.element.addEventListener('wa-change', this.handleChange);
-    this.element.addEventListener('wa-hover', this.handleHover);
+  _addEventListeners() {
+    this.element.addEventListener('wa-change', this._handleChange);
+    this.element.addEventListener('wa-hover', this._handleHover);
   }
 
-  removeEventListeners() {
-    this.element.removeEventListener('wa-change', this.handleChange);
-    this.element.removeEventListener('wa-hover', this.handleHover);
+  _removeEventListeners() {
+    this.element.removeEventListener('wa-change', this._handleChange);
+    this.element.removeEventListener('wa-hover', this._handleHover);
   }
 
   update(node) {
@@ -59,6 +59,6 @@ export class FormRatingView extends FormElementView {
 
   destroy() {
     super.destroy();
-    this.removeEventListeners();
+    this._removeEventListeners();
   }
 }

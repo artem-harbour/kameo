@@ -25,47 +25,38 @@ export const FormRating = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('id'),
       },
-
       name: {
         default: 'rating',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-
       label: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('label'),
       },
-
       value: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('value'),
       },
-
       max: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('max'),
       },
-
       precision: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('precision'),
       },
-
       readonly: {
         default: false,
         parseHTML: (elem) => elem.hasAttribute('readonly'),
       },
-
       disabled: { 
         default: false,
         parseHTML: (elem) => elem.hasAttribute('disabled'),
       },
-
       size: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
       },
-
       fieldType: {
         default: 'custom',
         rendered: false,
@@ -89,7 +80,7 @@ export const FormRating = Node.create({
   addCommands() {
     return {
       insertFormRating: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },

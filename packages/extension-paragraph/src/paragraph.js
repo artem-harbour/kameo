@@ -16,9 +16,7 @@ export const Paragraph = Node.create({
   },
 
   parseHTML() {
-    return [
-      { tag: 'p' },
-    ];
+    return [{ tag: 'p' }];
   },
 
   renderHTML({ HTMLAttributes }) {

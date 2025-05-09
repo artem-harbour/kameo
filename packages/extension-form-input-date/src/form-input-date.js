@@ -30,15 +30,9 @@ export const FormInputDate = FormInputBase.extend({
         default: 'date',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
-
       label: {
         default: 'Select date',
         parseHTML: (elem) => elem.getAttribute('label'),
-      },
-      
-      fieldType: {
-        default: 'input',
-        rendered: false,
       },
     };
   },
@@ -59,7 +53,7 @@ export const FormInputDate = FormInputBase.extend({
   addCommands() {
     return {
       insertFormInputDate: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormField(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, attrs);
       },
     };
   },
