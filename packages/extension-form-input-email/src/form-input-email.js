@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase } from '@kameo/form-input-base';
+import { FormInputBase, settings } from '@kameo/form-input-base';
 import { FormInputEmailView } from './view/FormInputEmailView.js';
 
 export const FormInputEmail = FormInputBase.extend({
@@ -19,6 +19,15 @@ export const FormInputEmail = FormInputBase.extend({
         type: 'email',
       },
       tagName: 'wa-input',
+    };
+  },
+
+  addStorage() {
+    const newSettings = { ...settings };
+    newSettings.value = { ...newSettings.value, inputType: 'email' };
+    
+    return {
+      settings: Object.freeze({ ...newSettings }),
     };
   },
 

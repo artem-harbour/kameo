@@ -73,8 +73,8 @@ export class FormActions extends LitElement {
   }
   
   disconnectedCallback() {
-    document.removeEventListener('click', this._closeMenuOnClickOutside);
     super.disconnectedCallback();
+    document.removeEventListener('click', this._closeMenuOnClickOutside);
   }
 
   render() {

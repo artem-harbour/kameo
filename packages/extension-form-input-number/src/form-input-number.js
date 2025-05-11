@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase } from '@kameo/form-input-base';
+import { FormInputBase, settings } from '@kameo/form-input-base';
 import { FormInputNumberView } from './view/FormInputNumberView.js';
 
 export const FormInputNumber = FormInputBase.extend({
@@ -19,6 +19,15 @@ export const FormInputNumber = FormInputBase.extend({
         type: 'number',
       },
       tagName: 'wa-input',
+    };
+  },
+
+  addStorage() {
+    const newSettings = { ...settings };
+    newSettings.value = { ...newSettings.value, inputType: 'number' };
+    
+    return {
+      settings: Object.freeze({ ...newSettings }),
     };
   },
 

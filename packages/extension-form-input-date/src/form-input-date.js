@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase } from '@kameo/form-input-base';
+import { FormInputBase, settings } from '@kameo/form-input-base';
 import { FormInputDateView } from './view/FormInputDateView.js';
 
 export const FormInputDate = FormInputBase.extend({
@@ -19,6 +19,15 @@ export const FormInputDate = FormInputBase.extend({
         type: 'date',
       },
       tagName: 'wa-input',
+    };
+  },
+
+  addStorage() {
+    const newSettings = { ...settings };
+    newSettings.value = { ...newSettings.value, inputType: 'date' };
+    
+    return {
+      settings: Object.freeze({ ...newSettings }),
     };
   },
 

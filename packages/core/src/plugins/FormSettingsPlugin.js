@@ -34,6 +34,7 @@ export class FormSettingsView {
   addSettings() {
     this.panelElement = this.createPanel();
     this.formSettings = this.createSettings();
+    this.formSettings.editor = this.editor;
     this.panelElement.append(this.formSettings);
     document.body.append(this.panelElement);
   }
@@ -68,7 +69,6 @@ export class FormSettingsView {
   openSettings({ editor, node, nodeView }) {
     if (!this.panelElement) return;
     this.panelElement.open = true;
-    this.formSettings.editor = editor;
     this.formSettings.node = node;
     this.formSettings.nodeView = nodeView;
   }
@@ -113,7 +113,8 @@ export class FormSettingsView {
   }
 
   onPanelAfterHide() {
-    console.debug('onPanelAfterHide');
+    this.formSettings.node = null;
+    this.formSettings.nodeView = null;
   }
 
   update(view, oldState) {}

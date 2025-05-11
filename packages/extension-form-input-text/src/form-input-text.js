@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase } from '@kameo/form-input-base';
+import { FormInputBase, settings } from '@kameo/form-input-base';
 import { FormInputTextView } from './view/FormInputTextView.js';
 
 export const FormInputText = FormInputBase.extend({
@@ -19,6 +19,12 @@ export const FormInputText = FormInputBase.extend({
         type: 'text',
       },
       tagName: 'wa-input',
+    };
+  },
+
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...settings }),
     };
   },
 

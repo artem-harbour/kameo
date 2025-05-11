@@ -1,2 +1,2 @@
-export * from './FormActions.js';
-export * from './FormSettings.js';
+export * from './form-actions/index.js';
+export * from './form-settings/index.js';
