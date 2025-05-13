@@ -134,7 +134,9 @@ export class FormElementView {
 
     const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
     const booleanAttrs = [...customBooleans, ...this.options.customBooleans];
-    updateDOMAttributes(element, attrs, booleanAttrs);
+    updateDOMAttributes(element, attrs, {
+      customBooleans: booleanAttrs,
+    });
     
     return element;
   }
@@ -299,7 +301,9 @@ export class FormElementView {
 
     const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
     const booleanAttrs = [...customBooleans, ...this.options.customBooleans];
-    updateDOMAttributes(this.element, attrs, booleanAttrs);
+    updateDOMAttributes(this.element, attrs, {
+      customBooleans: booleanAttrs,
+    });
 
     return true;
   }

@@ -8,7 +8,13 @@ export const FormInputBase = Node.create({
       // Main attributes.
       id: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
+        parseHTML: (elem) => elem.getAttribute('data-id'),
+        renderHTML: (attrs) => {
+          if (attrs.id == null) return {};
+          return {
+            'data-id': attrs.id,
+          };
+        },
       },
       name: {
         default: '',
