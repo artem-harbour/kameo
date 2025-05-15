@@ -1,6 +1,8 @@
-import { Node, mergeAttributes } from '@kameo/core';
+import { Node, mergeAttributes, kameoHelpers } from '@kameo/core';
 import { FormInputBase, createSettings } from '@kameo/form-input-base';
 import { FormInputNumberView } from './view/FormInputNumberView.js';
+
+const { createSettingControl } = kameoHelpers;
 
 export const FormInputNumber = FormInputBase.extend({
   name: 'formInputNumber',
@@ -24,7 +26,10 @@ export const FormInputNumber = FormInputBase.extend({
 
   addStorage() {
     return {
-      settings: Object.freeze({ ...createSettings() }),
+      settings: Object.freeze({ 
+        ...createSettings(),
+        ...createFeldSettings(),
+      }),
     };
   },
 
@@ -43,6 +48,25 @@ export const FormInputNumber = FormInputBase.extend({
       placeholder: {
         default: 'Enter number',
         parseHTML: (elem) => elem.getAttribute('placeholder'),
+      },
+      min: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('min'),
+      },
+      max: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('max'),
+      }, 
+      step: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('step'),
+      }, 
+      'no-spin-buttons': {
+        default: false,
+        parseHTML: (elem) => (
+          elem.hasAttribute('no-spin-buttons') 
+            && elem.getAttribute('no-spin-buttons') !== 'false'
+        ),
       },
     };
   },
@@ -77,3 +101,35 @@ export const FormInputNumber = FormInputBase.extend({
     };
   },
 });
+
+function createFeldSettings() {
+  return {
+    min: createSettingControl({
+      key: 'min',
+      attr: 'min',
+      label: 'Min',
+      description: `The input's minimum value`,
+      control: 'input',
+      inputType: 'number',
+      section: 'validation',
+    }),
+    max: createSettingControl({
+      key: 'max',
+      attr: 'max',
+      label: 'Max',
+      description: `The input's maximum value`,
+      control: 'input',
+      inputType: 'number',
+      section: 'validation',
+    }),
+    step: createSettingControl({
+      key: 'step',
+      attr: 'step',
+      label: 'Step',
+      description: 'Specifies the granularity that the value must adhere to',
+      control: 'input',
+      inputType: 'number',
+      section: 'validation',
+    }),
+  };
+}

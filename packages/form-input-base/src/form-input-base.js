@@ -150,29 +150,6 @@ export const FormInputBase = Node.create({
             && elem.getAttribute('password-visible') !== 'false'
         ),
       },
-
-      // Only applies to number input types.
-      'no-spin-buttons': {
-        default: false,
-        parseHTML: (elem) => (
-          elem.hasAttribute('no-spin-buttons') 
-            && elem.getAttribute('no-spin-buttons') !== 'false'
-        ),
-      },
-
-      // Only applies to date and number input types.
-      min: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('min'),
-      },
-      max: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('max'),
-      }, 
-      step: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('step'),
-      }, 
       */
     };
   },
