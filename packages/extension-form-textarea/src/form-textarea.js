@@ -55,15 +55,24 @@ export const FormTextarea = Node.create({
       },
       readonly: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('readonly'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('readonly') 
+            && elem.getAttribute('readonly') !== 'false'
+        ),
       },
       required: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('required'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('required') 
+            && elem.getAttribute('required') !== 'false'
+        ),
       },
       disabled: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('disabled'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
       },
       size: {
         default: null,
@@ -95,7 +104,10 @@ export const FormTextarea = Node.create({
       },
       autofocus: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('autocomplete'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('autocomplete') 
+            && elem.getAttribute('autocomplete') !== 'false'
+        ),
       },
       enterkeyhint: {
         default: null,
@@ -103,7 +115,10 @@ export const FormTextarea = Node.create({
       },
       spellcheck: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('spellcheck'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('spellcheck') 
+            && elem.getAttribute('spellcheck') !== 'false'
+        ),
       },
       inputmode: {
         default: null,

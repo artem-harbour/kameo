@@ -47,11 +47,17 @@ export const FormRating = Node.create({
       },
       readonly: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('readonly'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('readonly') 
+            && elem.getAttribute('readonly') !== 'false'
+        ),
       },
       disabled: { 
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('disabled'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
       },
       size: {
         default: null,

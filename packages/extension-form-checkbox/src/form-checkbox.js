@@ -50,19 +50,31 @@ export const FormCheckbox = Node.create({
       },
       checked: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('checked'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('checked') 
+            && elem.getAttribute('checked') !== 'false'
+        ),
       },
       required: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('required'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('required') 
+            && elem.getAttribute('required') !== 'false'
+        ),
       },
       disabled: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('disabled'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
       },
       indeterminate: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('indeterminate'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('indeterminate') 
+            && elem.getAttribute('indeterminate') !== 'false'
+        ),
       },
       size: {
         default: null,

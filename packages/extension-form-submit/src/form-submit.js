@@ -40,11 +40,17 @@ export const FormSubmit = Node.create({
       },
       loading: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('loading'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('loading') 
+            && elem.getAttribute('loading') !== 'false'
+        ),
       },
       disabled: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('disabled'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
       },
       variant: {
         default: null,
@@ -60,7 +66,10 @@ export const FormSubmit = Node.create({
       },
       pill: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('pill'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('pill') 
+            && elem.getAttribute('pill') !== 'false'
+        ),
       },
     };
   },

@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase, settings } from '@kameo/form-input-base';
+import { FormInputBase, createSettings } from '@kameo/form-input-base';
 import { FormInputEmailView } from './view/FormInputEmailView.js';
 
 export const FormInputEmail = FormInputBase.extend({
@@ -23,11 +23,8 @@ export const FormInputEmail = FormInputBase.extend({
   },
 
   addStorage() {
-    const newSettings = { ...settings };
-    newSettings.value = { ...newSettings.value, inputType: 'email' };
-    
     return {
-      settings: Object.freeze({ ...newSettings }),
+      settings: Object.freeze({ ...createSettings() }),
     };
   },
 

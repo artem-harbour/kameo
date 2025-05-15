@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@kameo/core';
-import { FormInputBase, settings } from '@kameo/form-input-base';
+import { FormInputBase, createSettings } from '@kameo/form-input-base';
 import { FormInputTextView } from './view/FormInputTextView.js';
 
 export const FormInputText = FormInputBase.extend({
@@ -24,7 +24,7 @@ export const FormInputText = FormInputBase.extend({
 
   addStorage() {
     return {
-      settings: Object.freeze({ ...settings }),
+      settings: Object.freeze({ ...createSettings() }),
     };
   },
 

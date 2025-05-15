@@ -38,15 +38,24 @@ export const FormInputBase = Node.create({
       },
       readonly: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('readonly'),
-      },
-      required: {
-        default: false,
-        parseHTML: (elem) => elem.hasAttribute('required'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('readonly') 
+            && elem.getAttribute('readonly') !== 'false'
+        ),
       },
       disabled: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('disabled'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
+      },
+      required: {
+        default: false,
+        parseHTML: (elem) => (
+          elem.hasAttribute('required') 
+            && elem.getAttribute('required') !== 'false'
+        ),
       },
 
       // Additional attributes.
@@ -60,11 +69,17 @@ export const FormInputBase = Node.create({
       },
       pill: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('pill'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('pill') && 
+            elem.getAttribute('pill') !== 'false'
+        ),
       },
       clearable: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('pill'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('clearable') 
+            && elem.getAttribute('clearable') !== 'false'
+        ),
       },
       pattern: {
         default: null,
@@ -92,7 +107,10 @@ export const FormInputBase = Node.create({
       },
       autofocus: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('autocomplete'),
+        parseHTML: (elem) => {
+          const attr = elem.getAttribute('autofocus');
+          return !!attr && attr !== 'false';
+        },
       },
       enterkeyhint: {
         default: null,
@@ -100,7 +118,10 @@ export const FormInputBase = Node.create({
       },
       spellcheck: {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('spellcheck'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('spellcheck') 
+            && elem.getAttribute('spellcheck') !== 'false'
+        ),
       },
       inputmode: {
         default: null,
@@ -113,24 +134,33 @@ export const FormInputBase = Node.create({
         rendered: false,
       },
 
-      /* 
-      Only applies to password input types.
+      /** 
+      // Only applies to password input types.
       'password-toggle': {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('password-toggle'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('password-toggle') 
+            && elem.getAttribute('password-toggle') !== 'false'
+        ),
       },
       'password-visible': {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('password-visible'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('password-visible') 
+            && elem.getAttribute('password-visible') !== 'false'
+        ),
       },
 
-      Only applies to number input types.
+      // Only applies to number input types.
       'no-spin-buttons': {
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('no-spin-buttons'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('no-spin-buttons') 
+            && elem.getAttribute('no-spin-buttons') !== 'false'
+        ),
       },
 
-      Only applies to date and number input types.
+      // Only applies to date and number input types.
       min: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('min'),

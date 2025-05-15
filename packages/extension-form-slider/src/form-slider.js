@@ -43,7 +43,10 @@ export const FormSlider = Node.create({
       },
       disabled: { 
         default: false,
-        parseHTML: (elem) => elem.hasAttribute('disabled'),
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
       },
       min: {
         default: null,
