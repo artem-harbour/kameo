@@ -16,6 +16,7 @@ export class FormSettings extends LitElement {
       attribute: false,
     },
     _settings: { state: true },
+    _sections: { state: true },
   };
 
   constructor() {
@@ -24,6 +25,8 @@ export class FormSettings extends LitElement {
     this.editor = null;
     this.node = null;
     this.nodeView = null;
+
+    this._sections = SECTIONS;
 
     this._onEditorUpdate = this._onEditorUpdate.bind(this);
   }
@@ -41,7 +44,7 @@ export class FormSettings extends LitElement {
   willUpdate(changedProperties) {
     const nodeChanged = changedProperties.has('node');
     const nodeViewChanged = changedProperties.has('nodeView');
-    
+
     if (nodeChanged || nodeViewChanged) {
       this._setSettings();
     }
@@ -76,8 +79,8 @@ export class FormSettings extends LitElement {
     });
   }
 
-  _handleAttributeUpdate({ data, event, value }) {
-    const { attr } = data;
+  _handleAttributeUpdate({ event, control, value }) {
+    const { attr } = control;
 
     this._updateAttributes({
       [attr]: value,
@@ -85,7 +88,7 @@ export class FormSettings extends LitElement {
 
     setTimeout(() => {
       this.dispatchEvent(new CustomEvent('attribute-updated', {
-        detail: { attr, value, node: this.node },
+        detail: { attr, value, node: this.node, nodeView: this.nodeView },
         bubbles: true,
         composed: true,
       }));
@@ -93,7 +96,7 @@ export class FormSettings extends LitElement {
   }
 
   _renderSettings() {
-    return html`${Object.entries(SECTIONS).map(([_key, section]) => this._renderSection(section))}`;
+    return html`${Object.entries(this._sections).map(([_key, section]) => this._renderSection(section))}`;
   }
 
   _renderSection(section) {
@@ -107,34 +110,35 @@ export class FormSettings extends LitElement {
 
     return html`
       <div class="form-settings__section">
-        <div class="form-settings__section-title">${section.label}</div>
+        <div class="form-settings__section-label">${section.label}</div>
         <div class="form-settings__section-controls">
-          ${settings.map(([_key, data]) => 
-            this._renderControl({ data })
+          ${settings.map(([_key, control]) => 
+            this._renderControl({ control })
           )}
         </div>
       </div>
     `;
   }
 
-  _renderControl({ data }) {
-    const { control, controlType } = data;
+  _renderControl({ control }) {
+    const { controlType } = control;
 
     if (controlType === 'custom') {
-      // TODO
-      console.log('Handle custom control');
+      console.debug('Handle custom control'); // TODO: handle custom controls
       return null;
     }
 
     const handlers = {
-      input: () => this._renderInputField({ data }),
+      input: () => this._renderInputControl({ control }),
+      select: () => this._renderSelectControl({ control }),
+      checkbox: () => this._renderCheckboxControl({ control }),
       default: () => {
-        console.debug('Not supported type');
+        console.debug('Not supported control');
         return null;
       },
     };
 
-    const renderHandler = handlers[control] ?? handlers.default;
+    const renderHandler = handlers[control.control] ?? handlers.default;
 
     return html`
       <div class="form-settings__control">
@@ -143,9 +147,9 @@ export class FormSettings extends LitElement {
     `;
   }
 
-  _renderInputField({ data }) {
-    const { attr, inputType, label, description } = data;
-    const value = this.node.attrs[attr];
+  _renderInputControl({ control }) {
+    const { attr, inputType, label, description } = control;
+    const value = this._getAttrValue(attr);
 
     return html`
       <wa-input 
@@ -154,13 +158,59 @@ export class FormSettings extends LitElement {
         .label="${label}"
         .hint="${description}"
         size="small"
-        @input=${(event) => this._handleAttributeUpdate({ 
-          data,
-          event, 
+        @input=${(event) => this._handleAttributeUpdate({
+          event,
+          control,         
           value: event.target.value,
         })}>
       </wa-input>
     `;
+  }
+
+  _renderSelectControl({ control }) {
+    const { attr, label, description, options } = control;
+    const value = this._getAttrValue(attr);
+
+    return html`
+      <wa-select
+        .label="${label}"
+        .hint="${description}"
+        size="small"
+        @change=${(event) => this._handleAttributeUpdate({
+          event,
+          control,
+          value: event.target.value,
+        })}>
+        ${options.map(
+          (item, index) => html`
+            <wa-option value=${item.value}>${item.label}</wa-option>
+          `
+        )}
+      </wa-select>
+    `
+  }
+
+  _renderCheckboxControl({ control }) {
+    const { attr, label, description } = control;
+    const value = this._getAttrValue(attr);
+
+    return html`
+      <wa-checkbox
+        ?checked="${value}"
+        .hint="${description}"
+        size="small"
+        @change=${(event) => this._handleAttributeUpdate({
+          event,
+          control,
+          value: event.target.checked,
+        })}>
+        ${label}
+      </wa-checkbox>
+    `;
+  }
+
+  _getAttrValue(attr) {
+    return this.node.attrs[attr];
   }
 
   render() {
@@ -177,6 +227,7 @@ export class FormSettings extends LitElement {
     `;
   }
 
+  // TODO
   static styles = css`
     :host {
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -205,7 +256,7 @@ export class FormSettings extends LitElement {
       gap: 8px;
     }
 
-    .form-settings__section-title {
+    .form-settings__section-label {
       font-size: 18px;
       font-weight: 500;
     }

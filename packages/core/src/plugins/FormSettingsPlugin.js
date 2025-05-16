@@ -113,8 +113,9 @@ export class FormSettingsView {
   }
 
   onPanelAfterHide() {
-    this.formSettings.node = null;
-    this.formSettings.nodeView = null;
+    // TODO: check with select
+    // this.formSettings.node = null;
+    // this.formSettings.nodeView = null;
   }
 
   update(view, oldState) {}
