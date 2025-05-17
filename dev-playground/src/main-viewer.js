@@ -42,7 +42,7 @@ const listenKameoEvents = (kameo) => {
     console.log(`on 'submitted' event`, { event });
 
     const data = Object.fromEntries(
-      [...event.formData].map(([key, data]) => [key, data.value])
+      Object.entries(event.formData).map(([_key, data]) => [data.name, data.value])
     );
 
     window.alert(`${event.message} \n ${JSON.stringify(data)}`);
