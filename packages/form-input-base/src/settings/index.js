@@ -67,7 +67,7 @@ export const createSettings = () => ({
     description: `The input's size`,
     control: 'select',
     options: [
-      { value: null, label: 'Default' },
+      { value: '', label: 'Default' },
       { value: 'small', label: 'Small' },
       { value: 'medium', label: 'Medium' },
       { value: 'large', label: 'Large' },
@@ -82,7 +82,7 @@ export const createSettings = () => ({
     description: `The input's visual appearance`,
     control: 'select',
     options: [
-      { value: null, label: 'Default' },
+      { value: '', label: 'Default' },
       { value: 'filled', label: 'Filled' },
       { value: 'outlined', label: 'Outlined' },
     ],
@@ -138,7 +138,7 @@ export const createSettings = () => ({
     description: 'Controls whether and how text input is automatically capitalized as it is entered by the user',
     control: 'select',
     options: [
-      { value: null, label: 'Default' },
+      { value: '', label: 'Default' },
       { value: 'off', label: 'Off' },
       { value: 'none', label: 'None' },
       { value: 'on', label: 'On' },
@@ -155,7 +155,7 @@ export const createSettings = () => ({
     description: `Indicates whether the browser's autocorrect feature is on or off`,
     control: 'select',
     options: [
-      { value: null, label: 'Default' },
+      { value: '', label: 'Default' },
       { value: 'off', label: 'Off' },
       { value: 'on', label: 'On' },
     ],
@@ -177,7 +177,7 @@ export const createSettings = () => ({
     description: 'Used to customize the label or icon of the Enter key on virtual keyboards',
     control: 'select',
     options: [
-      { value: null, label: 'Default' },
+      { value: '', label: 'Default' },
       { value: 'enter', label: 'Enter' },
       { value: 'done', label: 'Done' },
       { value: 'go', label: 'Go' },
@@ -204,7 +204,7 @@ export const createSettings = () => ({
     description: 'Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual keyboard on supportive devices',
     control: 'select',
     options: [
-      { value: null, label: 'Default' },
+      { value: '', label: 'Default' },
       { value: 'none', label: 'None' },
       { value: 'text', label: 'Text' },
       { value: 'decimal', label: 'Decimal' },

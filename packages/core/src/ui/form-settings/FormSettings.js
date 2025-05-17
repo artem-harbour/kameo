@@ -153,10 +153,10 @@ export class FormSettings extends LitElement {
 
     return html`
       <wa-input 
-        .type="${inputType || 'text'}"
-        .value="${value}"
-        .label="${label}"
-        .hint="${description}"
+        .type=${inputType || 'text'}
+        .value=${value}
+        .label=${label}
+        .hint=${description}
         size="small"
         @input=${(event) => this._handleAttributeUpdate({
           event,
@@ -169,12 +169,17 @@ export class FormSettings extends LitElement {
 
   _renderSelectControl({ control }) {
     const { attr, label, description, options } = control;
-    const value = this._getAttrValue(attr);
+    let value = this._getAttrValue(attr);
+
+    if (value == null) {
+      value = '';
+    }
 
     return html`
       <wa-select
-        .label="${label}"
-        .hint="${description}"
+        .value=${value}
+        .label=${label}
+        .hint=${description}
         size="small"
         @change=${(event) => this._handleAttributeUpdate({
           event,
@@ -183,7 +188,7 @@ export class FormSettings extends LitElement {
         })}>
         ${options.map(
           (item, index) => html`
-            <wa-option value=${item.value}>${item.label}</wa-option>
+            <wa-option .value=${item.value}>${item.label}</wa-option>
           `
         )}
       </wa-select>
@@ -196,8 +201,8 @@ export class FormSettings extends LitElement {
 
     return html`
       <wa-checkbox
-        ?checked="${value}"
-        .hint="${description}"
+        ?checked=${value}
+        .hint=${description}
         size="small"
         @change=${(event) => this._handleAttributeUpdate({
           event,
@@ -215,7 +220,7 @@ export class FormSettings extends LitElement {
 
   render() {
     if (!this.node || !this._settings) {
-      return html`<div class="no-settings">No settings</div>`;
+      return html`<div class="no-settings">Settings not found for this field.</div>`;
     }
 
     return html`
@@ -227,7 +232,6 @@ export class FormSettings extends LitElement {
     `;
   }
 
-  // TODO
   static styles = css`
     :host {
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -247,13 +251,13 @@ export class FormSettings extends LitElement {
     .form-settings__settings {
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 28px;
     }
 
     .form-settings__section {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .form-settings__section-label {
@@ -264,7 +268,7 @@ export class FormSettings extends LitElement {
     .form-settings__section-controls {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
   `
 }

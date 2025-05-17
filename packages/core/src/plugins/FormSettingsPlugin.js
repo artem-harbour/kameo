@@ -69,6 +69,7 @@ export class FormSettingsView {
   openSettings({ editor, node, nodeView }) {
     if (!this.panelElement) return;
     this.panelElement.open = true;
+    this.formSettings.editor = editor;
     this.formSettings.node = node;
     this.formSettings.nodeView = nodeView;
   }
@@ -77,11 +78,9 @@ export class FormSettingsView {
     if (!this.panelElement) return;
     this.panelElement.open = false;
   }
-  
+
   onOpenSettings(event) {
-    if (this.editor.documentMode !== 'edit') {
-      return;
-    }
+    if (this.editor.documentMode !== 'edit') return;
 
     this.openSettings({
       editor: event.editor,
@@ -111,11 +110,14 @@ export class FormSettingsView {
   onPanelShow() {
     console.debug('onPanelShow');
   }
-
-  onPanelAfterHide() {
-    // TODO: check with select
-    // this.formSettings.node = null;
-    // this.formSettings.nodeView = null;
+  
+  onPanelAfterHide(event) {
+    const isPanelEvent = event.target === this.panelElement;
+    
+    if (isPanelEvent) {
+      this.formSettings.node = null;
+      this.formSettings.nodeView = null;
+    }
   }
 
   update(view, oldState) {}
