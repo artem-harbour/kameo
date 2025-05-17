@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#" target="_blank">
-    <img src="./assets//logo.svg?sanitize=true" width="180" height="180" alt="Kameo" />
+    <img src="./assets/logo.svg?sanitize=true" width="180" height="180" alt="Kameo" />
   </a>
 </p>
 
@@ -11,7 +11,7 @@ Kameo is a toolkit for creating and rendering interactive web forms within rich 
 ## Screenshot
 
 <p align="center">
-  <img src="./assets//screenshot.webp" width="600px" alt="Kameo screenshot" />
+  <img src="./assets/screenshot.webp" width="600px" alt="Kameo screenshot" />
 </p>
 
 ## Features
@@ -25,7 +25,12 @@ Kameo is a toolkit for creating and rendering interactive web forms within rich 
 
 ## Installation
 
-TODO
+```bash
+npm install @kameo/core @kameo/pm @kameo/starter-kit @kameo/form-kit
+npm install @kameo/toolbar-form-fields
+```
+
+**IMPORTANT**: 
 
 ## Quick start
 
@@ -34,7 +39,6 @@ import '@kameo/core/style/theme.css';
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
 import { FormKit } from '@kameo/form-kit';
-import { TextStyleKit } from '@kameo/extension-text-style';
 import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
 
 const kameo = new Kameo({
@@ -42,7 +46,6 @@ const kameo = new Kameo({
   extensions: [
     StarterKit,
     FormKit,
-    TextStyleKit,
   ],
   documentMode: 'edit',
 });
