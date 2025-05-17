@@ -2,7 +2,7 @@
   "name": "@kameo/extension-underline",
   "description": "underline extension for kameo",
   "version": "0.0.12",
-  "license": "",
+  "license": "MIT",
   "keywords": [
     "kameo",
     "kameo extension"

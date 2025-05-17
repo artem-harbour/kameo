@@ -3,7 +3,7 @@
   "name": "@kameo/pm",
   "description": "prosemirror wrapper package for kameo",
   "version": "0.0.12",
-  "license": "",
+  "license": "MIT",
   "keywords": [
     "kameo",
     "prosemirror"

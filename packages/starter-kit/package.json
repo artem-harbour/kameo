@@ -2,7 +2,7 @@
   "name": "@kameo/starter-kit",
   "description": "starter kit for kameo",
   "version": "0.0.12",
-  "license": "",
+  "license": "MIT",
   "keywords": [
     "kameo",
     "kameo starter kit"

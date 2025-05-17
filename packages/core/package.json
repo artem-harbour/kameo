@@ -2,7 +2,7 @@
   "name": "@kameo/core",
   "description": "Kameo library powered by ProseMirror",
   "version": "0.0.12",
-  "license": "",
+  "license": "MIT",
   "keywords": [
     "kameo",
     "form editor",

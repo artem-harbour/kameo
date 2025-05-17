@@ -2,7 +2,7 @@
   "name": "@kameo/form-input-base",
   "description": "form input base for kameo",
   "version": "0.0.12",
-  "license": "",
+  "license": "MIT",
   "keywords": [
     "kameo",
     "extension"

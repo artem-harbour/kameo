@@ -2,7 +2,7 @@
   "name": "@kameo/extension-form-input-email",
   "description": "form input email extension for kameo",
   "version": "0.0.12",
-  "license": "",
+  "license": "MIT",
   "keywords": [
     "kameo",
     "kameo extension"
