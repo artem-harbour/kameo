@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-italic",
   "description": "italic extension for kameo",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.13"
+    "@kameo/core": "^0.0.14"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.13"
+    "@kameo/core": "^0.0.14"
   },
   "scripts": {
     "clean": "rm -rf dist",
