@@ -30,7 +30,9 @@ npm install @kameo/core @kameo/pm @kameo/starter-kit @kameo/form-kit
 npm install @kameo/toolbar-form-fields
 ```
 
-**IMPORTANT**: 
+**IMPORTANT**: Kameo is currently in active development and should not be used in production. During this early phase, npm packages will not strictly follow semantic versioning and will be published infrequently. For now, we recommend experimenting with Kameo in development environments only. You can clone the repository and use the development setup to try out the latest features.
+
+Kameo also uses Web Awesome component library for which an npm package is not available yet. For now, we're getting access to Web Awesome through a temporary CDN (check out "dev playground"). Once npm package is available, more information will be provided on how to configure it for a project.
 
 ## Quick start
 
@@ -69,8 +71,6 @@ const toolbar = document.createElement('km-toolbar-form-fields');
 toolbar.fields = formFields;
 document.querySelector('#kameo-toolbar').append(toolbar);
 ```
-
-Note: Kameo uses Web Awesome component library for which an npm package is not available yet. For now, we're getting access to Web Awesome through a temporary CDN. Once npm package is available, more information will be provided on how to configure it for a project.
 
 ## License
 
