@@ -1,7 +1,7 @@
 import { isFormField } from './isFormField.js';
 
 export const getFormData = (doc) => {
-  const formData = new Map();
+  const formData = {};
 
   const types = {
     input: (node) => node.attrs.value ?? '',
@@ -15,12 +15,12 @@ export const getFormData = (doc) => {
     if (isFormField(node) && node.attrs.name) {
       const valueGetter = types[node.attrs.fieldType] ?? types.default;
       const fieldValue = valueGetter(node);
-      
-      formData.set(node.attrs.name, {
-        key: node.attrs.name,
+
+      formData[node.attrs.name] = {
+        name: node.attrs.name,
         value: fieldValue,
         node,
-      });
+      };
     }
   });
   
