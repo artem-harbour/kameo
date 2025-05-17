@@ -26,6 +26,11 @@
   "peerDependencies": {
     "lit": "3.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/toolbar-form-fields"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c"

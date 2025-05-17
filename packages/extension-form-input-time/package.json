@@ -29,6 +29,11 @@
     "@kameo/core": "^0.0.14",
     "@kameo/form-input-base": "^0.0.14"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/extension-form-input-time"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c"

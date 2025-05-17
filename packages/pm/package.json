@@ -178,6 +178,11 @@
   "dependencies": {
     "@tiptap/pm": "^3.0.0-beta.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/pm"
+  },
   "scripts": {
     "build": "tsup"
   }

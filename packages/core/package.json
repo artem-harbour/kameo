@@ -40,6 +40,11 @@
     "@kameo/pm": "^0.0.14",
     "lit": "3.3.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/core"
+  },
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && rollup -c"
