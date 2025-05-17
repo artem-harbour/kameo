@@ -1,5 +1,6 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormRatingView } from './view/FormRatingView.js';
+import { createFieldSettings } from './settings/index.js';
 
 export const FormRating = Node.create({
   name: 'formRating',
@@ -18,12 +19,22 @@ export const FormRating = Node.create({
       tagName: 'wa-rating',
     };
   },
+
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...createFieldSettings() }),
+    };
+  },
   
   addAttributes() {
     return {
       id: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
+        parseHTML: (elem) => elem.getAttribute('data-id'),
+        renderHTML: (attrs) => {
+          if (attrs.id == null) return {};
+          return { 'data-id': attrs.id };
+        },
       },
       name: {
         default: 'rating',

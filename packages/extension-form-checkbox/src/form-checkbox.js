@@ -1,5 +1,6 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormCheckboxView } from './view/FormCheckboxView.js';
+import { createFieldSettings } from './settings/index.js';
 
 export const FormCheckbox = Node.create({
   name: 'formCheckbox',
@@ -19,11 +20,21 @@ export const FormCheckbox = Node.create({
     };
   },
 
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...createFieldSettings() }),
+    };
+  },
+
   addAttributes() {
     return {
       id: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
+        parseHTML: (elem) => elem.getAttribute('data-id'),
+        renderHTML: (attrs) => {
+          if (attrs.id == null) return {};
+          return { 'data-id': attrs.id };
+        },
       },
       name: {
         default: 'checkbox',
@@ -39,9 +50,7 @@ export const FormCheckbox = Node.create({
         parseHTML: (elem) => elem.getAttribute('data-label'),
         renderHTML: (attrs) => {
           if (!attrs.label) return {};
-          return {
-            'data-label': attrs.label,
-          };
+          return { 'data-label': attrs.label };
         },
       },
       hint: {

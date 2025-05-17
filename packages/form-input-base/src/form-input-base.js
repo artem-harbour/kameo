@@ -11,9 +11,7 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
           if (attrs.id == null) return {};
-          return {
-            'data-id': attrs.id,
-          };
+          return { 'data-id': attrs.id };
         },
       },
       name: {
@@ -101,10 +99,6 @@ export const FormInputBase = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('autocorrect'),
       },
-      autocomplete: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('autocomplete'),
-      },
       autofocus: {
         default: false,
         parseHTML: (elem) => {
@@ -133,24 +127,6 @@ export const FormInputBase = Node.create({
         default: 'input',
         rendered: false,
       },
-
-      /** 
-      // Only applies to password input types.
-      'password-toggle': {
-        default: false,
-        parseHTML: (elem) => (
-          elem.hasAttribute('password-toggle') 
-            && elem.getAttribute('password-toggle') !== 'false'
-        ),
-      },
-      'password-visible': {
-        default: false,
-        parseHTML: (elem) => (
-          elem.hasAttribute('password-visible') 
-            && elem.getAttribute('password-visible') !== 'false'
-        ),
-      },
-      */
     };
   },
 });

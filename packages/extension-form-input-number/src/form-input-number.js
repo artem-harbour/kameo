@@ -1,7 +1,7 @@
 import { Node, mergeAttributes, kameoHelpers } from '@kameo/core';
 import { FormInputBase, createSettings } from '@kameo/form-input-base';
 import { FormInputNumberView } from './view/FormInputNumberView.js';
-import { createFieldSettings } from './helpers/createFieldSettings.js';
+import { createFieldSettings } from './settings/index.js';
 
 export const FormInputNumber = FormInputBase.extend({
   name: 'formInputNumber',

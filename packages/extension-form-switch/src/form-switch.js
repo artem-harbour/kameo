@@ -1,5 +1,6 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormSwitchView } from './view/FormSwitchView.js';
+import { createFieldSettings } from './settings/index.js';
 
 export const FormSwitch = Node.create({
   name: 'formSwitch',
@@ -19,11 +20,21 @@ export const FormSwitch = Node.create({
     };
   },
 
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...createFieldSettings() }),
+    };
+  },
+
   addAttributes() {
     return {
       id: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
+        parseHTML: (elem) => elem.getAttribute('data-id'),
+        renderHTML: (attrs) => {
+          if (attrs.id == null) return {};
+          return { 'data-id': attrs.id };
+        },
       },
       name: {
         default: 'switch',
@@ -55,18 +66,18 @@ export const FormSwitch = Node.create({
             && elem.getAttribute('checked') !== 'false'
         ),
       },
-      required: {
-        default: false,
-        parseHTML: (elem) => (
-          elem.hasAttribute('required') 
-            && elem.getAttribute('required') !== 'false'
-        ),
-      },
       disabled: {
         default: false,
         parseHTML: (elem) => (
           elem.hasAttribute('disabled') 
             && elem.getAttribute('disabled') !== 'false'
+        ),
+      },
+      required: {
+        default: false,
+        parseHTML: (elem) => (
+          elem.hasAttribute('required') 
+            && elem.getAttribute('required') !== 'false'
         ),
       },
       size: {

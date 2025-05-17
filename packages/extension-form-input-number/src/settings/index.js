@@ -29,5 +29,14 @@ export const createFieldSettings = () => {
       inputType: 'number',
       section: 'validation',
     }),
+    noSpinButtons: kameoHelpers.createSettingControl({
+      key: 'noSpinButtons',
+      attr: 'no-spin-buttons',
+      label: 'No spin Buttons',
+      description: `Hides the browser's built-in increment/decrement spin buttons`,
+      control: 'checkbox',
+      valueType: 'boolean',
+      section: 'appearance',
+    }),
   };
 };

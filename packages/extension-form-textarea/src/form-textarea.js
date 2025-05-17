@@ -1,5 +1,6 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormTextareaView } from './view/FormTextareaView.js';
+import { createFieldSettings } from './settings/index.js';
 
 export const FormTextarea = Node.create({
   name: 'formTextarea',
@@ -19,11 +20,21 @@ export const FormTextarea = Node.create({
     };
   },
 
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...createFieldSettings() }),
+    };
+  },
+
   addAttributes() {
     return {
       id: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
+        parseHTML: (elem) => elem.getAttribute('data-id'),
+        renderHTML: (attrs) => {
+          if (attrs.id == null) return {};
+          return { 'data-id': attrs.id };
+        },
       },
       name: {
         default: 'textarea',
@@ -98,15 +109,11 @@ export const FormTextarea = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('autocorrect'),
       },
-      autocomplete: {
-        default: null,
-        parseHTML: (elem) => elem.getAttribute('autocomplete'),
-      },
       autofocus: {
         default: false,
         parseHTML: (elem) => (
-          elem.hasAttribute('autocomplete') 
-            && elem.getAttribute('autocomplete') !== 'false'
+          elem.hasAttribute('autofocus') 
+            && elem.getAttribute('autofocus') !== 'false'
         ),
       },
       enterkeyhint: {

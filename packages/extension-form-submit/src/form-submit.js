@@ -1,5 +1,6 @@
 import { Node, mergeAttributes } from '@kameo/core';
 import { FormSubmitView } from './view/FormSubmitView.js';
+import { createFieldSettings } from './settings/index.js';
 
 export const FormSubmit = Node.create({
   name: 'formSubmit',
@@ -22,11 +23,21 @@ export const FormSubmit = Node.create({
     };
   },
 
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...createFieldSettings() }),
+    };
+  },
+
   addAttributes() {
     return {
       id: {
         default: null,
-        parseHTML: (elem) => elem.getAttribute('id'),
+        parseHTML: (elem) => elem.getAttribute('data-id'),
+        renderHTML: (attrs) => {
+          if (attrs.id == null) return {};
+          return { 'data-id': attrs.id };
+        },
       },
       label: {
         default: 'Submit',
