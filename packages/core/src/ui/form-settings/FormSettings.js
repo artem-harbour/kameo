@@ -168,15 +168,24 @@ export class FormSettings extends LitElement {
   }
 
   _renderSelectControl({ control }) {
-    const { attr, label, description, options } = control;
+    const { key, attr, label, description, options } = control;
     let value = this._getAttrValue(attr);
 
     if (value == null) {
       value = '';
     }
 
+    // TODO: check this.
+    // It is necessary to set the value asynchronously, otherwise it does not respond.
+    const selectKey = `select-${key}`;
+    setTimeout(() => {
+      const select = this.shadowRoot.querySelector(`[data-key=${selectKey}]`);
+      if (select) select.value = value;
+    }, 0);
+
     return html`
       <wa-select
+        data-key=${selectKey}
         .value=${value}
         .label=${label}
         .hint=${description}
