@@ -67,6 +67,8 @@ toolbar.fields = formFields;
 document.querySelector('#kameo-toolbar').append(toolbar);
 ```
 
+Note: Kameo uses Web Awesome component library for which an npm package is not available yet. For now, we're getting access to Web Awesome through a temporary CDN. Once npm package is available, more information will be provided on how to configure it for a project.
+
 ## License
 
 The MIT License (MIT). Please see [License](LICENSE) for more information.
