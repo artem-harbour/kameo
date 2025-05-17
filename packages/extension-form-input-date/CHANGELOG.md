@@ -1,5 +1,14 @@
 # @kameo/extension-form-input-date
 
+## 0.0.15
+
+### Patch Changes
+
+- a22e5e1: increment packages version
+- Updated dependencies [a22e5e1]
+  - @kameo/form-input-base@0.0.15
+  - @kameo/core@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes
