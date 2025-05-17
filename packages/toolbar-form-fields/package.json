@@ -21,10 +21,10 @@
     "dist"
   ],
   "devDependencies": {
-    "lit": "3.1.4"
+    "lit": "3.3.0"
   },
   "peerDependencies": {
-    "lit": "3.1.4"
+    "lit": "3.3.0"
   },
   "scripts": {
     "clean": "rm -rf dist",
