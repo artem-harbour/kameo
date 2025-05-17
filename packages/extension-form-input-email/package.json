@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-input-email",
   "description": "form input email extension for kameo",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,12 +22,12 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/form-input-base": "^0.0.12"
+    "@kameo/core": "^0.0.13",
+    "@kameo/form-input-base": "^0.0.13"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/form-input-base": "^0.0.12"
+    "@kameo/core": "^0.0.13",
+    "@kameo/form-input-base": "^0.0.13"
   },
   "scripts": {
     "clean": "rm -rf dist",

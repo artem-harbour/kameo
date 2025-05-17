@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-slider",
   "description": "form slider extension for kameo",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.12"
+    "@kameo/core": "^0.0.13"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.12"
+    "@kameo/core": "^0.0.13"
   },
   "scripts": {
     "clean": "rm -rf dist",

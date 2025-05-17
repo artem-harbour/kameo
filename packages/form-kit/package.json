@@ -1,7 +1,7 @@
 {
   "name": "@kameo/form-kit",
   "description": "form kit for kameo",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,20 +21,20 @@
     "dist"
   ],
   "dependencies": {
-    "@kameo/core": "^0.0.12",
-    "@kameo/extension-form-input-text": "^0.0.12",
-    "@kameo/extension-form-input-name": "^0.0.12",
-    "@kameo/extension-form-input-email": "^0.0.12",
-    "@kameo/extension-form-input-number": "^0.0.12",
-    "@kameo/extension-form-input-date": "^0.0.12",
-    "@kameo/extension-form-input-time": "^0.0.12",
-    "@kameo/extension-form-textarea": "^0.0.12",
-    "@kameo/extension-form-checkbox": "^0.0.12",
-    "@kameo/extension-form-switch": "^0.0.12",
-    "@kameo/extension-form-rating": "^0.0.12",
-    "@kameo/extension-form-slider": "^0.0.12",
-    "@kameo/extension-form-submit": "^0.0.12",
-    "@kameo/pm": "^0.0.12"
+    "@kameo/core": "^0.0.13",
+    "@kameo/extension-form-input-text": "^0.0.13",
+    "@kameo/extension-form-input-name": "^0.0.13",
+    "@kameo/extension-form-input-email": "^0.0.13",
+    "@kameo/extension-form-input-number": "^0.0.13",
+    "@kameo/extension-form-input-date": "^0.0.13",
+    "@kameo/extension-form-input-time": "^0.0.13",
+    "@kameo/extension-form-textarea": "^0.0.13",
+    "@kameo/extension-form-checkbox": "^0.0.13",
+    "@kameo/extension-form-switch": "^0.0.13",
+    "@kameo/extension-form-rating": "^0.0.13",
+    "@kameo/extension-form-slider": "^0.0.13",
+    "@kameo/extension-form-submit": "^0.0.13",
+    "@kameo/pm": "^0.0.13"
   },
   "scripts": {
     "clean": "rm -rf dist",
