@@ -15,7 +15,7 @@ Kameo is a toolkit for creating and rendering interactive web forms within rich 
 </p>
 
 ## Features
-- **Create and render web forms** - Build dynamic forms with an intuitive interface
+- **Create and render web forms** - Build interactive forms within rich text content
 - **Import/export forms** - Save and load forms as JSON
 - **Dynamic form creation** - Build forms programmatically with commands
 - **Rich text editing capabilities** - Can be used as a rich text editor
@@ -71,6 +71,18 @@ const toolbar = document.createElement('km-toolbar-form-fields');
 toolbar.fields = formFields;
 document.querySelector('#kameo-toolbar').append(toolbar);
 ```
+
+Kameo is built on top of Tiptap (core), a powerful editor framework for the web. To better understand how to work with Kameo, we recommend familiarizing yourself with the Tiptap API documentation:
+
+- [Tiptap Editor API](https://next.tiptap.dev/docs/editor/api/editor)
+- [Core concepts](https://next.tiptap.dev/docs/editor/core-concepts/introduction)
+- [Custom extensions](https://next.tiptap.dev/docs/editor/extensions/custom-extensions)
+
+## Tech Stack
+
+Kameo is built on the following stack:
+- ProseMirror, Tiptap (core)
+- Lit, Web Components, Web Awesome
 
 ## License
 
