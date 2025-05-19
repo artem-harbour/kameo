@@ -1,3 +1,3 @@
 # @kameo/extension-form-input-email
 
-Note: Use "@kameo/extension-form-input" instead.
+**IMPORTANT**: Use "@kameo/extension-form-input" instead.
