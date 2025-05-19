@@ -1,0 +1,39 @@
+{
+  "name": "@kameo/extension-form-input",
+  "description": "form input extension for kameo",
+  "version": "0.0.15",
+  "license": "MIT",
+  "keywords": [
+    "kameo",
+    "kameo extension"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@kameo/core": "^0.0.15"
+  },
+  "peerDependencies": {
+    "@kameo/core": "^0.0.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/extension-form-input"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}

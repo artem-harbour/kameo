@@ -2,7 +2,7 @@ import { kameoHelpers } from '@kameo/core';
 
 const { createSettingControl } = kameoHelpers;
 
-export const createSettings = () => ({
+export const createFieldSettings = () => ({
   id: createSettingControl({
     key: 'id',
     attr: 'id',
@@ -219,39 +219,39 @@ export const createSettings = () => ({
 
   // TODO: visible only for number type
   min: kameoHelpers.createSettingControl({
-      key: 'min',
-      attr: 'min',
-      label: 'Min',
-      description: `The input's minimum value`,
-      control: 'input',
-      inputType: 'number',
-      section: 'validation',
-    }),
-    max: kameoHelpers.createSettingControl({
-      key: 'max',
-      attr: 'max',
-      label: 'Max',
-      description: `The input's maximum value`,
-      control: 'input',
-      inputType: 'number',
-      section: 'validation',
-    }),
-    step: kameoHelpers.createSettingControl({
-      key: 'step',
-      attr: 'step',
-      label: 'Step',
-      description: 'Specifies the granularity that the value must adhere to',
-      control: 'input',
-      inputType: 'number',
-      section: 'validation',
-    }),
-    noSpinButtons: kameoHelpers.createSettingControl({
-      key: 'noSpinButtons',
-      attr: 'no-spin-buttons',
-      label: 'No spin Buttons',
-      description: `Hides the browser's built-in increment/decrement spin buttons`,
-      control: 'checkbox',
-      valueType: 'boolean',
-      section: 'appearance',
-    }),
+    key: 'min',
+    attr: 'min',
+    label: 'Min',
+    description: `The input's minimum value (only applies to number input types)`,
+    control: 'input',
+    inputType: 'number',
+    section: 'validation',
+  }),
+  max: kameoHelpers.createSettingControl({
+    key: 'max',
+    attr: 'max',
+    label: 'Max',
+    description: `The input's maximum value (only applies to number input types)`,
+    control: 'input',
+    inputType: 'number',
+    section: 'validation',
+  }),
+  step: kameoHelpers.createSettingControl({
+    key: 'step',
+    attr: 'step',
+    label: 'Step',
+    description: 'Specifies the granularity that the value must adhere to (only applies to number input types)',
+    control: 'input',
+    inputType: 'number',
+    section: 'validation',
+  }),
+  noSpinButtons: kameoHelpers.createSettingControl({
+    key: 'noSpinButtons',
+    attr: 'no-spin-buttons',
+    label: 'No spin buttons',
+    description: `Hides the browser's built-in increment/decrement spin buttons (only applies to number input types)`,
+    control: 'checkbox',
+    valueType: 'boolean',
+    section: 'appearance',
+  }),
 });

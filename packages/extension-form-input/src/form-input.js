@@ -1,11 +1,33 @@
-import { Node } from '@kameo/core';
+import { Node, mergeAttributes } from '@kameo/core';
+import { FormInputView } from './view/FormInputView.js';
+import { createFieldSettings } from './settings/index.js';
 
-export const FormInputBase = Node.create({
-  name: 'formInputBase',
+export const FormInput = Node.create({
+  name: 'formInput',
+
+  group: 'formField block',
+
+  atom: true,
+
+  draggable: true,
+
+  selectable: true,
+  
+  addOptions() {
+    return {
+      HTMLAttributes: {},
+      tagName: 'wa-input',
+    };
+  },
+
+  addStorage() {
+    return {
+      settings: Object.freeze({ ...createFieldSettings() }),
+    };
+  },
 
   addAttributes() {
     return {
-      // Main attributes.
       id: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
@@ -19,7 +41,7 @@ export const FormInputBase = Node.create({
         parseHTML: (elem) => elem.getAttribute('type'),
       },
       name: {
-        default: '',
+        default: 'input',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: {
@@ -59,8 +81,6 @@ export const FormInputBase = Node.create({
             && elem.getAttribute('required') !== 'false'
         ),
       },
-
-      // Additional attributes.
       size: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
@@ -146,12 +166,99 @@ export const FormInputBase = Node.create({
             && elem.getAttribute('no-spin-buttons') !== 'false'
         ),
       },
-
-      // Custom attributes.
+      
       fieldType: {
         default: 'input',
         rendered: false,
       },
+    };
+  },
+
+  parseHTML() {
+    return [{ tag: `${this.options.tagName}[data-type="${this.name}"]` }];
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    return [
+      this.options.tagName,
+      mergeAttributes(this.options.HTMLAttributes, HTMLAttributes, {
+        'data-type': this.name,
+      }),
+    ];
+  },
+
+  addCommands() {
+    return {
+      insertFormInput: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormElement(this.name, pos, attrs);
+      },
+
+      insertFormInputText: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'text',
+          name: 'text',
+          label: 'Enter your info',
+          placeholder: 'Enter info',
+          ...attrs,
+        });
+      },
+
+      insertFormInputName: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'text',
+          name: 'name',
+          label: 'Enter your full name',
+          placeholder: 'Enter full name',
+          ...attrs,
+        });
+      },
+
+      insertFormInputEmail: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'email',
+          name: 'email',
+          label: 'Enter your email',
+          placeholder: 'Enter email',
+          ...attrs,
+        });
+      },
+
+      insertFormInputNumber: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'number',
+          name: 'number',
+          label: 'Enter number',
+          placeholder: 'Enter number',
+          ...attrs,
+        });
+      },
+
+      insertFormInputDate: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'date',
+          name: 'date',
+          label: 'Select date',
+          ...attrs,
+        });
+      },
+
+      insertFormInputTime: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'time',
+          name: 'time',
+          label: 'Select time',
+          ...attrs,
+        });
+      },
+    };
+  },
+
+  addNodeView() {
+    return (props) => {
+      return new FormInputView({ 
+        ...props,
+        tagName: this.options.tagName,
+      }, this.options);
     };
   },
 });

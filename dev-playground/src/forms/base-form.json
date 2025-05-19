@@ -39,17 +39,18 @@
       ]
     },
     {
-      "type": "formInputName",
+      "type": "formInput",
       "attrs": {
         "id": null,
+        "type": "text",
         "name": "name",
         "value": "",
         "label": "Enter your full name",
         "hint": null,
         "placeholder": "Enter full name",
         "readonly": false,
-        "required": false,
         "disabled": false,
+        "required": false,
         "size": null,
         "appearance": null,
         "pill": false,
@@ -63,21 +64,26 @@
         "enterkeyhint": null,
         "spellcheck": false,
         "inputmode": null,
+        "min": null,
+        "max": null,
+        "step": null,
+        "no-spin-buttons": false,
         "fieldType": "input"
       }
     },
     {
-      "type": "formInputEmail",
+      "type": "formInput",
       "attrs": {
         "id": null,
+        "type": "email",
         "name": "email",
         "value": "",
         "label": "Enter your email",
         "hint": null,
         "placeholder": "Enter email",
         "readonly": false,
-        "required": false,
         "disabled": false,
+        "required": false,
         "size": null,
         "appearance": null,
         "pill": false,
@@ -91,6 +97,10 @@
         "enterkeyhint": null,
         "spellcheck": false,
         "inputmode": null,
+        "min": null,
+        "max": null,
+        "step": null,
+        "no-spin-buttons": false,
         "fieldType": "input"
       }
     },
@@ -140,7 +150,7 @@
       "type": "formSubmit",
       "attrs": {
         "id": null,
-        "text": "Submit",
+        "label": "Submit",
         "loading": false,
         "disabled": false,
         "variant": null,

@@ -1,10 +1,5 @@
 import { Extension } from '@kameo/core';
-import { FormInputText } from '@kameo/extension-form-input-text';
-import { FormInputName } from '@kameo/extension-form-input-name';
-import { FormInputEmail } from '@kameo/extension-form-input-email';
-import { FormInputNumber } from '@kameo/extension-form-input-number';
-import { FormInputDate } from '@kameo/extension-form-input-date';
-import { FormInputTime } from '@kameo/extension-form-input-time';
+import { FormInput } from '@kameo/extension-form-input';
 import { FormTextarea } from '@kameo/extension-form-textarea';
 import { FormCheckbox } from '@kameo/extension-form-checkbox';
 import { FormSwitch } from '@kameo/extension-form-switch';
@@ -17,31 +12,11 @@ export const FormKit = Extension.create({
 
   addExtensions() {
     const extensions = [];
+
+    if (this.options.formInput !== false) {
+      extensions.push(FormInput.configure(this.options.formInput));
+    }
     
-    if (this.options.formInputText !== false) {
-      extensions.push(FormInputText.configure(this.options.formInputText));
-    }
-
-    if (this.options.formInputName !== false) {
-      extensions.push(FormInputName.configure(this.options.formInputName));
-    }
-
-    if (this.options.formInputEmail !== false) {
-      extensions.push(FormInputEmail.configure(this.options.formInputEmail));
-    }
-
-    if (this.options.formInputNumber !== false) {
-      extensions.push(FormInputNumber.configure(this.options.formInputNumber));
-    }
-
-    if (this.options.formInputDate !== false) {
-      extensions.push(FormInputDate.configure(this.options.formInputDate));
-    }
-
-    if (this.options.formInputTime !== false) {
-      extensions.push(FormInputTime.configure(this.options.formInputTime));
-    }
-
     if (this.options.formTextarea !== false) {
       extensions.push(FormTextarea.configure(this.options.formTextarea));
     }
