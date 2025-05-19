@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-textarea",
   "description": "form textarea extension for kameo",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.15"
+    "@kameo/core": "^0.0.16"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.15"
+    "@kameo/core": "^0.0.16"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,21 @@
 # @kameo/form-kit
 
+## 0.0.16
+
+### Patch Changes
+
+- aad79e4: increment packages version
+- Updated dependencies [aad79e4]
+  - @kameo/core@0.0.16
+  - @kameo/extension-form-checkbox@0.0.16
+  - @kameo/extension-form-input@0.0.16
+  - @kameo/extension-form-rating@0.0.16
+  - @kameo/extension-form-slider@0.0.16
+  - @kameo/extension-form-submit@0.0.16
+  - @kameo/extension-form-switch@0.0.16
+  - @kameo/extension-form-textarea@0.0.16
+  - @kameo/pm@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes

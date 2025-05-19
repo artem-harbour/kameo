@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-input-number",
   "description": "form input number extension for kameo",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,12 +22,12 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.15",
-    "@kameo/form-input-base": "^0.0.15"
+    "@kameo/core": "^0.0.16",
+    "@kameo/form-input-base": "^0.0.16"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.15",
-    "@kameo/form-input-base": "^0.0.15"
+    "@kameo/core": "^0.0.16",
+    "@kameo/form-input-base": "^0.0.16"
   },
   "repository": {
     "type": "git",

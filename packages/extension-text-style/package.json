@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-text-style",
   "description": "text style extension for kameo",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -50,10 +50,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.15"
+    "@kameo/core": "^0.0.16"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.15"
+    "@kameo/core": "^0.0.16"
   },
   "repository": {
     "type": "git",

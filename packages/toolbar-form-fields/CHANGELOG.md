@@ -1,5 +1,11 @@
 # @kameo/toolbar-form-fields
 
+## 0.0.16
+
+### Patch Changes
+
+- aad79e4: increment packages version
+
 ## 0.0.15
 
 ### Patch Changes
