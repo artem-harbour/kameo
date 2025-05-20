@@ -218,7 +218,7 @@ export const createFieldSettings = () => ({
   }),
 
   // TODO: visible only for number type
-  min: kameoHelpers.createSettingControl({
+  min: createSettingControl({
     key: 'min',
     attr: 'min',
     label: 'Min',
@@ -227,7 +227,7 @@ export const createFieldSettings = () => ({
     inputType: 'number',
     section: 'validation',
   }),
-  max: kameoHelpers.createSettingControl({
+  max: createSettingControl({
     key: 'max',
     attr: 'max',
     label: 'Max',
@@ -236,7 +236,7 @@ export const createFieldSettings = () => ({
     inputType: 'number',
     section: 'validation',
   }),
-  step: kameoHelpers.createSettingControl({
+  step: createSettingControl({
     key: 'step',
     attr: 'step',
     label: 'Step',
@@ -245,7 +245,7 @@ export const createFieldSettings = () => ({
     inputType: 'number',
     section: 'validation',
   }),
-  noSpinButtons: kameoHelpers.createSettingControl({
+  noSpinButtons: createSettingControl({
     key: 'noSpinButtons',
     attr: 'no-spin-buttons',
     label: 'No spin buttons',
