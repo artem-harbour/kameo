@@ -6,7 +6,7 @@ export const getFormData = (doc) => {
   const types = {
     input: (node) => node.attrs.value ?? '',
     textarea: (node) => node.attrs.value ?? '',
-    select: (node) => node.attrs.selected ?? '',
+    select: (node) => node.attrs.value ?? '',
     checkbox: (node) => node.attrs.checked ?? false,
     default: (node) => node.attrs.value ?? '',
   };

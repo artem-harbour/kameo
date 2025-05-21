@@ -21,6 +21,7 @@ const customElements = [
   'wa-input',
   'wa-textarea',
   'wa-checkbox',
+  'wa-select',
   'wa-switch',
   'wa-slider',
   'wa-button',
@@ -79,10 +80,10 @@ export class FormElementView {
 
     this.editor.on('documentModeUpdate', this.onDocumentModeUpdate);
 
-    this.mount();    
+    this.mount(props, options);    
   }
 
-  mount() {
+  mount(props, options) {
     return;
   }
 

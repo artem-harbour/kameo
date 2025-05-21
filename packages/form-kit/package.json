@@ -25,6 +25,7 @@
     "@kameo/extension-form-input": "^0.0.16",
     "@kameo/extension-form-textarea": "^0.0.16",
     "@kameo/extension-form-checkbox": "^0.0.16",
+    "@kameo/extension-form-select": "^0.0.16",
     "@kameo/extension-form-switch": "^0.0.16",
     "@kameo/extension-form-rating": "^0.0.16",
     "@kameo/extension-form-slider": "^0.0.16",

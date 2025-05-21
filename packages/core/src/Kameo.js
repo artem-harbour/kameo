@@ -7,9 +7,6 @@ import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPl
 import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 import * as UIComponents from './ui/index.js';
 
-// TODO:
-// - Validation.
-
 export class Kameo extends Editor {
 
   constructor(options = {}) {

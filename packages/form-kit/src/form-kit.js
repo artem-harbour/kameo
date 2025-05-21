@@ -2,6 +2,7 @@ import { Extension } from '@kameo/core';
 import { FormInput } from '@kameo/extension-form-input';
 import { FormTextarea } from '@kameo/extension-form-textarea';
 import { FormCheckbox } from '@kameo/extension-form-checkbox';
+import { FormSelect } from '@kameo/extension-form-select';
 import { FormSwitch } from '@kameo/extension-form-switch';
 import { FormRating } from '@kameo/extension-form-rating';
 import { FormSlider } from '@kameo/extension-form-slider';
@@ -23,6 +24,10 @@ export const FormKit = Extension.create({
 
     if (this.options.formCheckbox !== false) {
       extensions.push(FormCheckbox.configure(this.options.formCheckbox));
+    }
+
+    if (this.options.formSelect !== false) {
+      extensions.push(FormSelect.configure(this.options.formSelect));
     }
 
     if (this.options.formSwitch !== false) {

@@ -80,6 +80,26 @@ export const formFields = [
     },
   },
   {
+    id: 'formSelect',
+    title: 'Select',
+    fieldType: 'formSelect',
+    attrs: {
+      name: 'select',
+      options: [
+        {
+          value: 'option-1',
+          label: 'Option 1',
+          disabled: false,
+        },
+        {
+          value: 'option-2',
+          label: 'Option 2',
+          disabled: false,
+        },
+      ],
+    },
+  },
+  {
     id: 'formSwitch',
     title: 'Switch',
     fieldType: 'formSwitch',
