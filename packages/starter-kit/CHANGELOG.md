@@ -1,5 +1,24 @@
 # @kameo/starter-kit
 
+## 0.0.17
+
+### Patch Changes
+
+- 0117df7: increment packages version
+- Updated dependencies [0117df7]
+  - @kameo/core@0.0.17
+  - @kameo/extension-blockquote@0.0.17
+  - @kameo/extension-bold@0.0.17
+  - @kameo/extension-document@0.0.17
+  - @kameo/extension-heading@0.0.17
+  - @kameo/extension-italic@0.0.17
+  - @kameo/extension-paragraph@0.0.17
+  - @kameo/extension-strike@0.0.17
+  - @kameo/extension-text@0.0.17
+  - @kameo/extension-underline@0.0.17
+  - @kameo/extensions@0.0.17
+  - @kameo/pm@0.0.17
+
 ## 0.0.16
 
 ### Patch Changes

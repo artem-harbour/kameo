@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-submit",
   "description": "form submit extension for kameo",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.16"
+    "@kameo/core": "^0.0.17"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.16"
+    "@kameo/core": "^0.0.17"
   },
   "repository": {
     "type": "git",
