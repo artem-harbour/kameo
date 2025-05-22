@@ -27,10 +27,6 @@ export class FormCheckboxView extends FormElementView {
   }
 
   _handleChange(event) {
-    this.updateAttributes({
-      checked: event.target.checked,
-    });
-
     this.editor.emitNodeEvent(this.node.type.name, 'change', { 
       event, 
       node: this.node, 
@@ -39,6 +35,10 @@ export class FormCheckboxView extends FormElementView {
   }
 
   _handleInput(event) {
+    this.updateAttributes({
+      checked: event.target.checked,
+    });
+
     this.editor.emitNodeEvent(this.node.type.name, 'input', { 
       event, 
       node: this.node, 
@@ -63,14 +63,14 @@ export class FormCheckboxView extends FormElementView {
   }
 
   _addEventListeners() {
-    this.element.addEventListener('wa-change', this._handleChange);
+    this.element.addEventListener('change', this._handleChange);
     this.element.addEventListener('input', this._handleInput);
     this.element.addEventListener('focus', this._handleFocus);
     this.element.addEventListener('blur', this._handleBlur);
   }
 
   _removeEventListeners() {
-    this.element.removeEventListener('wa-change', this._handleChange);
+    this.element.removeEventListener('change', this._handleChange);
     this.element.removeEventListener('input', this._handleInput);
     this.element.removeEventListener('focus', this._handleFocus);
     this.element.removeEventListener('blur', this._handleBlur);

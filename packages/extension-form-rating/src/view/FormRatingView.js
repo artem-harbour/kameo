@@ -24,7 +24,6 @@ export class FormRatingView extends FormElementView {
   }
 
   _handleChange(event) {
-    console.log(event.target.value);
     this.updateAttributes({
       value: event.target.value,
     });
@@ -45,12 +44,12 @@ export class FormRatingView extends FormElementView {
   }
 
   _addEventListeners() {
-    this.element.addEventListener('wa-change', this._handleChange);
+    this.element.addEventListener('change', this._handleChange);
     this.element.addEventListener('wa-hover', this._handleHover);
   }
 
   _removeEventListeners() {
-    this.element.removeEventListener('wa-change', this._handleChange);
+    this.element.removeEventListener('change', this._handleChange);
     this.element.removeEventListener('wa-hover', this._handleHover);
   }
 
