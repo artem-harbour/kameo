@@ -113,11 +113,15 @@ export const FormSwitch = Node.create({
   },
 
   addNodeView() {
+    const options = {
+      HTMLAttributes: this.options.HTMLAttributes,
+    };
+
     return (props) => {
       return new FormSwitchView({ 
         ...props,
         tagName: this.options.tagName,
-      }, this.options);
+      }, options);
     };
   },
 });

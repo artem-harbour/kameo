@@ -24,6 +24,7 @@ export class FormRatingView extends FormElementView {
   }
 
   _handleChange(event) {
+    console.log(event.target.value);
     this.updateAttributes({
       value: event.target.value,
     });

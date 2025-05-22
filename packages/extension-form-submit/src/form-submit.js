@@ -112,8 +112,9 @@ export const FormSubmit = Node.create({
         submitProps: this.options.submitProps,
         disableOnSubmit: this.options.disableOnSubmit,
         handleClick: this.options.handleClick,
+        HTMLAttributes: this.options.HTMLAttributes,
       };
-
+      
       return new FormSubmitView({
         ...props,
         tagName: this.options.tagName,

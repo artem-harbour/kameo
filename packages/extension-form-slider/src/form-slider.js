@@ -104,11 +104,15 @@ export const FormSlider = Node.create({
   },
 
   addNodeView() {
+    const options = {
+      HTMLAttributes: this.options.HTMLAttributes,
+    };
+
     return (props) => {
       return new FormSliderView({
         ...props,
         tagName: this.options.tagName,
-      });
+      }, options);
     };
   },
 });

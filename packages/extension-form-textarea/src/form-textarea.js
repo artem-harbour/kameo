@@ -160,11 +160,15 @@ export const FormTextarea = Node.create({
   },
 
   addNodeView() {
+    const options = {
+      HTMLAttributes: this.options.HTMLAttributes,
+    };
+
     return (props) => {
       return new FormTextareaView({ 
         ...props,
         tagName: this.options.tagName,
-      }, this.options);
+      }, options);
     };
   },
 });

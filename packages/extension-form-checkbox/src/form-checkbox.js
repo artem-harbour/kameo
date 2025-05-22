@@ -118,11 +118,15 @@ export const FormCheckbox = Node.create({
   },
 
   addNodeView() {
+    const options = {
+      HTMLAttributes: this.options.HTMLAttributes,
+    };
+
     return (props) => {
       return new FormCheckboxView({ 
         ...props,
         tagName: this.options.tagName,
-      }, this.options);
+      }, options);
     };
   },
 });

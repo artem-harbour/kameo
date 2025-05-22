@@ -103,11 +103,15 @@ export const FormRating = Node.create({
   },
 
   addNodeView() {
+    const options = {
+      HTMLAttributes: this.options.HTMLAttributes,
+    };
+
     return (props) => {
       return new FormRatingView({
         ...props,
         tagName: this.options.tagName,
-      });
+      }, options);
     };
   },
 });
