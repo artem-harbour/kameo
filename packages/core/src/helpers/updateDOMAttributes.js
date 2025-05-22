@@ -7,9 +7,9 @@ const defaultBooleans = [
   'autofocus',
 ];
 
-export const updateDOMAttributes = (dom, attrs = {}, {
+export function updateDOMAttributes(dom, attrs = {}, {
   customBooleans = [],
-} = {}) => {
+} = {}) {
   const booleans = [...defaultBooleans, ...customBooleans];
 
   Object.entries(attrs).forEach(([key, value]) => {

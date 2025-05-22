@@ -1,6 +1,6 @@
 import { isFormField } from './isFormField.js';
 
-export const getFormData = (doc) => {
+export function getFormData(doc) {
   const formData = {};
 
   const types = {
