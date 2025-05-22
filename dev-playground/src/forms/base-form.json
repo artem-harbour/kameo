@@ -68,7 +68,10 @@
         "max": null,
         "step": null,
         "no-spin-buttons": false,
-        "fieldType": "input"
+        "valueAttribute": {
+          "name": "value",
+          "type": "string"
+        }
       }
     },
     {
@@ -101,7 +104,10 @@
         "max": null,
         "step": null,
         "no-spin-buttons": false,
-        "fieldType": "input"
+        "valueAttribute": {
+          "name": "value",
+          "type": "string"
+        }
       }
     },
     {
@@ -128,7 +134,11 @@
         "enterkeyhint": null,
         "spellcheck": false,
         "inputmode": null,
-        "fieldType": "textarea"
+        "fieldType": "textarea",
+        "valueAttribute": {
+          "name": "value",
+          "type": "string"
+        }
       }
     },
     {
@@ -143,7 +153,10 @@
         "readonly": false,
         "disabled": false,
         "size": null,
-        "fieldType": "custom"
+        "valueAttribute": {
+          "name": "value",
+          "type": "number"
+        }
       }
     },
     {
