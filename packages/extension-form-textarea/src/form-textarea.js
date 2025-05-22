@@ -17,6 +17,10 @@ export const FormTextarea = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-textarea',
+      valueAttribute: {
+        name: 'value',
+        type: 'string',
+      },
     };
   },
 
@@ -133,6 +137,10 @@ export const FormTextarea = Node.create({
       },
       fieldType: {
         default: 'textarea',
+        rendered: false,
+      },
+      valueAttribute: {
+        default: this.options.valueAttribute,
         rendered: false,
       },
     };

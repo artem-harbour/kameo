@@ -17,6 +17,10 @@ export const FormInput = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-input',
+      valueAttribute: {
+        name: 'value',
+        type: 'string',
+      },
     };
   },
 
@@ -166,9 +170,8 @@ export const FormInput = Node.create({
             && elem.getAttribute('no-spin-buttons') !== 'false'
         ),
       },
-      
-      fieldType: {
-        default: 'input',
+      valueAttribute: {
+        default: this.options.valueAttribute,
         rendered: false,
       },
     };

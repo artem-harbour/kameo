@@ -19,7 +19,10 @@ export const FormSelect = Node.create({
       HTMLAttributes: {},
       tagName: 'wa-select',
       tagNameOption: 'wa-option',
-      valueAttribute: 'value', // TODO: consider this option.
+      valueAttribute: {
+        name: 'value',
+        type: 'string',
+      },
     };
   },
 
@@ -126,8 +129,8 @@ export const FormSelect = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('placement'),
       },
-      fieldType: {
-        default: 'select',
+      valueAttribute: {
+        default: this.options.valueAttribute,
         rendered: false,
       },
     };

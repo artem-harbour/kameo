@@ -17,6 +17,10 @@ export const FormSwitch = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-switch',
+      valueAttribute: {
+        name: 'checked',
+        type: 'boolean',
+      },
     };
   },
 
@@ -84,8 +88,8 @@ export const FormSwitch = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
       },
-      fieldType: {
-        default: 'checkbox',
+      valueAttribute: {
+        default: this.options.valueAttribute,
         rendered: false,
       },
     };

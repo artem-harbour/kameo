@@ -17,6 +17,10 @@ export const FormRating = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-rating',
+      valueAttribute: {
+        name: 'value',
+        type: 'number',
+      },
     };
   },
 
@@ -74,8 +78,8 @@ export const FormRating = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('size'),
       },
-      fieldType: {
-        default: 'custom',
+       valueAttribute: {
+        default: this.options.valueAttribute,
         rendered: false,
       },
     };

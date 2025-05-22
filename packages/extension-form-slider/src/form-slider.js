@@ -17,6 +17,10 @@ export const FormSlider = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-slider',
+      valueAttribute: {
+        name: 'value',
+        type: 'number',
+      },
     };
   },
 
@@ -75,8 +79,8 @@ export const FormSlider = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('tooltip'),
       },
-      fieldType: {
-        default: 'custom',
+      valueAttribute: {
+        default: this.options.valueAttribute,
         rendered: false,
       },
     };
