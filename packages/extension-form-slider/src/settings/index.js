@@ -32,8 +32,9 @@ export const createFieldSettings = () => ({
     attr: 'disabled',
     label: 'Disabled',
     description: 'Disables the slider',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   min: createSettingControl({
@@ -41,8 +42,10 @@ export const createFieldSettings = () => ({
     attr: 'min',
     label: 'Min',
     description: 'The minimum acceptable value of the slider',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   max: createSettingControl({
@@ -50,8 +53,10 @@ export const createFieldSettings = () => ({
     attr: 'max',
     label: 'Max',
     description: 'The maximum acceptable value of the slider',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   step: createSettingControl({
@@ -59,8 +64,10 @@ export const createFieldSettings = () => ({
     attr: 'step',
     label: 'Step',
     description: 'The interval at which the slider will increase and decrease',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   tooltip: createSettingControl({
@@ -68,13 +75,15 @@ export const createFieldSettings = () => ({
     attr: 'tooltip',
     label: 'Tooltip',
     description: 'The preferred placement of the slider tooltip',
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'top', label: 'Top' },
-      { value: 'bottom', label: 'Bottom' },
-      { value: 'none', label: 'None' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'top', label: 'Top' },
+        { value: 'bottom', label: 'Bottom' },
+        { value: 'none', label: 'None' },
+      ],
+    },
     section: 'appearance',
   }),
 });

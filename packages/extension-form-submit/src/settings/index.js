@@ -20,8 +20,9 @@ export const createFieldSettings = () => ({
     attr: 'disabled',
     label: 'Disabled',
     description: 'Disables the button',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   variant: createSettingControl({
@@ -29,16 +30,18 @@ export const createFieldSettings = () => ({
     attr: 'variant',
     label: 'Variant',
     description: `The button's theme variant`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'neutral', label: 'Neutral' },
-      { value: 'brand', label: 'Brand' },
-      { value: 'success', label: 'Success' },
-      { value: 'warning', label: 'Warning' },
-      { value: 'danger', label: 'Danger' },
-      { value: 'inherit', label: 'Inherit' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'neutral', label: 'Neutral' },
+        { value: 'brand', label: 'Brand' },
+        { value: 'success', label: 'Success' },
+        { value: 'warning', label: 'Warning' },
+        { value: 'danger', label: 'Danger' },
+        { value: 'inherit', label: 'Inherit' },
+      ],
+    },
     section: 'appearance',
   }),
   appearance: createSettingControl({
@@ -46,14 +49,16 @@ export const createFieldSettings = () => ({
     attr: 'appearance',
     label: 'Appearance',
     description: `The button's visual appearance`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'accent', label: 'Accent' },
-      { value: 'filled', label: 'Filled' },
-      { value: 'outlined', label: 'Outlined' },
-      { value: 'plain', label: 'Plain' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'accent', label: 'Accent' },
+        { value: 'filled', label: 'Filled' },
+        { value: 'outlined', label: 'Outlined' },
+        { value: 'plain', label: 'Plain' },
+      ],
+    },
     section: 'appearance',
   }),
   size: createSettingControl({
@@ -61,14 +66,16 @@ export const createFieldSettings = () => ({
     attr: 'size',
     label: 'Size',
     description: `The button's size`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'small', label: 'Small' },
-      { value: 'medium', label: 'Medium' },
-      { value: 'large', label: 'Large' },
-      { value: 'inherit', label: 'Inherit' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'small', label: 'Small' },
+        { value: 'medium', label: 'Medium' },
+        { value: 'large', label: 'Large' },
+        { value: 'inherit', label: 'Inherit' },
+      ],
+    },
     section: 'appearance',
   }),
   pill: createSettingControl({
@@ -76,8 +83,9 @@ export const createFieldSettings = () => ({
     attr: 'pill',
     label: 'Pill',
     description: 'Draws a pill-style button with rounded edges.',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'appearance',
   }),
 });

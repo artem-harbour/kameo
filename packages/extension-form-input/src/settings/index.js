@@ -38,8 +38,9 @@ export const createFieldSettings = () => ({
     attr: 'readonly',
     label: 'Readonly',
     description: 'Makes the input readonly',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   disabled: createSettingControl({
@@ -47,8 +48,9 @@ export const createFieldSettings = () => ({
     attr: 'disabled',
     label: 'Disabled',
     description: 'Makes the input disabled',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   required: createSettingControl({
@@ -56,8 +58,9 @@ export const createFieldSettings = () => ({
     attr: 'required',
     label: 'Required',
     description: 'Makes the input a required field',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'validation',
   }),
   size: createSettingControl({
@@ -65,14 +68,16 @@ export const createFieldSettings = () => ({
     attr: 'size',
     label: 'Size',
     description: `The input's size`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'small', label: 'Small' },
-      { value: 'medium', label: 'Medium' },
-      { value: 'large', label: 'Large' },
-      { value: 'inherit', label: 'Inherit' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'small', label: 'Small' },
+        { value: 'medium', label: 'Medium' },
+        { value: 'large', label: 'Large' },
+        { value: 'inherit', label: 'Inherit' },
+      ],
+    },
     section: 'appearance',
   }),
   appearance: createSettingControl({
@@ -80,12 +85,14 @@ export const createFieldSettings = () => ({
     attr: 'appearance',
     label: 'Appearance',
     description: `The input's visual appearance`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'filled', label: 'Filled' },
-      { value: 'outlined', label: 'Outlined' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'filled', label: 'Filled' },
+        { value: 'outlined', label: 'Outlined' },
+      ],
+    },
     section: 'appearance',
   }),
   pill: createSettingControl({
@@ -93,8 +100,9 @@ export const createFieldSettings = () => ({
     attr: 'pill',
     label: 'Pill',
     description: 'Draws a pill-style input with rounded edges',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'appearance',
   }),
   clearable: createSettingControl({
@@ -102,8 +110,9 @@ export const createFieldSettings = () => ({
     attr: 'clearable',
     label: 'Clearable',
     description: 'Adds a clear button when the input is not empty',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'appearance',
   }),
   pattern: createSettingControl({
@@ -118,8 +127,10 @@ export const createFieldSettings = () => ({
     attr: 'minlength',
     label: 'Minlength',
     description: 'The minimum length of input that will be considered valid',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   maxlength: createSettingControl({
@@ -127,8 +138,10 @@ export const createFieldSettings = () => ({
     attr: 'maxlength',
     label: 'Maxlength',
     description: 'The maximum length of input that will be considered valid',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   autocapitalize: createSettingControl({
@@ -136,16 +149,18 @@ export const createFieldSettings = () => ({
     attr: 'autocapitalize',
     label: 'Autocapitalize',
     description: 'Controls whether and how text input is automatically capitalized as it is entered by the user',
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'off', label: 'Off' },
-      { value: 'none', label: 'None' },
-      { value: 'on', label: 'On' },
-      { value: 'sentences', label: 'Sentences' },
-      { value: 'words', label: 'Words' },
-      { value: 'characters', label: 'Characters' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'off', label: 'Off' },
+        { value: 'none', label: 'None' },
+        { value: 'on', label: 'On' },
+        { value: 'sentences', label: 'Sentences' },
+        { value: 'words', label: 'Words' },
+        { value: 'characters', label: 'Characters' },
+      ],
+    },
     section: 'other',
   }),
   autocorrect: createSettingControl({
@@ -153,12 +168,14 @@ export const createFieldSettings = () => ({
     attr: 'autocorrect',
     label: 'Autocorrect',
     description: `Indicates whether the browser's autocorrect feature is on or off`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'off', label: 'Off' },
-      { value: 'on', label: 'On' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'off', label: 'Off' },
+        { value: 'on', label: 'On' },
+      ],
+    },
     section: 'other',
   }),
   autofocus: createSettingControl({
@@ -166,8 +183,9 @@ export const createFieldSettings = () => ({
     attr: 'autofocus',
     label: 'Autofocus',
     description: 'Indicates that the input should receive focus on page load',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'other',
   }),
   enterkeyhint: createSettingControl({
@@ -175,17 +193,19 @@ export const createFieldSettings = () => ({
     attr: 'enterkeyhint',
     label: 'Enterkeyhint',
     description: 'Used to customize the label or icon of the Enter key on virtual keyboards',
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'enter', label: 'Enter' },
-      { value: 'done', label: 'Done' },
-      { value: 'go', label: 'Go' },
-      { value: 'next', label: 'Next' },
-      { value: 'previous', label: 'Previous' },
-      { value: 'search', label: 'Search' },
-      { value: 'send', label: 'Send' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'enter', label: 'Enter' },
+        { value: 'done', label: 'Done' },
+        { value: 'go', label: 'Go' },
+        { value: 'next', label: 'Next' },
+        { value: 'previous', label: 'Previous' },
+        { value: 'search', label: 'Search' },
+        { value: 'send', label: 'Send' },
+      ],
+    },
     section: 'other',
   }),
   spellcheck: createSettingControl({
@@ -193,8 +213,9 @@ export const createFieldSettings = () => ({
     attr: 'spellcheck',
     label: 'Spellcheck',
     description: 'Enables spell checking on the input',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'other',
   }),
   inputmode: createSettingControl({
@@ -202,18 +223,20 @@ export const createFieldSettings = () => ({
     attr: 'inputmode',
     label: 'Inputmode',
     description: 'Tells the browser what type of data will be entered by the user, allowing it to display the appropriate virtual keyboard on supportive devices',
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'none', label: 'None' },
-      { value: 'text', label: 'Text' },
-      { value: 'decimal', label: 'Decimal' },
-      { value: 'numeric', label: 'Numeric' },
-      { value: 'tel', label: 'Tel' },
-      { value: 'search', label: 'Search' },
-      { value: 'email', label: 'Email' },
-      { value: 'url', label: 'Url' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'none', label: 'None' },
+        { value: 'text', label: 'Text' },
+        { value: 'decimal', label: 'Decimal' },
+        { value: 'numeric', label: 'Numeric' },
+        { value: 'tel', label: 'Tel' },
+        { value: 'search', label: 'Search' },
+        { value: 'email', label: 'Email' },
+        { value: 'url', label: 'Url' },
+      ],
+    },
     section: 'other',
   }),
 
@@ -223,8 +246,10 @@ export const createFieldSettings = () => ({
     attr: 'min',
     label: 'Min',
     description: `The input's minimum value (only applies to number input types)`,
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   max: createSettingControl({
@@ -232,8 +257,10 @@ export const createFieldSettings = () => ({
     attr: 'max',
     label: 'Max',
     description: `The input's maximum value (only applies to number input types)`,
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   step: createSettingControl({
@@ -241,8 +268,10 @@ export const createFieldSettings = () => ({
     attr: 'step',
     label: 'Step',
     description: 'Specifies the granularity that the value must adhere to (only applies to number input types)',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'validation',
   }),
   noSpinButtons: createSettingControl({
@@ -250,8 +279,9 @@ export const createFieldSettings = () => ({
     attr: 'no-spin-buttons',
     label: 'No spin buttons',
     description: `Hides the browser's built-in increment/decrement spin buttons (only applies to number input types)`,
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'appearance',
   }),
 });

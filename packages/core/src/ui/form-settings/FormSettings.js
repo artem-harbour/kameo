@@ -122,6 +122,8 @@ export class FormSettings extends LitElement {
   }
 
   _renderControl({ control }) {
+    const controlName = control.control?.name;
+
     const handlers = {
       input: () => this._renderInputControl({ control }),
       select: () => this._renderSelectControl({ control }),
@@ -133,7 +135,7 @@ export class FormSettings extends LitElement {
       },
     };
 
-    const renderHandler = handlers[control.control] ?? handlers.default;
+    const renderHandler = handlers[controlName] ?? handlers.default;
 
     return html`
       <div class="form-settings__control">
@@ -143,7 +145,8 @@ export class FormSettings extends LitElement {
   }
 
   _renderInputControl({ control }) {
-    const { attr, inputType, label, description } = control;
+    const { attr, label, description } = control;
+    const { inputType } = control.control;
     const value = this._getAttrValue(attr);
 
     return html`
@@ -163,7 +166,9 @@ export class FormSettings extends LitElement {
   }
 
   _renderSelectControl({ control }) {
-    const { key, attr, label, description, options } = control;
+    const { key, attr, label, description } = control;
+    const { options } = control.control;
+
     let value = this._getAttrValue(attr);
 
     if (value == null) {
@@ -219,7 +224,7 @@ export class FormSettings extends LitElement {
   }
 
   _renderComponentControl({ control }) {
-    const { component } = control;
+    const { component } = control.control;
 
     return staticHtml`
       <${unsafeStatic(component)}

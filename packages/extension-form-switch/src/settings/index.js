@@ -32,8 +32,9 @@ export const createFieldSettings = () => ({
     attr: 'disabled',
     label: 'Disabled',
     description: 'Disables the switch',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   required: createSettingControl({
@@ -41,8 +42,9 @@ export const createFieldSettings = () => ({
     attr: 'required',
     label: 'Required',
     description: 'Makes the switch a required field',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'validation',
   }),
   size: createSettingControl({
@@ -50,14 +52,16 @@ export const createFieldSettings = () => ({
     attr: 'size',
     label: 'Size',
     description: `The rating's size`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'small', label: 'Small' },
-      { value: 'medium', label: 'Medium' },
-      { value: 'large', label: 'Large' },
-      { value: 'inherit', label: 'Inherit' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'small', label: 'Small' },
+        { value: 'medium', label: 'Medium' },
+        { value: 'large', label: 'Large' },
+        { value: 'inherit', label: 'Inherit' },
+      ],
+    },
     section: 'appearance',
   }),
 });

@@ -21,8 +21,10 @@ export const createFieldSettings = () => ({
     attr: 'options',
     label: 'Options',
     description: 'Select options',
-    control: 'component',
-    component: 'km-form-settings-select',
+    control: {
+      name: 'component',
+      component: 'km-form-settings-select',
+    },
   }),
   label: createSettingControl({
     key: 'label',
@@ -47,8 +49,9 @@ export const createFieldSettings = () => ({
     attr: 'multiple',
     label: 'Multiple',
     description: 'Allows more than one option to be selected',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   disabled: createSettingControl({
@@ -56,8 +59,9 @@ export const createFieldSettings = () => ({
     attr: 'disabled',
     label: 'Disabled',
     description: 'Disables the select control',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'state',
   }),
   required: createSettingControl({
@@ -65,8 +69,9 @@ export const createFieldSettings = () => ({
     attr: 'required',
     label: 'Required',
     description: `The select's required attribute`,
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'validation',
   }),
   maxOptionsVisible: createSettingControl({
@@ -74,8 +79,10 @@ export const createFieldSettings = () => ({
     attr: 'max-options-visible',
     label: 'Max options visible',
     description: 'The maximum number of selected options to show when multiple is true',
-    control: 'input',
-    inputType: 'number',
+    control: {
+      name: 'input',
+      inputType: 'number',
+    },
     section: 'state',
   }),
   size: createSettingControl({
@@ -83,14 +90,16 @@ export const createFieldSettings = () => ({
     attr: 'size',
     label: 'Size',
     description: `The select's size`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'small', label: 'Small' },
-      { value: 'medium', label: 'Medium' },
-      { value: 'large', label: 'Large' },
-      { value: 'inherit', label: 'Inherit' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'small', label: 'Small' },
+        { value: 'medium', label: 'Medium' },
+        { value: 'large', label: 'Large' },
+        { value: 'inherit', label: 'Inherit' },
+      ],
+    },
     section: 'appearance',
   }),
   appearance: createSettingControl({
@@ -98,12 +107,14 @@ export const createFieldSettings = () => ({
     attr: 'appearance',
     label: 'Appearance',
     description: `The select's visual appearance`,
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'filled', label: 'Filled' },
-      { value: 'outlined', label: 'Outlined' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'filled', label: 'Filled' },
+        { value: 'outlined', label: 'Outlined' },
+      ],
+    },
     section: 'appearance',
   }),
   pill: createSettingControl({
@@ -111,8 +122,9 @@ export const createFieldSettings = () => ({
     attr: 'pill',
     label: 'Pill',
     description: 'Draws a pill-style select with rounded edges',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'appearance',
   }),
   clearable: createSettingControl({
@@ -120,8 +132,9 @@ export const createFieldSettings = () => ({
     attr: 'clearable',
     label: 'Clearable',
     description: 'Adds a clear button when the select is not empty',
-    control: 'checkbox',
-    valueType: 'boolean',
+    control: {
+      name: 'checkbox',
+    },
     section: 'appearance',
   }),
   placement: createSettingControl({
@@ -129,12 +142,14 @@ export const createFieldSettings = () => ({
     attr: 'placement',
     label: 'Placement',
     description: 'Controls whether and how text input is automatically capitalized as it is entered by the user',
-    control: 'select',
-    options: [
-      { value: '', label: 'Default' },
-      { value: 'top', label: 'Top' },
-      { value: 'bottom', label: 'Bottom' },
-    ],
+    control: {
+      name: 'select',
+      options: [
+        { value: '', label: 'Default' },
+        { value: 'top', label: 'Top' },
+        { value: 'bottom', label: 'Bottom' },
+      ],
+    },
     section: 'appearance',
   }),
 });
