@@ -1,8 +1,8 @@
 import { kameoHelpers } from '@kameo/core';
+import { FormSettingsSelect } from './FormSettingsSelect.js';
 
 const { createSettingControl } = kameoHelpers;
 
-// TODO: implement settings for options.
 export const createFieldSettings = () => ({
   id: createSettingControl({
     key: 'id',
@@ -15,6 +15,14 @@ export const createFieldSettings = () => ({
     attr: 'name',
     label: 'Name',
     description: 'Name of the field',
+  }),
+  options: createSettingControl({
+    key: 'options',
+    attr: 'options',
+    label: 'Options',
+    description: 'Select options',
+    control: 'component',
+    component: 'km-form-settings-select',
   }),
   label: createSettingControl({
     key: 'label',
@@ -130,3 +138,5 @@ export const createFieldSettings = () => ({
     section: 'appearance',
   }),
 });
+
+console.debug('Kameo: FormSettingsSelect defined', FormSettingsSelect);

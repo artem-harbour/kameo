@@ -22,10 +22,12 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.17"
+    "@kameo/core": "^0.0.17",
+    "lit": "3.3.0"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.17"
+    "@kameo/core": "^0.0.17",
+    "lit": "3.3.0"
   },
   "repository": {
     "type": "git",

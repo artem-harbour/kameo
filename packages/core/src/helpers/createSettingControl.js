@@ -6,15 +6,14 @@ export const createSettingControl = (config = {}) => {
   const defaultConfig = {
     key: null,
     attr: null,
-    control: 'input', // input | checkbox | select
+    control: 'input', // input | checkbox | select | component
     label: '',
     description: '',
     section: 'main',
     valueType: 'string',
     inputType: 'text', // only for 'input' control
-    controlType: 'attribute', // attribute | custom
+    component: null,
     options: [], // only for 'select' control
-    handler: () => null, // only for 'custom' controlType
     visible: () => true,
   };
   

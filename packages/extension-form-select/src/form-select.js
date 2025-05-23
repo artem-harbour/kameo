@@ -155,17 +155,12 @@ export const FormSelect = Node.create({
         return commands.insertFormElement(this.name, pos, attrs);
       },
 
-      addFormSelectOption: (position, option) => ({
+      addFormSelectOption: (select, option) => ({
         dispatch, 
         state, 
         tr,
       }) => {
-        let pos = position;
-        let node = tr.doc.nodeAt(pos);
-
-        if (node?.type.name !== this.name) {
-          return false;
-        }
+        let { pos, node } = select;
 
         if (dispatch) {
           let currentOptions = node.attrs.options ?? [];
@@ -180,17 +175,12 @@ export const FormSelect = Node.create({
         return true;
       },
 
-      removeFormSelectOption: (position, index) => ({
+      removeFormSelectOption: (select, index) => ({
         dispatch, 
         state, 
         tr,
       }) => {
-        let pos = position;
-        let node = tr.doc.nodeAt(pos);
-
-        if (node?.type.name !== this.name) {
-          return false;
-        }
+        let { pos, node } = select;
 
         let currentOptions = node.attrs.options ?? [];
 
@@ -213,17 +203,12 @@ export const FormSelect = Node.create({
         return true;
       },
 
-      updateFormSelectOption: (position, index, optionAttrs) => ({
+      updateFormSelectOption: (select, index, attrs) => ({
         dispatch, 
         state, 
         tr,
       }) => {
-        let pos = position;
-        let node = tr.doc.nodeAt(pos);
-
-        if (node?.type.name !== this.name) {
-          return false;
-        }
+        let { pos, node } = select;
 
         let currentOptions = node.attrs.options ?? [];
 
@@ -235,7 +220,7 @@ export const FormSelect = Node.create({
           let newOptions = [...currentOptions];
           newOptions[index] = {
             ...newOptions[index],
-            ...optionAttrs,
+            ...attrs,
           };
 
           tr.setNodeMarkup(pos, undefined, {

@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { SECTIONS } from './constants.js';
+import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 
 export class FormSettings extends LitElement {
   static properties = {
@@ -121,17 +122,11 @@ export class FormSettings extends LitElement {
   }
 
   _renderControl({ control }) {
-    const { controlType } = control;
-
-    if (controlType === 'custom') {
-      console.debug('Handle custom control'); // TODO: handle custom controls
-      return null;
-    }
-
     const handlers = {
       input: () => this._renderInputControl({ control }),
       select: () => this._renderSelectControl({ control }),
       checkbox: () => this._renderCheckboxControl({ control }),
+      component: () => this._renderComponentControl({ control }),
       default: () => {
         console.debug('Not supported control');
         return null;
@@ -160,7 +155,7 @@ export class FormSettings extends LitElement {
         size="small"
         @input=${(event) => this._handleAttributeUpdate({
           event,
-          control,         
+          control,
           value: event.target.value,
         })}>
       </wa-input>
@@ -220,6 +215,20 @@ export class FormSettings extends LitElement {
         })}>
         ${label}
       </wa-checkbox>
+    `;
+  }
+
+  _renderComponentControl({ control }) {
+    const { component } = control;
+
+    return staticHtml`
+      <${unsafeStatic(component)}
+        .editor=${this.editor}
+        .node=${this.node}
+        .nodeView=${this.nodeView}
+        .control=${control}
+      >
+      </${unsafeStatic(component)}>
     `;
   }
 
