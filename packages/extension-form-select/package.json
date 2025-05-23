@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-select",
   "description": "form select extension for kameo",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,11 +22,11 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.17",
+    "@kameo/core": "^0.0.18",
     "lit": "3.3.0"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.17",
+    "@kameo/core": "^0.0.18",
     "lit": "3.3.0"
   },
   "repository": {

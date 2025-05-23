@@ -1,5 +1,11 @@
 # @kameo/pm
 
+## 0.0.18
+
+### Patch Changes
+
+- 6b7a403: increment version
+
 ## 0.0.17
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-strike",
   "description": "strike extension for kameo",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.17"
+    "@kameo/core": "^0.0.18"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.17"
+    "@kameo/core": "^0.0.18"
   },
   "repository": {
     "type": "git",
