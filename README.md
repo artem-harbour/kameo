@@ -106,7 +106,7 @@ Kameo is built on the following stack:
 - ProseMirror, Tiptap (core)
 - Lit, Web Components, Web Awesome
 
-## TODO
+## Todo
 
 - [ ] Slash menu (Notion-style)
 - [ ] Form validation
