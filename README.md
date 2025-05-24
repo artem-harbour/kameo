@@ -53,6 +53,7 @@ Kameo also uses Web Awesome component library for which an npm package is not av
   import 'https://early.webawesome.com/webawesome@3.0.0-alpha.13/dist/components/input/input.js';
   import 'https://early.webawesome.com/webawesome@3.0.0-alpha.13/dist/components/select/select.js';
   import 'https://early.webawesome.com/webawesome@3.0.0-alpha.13/dist/components/checkbox/checkbox.js';
+  import 'https://early.webawesome.com/webawesome@3.0.0-alpha.13/dist/components/button/button.js';
 </script>
 ```
 
