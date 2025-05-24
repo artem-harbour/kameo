@@ -106,6 +106,12 @@ Kameo is built on the following stack:
 - ProseMirror, Tiptap (core)
 - Lit, Web Components, Web Awesome
 
+## TODO
+
+- [ ] Slash menu (Notion-style)
+- [ ] Form validation
+- [ ] More field types
+
 ## License
 
 The MIT License (MIT). Please see [License](LICENSE) for more information.
