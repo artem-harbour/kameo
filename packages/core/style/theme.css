@@ -37,6 +37,10 @@
   top: -4px;
 }
 
+.km-form-element--formRadioButtons[orientation="vertical"] {
+  max-width: 300px;
+}
+
 .km-form-element-view--formSubmit {
   display: flex;
   justify-content: flex-end;

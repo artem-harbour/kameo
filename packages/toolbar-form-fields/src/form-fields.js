@@ -1,5 +1,11 @@
 export const formFields = [
   {
+    id: 'formSubmit',
+    title: 'Submit',
+    fieldType: 'formSubmit',
+    attrs: {},
+  },
+  {
     id: 'formInputText',
     title: 'Text',
     fieldType: 'formInput',
@@ -100,11 +106,64 @@ export const formFields = [
     },
   },
   {
-    id: 'formSwitch',
-    title: 'Switch',
-    fieldType: 'formSwitch',
+    id: 'formRadioOptions',
+    title: 'Radio options',
+    fieldType: 'formRadioOptions',
     attrs: {
-      name: 'switch',
+      name: 'radio-options',
+      options: [
+        {
+          value: 'option-1',
+          label: 'Option 1',
+          disabled: false,
+        },
+        {
+          value: 'option-2',
+          label: 'Option 2',
+          disabled: false,
+        },
+      ],
+    },
+  },
+  {
+    id: 'formRadioButtons',
+    title: 'Radio buttons',
+    fieldType: 'formRadioButtons',
+    attrs: {
+      name: 'radio-buttons',
+      options: [
+        {
+          value: 'option-1',
+          label: 'Option 1',
+          disabled: false,
+        },
+        {
+          value: 'option-2',
+          label: 'Option 2',
+          disabled: false,
+        },
+      ],
+    },
+  },
+  {
+    id: 'formRadioYesNo',
+    title: 'Yes/No',
+    fieldType: 'formRadioButtons',
+    attrs: {
+      name: 'radio-buttons',
+      options: [
+        {
+          value: 'yes',
+          label: 'Yes',
+          disabled: false,
+        },
+        {
+          value: 'no',
+          label: 'No',
+          disabled: false,
+        },
+      ],
+      orientation: 'horizontal',
     },
   },
   {
@@ -116,17 +175,19 @@ export const formFields = [
     },
   },
   {
+    id: 'formSwitch',
+    title: 'Switch',
+    fieldType: 'formSwitch',
+    attrs: {
+      name: 'switch',
+    },
+  },
+  {
     id: 'formSlider',
     title: 'Slider',
     fieldType: 'formSlider',
     attrs: {
       name: 'slider',
     },
-  },
-  {
-    id: 'formSubmit',
-    title: 'Submit',
-    fieldType: 'formSubmit',
-    attrs: {},
   },
 ];
