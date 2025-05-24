@@ -1,5 +1,11 @@
 # @kameo/pm
 
+## 0.0.19
+
+### Patch Changes
+
+- 46d9064: increment version
+
 ## 0.0.18
 
 ### Patch Changes

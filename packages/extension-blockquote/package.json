@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-blockquote",
   "description": "blockquote extension for kameo",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,10 +21,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.18"
+    "@kameo/core": "^0.0.19"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.18"
+    "@kameo/core": "^0.0.19"
   },
   "repository": {
     "type": "git",
