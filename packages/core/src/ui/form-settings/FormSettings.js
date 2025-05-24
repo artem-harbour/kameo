@@ -274,13 +274,20 @@ export class FormSettings extends LitElement {
     .form-settings__settings {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 20px;
     }
 
     .form-settings__section {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      padding-top: 20px;
+      border-top: 2px solid rgba(0, 0, 0, 0.25);
+    }
+
+    .form-settings__section:first-child {
+      padding-top: 0;
+      border: 0;
     }
 
     .form-settings__section-label {
