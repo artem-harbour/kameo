@@ -117,7 +117,7 @@ export const FormActionsPlugin = ({
         keydown: () => {
           hideFormActions();
         },
-        mousewheel: () => {
+        wheel: () => {
           hideFormActions();
         },
         drop: () => {
