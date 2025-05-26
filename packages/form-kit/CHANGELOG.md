@@ -1,5 +1,23 @@
 # @kameo/form-kit
 
+## 0.0.20
+
+### Patch Changes
+
+- 4f8cba8: bump version
+- Updated dependencies [4f8cba8]
+  - @kameo/core@0.0.20
+  - @kameo/extension-form-checkbox@0.0.20
+  - @kameo/extension-form-input@0.0.20
+  - @kameo/extension-form-radio-group@0.0.20
+  - @kameo/extension-form-rating@0.0.20
+  - @kameo/extension-form-select@0.0.20
+  - @kameo/extension-form-slider@0.0.20
+  - @kameo/extension-form-submit@0.0.20
+  - @kameo/extension-form-switch@0.0.20
+  - @kameo/extension-form-textarea@0.0.20
+  - @kameo/pm@0.0.20
+
 ## 0.0.19
 
 ### Patch Changes

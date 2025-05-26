@@ -1,5 +1,11 @@
 # @kameo/pm
 
+## 0.0.20
+
+### Patch Changes
+
+- 4f8cba8: bump version
+
 ## 0.0.19
 
 ### Patch Changes
