@@ -2,6 +2,8 @@ import { LitElement, html, css } from 'lit';
 import { SECTIONS } from './constants.js';
 import { html as staticHtml, unsafeStatic } from 'lit/static-html.js';
 
+export const FormSettingsComponentName = 'km-form-settings';
+
 export class FormSettings extends LitElement {
   static properties = {
     editor: {
@@ -302,5 +304,3 @@ export class FormSettings extends LitElement {
     }
   `
 }
-
-customElements.define('km-form-settings', FormSettings);

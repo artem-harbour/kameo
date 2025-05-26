@@ -5,7 +5,13 @@ import { createStyleTag } from './utilities/index.js';
 import { getFormData } from './helpers/getFormData.js';
 import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
 import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
-import * as UIComponents from './ui/index.js';
+import { defineComponent } from './helpers/defineComponent.js';
+import { 
+  FormActions, 
+  FormSettings,  
+  FormActionsComponentName, 
+  FormSettingsComponentName 
+} from './ui/index.js';
 
 export class Kameo extends Editor {
 
@@ -20,6 +26,7 @@ export class Kameo extends Editor {
     const allOptions = {
       documentMode: 'edit',
       handlers: {},
+      isHeadless: false,
       onSubmit: () => null,
       onSubmitted: () => null,
       ...options,
@@ -42,7 +49,8 @@ export class Kameo extends Editor {
     this.submit = this.options.handlers?.submit ?? this.submit.bind(this);
 
     this.setDocumentMode(this.options.documentMode, { isInit: true });
-    
+    this.defineComponents();
+
     this.on('submit', this.options.onSubmit);
     this.on('submitted', this.options.onSubmitted);
   }
@@ -158,6 +166,9 @@ export class Kameo extends Editor {
     this.on(`node:${nodeType}:${eventName}`, callback);
     return this;
   }
-}
 
-console.debug('Kameo: UI Components defined', UIComponents);
+  defineComponents() {
+    defineComponent(FormActionsComponentName, FormActions);
+    defineComponent(FormSettingsComponentName, FormSettings);
+  }
+}

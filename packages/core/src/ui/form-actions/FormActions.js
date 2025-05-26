@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
 
+export const FormActionsComponentName = 'km-form-actions';
+
 export class FormActions extends LitElement {
   static properties = {
     isMenuActive: { 
@@ -273,5 +275,3 @@ export class FormActions extends LitElement {
     }
   `
 }
-
-customElements.define('km-form-actions', FormActions);
