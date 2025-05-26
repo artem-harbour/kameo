@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
 
+export const FormSettingsRadioOptionsName = 'km-form-settings-radio-options';
+
 export class FormSettingsRadioOptions extends LitElement {
 
   static properties = {
@@ -203,5 +205,3 @@ export class FormSettingsRadioOptions extends LitElement {
     }
   `
 }
-
-customElements.define('km-form-settings-radio-options', FormSettingsRadioOptions);

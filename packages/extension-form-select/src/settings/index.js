@@ -1,5 +1,4 @@
 import { kameoHelpers } from '@kameo/core';
-import { FormSettingsSelect } from './FormSettingsSelect.js';
 
 const { createSettingControl } = kameoHelpers;
 
@@ -153,5 +152,3 @@ export const createFieldSettings = () => ({
     section: 'appearance',
   }),
 });
-
-console.debug('Kameo: FormSettingsSelect defined', FormSettingsSelect);

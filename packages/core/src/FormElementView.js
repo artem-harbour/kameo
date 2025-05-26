@@ -1,6 +1,7 @@
 import { isiOS, getRenderedAttributes, mergeAttributes } from '@tiptap/core';
 import { NodeSelection } from '@kameo/pm/state';
 import { updateDOMAttributes } from './helpers/updateDOMAttributes.js';
+import { FormActionsComponentName } from './ui/form-actions/index.js';
 
 const wrapperClass = 'km-form-element-view';
 const elementClass = 'km-form-element';
@@ -143,7 +144,7 @@ export class FormElementView {
   }
 
   createFormActions() {
-    const formActions = document.createElement('km-form-actions');
+    const formActions = document.createElement(FormActionsComponentName);
     formActions.classList.add('km-form-actions', 'hide');
     formActions.dataset.formActions = '';
     const dragHandle = this.createDragHandle();

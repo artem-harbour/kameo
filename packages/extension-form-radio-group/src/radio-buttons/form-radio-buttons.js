@@ -1,7 +1,10 @@
-import { Node, mergeAttributes } from '@kameo/core';
+import { Node, mergeAttributes, kameoHelpers } from '@kameo/core';
 import { FormRadioButtonsView } from './view/FormRadioButtonsView.js';
 import { createFieldSettings } from './settings/index.js';
+import { FormSettingsRadioButtons, FormSettingsRadioButtonsName } from './settings/FormSettingsRadioButtons.js';
 import { parseOptionsList } from './helpers/parseOptionsList.js';
+
+const { defineComponent } = kameoHelpers;
 
 export const FormRadioButtons = Node.create({
   name: 'formRadioButtons',
@@ -200,5 +203,13 @@ export const FormRadioButtons = Node.create({
         tagNameOption: this.options.tagNameOption,
       }, options);
     };
+  },
+
+  onCreate() {
+    const { isHeadless } = this.editor.options;
+      
+    if (!isHeadless) {
+      defineComponent(FormSettingsRadioButtonsName, FormSettingsRadioButtons);
+    }
   },
 });

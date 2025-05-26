@@ -1,7 +1,10 @@
-import { Node, mergeAttributes } from '@kameo/core';
+import { Node, mergeAttributes, kameoHelpers } from '@kameo/core';
 import { FormSelectView } from './view/FormSelectView.js';
 import { createFieldSettings } from './settings/index.js';
+import { FormSettingsSelect, FormSettingsSelectName } from './settings/FormSettingsSelect.js';
 import { parseOptionsList } from './helpers/parseOptionsList.js';
+
+const { defineComponent } = kameoHelpers;
 
 export const FormSelect = Node.create({
   name: 'formSelect',
@@ -246,5 +249,13 @@ export const FormSelect = Node.create({
         tagNameOption: this.options.tagNameOption,
       }, options);
     };
+  },
+
+  onCreate() {
+    const { isHeadless } = this.editor.options;
+    
+    if (!isHeadless) {
+      defineComponent(FormSettingsSelectName, FormSettingsSelect);
+    }
   },
 });

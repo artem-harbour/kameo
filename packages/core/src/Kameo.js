@@ -48,24 +48,29 @@ export class Kameo extends Editor {
   #init(options) {
     this.submit = this.options.handlers?.submit ?? this.submit.bind(this);
 
-    this.setDocumentMode(this.options.documentMode, { isInit: true });
-    this.defineComponents();
+    if (!options.isHeadless) {
+      this.defineComponents();
+    }
 
+    this.setDocumentMode(this.options.documentMode, { isInit: true });
+    
     this.on('submit', this.options.onSubmit);
     this.on('submitted', this.options.onSubmitted);
   }
 
   setDocumentMode(mode, { isInit = false } = {}) {
     const [editModeClass, viewModeClass] = ['kameo--edit-mode', 'kameo--view-mode'];
-
+    
     const modes = {
       edit: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(true, false);
-        this.registerPlugin(FormActionsPlugin({ editor: this }));
-        this.registerPlugin(FormSettingsPlugin({ editor: this }));
-        this.view.dom.classList.add(editModeClass);
-        this.view.dom.classList.remove(viewModeClass);
+        if (!this.options.isHeadless) {
+          this.registerPlugin(FormActionsPlugin({ editor: this }));
+          this.registerPlugin(FormSettingsPlugin({ editor: this }));
+          this.view.dom.classList.add(editModeClass);
+          this.view.dom.classList.remove(viewModeClass);
+        }
         this.emit('documentModeUpdate', {
           editor: this,
           mode: 'edit',
@@ -75,10 +80,12 @@ export class Kameo extends Editor {
       view: () => {
         this.setOptions({ documentMode: mode });
         this.setEditable(false, false);
-        this.unregisterPlugin(FormActionsPluginKey);
-        this.unregisterPlugin(FormSettingsPluginKey);
-        this.view.dom.classList.add(viewModeClass);
-        this.view.dom.classList.remove(editModeClass);
+        if (!this.options.isHeadless) {
+          this.unregisterPlugin(FormActionsPluginKey);
+          this.unregisterPlugin(FormSettingsPluginKey);
+          this.view.dom.classList.add(viewModeClass);
+          this.view.dom.classList.remove(editModeClass);
+        }
         this.emit('documentModeUpdate', {
           editor: this,
           mode: 'view',

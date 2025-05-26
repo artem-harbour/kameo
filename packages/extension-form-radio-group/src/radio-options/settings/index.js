@@ -1,5 +1,4 @@
 import { kameoHelpers } from '@kameo/core';
-import { FormSettingsRadioOptions } from './FormSettingsRadioOptions.js';
 
 const { createSettingControl } = kameoHelpers;
 
@@ -81,5 +80,3 @@ export const createFieldSettings = () => ({
     section: 'appearance',
   }),
 });
-
-console.debug('Kameo: FormSettingsRadioOptions defined', FormSettingsRadioOptions);

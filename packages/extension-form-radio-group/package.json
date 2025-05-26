@@ -28,12 +28,13 @@
     "src",
     "dist"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.19"
+    "@kameo/core": "^0.0.19",
+    "lit": "3.3.0"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.19"
+    "@kameo/core": "^0.0.19",
+    "lit": "3.3.0"
   },
   "repository": {
     "type": "git",

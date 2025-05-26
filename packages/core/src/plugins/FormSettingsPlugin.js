@@ -1,4 +1,5 @@
 import { Plugin, PluginKey } from '@kameo/pm/state';
+import { FormSettingsComponentName } from '../ui/form-settings/index.js';
 
 export const FormSettingsPluginKey = new PluginKey('FormSettings');
 
@@ -60,7 +61,7 @@ export class FormSettingsView {
   }
 
   createSettings() {
-    const settings = document.createElement('km-form-settings');
+    const settings = document.createElement(FormSettingsComponentName);
     settings.classList.add('km-form-settings');
     settings.dataset.formSettings = '';
     return settings;

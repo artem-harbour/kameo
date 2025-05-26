@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
 
+export const FormSettingsSelectName = 'km-form-settings-select';
+
 export class FormSettingsSelect extends LitElement {
 
   static properties = {
@@ -203,5 +205,3 @@ export class FormSettingsSelect extends LitElement {
     }
   `
 }
-
-customElements.define('km-form-settings-select', FormSettingsSelect);
