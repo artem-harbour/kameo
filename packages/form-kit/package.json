@@ -29,6 +29,7 @@
     "@kameo/extension-form-radio-group": "^0.0.20",
     "@kameo/extension-form-switch": "^0.0.20",
     "@kameo/extension-form-rating": "^0.0.20",
+    "@kameo/extension-form-signature": "^0.0.20",
     "@kameo/extension-form-slider": "^0.0.20",
     "@kameo/extension-form-submit": "^0.0.20",
     "@kameo/pm": "^0.0.20"

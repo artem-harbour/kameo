@@ -1,0 +1,42 @@
+{
+  "name": "@kameo/extension-form-signature",
+  "description": "form signature extension for kameo",
+  "version": "0.0.20",
+  "license": "MIT",
+  "keywords": [
+    "kameo",
+    "kameo extension"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "devDependencies": {
+    "@kameo/core": "^0.0.20",
+    "lit": "3.3.0",
+    "signature_pad": "^5.0.7"
+  },
+  "peerDependencies": {
+    "@kameo/core": "^0.0.20",
+    "lit": "3.3.0",
+    "signature_pad": "^5.0.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/extension-form-signature"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}

@@ -6,6 +6,7 @@ import { FormSelect } from '@kameo/extension-form-select';
 import { FormRadioOptions, FormRadioButtons } from '@kameo/extension-form-radio-group';
 import { FormSwitch } from '@kameo/extension-form-switch';
 import { FormRating } from '@kameo/extension-form-rating';
+import { FormSignature } from '@kameo/extension-form-signature';
 import { FormSlider } from '@kameo/extension-form-slider';
 import { FormSubmit } from '@kameo/extension-form-submit';
 
@@ -45,6 +46,10 @@ export const FormKit = Extension.create({
 
     if (this.options.formRating !== false) {
       extensions.push(FormRating.configure(this.options.formRating));
+    }
+
+    if (this.options.formSignature !== false) {
+      extensions.push(FormSignature.configure(this.options.formSignature));
     }
 
     if (this.options.formSlider !== false) {

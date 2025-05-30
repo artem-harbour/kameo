@@ -167,6 +167,12 @@ export const formFields = [
     },
   },
   {
+    id: 'formSignature',
+    title: 'Signature',
+    fieldType: 'formSignature',
+    attrs: {},
+  },
+  {
     id: 'formRating',
     title: 'Rating',
     fieldType: 'formRating',

@@ -198,7 +198,7 @@ export class FormElementView {
             const pos = this.getPos();
             if (typeof pos !== 'number') return;
             const insertPos = pos + this.node.nodeSize;
-            tr.insert(insertPos, this.node.type.create(this.node.attrs));
+            tr.insert(insertPos, this.node.type.create({ ...this.node.attrs }));
             dispatch(tr);
             return true;
           })
