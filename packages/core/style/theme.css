@@ -46,6 +46,15 @@
   justify-content: flex-end;
 }
 
+.km-form-element-view--formSignature {
+  display: flex;
+  justify-content: center;
+}
+
+.km-form-element--formSignature {
+  height: 320px;
+}
+
 .km-form-actions {
   transition: opacity ease-in 0.15s;
 }

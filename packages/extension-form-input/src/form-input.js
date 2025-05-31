@@ -163,12 +163,16 @@ export const FormInput = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('step'),
       }, 
-      'no-spin-buttons': {
+      noSpinButtons: {
         default: false,
         parseHTML: (elem) => (
           elem.hasAttribute('no-spin-buttons') 
             && elem.getAttribute('no-spin-buttons') !== 'false'
         ),
+        renderHTML: (attrs) => {
+          if (!attrs.noSpinButtons) return {};
+          return { 'no-spin-buttons': true };
+        },
       },
       valueAttribute: {
         default: this.options.valueAttribute,

@@ -20,7 +20,8 @@ export const FormSignature = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'km-form-signature',
-      format: 'png',
+      format: 'png', // png | jpeg | svg
+      isOpaque: false,
       valueAttribute: {
         name: 'value',
         type: 'string',
@@ -53,9 +54,20 @@ export const FormSignature = Node.create({
         parseHTML: (elem) => elem.getAttribute('value'),
         rendered: false,
       },
+      hint: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('hint'),
+      },
       format: {
         default: this.options.format,
         parseHTML: (elem) => elem.getAttribute('format'),
+      },
+      opaque: {
+        default: this.options.isOpaque,
+        parseHTML: (elem) => (
+          elem.hasAttribute('opaque') 
+            && elem.getAttribute('opaque') !== 'false'
+        ),
       },
       valueAttribute: {
         default: this.options.valueAttribute,
@@ -89,6 +101,7 @@ export const FormSignature = Node.create({
     const options = {
       HTMLAttributes: this.options.HTMLAttributes,
       customElements: [this.options.tagName],
+      customBooleans: ['opaque'],
     };
 
     return (props) => {

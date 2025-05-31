@@ -1,5 +1,8 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html, css, nothing } from 'lit';
 import SignaturePad from 'signature_pad';
+
+// https://github.com/szimek/signature_pad
+// https://github.com/szimek/signature_pad/issues/49
 
 export const FormSignatureName = 'km-form-signature';
 
@@ -8,18 +11,25 @@ export class FormSignature extends LitElement {
     value: {
       type: String,
     },
+    hint: {
+      type: String,
+    },
     format: {
       type: String,
+    },
+    opaque: {
+      type: Boolean,
     },
   };
 
   constructor() {
     super();
 
-    this.format = 'png';
-
     this.canvas = null;
     this.signaturePad = null;
+
+    this.format = 'png';
+    this.opaque = false;
 
     this._onResizeCanvas = this._onResizeCanvas.bind(this);
     this._onEndStroke = this._onEndStroke.bind(this);
@@ -30,11 +40,13 @@ export class FormSignature extends LitElement {
       return;
     }
 
-    this.signaturePad = new SignaturePad(this.canvas, {
-      // It's Necessary to use an opaque color when saving image as JPEG;
-      // this option can be omitted if only saving as PNG or SVG
-      backgroundColor: 'rgb(255, 255, 255)',
-    });
+    // It's Necessary to use an opaque color when saving image as JPEG;
+    // this option can be omitted if only saving as PNG or SVG
+    const options = {
+      ...(this.opaque || this.format === 'jpeg' ? { backgroundColor: 'rgb(255, 255, 255)' } : 'rgba(0,0,0,0)'),
+    };
+
+    this.signaturePad = new SignaturePad(this.canvas, { ...options });
   }
 
   // Adjust canvas coordinate space taking into account pixel ratio,
@@ -121,6 +133,20 @@ export class FormSignature extends LitElement {
     this._attachPadEvents();
   }
 
+  willUpdate(changedProperties) {
+    const formatChanged = changedProperties.has('format');
+    const opaqueChanged = changedProperties.has('opaque');
+    const shouldUpdateBackground = (formatChanged || opaqueChanged);
+
+    if (this.signaturePad && shouldUpdateBackground) {
+      if (this.opaque || this.format === 'jpeg') {
+        this.signaturePad.backgroundColor = 'rgb(255, 255, 255)';
+      } else {
+        this.signaturePad.backgroundColor = 'rgba(0,0,0,0)';
+      }
+    }
+  }
+
   connectedCallback() {
     super.connectedCallback();
     // On mobile devices it might make more sense to listen to orientation change,
@@ -143,7 +169,7 @@ export class FormSignature extends LitElement {
           <canvas class="form-signature__canvas"></canvas>
         </div>
         <div class="form-signature__footer">
-          <div class="form-signature__description">Sign above</div>
+          ${this.hint ? html`<div class="form-signature__description">${this.hint}</div>` : nothing}
           <div class="form-signature__actions">
             <div class="form-signature__clear" @click=${() => this._clearPad()}>Clear</div>
           </div>
@@ -152,13 +178,15 @@ export class FormSignature extends LitElement {
     `;
   }
 
-  // TODO: tweak styles.
   static styles = css`
     :host {
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 340px; 
+      max-width: 700px;
     }
 
     .form-signature {
@@ -167,12 +195,10 @@ export class FormSignature extends LitElement {
       flex-direction: column;
       width: 100%;
       height: 100%;
-      max-width: 700px;
-      height: 460px;
       border: 1px solid #e8e8e8;
       background-color: #fff;
       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
-      border-radius: 4px;
+      border-radius: 6px;
       padding: 12px;
       box-sizing: border-box;
     }
@@ -190,7 +216,7 @@ export class FormSignature extends LitElement {
       top: 0;
       width: 100%;
       height: 100%;
-      border-radius: 4px;
+      border-radius: 6px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
     }
 
@@ -204,7 +230,7 @@ export class FormSignature extends LitElement {
       color: #c3c3c3;
       line-height: 1.2;
       text-align: center;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .form-signature__actions {
