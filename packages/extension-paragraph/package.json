@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-paragraph",
   "description": "paragraph extension for kameo",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,10 +21,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.20"
+    "@kameo/core": "^0.0.21"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.20"
+    "@kameo/core": "^0.0.21"
   },
   "repository": {
     "type": "git",
