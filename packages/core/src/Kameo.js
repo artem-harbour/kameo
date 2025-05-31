@@ -161,8 +161,6 @@ export class Kameo extends Editor {
    */
   emitNodeEvent(nodeType, eventName, props = {}) {
     this.emit(`node:${nodeType}:${eventName}`, props);
-    
-    // general event.
     this.emit(`node:${eventName}`, props);
   }
 
@@ -174,8 +172,19 @@ export class Kameo extends Editor {
     return this;
   }
 
+  offNodeEvent(nodeType, eventName, callback) {
+    this.off(`node:${nodeType}:${eventName}`, callback);
+    return this;
+  }
+
   defineComponents() {
-    defineComponent(FormActionsComponentName, FormActions);
-    defineComponent(FormSettingsComponentName, FormSettings);
+    const components = {
+      [FormActionsComponentName]: FormActions,
+      [FormSettingsComponentName]: FormSettings,
+    };
+
+    Object.entries(components).forEach(([name, component]) => {
+      defineComponent(name, component);
+    });
   }
 }
