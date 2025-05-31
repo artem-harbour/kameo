@@ -144,6 +144,9 @@ export class FormSignature extends LitElement {
       } else {
         this.signaturePad.backgroundColor = 'rgba(0,0,0,0)';
       }
+
+      // Reset the data.
+      this.signaturePad.fromData(this.signaturePad.toData());
     }
   }
 
