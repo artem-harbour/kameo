@@ -1,5 +1,13 @@
 # @kameo/extension-form-switch
 
+## 0.0.22
+
+### Patch Changes
+
+- 0d94034: bump version
+- Updated dependencies [0d94034]
+  - @kameo/core@0.0.22
+
 ## 0.0.21
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @kameo/pm
 
+## 0.0.22
+
+### Patch Changes
+
+- 0d94034: bump version
+
 ## 0.0.21
 
 ### Patch Changes
