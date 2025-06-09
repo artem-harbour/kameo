@@ -6,14 +6,15 @@ import { StarterKit } from '@kameo/starter-kit';
 import { FormKit } from '@kameo/form-kit';
 import { TextStyleKit } from '@kameo/extension-text-style';
 import { Image } from '@kameo/extension-image';
-import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
-import { createToolbar } from './helpers/createToolbar.js';
+import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
+// import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
+// import { createToolbar } from './helpers/createToolbar.js';
 import { handleBaseForm } from './helpers/handleBaseForm.js';
 import { handleDocumentMode } from './helpers/handleDocumentMode.js';
 import { handleImportForm } from './helpers/handleImportForm.js';
 import { handleExportForm } from './helpers/handleExportForm.js';
 import { handleClearContent } from './helpers/handleClearContent.js';
-import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
+
 import baseForm from './forms/base-form.json';
 
 const documentMode = 'edit';
@@ -81,7 +82,7 @@ const init = () => {
   const kameo = initKameo();
   window.kameo = kameo;
 
-  createToolbar({ fields: formFields });
+  // createToolbar({ fields: formFields });
   attachEvents(kameo);
 };
 
