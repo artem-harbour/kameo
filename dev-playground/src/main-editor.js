@@ -7,6 +7,7 @@ import { FormKit } from '@kameo/form-kit';
 import { TextStyleKit } from '@kameo/extension-text-style';
 import { Image } from '@kameo/extension-image';
 import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
+import { Placeholder } from '@kameo/extensions';
 // import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
 // import { createToolbar } from './helpers/createToolbar.js';
 import { handleBaseForm } from './helpers/handleBaseForm.js';
@@ -26,6 +27,7 @@ const initKameo = () => {
       TextStyleKit,
       Image,
       SlashCommand.configure({ suggestion }),
+      Placeholder.configure({ placeholder: 'Press / for commands...' }),
     ],
     documentMode,
   });

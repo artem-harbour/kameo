@@ -27,6 +27,10 @@
       "import": "./dist/undo-redo/index.js",
       "require": "./dist/undo-redo/index.cjs"
     },
+    "./placeholder": {
+      "import": "./dist/placeholder/index.js",
+      "require": "./dist/placeholder/index.cjs"
+    },
     "./selection": {
       "import": "./dist/selection/index.js",
       "require": "./dist/selection/index.cjs"
