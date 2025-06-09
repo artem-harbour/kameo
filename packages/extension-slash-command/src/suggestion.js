@@ -5,10 +5,6 @@ import { SlashMenuName } from './ui/SlashMenu.js';
 
 const { updateDOMProps } = kameoHelpers;
 
-export const createSuggestionItems = (items) => ({ query }) => {
-  return items.filter((item) => item.title.toLowerCase().startsWith(query.toLowerCase()));
-};
-
 const updatePosition = (editor, element) => {
   const virtualElement = {
     getBoundingClientRect: () => posToDOMRect(editor.view, editor.state.selection.from, editor.state.selection.to),
@@ -33,7 +29,7 @@ const createSlashMenu = (props) => {
   return menu;
 };
 
-const renderItems = () => {
+export const renderItems = () => {
   let element;
 
   return {
@@ -83,6 +79,10 @@ const renderItems = () => {
       element.remove();
     },
   };
+};
+
+export const createSuggestionItems = (items) => ({ query }) => {
+  return items.filter((item) => item.title.toLowerCase().startsWith(query.toLowerCase()));
 };
 
 export const suggestion = {
