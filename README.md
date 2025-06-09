@@ -27,7 +27,7 @@ Kameo is a toolkit for creating and rendering interactive web forms within rich 
 
 ```bash
 npm install @kameo/core @kameo/pm @kameo/starter-kit @kameo/form-kit
-npm install @kameo/toolbar-form-fields
+npm install @kameo/extension-slash-command @kameo/extensions
 ```
 
 **IMPORTANT**: Kameo is currently in active development and should not be used in production. During this early phase, npm packages will not strictly follow semantic versioning and will be published infrequently. For now, we recommend experimenting with Kameo in development environments only. You can clone the repository and use the development setup to try out the latest features.
@@ -64,13 +64,16 @@ import '@kameo/core/style/theme.css';
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
 import { FormKit } from '@kameo/form-kit';
-import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
+import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
+import { Placeholder } from '@kameo/extensions';
 
 const kameo = new Kameo({
   element: document.querySelector('#kameo'),
   extensions: [
     StarterKit,
     FormKit,
+    SlashCommand.configure({ suggestion }),
+    Placeholder.configure({ placeholder: 'Press / for commands...' }),
   ],
   documentMode: 'edit',
 });
