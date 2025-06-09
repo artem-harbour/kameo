@@ -5,7 +5,7 @@ const { getRandomId } = kameoHelpers;
 export const suggestionItems = [
   {
     title: 'Text',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -16,7 +16,7 @@ export const suggestionItems = [
   },
   {
     title: 'Name',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -27,7 +27,7 @@ export const suggestionItems = [
   },
   {
     title: 'Email',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -38,7 +38,7 @@ export const suggestionItems = [
   },
   {
     title: 'Number',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -49,7 +49,7 @@ export const suggestionItems = [
   },
   {
     title: 'Date',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -60,7 +60,7 @@ export const suggestionItems = [
   },
   {
     title: 'Time',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -71,7 +71,7 @@ export const suggestionItems = [
   },
   {
     title: 'Textarea',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -82,7 +82,7 @@ export const suggestionItems = [
   },
   {
     title: 'Checkbox',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = { 
@@ -93,7 +93,7 @@ export const suggestionItems = [
   },
   {
     title: 'Select',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -116,7 +116,7 @@ export const suggestionItems = [
   },
   {
     title: 'Radio options',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -139,7 +139,7 @@ export const suggestionItems = [
   },
   {
     title: 'Radio buttons',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -162,7 +162,7 @@ export const suggestionItems = [
   },
   {
     title: 'Yes/No',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -186,7 +186,7 @@ export const suggestionItems = [
   },
   {
     title: 'Signature',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -197,7 +197,7 @@ export const suggestionItems = [
   },
   {
     title: 'Rating',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -208,7 +208,7 @@ export const suggestionItems = [
   },
   {
     title: 'Switch',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -219,7 +219,7 @@ export const suggestionItems = [
   },
   {
     title: 'Slider',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
@@ -230,7 +230,7 @@ export const suggestionItems = [
   },
   {
     title: 'Submit',
-    section: 'Form',
+    group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       editor.chain().focus().deleteRange(range).insertFormSubmit(pos).run();
