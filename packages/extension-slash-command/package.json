@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-slash-command",
   "description": "slash command extension for kameo",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,14 +22,14 @@
   ],
   "devDependencies": {
     "@floating-ui/dom": "^1.7.1",
-    "@kameo/core": "^0.0.22",
-    "@kameo/suggestion": "^0.0.22",
+    "@kameo/core": "^0.0.23",
+    "@kameo/suggestion": "^0.0.23",
     "lit": "3.3.0"
   },
   "peerDependencies": {
     "@floating-ui/dom": "^1.7.1",
-    "@kameo/core": "^0.0.22",
-    "@kameo/suggestion": "^0.0.22",
+    "@kameo/core": "^0.0.23",
+    "@kameo/suggestion": "^0.0.23",
     "lit": "3.3.0"
   },
   "repository": {

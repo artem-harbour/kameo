@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-rating",
   "description": "form rating extension for kameo",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.22"
+    "@kameo/core": "^0.0.23"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.22"
+    "@kameo/core": "^0.0.23"
   },
   "repository": {
     "type": "git",

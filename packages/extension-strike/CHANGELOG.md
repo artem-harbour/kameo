@@ -1,5 +1,13 @@
 # @kameo/extension-strike
 
+## 0.0.23
+
+### Patch Changes
+
+- 76a8ff7: bump version
+- Updated dependencies [76a8ff7]
+  - @kameo/core@0.0.23
+
 ## 0.0.22
 
 ### Patch Changes

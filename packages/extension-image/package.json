@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-image",
   "description": "image extension for kameo",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,10 +21,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.22"
+    "@kameo/core": "^0.0.23"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.22"
+    "@kameo/core": "^0.0.23"
   },
   "repository": {
     "type": "git",
