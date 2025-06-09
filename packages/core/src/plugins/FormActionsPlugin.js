@@ -2,9 +2,6 @@ import { Plugin, PluginKey } from '@kameo/pm/state';
 
 export const FormActionsPluginKey = new PluginKey('FormActions');
 
-// for reference.
-// https://github.com/NiclasDev63/tiptap-extension-global-drag-handle/blob/master/src/index.ts
-// https://github.com/bangle-io/bangle-io/tree/main/packages/js-lib/banger-editor/src/drag
 export const FormActionsPlugin = ({ 
   editor,
   horizontalNodeOffset = 50,

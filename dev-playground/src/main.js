@@ -13,6 +13,7 @@ import { handleDocumentMode } from './helpers/handleDocumentMode.js';
 import { handleImportForm } from './helpers/handleImportForm.js';
 import { handleExportForm } from './helpers/handleExportForm.js';
 import { handleClearContent } from './helpers/handleClearContent.js';
+import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
 import baseForm from './forms/base-form.json';
 
 const documentMode = 'edit';
@@ -25,6 +26,7 @@ const initKameo = () => {
       FormKit,
       TextStyleKit,
       Image,
+      SlashCommand.configure({ suggestion }),
     ],
     documentMode,
 

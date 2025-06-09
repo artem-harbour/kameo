@@ -181,7 +181,7 @@ export class FormElementView {
             const insertPos = pos + this.node.nodeSize;
             commands.insertContentAt(insertPos, {
               type: 'text',
-              text: ' ',
+              text: '/',
             });
             return true;
           })

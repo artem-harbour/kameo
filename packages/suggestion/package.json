@@ -1,0 +1,40 @@
+{
+  "name": "@kameo/suggestion",
+  "description": "suggestion for kameo",
+  "version": "0.0.22",
+  "license": "MIT",
+  "keywords": [
+    "kameo",
+    "kameo utility"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "devDependencies": {
+    "@kameo/core": "^0.0.22",
+    "@kameo/pm": "^0.0.22"
+  },
+  "peerDependencies": {
+    "@kameo/core": "^0.0.22",
+    "@kameo/pm": "^0.0.22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kameojs/kameo",
+    "directory": "packages/suggestion"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && rollup -c"
+  }
+}

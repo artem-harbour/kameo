@@ -4,7 +4,7 @@ export const insertFormElement =
     const { schema } = editor;
 
     if (dispatch) {
-      tr.setMeta('addToHistory', false);
+      // tr.setMeta('addToHistory', false);
 
       const insertPos = tr.mapping.map(pos);
       const node = schema.nodes[typeName].create({ ...attrs }, null, null);

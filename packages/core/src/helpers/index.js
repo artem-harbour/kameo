@@ -6,3 +6,4 @@ export * from './createSettingControl.js';
 export * from './getAllFormFields.js';
 export * from './findFormFields.js';
 export * from './defineComponent.js';
+export * from './updateDOMProps.js';
