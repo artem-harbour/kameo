@@ -1,85 +1,103 @@
-// TODO: generate id, name
-// description, section
+import { kameoHelpers } from "@kameo/core";
+
+const { getRandomId } = kameoHelpers;
+
 export const suggestionItems = [
   {
     title: 'Text',
-    description: 'Input with type text',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormInputText(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `text-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputText(pos, attrs).run();
     },
   },
   {
     title: 'Name',
-    description: 'Input with type text',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormInputName(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `name-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputName(pos, attrs).run();
     },
   },
   {
     title: 'Email',
-    description: 'Input with type email',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormInputEmail(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `email-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputEmail(pos, attrs).run();
     },
   },
   {
     title: 'Number',
-    description: 'Input with type email',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormInputNumber(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `number-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputNumber(pos, attrs).run();
     },
   },
   {
     title: 'Date',
-    description: 'Input with type date',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormInputDate(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `date-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputDate(pos, attrs).run();
     },
   },
   {
     title: 'Time',
-    description: 'Input with type time',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormInputTime(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `time-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputTime(pos, attrs).run();
     },
   },
   {
     title: 'Textarea',
-    description: 'Textarea',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormTextarea(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `textarea-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormTextarea(pos, attrs).run();
     },
   },
   {
     title: 'Checkbox',
-    description: 'Checkbox',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormCheckbox(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `checkbox-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormCheckbox(pos, attrs).run();
     },
   },
   {
     title: 'Select',
-    description: 'Select',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
+      const pos = editor.view.state.selection.from;
       const attrs = {
+        name: `select-${getRandomId()}`, 
         options: [
           {
             value: 'option-1',
@@ -93,16 +111,16 @@ export const suggestionItems = [
           }
         ],
       };
-      editor.chain().focus().deleteRange(range).insertFormSelect(from, attrs).run();
+      editor.chain().focus().deleteRange(range).insertFormSelect(pos, attrs).run();
     },
   },
   {
     title: 'Radio options',
-    description: 'Radio options',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
+      const pos = editor.view.state.selection.from;
       const attrs = {
+        name: `radio-options-${getRandomId()}`, 
         options: [
           {
             value: 'option-1',
@@ -116,16 +134,16 @@ export const suggestionItems = [
           },
         ],
       };
-      editor.chain().focus().deleteRange(range).insertFormRadioOptions(from, attrs).run();
+      editor.chain().focus().deleteRange(range).insertFormRadioOptions(pos, attrs).run();
     },
   },
   {
     title: 'Radio buttons',
-    description: 'Radio buttons',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
+      const pos = editor.view.state.selection.from;
       const attrs = {
+        name: `radio-buttons-${getRandomId()}`, 
         options: [
           {
             value: 'option-1',
@@ -139,16 +157,16 @@ export const suggestionItems = [
           },
         ],
       };
-      editor.chain().focus().deleteRange(range).insertFormRadioButtons(from, attrs).run();
+      editor.chain().focus().deleteRange(range).insertFormRadioButtons(pos, attrs).run();
     },
   },
   {
     title: 'Yes/No',
-    description: 'Yes/No',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
+      const pos = editor.view.state.selection.from;
       const attrs = {
+        name: `yes-no-${getRandomId()}`, 
         options: [
           {
             value: 'yes',
@@ -163,52 +181,59 @@ export const suggestionItems = [
         ],
         orientation: 'horizontal',
       };
-      editor.chain().focus().deleteRange(range).insertFormRadioButtons(from, attrs).run();
+      editor.chain().focus().deleteRange(range).insertFormRadioButtons(pos, attrs).run();
     },
   },
   {
     title: 'Signature',
-    description: 'Signature',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormSignature(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = {
+        name: `signature-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormSignature(pos, attrs).run();
     },
   },
   {
     title: 'Rating',
-    description: 'Rating',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormRating(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = {
+        name: `rating-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormRating(pos, attrs).run();
     },
   },
   {
     title: 'Switch',
-    description: 'Switch',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormSwitch(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = {
+        name: `switch-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormSwitch(pos, attrs).run();
     },
   },
   {
     title: 'Slider',
-    description: 'Slider',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormSlider(from).run();
+      const pos = editor.view.state.selection.from;
+      const attrs = {
+        name: `slider-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormSlider(pos, attrs).run();
     },
   },
   {
     title: 'Submit',
-    description: 'Submit',
     section: 'Form',
     command: ({ editor, range }) => {
-      const { from } = editor.view.state.selection;
-      editor.chain().focus().deleteRange(range).insertFormSubmit(from).run();
+      const pos = editor.view.state.selection.from;
+      editor.chain().focus().deleteRange(range).insertFormSubmit(pos).run();
     },
   },
 ];
