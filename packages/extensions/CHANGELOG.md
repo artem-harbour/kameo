@@ -1,5 +1,14 @@
 # @kameo/extensions
 
+## 0.0.24
+
+### Patch Changes
+
+- 6784e6c: bump version
+- Updated dependencies [6784e6c]
+  - @kameo/core@0.0.24
+  - @kameo/pm@0.0.24
+
 ## 0.0.23
 
 ### Patch Changes
