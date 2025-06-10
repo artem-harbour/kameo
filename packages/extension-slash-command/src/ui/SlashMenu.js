@@ -92,17 +92,21 @@ export class SlashMenu extends LitElement {
       return html`<div class="slash-menu__no-resultes">No results</div>`;
     }
 
+    const groupedItems = Object.groupBy(this.items, ({ group }) => group);
+    const selected = this.items[this._selectedIndex];
+
     return html`
       <div class="slash-menu__menu">
-        ${this.items.map(
-          (item, index) => html`
+        ${Object.entries(groupedItems).map(([group, items]) => html`
+          <div class="slash-menu__group">${group}</div>
+          ${items.map((item, index) => html`
             <div 
-              class="slash-menu__item ${this._selectedIndex === index ? 'slash-menu__item--selected' : ''}" 
+              class="slash-menu__item ${item === selected ? 'slash-menu__item--selected' : ''}" 
               @click=${() => this._selectItem(index)}>
               <div class="slash-menu__item-title"><span>${item.title}</span></div>
             </div>
-          `
-        )}
+          `)}
+        `)}
       </div>
     `;
   }
@@ -139,6 +143,7 @@ export class SlashMenu extends LitElement {
       overflow: auto;
       z-index: 10;
       user-select: none;
+      white-space: nowrap;
       box-sizing: border-box;
       scrollbar-width: thin;
     }
@@ -153,7 +158,6 @@ export class SlashMenu extends LitElement {
       font-size: 15px;
       color: #37352f;
       line-height: 1.1;
-      white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -179,6 +183,14 @@ export class SlashMenu extends LitElement {
     .slash-menu__item-title span {
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+
+    .slash-menu__group {
+      font-size: 13px;
+      font-weight: bold;
+      color: #37352f;
+      line-height: 1.1;
+      padding: 6px;
     }
   `
 }
