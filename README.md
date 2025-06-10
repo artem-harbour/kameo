@@ -90,11 +90,6 @@ kameo.on('submit', (event) => {
 kameo.on('submitted', (event) => {
   console.log(`on 'submitted' event`, { event });
 });
-
-// Create toolbar with fields.
-const toolbar = document.createElement('km-toolbar-form-fields');
-toolbar.fields = formFields;
-document.querySelector('#kameo-toolbar').append(toolbar);
 ```
 
 Kameo is built on top of Tiptap (core), a powerful editor framework for the web. To better understand how to work with Kameo, we recommend familiarizing yourself with the Tiptap API documentation:
