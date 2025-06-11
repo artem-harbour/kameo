@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Kameo is a toolkit for creating and rendering interactive web forms within rich text content, based on ProseMirror.
+Kameo is a toolkit for creating and rendering interactive web forms in rich text. Based on [ProseMirror](https://prosemirror.net/).
 
 ## License
 
