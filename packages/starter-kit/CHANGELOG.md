@@ -1,5 +1,24 @@
 # @kameo/starter-kit
 
+## 0.0.25
+
+### Patch Changes
+
+- adf1a8a: bump version
+- Updated dependencies [adf1a8a]
+  - @kameo/core@0.0.25
+  - @kameo/extension-blockquote@0.0.25
+  - @kameo/extension-bold@0.0.25
+  - @kameo/extension-document@0.0.25
+  - @kameo/extension-heading@0.0.25
+  - @kameo/extension-italic@0.0.25
+  - @kameo/extension-paragraph@0.0.25
+  - @kameo/extension-strike@0.0.25
+  - @kameo/extension-text@0.0.25
+  - @kameo/extension-underline@0.0.25
+  - @kameo/extensions@0.0.25
+  - @kameo/pm@0.0.25
+
 ## 0.0.24
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-heading",
   "description": "heading extension for kameo",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,10 +21,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.24"
+    "@kameo/core": "^0.0.25"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.24"
+    "@kameo/core": "^0.0.25"
   },
   "repository": {
     "type": "git",

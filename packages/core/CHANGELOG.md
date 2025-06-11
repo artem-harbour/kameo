@@ -1,5 +1,13 @@
 # @kameo/core
 
+## 0.0.25
+
+### Patch Changes
+
+- adf1a8a: bump version
+- Updated dependencies [adf1a8a]
+  - @kameo/pm@0.0.25
+
 ## 0.0.24
 
 ### Patch Changes
