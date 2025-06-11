@@ -1,5 +1,8 @@
 import { Node, mergeAttributes, textblockTypeInputRule } from '@kameo/core';
 
+/**
+ * This extension allows to create headings.
+ */
 export const Heading = Node.create({
   name: 'heading',
 
@@ -42,15 +45,24 @@ export const Heading = Node.create({
 
   addCommands() {
     return {
-      setHeading: attributes => ({ commands }) => {
+      /**
+       * Set a heading node.
+       * @param attributes The heading attributes.
+       * @example editor.commands.setHeading({ level: 1 })
+       */
+      setHeading: (attributes) => ({ commands }) => {
         if (!this.options.levels.includes(attributes.level)) {
           return false;
         }
 
         return commands.setNode(this.name, attributes);
       },
-
-      toggleHeading: attributes => ({ commands }) => {
+      /**
+       * Toggle a heading node.
+       * @param attributes The heading attributes.
+       * @example editor.commands.toggleHeading({ level: 1 })
+       */
+      toggleHeading: (attributes) => ({ commands }) => {
         if (!this.options.levels.includes(attributes.level)) {
           return false;
         }

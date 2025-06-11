@@ -1,5 +1,8 @@
 import { Node, mergeAttributes } from '@kameo/core';
 
+/**
+ * This extension allows to create paragraphs.
+ */
 export const Paragraph = Node.create({
   name: 'paragraph',
   
@@ -25,6 +28,10 @@ export const Paragraph = Node.create({
 
   addCommands() {
     return {
+      /**
+       * Set a paragraph node.
+       * @example editor.commands.setParagraph()
+       */
       setParagraph: () => ({ commands }) => {
         return commands.setNode(this.name);
       },

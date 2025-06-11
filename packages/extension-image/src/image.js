@@ -5,6 +5,9 @@ import { Node, mergeAttributes, nodeInputRule } from '@kameo/core';
  */
 export const inputRegex = /(?:^|\s)(!\[(.+|:?)]\((\S+)(?:(?:\s+)["'](\S+)["'])?\))$/;
 
+/**
+ * This extension allows to insert images.
+ */
 export const Image = Node.create({
   name: 'image',
 
@@ -62,6 +65,12 @@ export const Image = Node.create({
 
   addCommands() {
     return {
+      /**
+       * Add an image.
+       * @param options The image attributes.
+       * @example
+       * editor.commands.setImage({ src: '/image.png', alt: 'kameo', title: 'kameo logo' })
+       */
       setImage: (options) => ({ commands }) => {
         return commands.insertContent({
           type: this.name,
@@ -78,7 +87,6 @@ export const Image = Node.create({
         type: this.type,
         getAttributes: match => {
           const [,, alt, src, title] = match;
-
           return { src, alt, title };
         },
       }),

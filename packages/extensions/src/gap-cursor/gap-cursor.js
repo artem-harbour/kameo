@@ -1,6 +1,11 @@
 import { Extension, callOrReturn, getExtensionField } from '@kameo/core';
 import { gapCursor } from '@kameo/pm/gapcursor';
 
+/**
+ * This extension allows to add a gap cursor to your editor.
+ * A gap cursor is a cursor that appears when you click on a place
+ * where no content is present, for example inbetween nodes.
+ */
 export const Gapcursor = Extension.create({
   name: 'gapCursor',
 

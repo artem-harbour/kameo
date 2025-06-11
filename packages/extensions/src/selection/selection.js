@@ -2,6 +2,9 @@ import { Extension, isNodeSelection } from '@kameo/core';
 import { Plugin, PluginKey } from '@kameo/pm/state';
 import { Decoration, DecorationSet } from '@kameo/pm/view';
 
+/**
+ * This extension allows to add a class to the selected text.
+ */
 export const Selection = Extension.create({
   name: 'selection',
 

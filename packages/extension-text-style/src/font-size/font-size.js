@@ -2,6 +2,9 @@ import '../text-style/index.js';
 
 import { Extension } from '@kameo/core';
 
+/**
+ * This extension allows to set a font size for text.
+ */
 export const FontSize = Extension.create({
   name: 'fontSize',
 
@@ -36,9 +39,18 @@ export const FontSize = Extension.create({
 
   addCommands() {
     return {
+      /**
+       * Set the font size.
+       * @param fontSize The font size.
+       * @example editor.commands.setFontSize('Arial')
+       */
       setFontSize: (fontSize) => ({ chain }) => {
         return chain().setMark('textStyle', { fontSize }).run();
       },
+      /**
+       * Unset the font size.
+       * @example editor.commands.unsetFontSize()
+       */
       unsetFontSize: () => ({ chain }) => {
         return chain().setMark('textStyle', { fontSize: null }).removeEmptyTextStyle().run();
       },

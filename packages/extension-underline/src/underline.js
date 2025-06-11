@@ -1,5 +1,8 @@
 import { Mark, mergeAttributes } from '@kameo/core';
 
+/**
+ * This extension allows to create underline text.
+ */
 export const Underline = Mark.create({
   name: 'underline',
   
@@ -28,12 +31,24 @@ export const Underline = Mark.create({
 
   addCommands() {
     return {
+      /**
+       * Set an underline mark.
+       * @example editor.commands.setUnderline()
+       */
       setUnderline: () => ({ commands }) => {
         return commands.setMark(this.name)
       },
+      /**
+       * Toggle an underline mark.
+       * @example editor.commands.toggleUnderline()
+       */
       toggleUnderline: () => ({ commands }) => {
         return commands.toggleMark(this.name)
       },
+      /**
+       * Unset an underline mark.
+       * @example editor.commands.unsetUnderline()
+       */
       unsetUnderline: () => ({ commands }) => {
         return commands.unsetMark(this.name)
       },

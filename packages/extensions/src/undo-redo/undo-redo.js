@@ -1,6 +1,9 @@
 import { Extension } from '@kameo/core';
 import { history, redo, undo } from '@kameo/pm/history';
 
+/**
+ * This extension allows you to undo and redo recent changes.
+ */
 export const UndoRedo = Extension.create({
   name: 'undoRedo',
 

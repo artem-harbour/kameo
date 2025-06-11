@@ -25,6 +25,9 @@ export const underscoreInputRegex = /(?:^|\s)(_(?!\s+_)((?:[^_]+))_(?!\s+_))$/;
  */
 export const underscorePasteRegex = /(?:^|\s)(_(?!\s+_)((?:[^_]+))_(?!\s+_))/g;
 
+/**
+ * This extension allows to create italic text.
+ */
 export const Italic = Mark.create({
   name: 'italic',
 
@@ -59,12 +62,24 @@ export const Italic = Mark.create({
 
   addCommands() {
     return {
+      /**
+       * Set an italic mark.
+       * @example editor.commands.setItalic()
+       */
       setItalic: () => ({ commands }) => {
         return commands.setMark(this.name)
       },
+      /**
+       * Toggle an italic mark.
+       * @example editor.commands.toggleItalic()
+       */
       toggleItalic: () => ({ commands }) => {
         return commands.toggleMark(this.name)
       },
+      /**
+       * Unset an italic mark.
+       * @example editor.commands.unsetItalic()
+       */
       unsetItalic: () => ({ commands }) => {
         return commands.unsetMark(this.name)
       },

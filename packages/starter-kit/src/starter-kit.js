@@ -10,6 +10,11 @@ import { Text } from '@kameo/extension-text';
 import { Underline } from '@kameo/extension-underline';
 import { Dropcursor, Gapcursor, UndoRedo } from '@kameo/extensions';
 
+/**
+ * The starter kit is a collection of essential editor extensions.
+ * 
+ * It's a good starting point for building your own editor.
+ */
 export const StarterKit = Extension.create({
   name: 'starterKit',
 

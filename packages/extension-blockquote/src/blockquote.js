@@ -5,6 +5,9 @@ import { Node, mergeAttributes, wrappingInputRule } from '@kameo/core';
  */
 export const inputRegex = /^\s*>\s$/;
 
+/**
+ * The extension allows to create blockquotes.
+ */
 export const Blockquote = Node.create({
   name: 'blockquote',
 
@@ -30,12 +33,21 @@ export const Blockquote = Node.create({
 
   addCommands() {
     return {
+      /**
+       * Set a blockquote node.
+       */
       setBlockquote: () => ({ commands }) => {
         return commands.wrapIn(this.name);
       },
+      /**
+       * Toggle a blockquote node.
+       */
       toggleBlockquote: () => ({ commands }) => {
         return commands.toggleWrap(this.name);
       },
+      /**
+       * Unset a blockquote node.
+       */
       unsetBlockquote: () => ({ commands }) => {
         return commands.lift(this.name);
       },

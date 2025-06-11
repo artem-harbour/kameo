@@ -60,12 +60,21 @@ export const Bold = Mark.create({
 
   addCommands() {
     return {
+      /**
+       * Set a bold mark.
+       */
       setBold: () => ({ commands }) => {
         return commands.setMark(this.name);
       },
+      /**
+       * Toggle a bold mark.
+       */
       toggleBold: () => ({ commands }) => {
         return commands.toggleMark(this.name);
       },
+      /**
+       * Unset a bold mark.
+       */
       unsetBold: () => ({ commands }) => {
         return commands.unsetMark(this.name);
       },

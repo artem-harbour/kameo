@@ -15,6 +15,9 @@ export const inputRegex = /(?:^|\s)(~~(?!\s+~~)((?:[^~]+))~~(?!\s+~~))$/;
  */
 export const pasteRegex = /(?:^|\s)(~~(?!\s+~~)((?:[^~]+))~~(?!\s+~~))/g;
 
+/**
+ * This extension allows to create strike text.
+ */
 export const Strike = Mark.create({
   name: 'strike',
 
@@ -49,12 +52,24 @@ export const Strike = Mark.create({
 
   addCommands() {
     return {
+      /**
+       * Set a strike mark.
+       * @example editor.commands.setStrike()
+       */
       setStrike: () => ({ commands }) => {
         return commands.setMark(this.name);
       },
+      /**
+       * Toggle a strike mark.
+       * @example editor.commands.toggleStrike()
+       */
       toggleStrike: () => ({ commands }) => {
         return commands.toggleMark(this.name);
       },
+      /**
+       * Unset a strike mark.
+       * @example editor.commands.unsetStrike()
+       */
       unsetStrike: () => ({ commands }) => {
         return commands.unsetMark(this.name);
       },

@@ -3,6 +3,10 @@ import { Extension, isNodeEmpty } from '@kameo/core';
 import { Plugin, PluginKey } from '@kameo/pm/state';
 import { Decoration, DecorationSet } from '@kameo/pm/view';
 
+/**
+ * This extension allows to add a placeholder to your editor.
+ * A placeholder is a text that appears when the editor or a node is empty.
+ */
 export const Placeholder = Extension.create({
   name: 'placeholder',
 

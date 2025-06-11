@@ -10,6 +10,9 @@ export const inputRegex = /(?:^|\s)(==(?!\s+==)((?:[^=]+))==(?!\s+==))$/;
  */
 export const pasteRegex = /(?:^|\s)(==(?!\s+==)((?:[^=]+))==(?!\s+==))/g;
 
+/**
+ * This extension allows to highlight text.
+ */
 export const Highlight = Mark.create({
   name: 'highlight',
 
@@ -53,12 +56,26 @@ export const Highlight = Mark.create({
 
   addCommands() {
     return {
+      /**
+       * Set a highlight mark.
+       * @param attributes The highlight attributes.
+       * @example editor.commands.setHighlight({ color: 'red' })
+       */
       setHighlight: (attributes) => ({ commands }) => {
         return commands.setMark(this.name, attributes);
       },
+      /**
+       * Toggle a highlight mark.
+       * @param attributes The highlight attributes.
+       * @example editor.commands.toggleHighlight({ color: 'red' })
+       */
       toggleHighlight: (attributes) => ({ commands }) => {
         return commands.toggleMark(this.name, attributes);
       },
+      /**
+       * Unset a highlight mark.
+       * @example editor.commands.unsetHighlight()
+       */
       unsetHighlight: () => ({ commands }) => {
         return commands.unsetMark(this.name);
       },

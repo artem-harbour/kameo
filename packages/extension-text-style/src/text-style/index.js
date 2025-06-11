@@ -18,6 +18,10 @@ const mergeNestedSpanStyles = (element) => {
   });
 };
 
+/**
+ * This extension allows to create text styles. It is required by default
+ * for the `text-color` and `font-family` extensions.
+ */
 export const TextStyle = Mark.create({
   name: 'textStyle',
 
@@ -26,6 +30,12 @@ export const TextStyle = Mark.create({
   addOptions() {
     return {
       HTMLAttributes: {},
+      /**
+      * When enabled, merges the styles of nested spans into the child span during HTML parsing.
+      * This prioritizes the style of the child span.
+      * Used when parsing content created in other editors.
+      * (Fix for ProseMirror's default behavior.)
+      */
       mergeNestedSpanStyles: true,
     };
   },
@@ -58,9 +68,18 @@ export const TextStyle = Mark.create({
 
   addCommands() {
     return {
+      /**
+       * Toggle a text style.
+       * @param attributes The text style attributes.
+       * @example editor.commands.toggleTextStyle({ fontWeight: 'bold' })
+       */
       toggleTextStyle: (attributes) => ({ commands }) => {
         return commands.toggleMark(this.name, attributes);
       },
+      /**
+       * Remove spans without inline style attributes.
+       * @example editor.commands.removeEmptyTextStyle()
+       */
       removeEmptyTextStyle: () => ({ tr }) => {
         const { selection } = tr;
 

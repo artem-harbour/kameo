@@ -10,6 +10,11 @@ import { FormSignature } from '@kameo/extension-form-signature';
 import { FormSlider } from '@kameo/extension-form-slider';
 import { FormSubmit } from '@kameo/extension-form-submit';
 
+/**
+ * The form kit is a collection of form editor extensions.
+ *
+ * It's a good starting point for building forms in Kameo.
+ */
 export const FormKit = Extension.create({
   name: 'formKit',
 

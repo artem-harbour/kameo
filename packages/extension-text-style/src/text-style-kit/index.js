@@ -7,6 +7,9 @@ import { FontSize } from '../font-size/index.js';
 import { LineHeight } from '../line-height/index.js';
 import { TextStyle } from '../text-style/index.js';
 
+/**
+ * The text style kit is a collection of text style editor extensions.
+ */
 export const TextStyleKit = Extension.create({
   name: 'textStyleKit',
 
