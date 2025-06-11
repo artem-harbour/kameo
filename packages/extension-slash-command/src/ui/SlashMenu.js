@@ -122,7 +122,7 @@ export class SlashMenu extends LitElement {
   static styles = css`
     :host {
       --slash-menu-width: 240px;
-      --slash-menu-max-height: 480px;
+      --slash-menu-max-height: 320px;
 
       font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
       display: flex;
