@@ -35,7 +35,7 @@ const initKameo = () => {
     // Override default handlers.
     // handlers: {
     //   async submit(props = {}) {
-    //     const formData = kameoHelpers.getFormData(this.state.doc);
+    //     const formData = kameoHelpers.getFormData(this.state);
     //     await new Promise((resolve) => setTimeout(resolve, 3000));
     //     this.emit('submitted', {
     //       formData,

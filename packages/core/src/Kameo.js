@@ -52,7 +52,7 @@ export class Kameo extends Editor {
     }
 
     if (this.options.handlers?.submit) {
-      this.submit = this.options.handlers.submit;
+      this.submit = this.options.handlers.submit.bind(this);
     }
 
     this.setDocumentMode(this.options.documentMode, { isInit: true });
@@ -122,18 +122,17 @@ export class Kameo extends Editor {
    * Submit method.
    */
   submit(props = {}) {
-    const formData = getFormData(this.state.doc);
+    const formData = getFormData(this.state);
 
     const submitEvent = {
       formData,
-      timestamp: new Date(),
       props: { ...props },
-      setSubmitResult: ({ success, message = '' }) => {
+      setSubmitResult: ({ success, message = '', submitProps = {} }) => {
         this.emit('submitted', {
           formData,
           success,
           message,
-          props: { ...props },
+          props: { ...props, ...submitProps },
         });
       },
     };
