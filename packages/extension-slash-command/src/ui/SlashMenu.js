@@ -192,5 +192,10 @@ export class SlashMenu extends LitElement {
       line-height: 1.1;
       padding: 6px;
     }
+
+    .slash-menu__no-resultes {
+      font-size: 15px;
+      padding: 6px;
+    }
   `
 }
