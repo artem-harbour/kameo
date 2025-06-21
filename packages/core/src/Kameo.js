@@ -7,14 +7,14 @@ import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPl
 import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 import { defineComponent } from './helpers/defineComponent.js';
 import { 
-  FormActions, 
-  FormSettings,  
-  FormActionsComponentName, 
-  FormSettingsComponentName 
+  FormActions,
+  FormSettings,
+  FormActionsComponentName,
+  FormSettingsComponentName,
 } from './ui/index.js';
 
 export class Kameo extends Editor {
-
+  
   constructor(options = {}) {
     const coreExtensions = [
       Commands,
@@ -36,24 +36,27 @@ export class Kameo extends Editor {
         ...(options.extensions ? options.extensions : []),
       ],
     };
-    
+
     super(allOptions);
+
     this.#init(allOptions);
   }
 
   get documentMode() {
     return this.options.documentMode;
   }
-  
-  #init(options) {
-    this.submit = this.options.handlers?.submit ?? this.submit.bind(this);
 
+  #init(options) {
     if (!options.isHeadless) {
       this.defineComponents();
     }
 
+    if (this.options.handlers?.submit) {
+      this.submit = this.options.handlers.submit;
+    }
+
     this.setDocumentMode(this.options.documentMode, { isInit: true });
-    
+
     this.on('submit', this.options.onSubmit);
     this.on('submitted', this.options.onSubmitted);
   }
@@ -147,13 +150,6 @@ export class Kameo extends Editor {
    */
   getJSON() {
     return super.getJSON();
-  }
-
-  /**
-   * Get the document as HTML.
-   */
-  getHTML() {
-    return super.getHTML();
   }
 
   /**
