@@ -41,6 +41,12 @@ export class FormSubmitView extends FormElementView {
     }
     
     this._handleSubmit(event);
+    
+    this.editor.emitNodeEvent(this.node.type.name, 'click', { 
+      event, 
+      node: this.node, 
+      nodeView: this, 
+    });
   }
 
   _handleFocus(event) {
@@ -75,11 +81,6 @@ export class FormSubmitView extends FormElementView {
     }
 
     this.editor.submit({ ...submitProps });
-    this.editor.emitNodeEvent(this.node.type.name, 'click', { 
-      event, 
-      node: this.node, 
-      nodeView: this, 
-    });
   }
 
   _handleSubmitted() {

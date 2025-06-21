@@ -26,8 +26,6 @@ export class FormSliderView extends FormElementView {
   }
 
   _handleChange(event) {
-    
-    
     this.editor.emitNodeEvent(this.node.type.name, 'change', { 
       event, 
       node: this.node, 
