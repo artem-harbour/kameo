@@ -14,12 +14,8 @@ export class FormSwitchView extends FormElementView {
   }
 
   mount() {
-    const nodeType = this.node.type.name;
-
     this.element = this.createElement();
     this.element.textContent = this.node.attrs.label;
-    this.element.dataset.type = nodeType;
-    this.element.classList.add(`km-form-element--${nodeType}`);
 
     this.root = this.createView({
       element: this.element,

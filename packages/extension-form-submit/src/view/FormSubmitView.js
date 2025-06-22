@@ -14,12 +14,8 @@ export class FormSubmitView extends FormElementView {
   }
 
   mount() {
-    const nodeTypeName = this.node.type.name;
-
     this.element = this.createElement();
     this.element.textContent = this.node.attrs.label;
-    this.element.dataset.type = nodeTypeName;
-    this.element.classList.add(`km-form-element--${nodeTypeName}`);
 
     this.root = this.createView({
       element: this.element,

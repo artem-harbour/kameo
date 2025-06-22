@@ -15,11 +15,7 @@ export class FormRadioButtonsView extends FormElementView {
   }
 
   mount(props) {
-    const nodeType = this.node.type.name;
-
     this.element = this.createElement();
-    this.element.dataset.type = nodeType;
-    this.element.classList.add(`km-form-element--${nodeType}`);
 
     const options = this.node.attrs.options ?? [];
     const optionElements = [];

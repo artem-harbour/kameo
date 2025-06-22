@@ -105,7 +105,7 @@ export class FormElementView {
     wrapper.classList.add(wrapperClass);
     wrapper.classList.add(`${wrapperClass}--${this.node.type.name}`);
     
-    wrapper.dataset.nodeViewWrapper = '';
+    wrapper.dataset.formElementWrapper = '';
 
     const { documentMode } = this.editor;
     const { enableDrag } = this.options;
@@ -131,8 +131,12 @@ export class FormElementView {
    */
   createElement() {
     const element = document.createElement(this.tagName);
+    const nodeType = this.node.type.name;
     
+    element.dataset.formElement = '';
+    element.dataset.type = nodeType;
     element.classList.add(elementClass);
+    element.classList.add(`${elementClass}--${nodeType}`);
 
     const attrs = mergeAttributes(this.options.HTMLAttributes, this.HTMLAttributes);
     const booleanAttrs = [...customBooleans, ...this.options.customBooleans];

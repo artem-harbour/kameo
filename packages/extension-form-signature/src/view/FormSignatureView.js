@@ -10,13 +10,8 @@ export class FormSignatureView extends FormElementView {
   }
 
   mount(props) {
-    const nodeType = this.node.type.name;
-
     this.element = this.createElement();
     this.element.value = this.node.attrs.value;
-
-    this.element.dataset.type = nodeType;
-    this.element.classList.add(`km-form-element--${nodeType}`);
 
     this.root = this.createView({
       element: this.element,
