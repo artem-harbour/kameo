@@ -48,7 +48,6 @@ const initKameo = () => {
 
     // Uncomment for faster development/testing.
     // content: baseForm,
-    // isHeadless: true,
   });
   return kameo;
 };

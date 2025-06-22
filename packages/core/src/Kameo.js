@@ -2,7 +2,7 @@ import { Editor } from '@tiptap/core';
 import { style } from './style.js';
 import { Commands, FormDrop } from './extensions/index.js'
 import { createStyleTag } from './utilities/index.js';
-import { getFormData } from './helpers/getFormData.js';
+import { getFormData as _getFormData } from './helpers/getFormData.js';
 import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
 import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 import { defineComponent } from './helpers/defineComponent.js';
@@ -12,6 +12,7 @@ import {
   FormActionsComponentName,
   FormSettingsComponentName,
 } from './ui/index.js';
+import { FormManager } from './FormManager.js';
 
 export class Kameo extends Editor {
 
@@ -45,7 +46,7 @@ export class Kameo extends Editor {
     };
 
     super(options);
-    
+
     this.#init(options);
   }
 
@@ -54,18 +55,25 @@ export class Kameo extends Editor {
   }
 
   #init(options) {
-    if (!options.isHeadless) {
-      this.defineComponents();
-    }
-
-    if (this.options.handlers?.submit) {
-      this.submit = this.options.handlers.submit.bind(this);
-    }
-
+    this.defineComponents();
+    this.createFormManager();
+    this.setHandlers();
     this.setDocumentMode(this.options.documentMode, { isInit: true });
 
     this.on('submit', this.options.onSubmit);
     this.on('submitted', this.options.onSubmitted);
+  }
+
+  createFormManager() {
+    this.formManager = new FormManager({
+      editor: this,
+    });
+  }
+
+  setHandlers() {
+    if (this.options.handlers?.submit) {
+      this.submit = this.options.handlers.submit.bind(this);
+    }
   }
 
   setDocumentMode(mode, { isInit = false } = {}) {
@@ -129,7 +137,7 @@ export class Kameo extends Editor {
    * Submit method.
    */
   submit(props = {}) {
-    const formData = getFormData(this.state);
+    const formData = this.getFormData();
 
     const submitEvent = {
       formData,
@@ -149,7 +157,9 @@ export class Kameo extends Editor {
     return submitEvent;
   }
 
-  validate() {}
+  getFormData() {
+    return _getFormData(this.state);
+  }
 
   /**
    * Get the document as JSON.
@@ -180,6 +190,10 @@ export class Kameo extends Editor {
   }
 
   defineComponents() {
+    if (this.options.isHeadless)  {
+      return;
+    }
+
     const components = {
       [FormActionsComponentName]: FormActions,
       [FormSettingsComponentName]: FormSettings,

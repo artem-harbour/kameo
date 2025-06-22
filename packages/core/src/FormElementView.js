@@ -469,12 +469,11 @@ export class FormElementView {
   }
 
   destroy() {
-    this.options.destroy?.();
     this.dom.remove();
     this.removeFormActions();
     this.editor.off('documentModeUpdate', this.onDocumentModeUpdate);
   }
-
+ 
   /**
    * Update the attributes of the prosemirror node.
    */
