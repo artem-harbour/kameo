@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-bold",
   "description": "bold extension for kameo",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -22,10 +22,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.25"
+    "@kameo/core": "^0.0.26"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.25"
+    "@kameo/core": "^0.0.26"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,24 @@
 # @kameo/starter-kit
 
+## 0.0.26
+
+### Patch Changes
+
+- e6996e6: bump version
+- Updated dependencies [e6996e6]
+  - @kameo/core@0.0.26
+  - @kameo/extension-blockquote@0.0.26
+  - @kameo/extension-bold@0.0.26
+  - @kameo/extension-document@0.0.26
+  - @kameo/extension-heading@0.0.26
+  - @kameo/extension-italic@0.0.26
+  - @kameo/extension-paragraph@0.0.26
+  - @kameo/extension-strike@0.0.26
+  - @kameo/extension-text@0.0.26
+  - @kameo/extension-underline@0.0.26
+  - @kameo/extensions@0.0.26
+  - @kameo/pm@0.0.26
+
 ## 0.0.25
 
 ### Patch Changes

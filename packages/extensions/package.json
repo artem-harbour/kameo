@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extensions",
   "description": "various extensions for kameo",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -41,8 +41,8 @@
     "dist"
   ],
   "dependencies": {
-    "@kameo/core": "^0.0.25",
-    "@kameo/pm": "^0.0.25"
+    "@kameo/core": "^0.0.26",
+    "@kameo/pm": "^0.0.26"
   },
   "repository": {
     "type": "git",

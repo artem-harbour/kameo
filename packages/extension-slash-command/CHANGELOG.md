@@ -1,5 +1,14 @@
 # @kameo/extension-slash-command
 
+## 0.0.26
+
+### Patch Changes
+
+- e6996e6: bump version
+- Updated dependencies [e6996e6]
+  - @kameo/core@0.0.26
+  - @kameo/suggestion@0.0.26
+
 ## 0.0.25
 
 ### Patch Changes
