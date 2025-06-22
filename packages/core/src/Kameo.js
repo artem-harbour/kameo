@@ -14,32 +14,39 @@ import {
 } from './ui/index.js';
 
 export class Kameo extends Editor {
-  
-  constructor(options = {}) {
+
+  constructor({
+    documentMode = 'edit',
+    handlers = {},
+    isHeadless = false,
+    onSubmit = () => null,
+    onSubmitted = () => null,
+    ...opts
+  } = {}) {
     const coreExtensions = [
       Commands,
       FormDrop.configure({
-        handleDropOutside: options.coreExtensionOptions?.formDrop?.handleDropOutside ?? false,
+        handleDropOutside: opts.coreExtensionOptions?.formDrop?.handleDropOutside ?? false,
       }),
     ];
 
-    const allOptions = {
-      documentMode: 'edit',
-      handlers: {},
-      isHeadless: false,
-      onSubmit: () => null,
-      onSubmitted: () => null,
-      ...options,
+    const options = {
+      documentMode,
+      handlers,
+      isHeadless,
+      onSubmit,
+      onSubmitted,
+      ...opts,
       // to include kameo core extensions.
       extensions: [
         ...coreExtensions,
-        ...(options.extensions ? options.extensions : []),
+        ...(opts.extensions ? opts.extensions : []),
       ],
     };
 
-    super(allOptions);
-
-    this.#init(allOptions);
+    super(options);
+    
+    this.#init(options);
   }
 
   get documentMode() {
