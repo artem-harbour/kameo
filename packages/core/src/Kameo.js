@@ -144,7 +144,7 @@ export class Kameo extends Editor {
    * Get the form data.
    */
   getFormData() {
-    return this.formManager.getFormData();
+    return this.formManager.getData();
   }
 
   /**

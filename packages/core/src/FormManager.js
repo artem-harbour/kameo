@@ -1,4 +1,4 @@
-import { getFormData as _getFormData } from './helpers/getFormData.js';
+import { getFormData } from './helpers/getFormData.js';
 
 export class FormManager {
   editor;
@@ -8,7 +8,7 @@ export class FormManager {
   }
 
   submit(props = {}) {
-    const formData = this.getFormData();
+    const formData = this.getData();
 
     const submitEvent = {
       formData,
@@ -28,7 +28,7 @@ export class FormManager {
     return submitEvent;
   }
 
-  getFormData() {
-    return _getFormData(this.editor.state);
+  getData() {
+    return getFormData(this.editor.state);
   }
 }
