@@ -2,7 +2,6 @@ import { Editor } from '@tiptap/core';
 import { style } from './style.js';
 import { Commands, FormDrop } from './extensions/index.js'
 import { createStyleTag } from './utilities/index.js';
-import { getFormData as _getFormData } from './helpers/getFormData.js';
 import { FormActionsPlugin, FormActionsPluginKey } from './plugins/FormActionsPlugin.js';
 import { FormSettingsPlugin, FormSettingsPluginKey } from './plugins/FormSettingsPlugin.js';
 import { defineComponent } from './helpers/defineComponent.js';
@@ -15,6 +14,7 @@ import {
 import { FormManager } from './FormManager.js';
 
 export class Kameo extends Editor {
+  formManager;
 
   constructor({
     documentMode = 'edit',
@@ -134,31 +134,17 @@ export class Kameo extends Editor {
   }
 
   /**
-   * Submit method.
+   * Submit the form.
    */
   submit(props = {}) {
-    const formData = this.getFormData();
-
-    const submitEvent = {
-      formData,
-      props: { ...props },
-      setSubmitResult: ({ success, message = '', submitProps = {} }) => {
-        this.emit('submitted', {
-          formData,
-          success,
-          message,
-          props: { ...props, ...submitProps },
-        });
-      },
-    };
-
-    this.emit('submit', submitEvent);
-
-    return submitEvent;
+    return this.formManager.submit(props);
   }
 
+  /**
+   * Get the form data.
+   */
   getFormData() {
-    return _getFormData(this.state);
+    return this.formManager.getFormData();
   }
 
   /**
@@ -177,13 +163,16 @@ export class Kameo extends Editor {
   }
 
   /**
-   * Helper method for listening to node events.
+   * Helper method for subscribing to node events.
    */
   onNodeEvent(nodeType, eventName, callback) {
     this.on(`node:${nodeType}:${eventName}`, callback);
     return this;
   }
 
+  /**
+   * Helper method for unsubscribing from node events.
+   */
   offNodeEvent(nodeType, eventName, callback) {
     this.off(`node:${nodeType}:${eventName}`, callback);
     return this;
