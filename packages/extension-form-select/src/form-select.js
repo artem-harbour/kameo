@@ -26,6 +26,7 @@ export const FormSelect = Node.create({
         name: 'value',
         type: 'string',
       },
+      customValidator: () => '',
     };
   },
 

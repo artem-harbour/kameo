@@ -21,6 +21,7 @@ export const FormInput = Node.create({
         name: 'value',
         type: 'string',
       },
+      customValidator: () => '',
     };
   },
 

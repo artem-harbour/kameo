@@ -21,6 +21,7 @@ export const FormSwitch = Node.create({
         name: 'checked',
         type: 'boolean',
       },
+      customValidator: () => '',
     };
   },
 

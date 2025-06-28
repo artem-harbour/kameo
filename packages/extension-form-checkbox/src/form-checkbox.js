@@ -21,6 +21,7 @@ export const FormCheckbox = Node.create({
         name: 'checked',
         type: 'boolean',
       },
+      customValidator: () => '',
     };
   },
 
