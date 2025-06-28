@@ -41,7 +41,7 @@
     {
       "type": "formInput",
       "attrs": {
-        "id": null,
+        "id": "eec3e1ce-20ce-445b-a5e7-3a6e76bd74a9",
         "type": "text",
         "name": "name",
         "value": "",
@@ -67,7 +67,7 @@
         "min": null,
         "max": null,
         "step": null,
-        "no-spin-buttons": false,
+        "noSpinButtons": false,
         "valueAttribute": {
           "name": "value",
           "type": "string"
@@ -77,7 +77,7 @@
     {
       "type": "formInput",
       "attrs": {
-        "id": null,
+        "id": "adbc8b54-ef16-4e4a-b12b-49ba327185d3",
         "type": "email",
         "name": "email",
         "value": "",
@@ -103,7 +103,7 @@
         "min": null,
         "max": null,
         "step": null,
-        "no-spin-buttons": false,
+        "noSpinButtons": false,
         "valueAttribute": {
           "name": "value",
           "type": "string"
@@ -113,7 +113,7 @@
     {
       "type": "formTextarea",
       "attrs": {
-        "id": null,
+        "id": "2a8ce088-9d19-41e9-90d8-468b47b55658",
         "name": "textarea",
         "value": "",
         "label": "Enter your info",
@@ -144,7 +144,7 @@
     {
       "type": "formRating",
       "attrs": {
-        "id": null,
+        "id": "549558ff-fff3-465c-8e5a-256452b91ff5",
         "name": "rating",
         "label": null,
         "value": null,
@@ -162,7 +162,7 @@
     {
       "type": "formSubmit",
       "attrs": {
-        "id": null,
+        "id": "f70410de-7e4d-4711-abe7-311ac293a246",
         "label": "Submit",
         "loading": false,
         "disabled": false,

@@ -39,20 +39,6 @@ const initKameo = () => {
     ],
     documentMode,
 
-    // Override default handlers.
-    // handlers: {
-    //   async submit(props = {}) {
-    //     const formData = kameoHelpers.getFormData(this.state);
-    //     await new Promise((resolve) => setTimeout(resolve, 3000));
-    //     this.emit('submitted', {
-    //       formData,
-    //       success: true,
-    //       message: 'Form is submitted',
-    //       props: { ...props, custom: true },
-    //     });
-    //   },
-    // },
-
     // Uncomment for faster development/testing.
     // content: baseForm,
   });
