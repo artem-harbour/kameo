@@ -3,12 +3,6 @@ import { kameoHelpers } from '@kameo/core';
 const { createSettingControl } = kameoHelpers;
 
 export const createFieldSettings = () => ({
-  id: createSettingControl({
-    key: 'id',
-    attr: 'id',
-    label: 'Field ID',
-    description: 'Unique field ID',
-  }),
   label: createSettingControl({
     key: 'label',
     attr: 'label',
