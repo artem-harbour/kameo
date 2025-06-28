@@ -65,6 +65,13 @@
   transition: none;
 }
 
+.km-form-error {
+  font-size: 13px;
+  line-height: 1.4;
+  color: red;
+  margin-top: 4px;
+}
+
 .km-is-empty:before {
   position: absolute;
   height: 0;

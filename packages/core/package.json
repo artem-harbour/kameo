@@ -34,11 +34,13 @@
   },
   "devDependencies": {
     "@kameo/pm": "^0.0.26",
-    "lit": "3.3.0"
+    "lit": "3.3.0",
+    "uuid": "^11.1.0"
   },
   "peerDependencies": {
     "@kameo/pm": "^0.0.26",
-    "lit": "3.3.0"
+    "lit": "3.3.0",
+    "uuid": "^11.1.0"
   },
   "repository": {
     "type": "git",

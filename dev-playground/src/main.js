@@ -24,7 +24,14 @@ const initKameo = () => {
     element: document.querySelector('#kameo'),
     extensions: [
       StarterKit,
-      FormKit,
+      FormKit.configure({
+        formTextarea: {
+          customValidator: ({ element }) => {
+            if (!element.value) return 'Bro, where is the value??';
+            return '';
+          },
+        },
+      }),
       TextStyleKit,
       Image,
       SlashCommand.configure({ suggestion }),
@@ -55,6 +62,15 @@ const initKameo = () => {
 const listenKameoEvents = (kameo) => {
   kameo.on('submit', async (event) => {
     console.log(`on 'submit' event`, { event });
+
+    if (!event.valid) {
+      event.setSubmitResult({
+        success: false,
+        message: 'Form is not valid',
+      });
+      return;
+    }
+
     await new Promise((resolve) => setTimeout(resolve, 3000));
     event.setSubmitResult({
       success: true,

@@ -19,6 +19,7 @@ export class Kameo extends Editor {
   constructor({
     documentMode = 'edit',
     handlers = {},
+    validationOptions = {},
     isHeadless = false,
     onSubmit = () => null,
     onSubmitted = () => null,
@@ -34,6 +35,7 @@ export class Kameo extends Editor {
     const options = {
       documentMode,
       handlers,
+      validationOptions,
       isHeadless,
       onSubmit,
       onSubmitted,
@@ -67,6 +69,7 @@ export class Kameo extends Editor {
   createFormManager() {
     this.formManager = new FormManager({
       editor: this,
+      validation: this.options.validationOptions,
     });
   }
 
@@ -144,7 +147,7 @@ export class Kameo extends Editor {
    * Get the form data.
    */
   getFormData() {
-    return this.formManager.getData();
+    return this.formManager.getFormData();
   }
 
   /**

@@ -5,6 +5,8 @@ import { FormActionsComponentName } from './ui/form-actions/index.js';
 
 const wrapperClass = 'km-form-element-view';
 const elementClass = 'km-form-element';
+const elementClassInvalid = 'km-form-element--invalid';
+const errorClass = 'km-form-error';
 
 const customBooleans = [
   'loading',
@@ -81,7 +83,15 @@ export class FormElementView {
 
     this.editor.on('documentModeUpdate', this.onDocumentModeUpdate);
 
-    this.mount(props, options);    
+    if (this.editor.isInitialized) {
+      this.editor.formManager.addElementView(this.node.attrs.id, this);
+    } else {
+      this.editor.once('create', () => {
+        this.editor.formManager.addElementView(this.node.attrs.id, this);
+      });
+    }
+
+    this.mount(props, options);
   }
 
   mount(props, options) {
@@ -476,6 +486,7 @@ export class FormElementView {
     this.dom.remove();
     this.removeFormActions();
     this.editor.off('documentModeUpdate', this.onDocumentModeUpdate);
+    this.editor.formManager.removeElementView(this.node.attrs.id);
   }
  
   /**
@@ -510,5 +521,71 @@ export class FormElementView {
 
     const to = from + this.node.nodeSize;
     this.editor.commands.deleteRange({ from, to });
+  }
+
+  validateElement({
+    showErrors = true,
+    useReportValidity = false,
+  } = {}) {
+    // Check if element supports constraint validation.
+    const isFormAssociated = this.element.constructor.formAssociated ?? false;
+
+    if (!isFormAssociated) {
+      return { valid: true, message: '' };
+    }
+
+    this.element.setCustomValidity('');
+
+    const customValidator = this.getCustomValidator();
+    if (customValidator) {
+      const message = customValidator({
+        editor: this.editor,
+        element: this.element,
+        node: this.node,
+        nodeView: this,
+      });
+      if (message) {
+        this.element.setCustomValidity(message);
+      }
+    }
+
+    const valid = this.element.checkValidity();
+    const message = this.element.validationMessage;
+
+    if (!valid && showErrors) {
+      if (useReportValidity && this.element.reportValidity) {
+        this.element.reportValidity();
+      } else {
+        this.showValidationError(message);
+      }
+    } else {
+      this.clearValidationError();
+    }
+
+    return { valid, message };
+  }
+
+  getCustomValidator() {
+    return this.options.customValidator || this.extension.options.customValidator;
+  }
+
+  createValidationError(message) {
+    const error = document.createElement('div');
+    error.classList.add(errorClass);
+    error.textContent = message;
+    return error;
+  }
+
+  showValidationError(message) {
+    if (!message) return;
+    const error = this.createValidationError(message);
+    this.dom.querySelector(`.${errorClass}`)?.remove();
+    this.dom.append(error);
+    this.element.classList.add(elementClassInvalid);
+  }
+
+  clearValidationError() {
+    this.dom.querySelector(`.${errorClass}`)?.remove();
+    this.element.classList.remove(elementClassInvalid);
   }
 }

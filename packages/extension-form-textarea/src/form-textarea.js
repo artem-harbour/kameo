@@ -21,6 +21,7 @@ export const FormTextarea = Node.create({
         name: 'value',
         type: 'string',
       },
+      customValidator: () => '',
     };
   },
 
