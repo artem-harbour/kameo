@@ -144,6 +144,13 @@ export class Kameo extends Editor {
   }
 
   /**
+   * Validate the form.
+   */
+  validate(options = {}) {
+    return this.formManager.validate(options);
+  }
+
+  /**
    * Get the form data.
    */
   getFormData() {
@@ -181,6 +188,9 @@ export class Kameo extends Editor {
     return this;
   }
 
+  /**
+   * Define UI components.
+   */
   defineComponents() {
     if (this.options.isHeadless)  {
       return;
