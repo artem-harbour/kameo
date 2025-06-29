@@ -13,6 +13,7 @@ export class FormManager {
     showErrors: true,
     stopOnFirstError: false,
     useReportValidity: false,
+    customValidator: null,
   };
 
   constructor(props) {
@@ -64,6 +65,7 @@ export class FormManager {
       showErrors = this.validation.showErrors,
       useReportValidity = this.validation.useReportValidity,
       stopOnFirstError = this.validation.stopOnFirstError,
+      customValidator = this.validation.customValidator,
     } = options;
 
     if (!this.validation.enabled) {
@@ -81,7 +83,12 @@ export class FormManager {
         continue;
       }
 
-      const result = elementView.validateElement({ showErrors, useReportValidity });
+      const result = elementView.validateElement({ 
+        showErrors, 
+        useReportValidity,
+        customValidator, 
+      });
+
       results.push({ 
         id: node.attrs.id,
         name: node.attrs.name,

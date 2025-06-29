@@ -26,7 +26,7 @@ export const FormRadioOptions = Node.create({
         name: 'value',
         type: 'string',
       },
-      customValidator: () => '',
+      customValidator: null,
     };
   },
 

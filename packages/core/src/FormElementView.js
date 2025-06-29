@@ -526,6 +526,7 @@ export class FormElementView {
   validateElement({
     showErrors = true,
     useReportValidity = false,
+    customValidator,
   } = {}) {
     // Check if element supports constraint validation.
     const isFormAssociated = this.element.constructor.formAssociated ?? false;
@@ -536,9 +537,9 @@ export class FormElementView {
 
     this.element.setCustomValidity('');
 
-    const customValidator = this.getCustomValidator();
-    if (customValidator) {
-      const message = customValidator({
+    const customValidatorFn = this.extension.options.customValidator || customValidator;
+    if (typeof customValidatorFn === 'function') {
+      const message = customValidatorFn({
         editor: this.editor,
         element: this.element,
         node: this.node,
@@ -563,10 +564,6 @@ export class FormElementView {
     }
 
     return { valid, message };
-  }
-
-  getCustomValidator() {
-    return this.options.customValidator || this.extension.options.customValidator;
   }
 
   createValidationError(message) {

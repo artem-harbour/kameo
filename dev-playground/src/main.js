@@ -26,8 +26,8 @@ const initKameo = () => {
       StarterKit,
       FormKit.configure({
         formTextarea: {
-          customValidator: ({ element }) => {
-            if (!element.value) return 'Bro, where is the value??';
+          customValidator: ({ node }) => {
+            if (!node.attrs.value) return 'Bro, where is the value??';
             return '';
           },
         },
@@ -38,6 +38,15 @@ const initKameo = () => {
       Placeholder.configure({ placeholder: 'Press / for commands...' }),
     ],
     documentMode,
+
+    // validationOptions: {
+    //   customValidator: ({ node, element }) => {
+    //     if (node.type.name === 'formInput' && !node.attrs.value) {
+    //       return 'No value.';
+    //     }
+    //     return '';
+    //   },
+    // },
 
     // Uncomment for faster development/testing.
     // content: baseForm,
