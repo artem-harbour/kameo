@@ -1,5 +1,13 @@
 # @kameo/extension-italic
 
+## 0.0.28
+
+### Patch Changes
+
+- 0aa23c3: bump version
+- Updated dependencies [0aa23c3]
+  - @kameo/core@0.0.28
+
 ## 0.0.27
 
 ### Patch Changes

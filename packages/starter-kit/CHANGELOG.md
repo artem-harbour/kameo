@@ -1,5 +1,24 @@
 # @kameo/starter-kit
 
+## 0.0.28
+
+### Patch Changes
+
+- 0aa23c3: bump version
+- Updated dependencies [0aa23c3]
+  - @kameo/core@0.0.28
+  - @kameo/extension-blockquote@0.0.28
+  - @kameo/extension-bold@0.0.28
+  - @kameo/extension-document@0.0.28
+  - @kameo/extension-heading@0.0.28
+  - @kameo/extension-italic@0.0.28
+  - @kameo/extension-paragraph@0.0.28
+  - @kameo/extension-strike@0.0.28
+  - @kameo/extension-text@0.0.28
+  - @kameo/extension-underline@0.0.28
+  - @kameo/extensions@0.0.28
+  - @kameo/pm@0.0.28
+
 ## 0.0.27
 
 ### Patch Changes
