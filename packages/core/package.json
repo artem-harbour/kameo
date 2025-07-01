@@ -30,7 +30,7 @@
     "style"
   ],
   "dependencies": {
-    "@tiptap/core": "^3.0.0-beta.7"
+    "@tiptap/core": "^3.0.0-beta.19"
   },
   "devDependencies": {
     "@kameo/pm": "^0.0.28",
