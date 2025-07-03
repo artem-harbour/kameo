@@ -8,8 +8,6 @@ import { TextStyleKit } from '@kameo/extension-text-style';
 import { Image } from '@kameo/extension-image';
 import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
 import { Placeholder } from '@kameo/extensions';
-// import { ToolbarFormFields, formFields } from '@kameo/toolbar-form-fields';
-// import { createToolbar } from './helpers/createToolbar.js';
 import { handleBaseForm } from './helpers/handleBaseForm.js';
 import { handleDocumentMode } from './helpers/handleDocumentMode.js';
 import { handleImportForm } from './helpers/handleImportForm.js';
@@ -93,7 +91,6 @@ const init = () => {
   const kameo = initKameo();
   window.kameo = kameo;
 
-  // createToolbar({ fields: formFields });
   attachEvents(kameo);
 };
 
