@@ -32,9 +32,19 @@
   margin: 10px 0;
 }
 
+.km-form-element-view--formSlider {
+  margin: 14px 0;
+  padding: 10px 0px;
+}
+
 .km-form-element-view--formCheckbox .km-form-actions,
-.km-form-element-view--formSwitch .km-form-actions {
+.km-form-element-view--formSwitch .km-form-actions,
+.km-form-element-view--formRating .km-form-actions {
   top: -4px;
+}
+
+.km-form-element-view--formSlider .km-form-actions {
+  left: -58px;
 }
 
 .km-form-element--formRadioButtons[orientation="vertical"] {
