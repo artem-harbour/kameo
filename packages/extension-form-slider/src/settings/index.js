@@ -72,7 +72,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'top', label: 'Top' },
         { value: 'bottom', label: 'Bottom' },
         { value: 'none', label: 'None' },

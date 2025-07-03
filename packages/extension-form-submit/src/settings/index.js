@@ -27,7 +27,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'neutral', label: 'Neutral' },
         { value: 'brand', label: 'Brand' },
         { value: 'success', label: 'Success' },
@@ -46,7 +45,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'accent', label: 'Accent' },
         { value: 'filled', label: 'Filled' },
         { value: 'outlined', label: 'Outlined' },
@@ -63,7 +61,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'small', label: 'Small' },
         { value: 'medium', label: 'Medium' },
         { value: 'large', label: 'Large' },

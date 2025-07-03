@@ -49,7 +49,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'horizontal', label: 'Horizontal' },
         { value: 'vertical', label: 'Vertical' },
       ],
@@ -64,7 +63,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'small', label: 'Small' },
         { value: 'medium', label: 'Medium' },
         { value: 'large', label: 'Large' },

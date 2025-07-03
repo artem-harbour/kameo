@@ -65,7 +65,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'small', label: 'Small' },
         { value: 'medium', label: 'Medium' },
         { value: 'large', label: 'Large' },

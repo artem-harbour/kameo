@@ -86,7 +86,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'small', label: 'Small' },
         { value: 'medium', label: 'Medium' },
         { value: 'large', label: 'Large' },
@@ -103,7 +102,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'filled', label: 'Filled' },
         { value: 'outlined', label: 'Outlined' },
       ],
@@ -138,7 +136,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'top', label: 'Top' },
         { value: 'bottom', label: 'Bottom' },
       ],

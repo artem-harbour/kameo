@@ -46,7 +46,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'none', label: 'None' },
         { value: 'Vertical', label: 'Vertical' },
         { value: 'horizontal', label: 'Horizontal' },
@@ -94,7 +93,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'small', label: 'Small' },
         { value: 'medium', label: 'Medium' },
         { value: 'large', label: 'Large' },
@@ -111,7 +109,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'filled', label: 'Filled' },
         { value: 'outlined', label: 'Outlined' },
       ],
@@ -148,7 +145,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'off', label: 'Off' },
         { value: 'none', label: 'None' },
         { value: 'on', label: 'On' },
@@ -167,7 +163,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'off', label: 'Off' },
         { value: 'on', label: 'On' },
       ],
@@ -192,7 +187,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'enter', label: 'Enter' },
         { value: 'done', label: 'Done' },
         { value: 'go', label: 'Go' },
@@ -222,7 +216,6 @@ export const createFieldSettings = () => ({
     control: {
       name: 'select',
       options: [
-        { value: '', label: 'Default' },
         { value: 'none', label: 'None' },
         { value: 'text', label: 'Text' },
         { value: 'decimal', label: 'Decimal' },
