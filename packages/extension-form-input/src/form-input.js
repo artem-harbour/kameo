@@ -273,14 +273,4 @@ export const FormInput = Node.create({
       }, options);
     };
   },
-
-  async onCreate() {
-    const { isHeadless } = this.editor.options;
-
-    if (!isHeadless) {
-      if (!customElements.get(this.options.tagName)) {
-        await import('./ui/FormInput.js');
-      }
-    }
-  },
 });
