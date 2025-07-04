@@ -54,6 +54,7 @@ export const FormSelect = Node.create({
         default: '',
         parseHTML: (elem) => elem.getAttribute('value'),
       },
+      // { value: '', label: '', disabled: false }
       options: {
         default: [],
         parseHTML: (elem) => parseOptionsList(elem.getAttribute('data-options')),

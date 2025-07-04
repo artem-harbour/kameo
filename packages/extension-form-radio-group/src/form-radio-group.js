@@ -1,13 +1,13 @@
 import { Node, mergeAttributes, kameoHelpers } from '@kameo/core';
-import { FormRadioButtonsView } from './view/FormRadioButtonsView.js';
+import { FormRadioGroupView } from './view/FormRadioGroupView.js';
 import { createFieldSettings } from './settings/index.js';
-import { FormSettingsRadioButtons, FormSettingsRadioButtonsName } from './settings/FormSettingsRadioButtons.js';
+import { FormSettingsRadioOptions, FormSettingsRadioOptionsName } from './settings/FormSettingsRadioOptions.js';
 import { parseOptionsList } from './helpers/parseOptionsList.js';
 
 const { defineComponent } = kameoHelpers;
 
-export const FormRadioButtons = Node.create({
-  name: 'formRadioButtons',
+export const FormRadioGroup = Node.create({
+  name: 'formRadioGroup',
 
   group: 'formField block',
 
@@ -21,7 +21,7 @@ export const FormRadioButtons = Node.create({
     return {
       HTMLAttributes: {},
       tagName: 'wa-radio-group',
-      tagNameOption: 'wa-radio-button',
+      tagNameOption: 'wa-radio',
       valueAttribute: {
         name: 'value',
         type: 'string',
@@ -47,13 +47,14 @@ export const FormRadioButtons = Node.create({
         },
       },
       name: {
-        default: 'radio-options',
+        default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: { 
         default: '',
         parseHTML: (elem) => elem.getAttribute('value'),
       },
+      // { value: '', label: '', disabled: false }
       options: {
         default: [],
         parseHTML: (elem) => parseOptionsList(elem.getAttribute('data-options')),
@@ -72,12 +73,29 @@ export const FormRadioButtons = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('hint'),
       },
+      disabled: { 
+        default: false,
+        parseHTML: (elem) => (
+          elem.hasAttribute('disabled') 
+            && elem.getAttribute('disabled') !== 'false'
+        ),
+      },
       required: {
         default: false,
         parseHTML: (elem) => (
           elem.hasAttribute('required') 
             && elem.getAttribute('required') !== 'false'
         ),
+      },
+      appearance: {
+        default: null,
+        parseHTML: (elem) => elem.getAttribute('data-appearance'),
+        renderHTML: (attrs) => {
+          if (!attrs.appearance) return {};
+          return {
+            'data-appearance': attrs.appearance,
+          };
+        },
       },
       orientation: {
         default: null,
@@ -109,16 +127,16 @@ export const FormRadioButtons = Node.create({
 
   addCommands() {
     return {
-      insertFormRadioButtons: (pos, attrs = {}) => ({ commands }) => {
+      insertFormRadioGroup: (pos, attrs = {}) => ({ commands }) => {
         return commands.insertFormElement(this.name, pos, attrs);
       },
 
-      addFormRadioButton: (radioButtonsNode, option) => ({
+      addFormRadioOption: (radioGroup, option) => ({
         dispatch, 
         state, 
         tr,
       }) => {
-        let { pos, node } = radioButtonsNode;
+        let { pos, node } = radioGroup;
 
         if (dispatch) {
           let currentOptions = node.attrs.options ?? [];
@@ -133,12 +151,12 @@ export const FormRadioButtons = Node.create({
         return true;
       },
 
-      removeFormRadioButton: (radioButtonsNode, index) => ({
+      removeFormRadioOption: (radioGroup, index) => ({
         dispatch, 
         state, 
         tr,
       }) => {
-        let { pos, node } = radioButtonsNode;
+        let { pos, node } = radioGroup;
 
         let currentOptions = node.attrs.options ?? [];
 
@@ -161,12 +179,12 @@ export const FormRadioButtons = Node.create({
         return true;
       },
 
-      updateFormRadioButton: (radioButtonsNode, index, attrs) => ({
+      updateFormRadioOption: (radioGroup, index, attrs) => ({
         dispatch, 
         state, 
         tr,
       }) => {
-        let { pos, node } = radioButtonsNode;
+        let { pos, node } = radioGroup;
 
         let currentOptions = node.attrs.options ?? [];
 
@@ -198,7 +216,7 @@ export const FormRadioButtons = Node.create({
     };
 
     return (props) => {
-      return new FormRadioButtonsView({ 
+      return new FormRadioGroupView({ 
         ...props,
         tagName: this.options.tagName,
         tagNameOption: this.options.tagNameOption,
@@ -208,9 +226,9 @@ export const FormRadioButtons = Node.create({
 
   onCreate() {
     const { isHeadless } = this.editor.options;
-      
+        
     if (!isHeadless) {
-      defineComponent(FormSettingsRadioButtonsName, FormSettingsRadioButtons);
+      defineComponent(FormSettingsRadioOptionsName, FormSettingsRadioOptions);
     }
   },
 });

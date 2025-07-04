@@ -2,7 +2,7 @@ import { FormElementView, kameoHelpers } from '@kameo/core';
 
 const { updateDOMAttributes } = kameoHelpers;
 
-export class FormRadioOptionsView extends FormElementView {
+export class FormRadioGroupView extends FormElementView {
   constructor(props, options = {}) {
     super(props, options);
 
@@ -19,11 +19,12 @@ export class FormRadioOptionsView extends FormElementView {
 
     const options = this.node.attrs.options ?? [];
     const optionElements = [];
+    const appearance = this.node.attrs.appearance;
 
     options.forEach((attrs) => {
       const option = document.createElement(props.tagNameOption);
-      option.textContent = attrs.label;  
-      updateDOMAttributes(option, attrs);
+      option.textContent = attrs.label;
+      updateDOMAttributes(option, { ...attrs, appearance });
       optionElements.push(option);
     });
     this.element.append(...optionElements);
@@ -72,19 +73,20 @@ export class FormRadioOptionsView extends FormElementView {
 
     const options = this.node.attrs.options ?? [];
     const currentOptionElements = [...this.element.children];
+    const appearance = this.node.attrs.appearance;
 
     if (options.length === currentOptionElements.length) {
       options.forEach((attrs, index) => {
         const option = currentOptionElements[index];
         option.textContent = attrs.label;
-        updateDOMAttributes(option, attrs);
+        updateDOMAttributes(option, { ...attrs, appearance });
       });
     } else {
       const optionElements = [];
       options.forEach((attrs) => {
         const option = document.createElement(this.tagNameOption);
         option.textContent = attrs.label;  
-        updateDOMAttributes(option, attrs);
+        updateDOMAttributes(option, { ...attrs, appearance });
         optionElements.push(option);
       });
       this.element.replaceChildren(...optionElements);

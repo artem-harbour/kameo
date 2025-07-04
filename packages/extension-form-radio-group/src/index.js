@@ -1,2 +1,2 @@
-export * from './radio-buttons/index.js';
-export * from './radio-options/index.js';
+export * from './form-radio-group.js';
+export * from './view/FormRadioGroupView.js';

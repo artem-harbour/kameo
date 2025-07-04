@@ -16,7 +16,7 @@ export const createFieldSettings = () => ({
     description: 'Select options',
     control: {
       name: 'component',
-      component: 'km-form-settings-radio-buttons',
+      component: 'km-form-settings-radio-options',
     },
   }),
   label: createSettingControl({
@@ -31,6 +31,16 @@ export const createFieldSettings = () => ({
     label: 'Hint',
     description: `The radio groups's hint`,
   }),
+  disabled: createSettingControl({
+    key: 'disabled',
+    attr: 'disabled',
+    label: 'Disabled',
+    description: 'Disables the radio group and all child radios',
+    control: {
+      name: 'checkbox',
+    },
+    section: 'state',
+  }),
   required: createSettingControl({
     key: 'required',
     attr: 'required',
@@ -40,6 +50,20 @@ export const createFieldSettings = () => ({
       name: 'checkbox',
     },
     section: 'validation',
+  }),
+  appearance: createSettingControl({
+    key: 'appearance',
+    attr: 'appearance',
+    label: 'Appearance',
+    description: `The radio's visual appearance`,
+    control: {
+      name: 'select',
+      options: [
+        { value: 'default', label: 'Default' },
+        { value: 'button', label: 'Button' },
+      ],
+    },
+    section: 'appearance',
   }),
   orientation: createSettingControl({
     key: 'orientation',

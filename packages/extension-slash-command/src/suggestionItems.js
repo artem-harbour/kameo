@@ -137,12 +137,12 @@ export const suggestionItems = [
     },
   },
   {
-    title: 'Radio options',
+    title: 'Radio group',
     group: 'Form',
     command: ({ editor, range }) => {
       const pos = editor.view.state.selection.from;
       const attrs = {
-        name: `radio-options-${getRandomId()}`, 
+        name: `radio-group-${getRandomId()}`, 
         options: [
           {
             value: 'option-1',
@@ -156,30 +156,7 @@ export const suggestionItems = [
           },
         ],
       };
-      editor.chain().focus().deleteRange(range).insertFormRadioOptions(pos, attrs).run();
-    },
-  },
-  {
-    title: 'Radio buttons',
-    group: 'Form',
-    command: ({ editor, range }) => {
-      const pos = editor.view.state.selection.from;
-      const attrs = {
-        name: `radio-buttons-${getRandomId()}`, 
-        options: [
-          {
-            value: 'option-1',
-            label: 'Option 1',
-            disabled: false,
-          },
-          {
-            value: 'option-2',
-            label: 'Option 2',
-            disabled: false,
-          },
-        ],
-      };
-      editor.chain().focus().deleteRange(range).insertFormRadioButtons(pos, attrs).run();
+      editor.chain().focus().deleteRange(range).insertFormRadioGroup(pos, attrs).run();
     },
   },
   {
@@ -201,9 +178,10 @@ export const suggestionItems = [
             disabled: false,
           },
         ],
+        appearance: 'button',
         orientation: 'horizontal',
       };
-      editor.chain().focus().deleteRange(range).insertFormRadioButtons(pos, attrs).run();
+      editor.chain().focus().deleteRange(range).insertFormRadioGroup(pos, attrs).run();
     },
   },
   {

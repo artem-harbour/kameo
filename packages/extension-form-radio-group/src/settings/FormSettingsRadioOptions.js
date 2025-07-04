@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 
-export const FormSettingsRadioButtonsName = 'km-form-settings-radio-buttons';
+export const FormSettingsRadioOptionsName = 'km-form-settings-radio-options';
 
-export class FormSettingsRadioButtons extends LitElement {
+export class FormSettingsRadioOptions extends LitElement {
 
   static properties = {
     control: {
@@ -40,10 +40,10 @@ export class FormSettingsRadioButtons extends LitElement {
       return;
     }
 
-    const radioButtons = { node: this.node, pos };
+    const radioGroup = { node: this.node, pos };
     const attrs = { [attr]: value };
 
-    this.editor.commands.updateFormRadioButton(radioButtons, index, attrs);
+    this.editor.commands.updateFormRadioOption(radioGroup, index, attrs);
   }
 
   _handleAddClick() {
@@ -54,14 +54,14 @@ export class FormSettingsRadioButtons extends LitElement {
       return;
     }
 
-    const radioButtons = { node: this.node, pos };
+    const radioGroup = { node: this.node, pos };
     const option = {
       value: '',
       label: '',
       disabled: false,
     };
 
-    this.editor.commands.addFormRadioButton(radioButtons, option);
+    this.editor.commands.addFormRadioOption(radioGroup, option);
   }
 
   _handleDeleteClick(index) {
@@ -72,9 +72,9 @@ export class FormSettingsRadioButtons extends LitElement {
       return;
     }
 
-    const radioButtons = { node: this.node, pos };
+    const radioGroup = { node: this.node, pos };
 
-    this.editor.commands.removeFormRadioButton(radioButtons, index);
+    this.editor.commands.removeFormRadioOption(radioGroup, index);
   }
   
   _renderSettings() {
