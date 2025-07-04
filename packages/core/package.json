@@ -17,8 +17,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./style/prosemirror.css": "./style/prosemirror.css",
-    "./style/theme.css": "./style/theme.css"
+    "./style/prosemirror.css": "./src/style/prosemirror.css",
+    "./style/theme.css": "./src/style/theme.css"
   },
   "sideEffects": [
     "./style/prosemirror.css",

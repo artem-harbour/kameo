@@ -47,7 +47,7 @@
   left: -58px;
 }
 
-.km-form-element--formRadioButtons[orientation="vertical"] {
+.km-form-element--formRadioGroup[data-appearance="button"][orientation="vertical"] {
   max-width: 300px;
 }
 
