@@ -36,13 +36,15 @@
     "@awesome.me/webawesome": "^3.0.0-beta.2",
     "@kameo/pm": "^0.0.28",
     "lit": "3.3.0",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "nanoid": "^5.1.5"
   },
   "peerDependencies": {
     "@awesome.me/webawesome": "^3.0.0-beta.2",
     "@kameo/pm": "^0.0.28",
     "lit": "3.3.0",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "nanoid": "^5.1.5"
   },
   "repository": {
     "type": "git",

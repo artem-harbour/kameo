@@ -42,13 +42,8 @@ export const FormSwitch = Node.create({
         },
       },
       name: {
-        default: 'switch',
-        parseHTML: (elem) => elem.getAttribute('name'),
-      },
-      // to double check
-      value: {
         default: '',
-        parseHTML: (elem) => elem.getAttribute('value'),
+        parseHTML: (elem) => elem.getAttribute('name'),
       },
       label: {
         default: 'Switch',

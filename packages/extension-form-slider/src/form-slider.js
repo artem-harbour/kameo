@@ -2,6 +2,9 @@ import { Node, mergeAttributes } from '@kameo/core';
 import { FormSliderView } from './view/FormSliderView.js';
 import { createFieldSettings } from './settings/index.js';
 
+// TODO: update.
+// https://webawesome.com/docs/components/slider/
+
 export const FormSlider = Node.create({
   name: 'formSlider',
 

@@ -42,7 +42,7 @@ export const FormTextarea = Node.create({
         },
       },
       name: {
-        default: 'textarea',
+        default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: {

@@ -41,7 +41,7 @@ export const FormRating = Node.create({
         },
       },
       name: {
-        default: 'rating',
+        default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       label: {

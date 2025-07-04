@@ -97,9 +97,9 @@ export const createFieldSettings = () => ({
     },
     section: 'appearance',
   }),
-  clearable: createSettingControl({
-    key: 'clearable',
-    attr: 'clearable',
+  withClear: createSettingControl({
+    key: 'withClear',
+    attr: 'withClear',
     label: 'Clearable',
     description: 'Adds a clear button when the input is not empty',
     control: {
@@ -262,9 +262,9 @@ export const createFieldSettings = () => ({
     },
     section: 'validation',
   }),
-  noSpinButtons: createSettingControl({
-    key: 'noSpinButtons',
-    attr: 'no-spin-buttons',
+  withoutSpinButtons: createSettingControl({
+    key: 'withoutSpinButtons',
+    attr: 'withoutSpinButtons',
     label: 'No spin buttons',
     description: `Hides the browser's built-in increment/decrement spin buttons (only applies to number input types)`,
     control: {

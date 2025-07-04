@@ -47,7 +47,7 @@ export const FormSelect = Node.create({
         },
       },
       name: {
-        default: 'select',
+        default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: { 
@@ -122,12 +122,18 @@ export const FormSelect = Node.create({
             elem.getAttribute('pill') !== 'false'
         ),
       },
-      clearable: {
+      withClear: {
         default: false,
         parseHTML: (elem) => (
-          elem.hasAttribute('clearable') 
-            && elem.getAttribute('clearable') !== 'false'
+          elem.hasAttribute('with-clear') 
+            && elem.getAttribute('with-clear') !== 'false'
         ),
+        renderHTML: (attrs) => {
+          if (!attrs.withClear) return {};
+          return { 
+            'with-clear': attrs.withClear,
+          };
+        },
       },
       placement: {
         default: null,

@@ -1,3 +1,4 @@
+import '@awesome.me/webawesome/dist/styles/themes/default.css';
 import '@kameo/core/style/theme.css';
 import './assets/styles/main.css';
 
@@ -14,6 +15,17 @@ import { handleImportForm } from './helpers/handleImportForm.js';
 import { handleExportForm } from './helpers/handleExportForm.js';
 import { handleClearContent } from './helpers/handleClearContent.js';
 import baseForm from './forms/base-form.json';
+
+import '@awesome.me/webawesome/dist/components/input/input.js';
+import '@awesome.me/webawesome/dist/components/checkbox/checkbox.js';
+import '@awesome.me/webawesome/dist/components/radio-group/radio-group.js';
+import '@awesome.me/webawesome/dist/components/rating/rating.js';
+import '@awesome.me/webawesome/dist/components/select/select.js';
+import '@awesome.me/webawesome/dist/components/slider/slider.js';
+import '@awesome.me/webawesome/dist/components/switch/switch.js';
+import '@awesome.me/webawesome/dist/components/textarea/textarea.js';
+import '@awesome.me/webawesome/dist/components/button/button.js';
+import '@awesome.me/webawesome/dist/components/drawer/drawer.js';
 
 const documentMode = 'edit';
 

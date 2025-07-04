@@ -42,11 +42,11 @@ export const FormInput = Node.create({
         },
       },
       type: {
-        default: 'text', // text | email | number | date | time
+        default: 'text', // text | email | number | date | time | tel | url
         parseHTML: (elem) => elem.getAttribute('type'),
       },
       name: {
-        default: 'input',
+        default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: {
@@ -101,12 +101,18 @@ export const FormInput = Node.create({
             elem.getAttribute('pill') !== 'false'
         ),
       },
-      clearable: {
+      withClear: {
         default: false,
         parseHTML: (elem) => (
-          elem.hasAttribute('clearable') 
-            && elem.getAttribute('clearable') !== 'false'
+          elem.hasAttribute('with-clear') 
+            && elem.getAttribute('with-clear') !== 'false'
         ),
+        renderHTML: (attrs) => {
+          if (!attrs.withClear) return {};
+          return { 
+            'with-clear': attrs.withClear,
+          };
+        },
       },
       pattern: {
         default: null,
@@ -164,15 +170,15 @@ export const FormInput = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('step'),
       }, 
-      noSpinButtons: {
+      withoutSpinButtons: {
         default: false,
         parseHTML: (elem) => (
-          elem.hasAttribute('no-spin-buttons') 
-            && elem.getAttribute('no-spin-buttons') !== 'false'
+          elem.hasAttribute('without-spin-buttons') 
+            && elem.getAttribute('without-spin-buttons') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (!attrs.noSpinButtons) return {};
-          return { 'no-spin-buttons': true };
+          if (!attrs.withoutSpinButtons) return {};
+          return { 'without-spin-buttons': true };
         },
       },
       valueAttribute: {
@@ -255,6 +261,24 @@ export const FormInput = Node.create({
           type: 'time',
           name: 'time',
           label: 'Select time',
+          ...attrs,
+        });
+      },
+
+      insertFormInputTel: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'tel',
+          name: 'tel',
+          label: 'Enter telephone number',
+          ...attrs,
+        });
+      },
+
+      insertFormInputURL: (pos, attrs = {}) => ({ commands }) => {
+        return commands.insertFormInput(pos, {
+          type: 'url',
+          name: 'url',
+          label: 'Enter url',
           ...attrs,
         });
       },

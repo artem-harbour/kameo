@@ -42,13 +42,8 @@ export const FormCheckbox = Node.create({
         },
       },
       name: {
-        default: 'checkbox',
-        parseHTML: (elem) => elem.getAttribute('name'),
-      },
-      // to double check
-      value: { 
         default: '',
-        parseHTML: (elem) => elem.getAttribute('value'),
+        parseHTML: (elem) => elem.getAttribute('name'),
       },
       label: {
         default: 'Checkbox',

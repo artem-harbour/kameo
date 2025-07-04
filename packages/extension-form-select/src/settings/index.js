@@ -118,9 +118,9 @@ export const createFieldSettings = () => ({
     },
     section: 'appearance',
   }),
-  clearable: createSettingControl({
-    key: 'clearable',
-    attr: 'clearable',
+  withClear: createSettingControl({
+    key: 'withClear',
+    attr: 'withClear',
     label: 'Clearable',
     description: 'Adds a clear button when the select is not empty',
     control: {

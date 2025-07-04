@@ -70,6 +70,28 @@ export const suggestionItems = [
     },
   },
   {
+    title: 'Telephone',
+    group: 'Form',
+    command: ({ editor, range }) => {
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `tel-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputTel(pos, attrs).run();
+    },
+  },
+  {
+    title: 'URL',
+    group: 'Form',
+    command: ({ editor, range }) => {
+      const pos = editor.view.state.selection.from;
+      const attrs = { 
+        name: `url-${getRandomId()}`, 
+      };
+      editor.chain().focus().deleteRange(range).insertFormInputURL(pos, attrs).run();
+    },
+  },
+  {
     title: 'Textarea',
     group: 'Form',
     command: ({ editor, range }) => {
