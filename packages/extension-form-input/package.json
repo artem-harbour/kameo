@@ -20,13 +20,12 @@
     "src",
     "dist"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.1",
+    "@awesome.me/webawesome": "^3.0.0-beta.2",
     "@kameo/core": "^0.0.28"
   },
   "peerDependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.1",
+    "@awesome.me/webawesome": "^3.0.0-beta.2",
     "@kameo/core": "^0.0.28"
   },
   "repository": {

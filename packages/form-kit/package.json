@@ -35,10 +35,10 @@
     "@kameo/pm": "^0.0.28"
   },
   "devDependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.1"
+    "@awesome.me/webawesome": "^3.0.0-beta.2"
   },
   "peerDependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.1"
+    "@awesome.me/webawesome": "^3.0.0-beta.2"
   },
   "repository": {
     "type": "git",
