@@ -17,18 +17,20 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./webawesome.js": "./src/webawesome.js",
-    "./style/prosemirror.css": "./src/style/prosemirror.css",
-    "./style/theme.css": "./src/style/theme.css"
+    "./style/prosemirror.css": "./style/prosemirror.css",
+    "./style/theme.css": "./style/theme.css",
+    "./webawesome.js": "./webawesome/webawesome.js"
   },
   "sideEffects": [
     "./style/prosemirror.css",
-    "./style/theme.css"
+    "./style/theme.css",
+    "./webawesome/webawesome.js"
   ],
   "files": [
     "src",
     "dist",
-    "style"
+    "style",
+    "webawesome"
   ],
   "dependencies": {
     "@tiptap/core": "^3.0.0-beta.19"

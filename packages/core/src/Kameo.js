@@ -13,6 +13,8 @@ import {
 } from './ui/index.js';
 import { FormManager } from './FormManager.js';
 
+// TODO: remove 'nanoid' from package.json
+
 export class Kameo extends Editor {
   formManager;
 

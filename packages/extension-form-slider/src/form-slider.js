@@ -133,7 +133,7 @@ export const FormSlider = Node.create({
             && elem.getAttribute('with-tooltip') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (!attrs.withTooltip) return {};
+          if (attrs.withTooltip == null) return {};
           return { 
             'with-tooltip': attrs.withTooltip,
           };
@@ -146,7 +146,7 @@ export const FormSlider = Node.create({
             && elem.getAttribute('with-markers') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (!attrs.withMarkers) return {};
+          if (attrs.withMarkers == null) return {};
           return { 
             'with-markers': attrs.withMarkers,
           };
@@ -223,7 +223,7 @@ export const FormSlider = Node.create({
   addNodeView() {
     const options = {
       HTMLAttributes: this.options.HTMLAttributes,
-      customBooleans: ['range', 'with-tooltip'],
+      customBooleans: ['range', 'with-tooltip', 'with-markers'],
     };
 
     return (props) => {

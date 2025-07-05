@@ -108,7 +108,7 @@ export const FormInput = Node.create({
             && elem.getAttribute('with-clear') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (!attrs.withClear) return {};
+          if (attrs.withClear == null) return {};
           return { 
             'with-clear': attrs.withClear,
           };
@@ -177,7 +177,7 @@ export const FormInput = Node.create({
             && elem.getAttribute('without-spin-buttons') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (!attrs.withoutSpinButtons) return {};
+          if (attrs.withoutSpinButtons == null) return {};
           return { 'without-spin-buttons': true };
         },
       },

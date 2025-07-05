@@ -53,6 +53,7 @@ export const FormSelect = Node.create({
       value: { 
         default: '',
         parseHTML: (elem) => elem.getAttribute('value'),
+        rendered: false, // TODO: causes issue for multiple select.
       },
       // { value: '', label: '', disabled: false }
       options: {
@@ -130,7 +131,7 @@ export const FormSelect = Node.create({
             && elem.getAttribute('with-clear') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (!attrs.withClear) return {};
+          if (attrs.withClear == null) return {};
           return { 
             'with-clear': attrs.withClear,
           };
