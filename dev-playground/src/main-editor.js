@@ -1,6 +1,7 @@
 import '@kameo/core/style/theme.css';
 import './assets/styles/main-editor.css';
 
+import '@kameo/core/webawesome.js';
 import { Kameo } from '@kameo/core';
 import { StarterKit } from '@kameo/starter-kit';
 import { FormKit } from '@kameo/form-kit';

@@ -69,7 +69,7 @@ export const createFieldSettings = () => ({
   }),
   maxOptionsVisible: createSettingControl({
     key: 'maxOptionsVisible',
-    attr: 'max-options-visible',
+    attr: 'maxOptionsVisible',
     label: 'Max options visible',
     description: 'The maximum number of selected options to show when multiple is true',
     control: {

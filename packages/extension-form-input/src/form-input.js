@@ -136,10 +136,10 @@ export const FormInput = Node.create({
       },
       autofocus: {
         default: false,
-        parseHTML: (elem) => {
-          const attr = elem.getAttribute('autofocus');
-          return !!attr && attr !== 'false';
-        },
+        parseHTML: (elem) => (
+          elem.hasAttribute('autofocus') 
+            && elem.getAttribute('autofocus') !== 'false'
+        ),
       },
       enterkeyhint: {
         default: null,
@@ -288,6 +288,7 @@ export const FormInput = Node.create({
   addNodeView() {
     const options = {
       HTMLAttributes: this.options.HTMLAttributes,
+      customBooleans: ['without-spin-buttons', 'with-clear', 'pill' , 'spellcheck'],
     };
 
     return (props) => {

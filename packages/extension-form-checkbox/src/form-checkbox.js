@@ -120,6 +120,7 @@ export const FormCheckbox = Node.create({
   addNodeView() {
     const options = {
       HTMLAttributes: this.options.HTMLAttributes,
+      customBooleans: ['indeterminate'],
     };
 
     return (props) => {

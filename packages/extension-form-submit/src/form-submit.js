@@ -109,10 +109,11 @@ export const FormSubmit = Node.create({
   addNodeView() {
     return (props) => {
       const options = {
+        HTMLAttributes: this.options.HTMLAttributes,
+        customBooleans: ['loading', 'pill'],
         submitProps: this.options.submitProps,
         disableOnSubmit: this.options.disableOnSubmit,
         handleClick: this.options.handleClick,
-        HTMLAttributes: this.options.HTMLAttributes,
       };
       
       return new FormSubmitView({

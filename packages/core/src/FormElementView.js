@@ -8,18 +8,6 @@ const elementClass = 'km-form-element';
 const elementClassInvalid = 'km-form-element--invalid';
 const errorClass = 'km-form-error';
 
-const customBooleans = [
-  'loading',
-  'pill',
-  'with-clear',
-  'password-toggle',
-  'password-visible',
-  'without-spin-buttons',
-  'autofocus',
-  'spellcheck',
-  'indeterminate',
-];
-
 const customElements = [
   'wa-input',
   'wa-textarea',
@@ -31,6 +19,8 @@ const customElements = [
   'wa-slider',
   'wa-button',
 ];
+
+const customBooleans = [];
 
 export class FormElementView {
   editor;

@@ -248,6 +248,7 @@ export const FormSelect = Node.create({
   addNodeView() {
     const options = {
       HTMLAttributes: this.options.HTMLAttributes,
+      customBooleans: ['with-clear', 'pill'],
     };
 
     return (props) => {

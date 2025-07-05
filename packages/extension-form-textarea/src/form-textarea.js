@@ -136,10 +136,6 @@ export const FormTextarea = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('inputmode'),
       },
-      fieldType: {
-        default: 'textarea',
-        rendered: false,
-      },
       valueAttribute: {
         default: this.options.valueAttribute,
         rendered: false,
@@ -171,6 +167,7 @@ export const FormTextarea = Node.create({
   addNodeView() {
     const options = {
       HTMLAttributes: this.options.HTMLAttributes,
+      customBooleans: ['spellcheck'],
     };
 
     return (props) => {

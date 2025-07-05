@@ -17,6 +17,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
+    "./webawesome.js": "./src/webawesome.js",
     "./style/prosemirror.css": "./src/style/prosemirror.css",
     "./style/theme.css": "./src/style/theme.css"
   },
