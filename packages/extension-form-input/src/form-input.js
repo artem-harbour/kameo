@@ -204,7 +204,10 @@ export const FormInput = Node.create({
   addCommands() {
     return {
       insertFormInput: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'text',
+          ...attrs,
+        });
       },
 
       insertFormInputText: (pos, attrs = {}) => ({ commands }) => {

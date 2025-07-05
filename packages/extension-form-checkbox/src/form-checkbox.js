@@ -112,7 +112,10 @@ export const FormCheckbox = Node.create({
   addCommands() {
     return {
       insertFormCheckbox: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'checkbox',
+          ...attrs,
+        });
       },
     };
   },

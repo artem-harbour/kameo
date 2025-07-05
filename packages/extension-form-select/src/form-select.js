@@ -163,7 +163,10 @@ export const FormSelect = Node.create({
   addCommands() {
     return {
       insertFormSelect: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'select',
+          ...attrs,
+        });
       },
 
       addFormSelectOption: (select, option) => ({

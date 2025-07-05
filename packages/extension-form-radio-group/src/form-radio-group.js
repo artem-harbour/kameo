@@ -128,7 +128,10 @@ export const FormRadioGroup = Node.create({
   addCommands() {
     return {
       insertFormRadioGroup: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'radio-group',
+          ...attrs,
+        });
       },
 
       addFormRadioOption: (radioGroup, option) => ({

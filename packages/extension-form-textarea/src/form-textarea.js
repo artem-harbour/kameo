@@ -159,7 +159,10 @@ export const FormTextarea = Node.create({
   addCommands() {
     return {
       insertFormTextarea: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'textarea',
+          ...attrs,
+        });
       },
     };
   },

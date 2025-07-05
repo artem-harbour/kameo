@@ -101,7 +101,10 @@ export const FormRating = Node.create({
   addCommands() {
     return {
       insertFormRating: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'rating',
+          ...attrs,
+        });
       },
     };
   },

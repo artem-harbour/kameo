@@ -107,7 +107,10 @@ export const FormSwitch = Node.create({
   addCommands() {
     return {
       insertFormSwitch: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'switch',
+          ...attrs,
+        });
       },
     };
   },

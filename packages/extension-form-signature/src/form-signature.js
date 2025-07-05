@@ -92,7 +92,10 @@ export const FormSignature = Node.create({
   addCommands() {
     return {
       insertFormSignature: (pos, attrs = {}) => ({ commands }) => {
-        return commands.insertFormElement(this.name, pos, attrs);
+        return commands.insertFormElement(this.name, pos, {
+          name: 'signature',
+          ...attrs,
+        });
       },
     };
   },
