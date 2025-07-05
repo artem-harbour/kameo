@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-text-align",
   "description": "text align extension for kameo",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,10 +21,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.28"
+    "@kameo/core": "^0.0.29"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.28"
+    "@kameo/core": "^0.0.29"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,14 @@
 # @kameo/extension-slash-command
 
+## 0.0.29
+
+### Patch Changes
+
+- cc5d238: bump version
+- Updated dependencies [cc5d238]
+  - @kameo/core@0.0.29
+  - @kameo/suggestion@0.0.29
+
 ## 0.0.28
 
 ### Patch Changes

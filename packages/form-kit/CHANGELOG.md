@@ -1,5 +1,24 @@
 # @kameo/form-kit
 
+## 0.0.29
+
+### Patch Changes
+
+- cc5d238: bump version
+- Updated dependencies [cc5d238]
+  - @kameo/core@0.0.29
+  - @kameo/extension-form-checkbox@0.0.29
+  - @kameo/extension-form-input@0.0.29
+  - @kameo/extension-form-radio-group@0.0.29
+  - @kameo/extension-form-rating@0.0.29
+  - @kameo/extension-form-select@0.0.29
+  - @kameo/extension-form-signature@0.0.29
+  - @kameo/extension-form-slider@0.0.29
+  - @kameo/extension-form-submit@0.0.29
+  - @kameo/extension-form-switch@0.0.29
+  - @kameo/extension-form-textarea@0.0.29
+  - @kameo/pm@0.0.29
+
 ## 0.0.28
 
 ### Patch Changes
