@@ -1,3 +1,4 @@
+import '@awesome.me/webawesome/dist/styles/themes/default.css';
 import '@kameo/core/style/theme.css';
 import './assets/styles/main-viewer.css';
 
