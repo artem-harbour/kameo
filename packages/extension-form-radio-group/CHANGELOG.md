@@ -1,5 +1,13 @@
 # @kameo/extension-form-radio-group
 
+## 0.0.30
+
+### Patch Changes
+
+- ec3f799: bump version
+- Updated dependencies [ec3f799]
+  - @kameo/core@0.0.30
+
 ## 0.0.29
 
 ### Patch Changes

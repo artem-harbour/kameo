@@ -1,5 +1,11 @@
 # @kameo/toolbar-form-fields
 
+## 0.0.30
+
+### Patch Changes
+
+- ec3f799: bump version
+
 ## 0.0.29
 
 ### Patch Changes

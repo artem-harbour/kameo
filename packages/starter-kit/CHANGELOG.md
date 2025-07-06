@@ -1,5 +1,24 @@
 # @kameo/starter-kit
 
+## 0.0.30
+
+### Patch Changes
+
+- ec3f799: bump version
+- Updated dependencies [ec3f799]
+  - @kameo/core@0.0.30
+  - @kameo/extension-blockquote@0.0.30
+  - @kameo/extension-bold@0.0.30
+  - @kameo/extension-document@0.0.30
+  - @kameo/extension-heading@0.0.30
+  - @kameo/extension-italic@0.0.30
+  - @kameo/extension-paragraph@0.0.30
+  - @kameo/extension-strike@0.0.30
+  - @kameo/extension-text@0.0.30
+  - @kameo/extension-underline@0.0.30
+  - @kameo/extensions@0.0.30
+  - @kameo/pm@0.0.30
+
 ## 0.0.29
 
 ### Patch Changes
