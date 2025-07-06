@@ -41,12 +41,11 @@ export const FormSignature = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
       name: {
-        default: 'signature',
+        default: '',
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       value: {

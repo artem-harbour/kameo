@@ -35,7 +35,6 @@ export const FormSubmit = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
@@ -43,10 +42,7 @@ export const FormSubmit = Node.create({
         default: 'Submit',
         parseHTML: (elem) => elem.getAttribute('data-label'),
         renderHTML: (attrs) => {
-          if (!attrs.label) return {};
-          return {
-            'data-label': attrs.label,
-          };
+          return { 'data-label': attrs.label };
         },
       },
       loading: {

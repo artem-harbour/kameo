@@ -38,7 +38,6 @@ export const FormSlider = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
@@ -98,20 +97,14 @@ export const FormSlider = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('min-value'),
         renderHTML: (attrs) => {
-          if (attrs.minValue == null) return {};
-          return { 
-            'min-value': attrs.minValue,
-          };
+          return { 'min-value': attrs.minValue };
         },
       },
       maxValue: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('max-value'),
         renderHTML: (attrs) => {
-          if (attrs.maxValue == null) return {};
-          return { 
-            'max-value': attrs.maxValue,
-          };
+          return { 'max-value': attrs.maxValue };
         },
       },
       step: {
@@ -133,10 +126,7 @@ export const FormSlider = Node.create({
             && elem.getAttribute('with-tooltip') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (attrs.withTooltip == null) return {};
-          return { 
-            'with-tooltip': attrs.withTooltip,
-          };
+          return { 'with-tooltip': !!attrs.withTooltip };
         },
       },
       withMarkers: {
@@ -146,17 +136,13 @@ export const FormSlider = Node.create({
             && elem.getAttribute('with-markers') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (attrs.withMarkers == null) return {};
-          return { 
-            'with-markers': attrs.withMarkers,
-          };
+          return { 'with-markers': !!attrs.withMarkers };
         },
       },
       tooltipPlacement: {
         default: null,
         parseHTML: (elem) => elem.getAttribute('tooltip-placement'),
         renderHTML: (attrs) => {
-          if (!attrs.tooltipPlacement) return {};
           return { 
             'tooltip-placement': attrs.tooltipPlacement,
           };
@@ -166,7 +152,6 @@ export const FormSlider = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('tooltip-distance'),
         renderHTML: (attrs) => {
-          if (attrs.tooltipDistance == null) return {};
           return { 
             'tooltip-distance': attrs.tooltipDistance,
           };
@@ -176,7 +161,6 @@ export const FormSlider = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('indicator-offset'),
         renderHTML: (attrs) => {
-          if (attrs.indicatorOffset == null) return {};
           return { 
             'indicator-offset': attrs.indicatorOffset,
           };

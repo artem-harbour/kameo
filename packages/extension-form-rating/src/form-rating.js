@@ -36,7 +36,6 @@ export const FormRating = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },

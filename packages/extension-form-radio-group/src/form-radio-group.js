@@ -42,7 +42,6 @@ export const FormRadioGroup = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
@@ -59,7 +58,6 @@ export const FormRadioGroup = Node.create({
         default: [],
         parseHTML: (elem) => parseOptionsList(elem.getAttribute('data-options')),
         renderHTML: (attrs) => {
-          if (!attrs.options) return {};
           return { 
             'data-options': JSON.stringify(attrs.options),
           };
@@ -91,10 +89,7 @@ export const FormRadioGroup = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-appearance'),
         renderHTML: (attrs) => {
-          if (!attrs.appearance) return {};
-          return {
-            'data-appearance': attrs.appearance,
-          };
+          return { 'data-appearance': attrs.appearance };
         },
       },
       orientation: {

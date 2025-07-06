@@ -37,7 +37,6 @@ export const FormInput = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
@@ -108,10 +107,7 @@ export const FormInput = Node.create({
             && elem.getAttribute('with-clear') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (attrs.withClear == null) return {};
-          return { 
-            'with-clear': attrs.withClear,
-          };
+          return { 'with-clear': !!attrs.withClear };
         },
       },
       pattern: {
@@ -177,8 +173,7 @@ export const FormInput = Node.create({
             && elem.getAttribute('without-spin-buttons') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (attrs.withoutSpinButtons == null) return {};
-          return { 'without-spin-buttons': true };
+          return { 'without-spin-buttons': !!attrs.withoutSpinButtons };
         },
       },
       valueAttribute: {

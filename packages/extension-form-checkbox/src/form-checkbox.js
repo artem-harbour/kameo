@@ -37,7 +37,6 @@ export const FormCheckbox = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
@@ -46,10 +45,9 @@ export const FormCheckbox = Node.create({
         parseHTML: (elem) => elem.getAttribute('name'),
       },
       label: {
-        default: 'Checkbox',
+        default: null,
         parseHTML: (elem) => elem.getAttribute('data-label'),
         renderHTML: (attrs) => {
-          if (!attrs.label) return {};
           return { 'data-label': attrs.label };
         },
       },

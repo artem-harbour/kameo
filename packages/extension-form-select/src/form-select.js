@@ -42,7 +42,6 @@ export const FormSelect = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('data-id'),
         renderHTML: (attrs) => {
-          if (attrs.id == null) return {};
           return { 'data-id': attrs.id };
         },
       },
@@ -60,7 +59,6 @@ export const FormSelect = Node.create({
         default: [],
         parseHTML: (elem) => parseOptionsList(elem.getAttribute('data-options')),
         renderHTML: (attrs) => {
-          if (!attrs.options) return {};
           return { 
             'data-options': JSON.stringify(attrs.options),
           };
@@ -103,7 +101,6 @@ export const FormSelect = Node.create({
         default: null,
         parseHTML: (elem) => elem.getAttribute('max-options-visible'),
         renderHTML: (attrs) => {
-          if (attrs.maxOptionsVisible == null) return {};
           return { 
             'max-options-visible': attrs.maxOptionsVisible,
           };
@@ -131,10 +128,7 @@ export const FormSelect = Node.create({
             && elem.getAttribute('with-clear') !== 'false'
         ),
         renderHTML: (attrs) => {
-          if (attrs.withClear == null) return {};
-          return { 
-            'with-clear': attrs.withClear,
-          };
+          return { 'with-clear': !!attrs.withClear };
         },
       },
       placement: {
