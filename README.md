@@ -15,13 +15,12 @@ Kameo is a toolkit for creating and rendering interactive web forms in rich text
 </p>
 
 ## Features
-- **Create and render web forms** - Build interactive forms within rich text content
+- **Create and render web forms** - Build interactive forms in rich text
 - **Import/export forms** - Save and load forms as JSON
 - **Dynamic form creation** - Build forms programmatically with commands
 - **Rich text editing capabilities** - Can be used as a rich text editor
 - **Extensible and customizable** - Create your own custom extensions and form fields
 - **Framework agnostic** - Works seamlessly across different frontend frameworks
-- **More to come** - The project is actively evolving with new features on the way
 
 ## Installation
 
@@ -30,7 +29,7 @@ npm install @kameo/core @kameo/pm @kameo/starter-kit @kameo/form-kit @kameo/exte
 npm install @awesome.me/webawesome
 ```
 
-**IMPORTANT**: Kameo is currently in active development and should not be used in production. During this early phase, npm packages will not strictly follow semantic versioning and will be published infrequently. For now, we recommend experimenting with Kameo in development environments only. You can clone the repository and use the development setup to try out the latest features.
+**IMPORTANT**: Kameo is currently in active development and should not be used in production. During this early phase, npm packages will not follow semantic versioning. For now, we recommend experimenting with Kameo in development environments only. You can clone the repository and use the development setup to try out the latest features.
 
 To get started with development env, follow these steps:
 
@@ -85,12 +84,6 @@ Kameo is built on top of Tiptap (core). To better understand how to work with Ka
 - [Tiptap Editor API](https://next.tiptap.dev/docs/editor/api/editor)
 - [Core concepts](https://next.tiptap.dev/docs/editor/core-concepts/introduction)
 - [Custom extensions](https://next.tiptap.dev/docs/editor/extensions/custom-extensions)
-
-## Tech Stack
-
-Kameo is built on the following stack:
-- ProseMirror, Tiptap (core)
-- Lit, Web Components, Web Awesome
 
 ## License
 
