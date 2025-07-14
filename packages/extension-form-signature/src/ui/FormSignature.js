@@ -183,13 +183,13 @@ export class FormSignature extends LitElement {
 
   static styles = css`
     :host {
-      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+      --border-color: #9194a2;
 
+      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
       display: flex;
       flex-direction: column;
       width: 100%;
       height: 340px; 
-      max-width: 700px;
     }
 
     .form-signature {
@@ -198,9 +198,8 @@ export class FormSignature extends LitElement {
       flex-direction: column;
       width: 100%;
       height: 100%;
-      border: 1px solid #e8e8e8;
+      border: 1px solid var(--border-color);
       background-color: #fff;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
       border-radius: 6px;
       padding: 12px;
       box-sizing: border-box;
@@ -209,7 +208,7 @@ export class FormSignature extends LitElement {
     .form-signature__pad {
       position: relative;
       flex: 1;
-      border: 1px solid #f4f4f4;
+      border: 1px solid rgb(229 231 235);
       border-radius: 4px;
     }
 
