@@ -24,7 +24,7 @@
 
 .km-form-element-view {
   position: relative;
-  margin: 24px 0;
+  margin: 26px 0;
 }
 
 .km-form-element-view--formCheckbox,
@@ -77,9 +77,10 @@
 
 .km-form-error {
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 1.1;
   color: red;
-  margin-top: 4px;
+  position: absolute;
+  top: calc(100% + 3px);
 }
 
 .km-is-empty:before {
