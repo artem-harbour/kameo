@@ -1,5 +1,13 @@
 # @kameo/extension-form-input
 
+## 0.0.31
+
+### Patch Changes
+
+- 6e9cd1d: bump version
+- Updated dependencies [6e9cd1d]
+  - @kameo/core@0.0.31
+
 ## 0.0.30
 
 ### Patch Changes
