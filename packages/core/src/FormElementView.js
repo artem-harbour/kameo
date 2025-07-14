@@ -497,6 +497,11 @@ export class FormElementView {
         ...attrs,
       });
 
+      tr.setMeta('formElementUpdate', {
+        editor: this.editor,
+        nodeView: this,
+      });
+
       return true;
     });
   }
