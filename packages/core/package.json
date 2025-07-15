@@ -33,7 +33,7 @@
     "webawesome"
   ],
   "dependencies": {
-    "@tiptap/core": "^3.0.0-beta.19"
+    "@tiptap/core": "^3.0.6"
   },
   "devDependencies": {
     "@awesome.me/webawesome": "^3.0.0-beta.2",
