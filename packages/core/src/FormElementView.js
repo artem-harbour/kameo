@@ -237,6 +237,7 @@ export class FormElementView {
     const modes = {
       edit: () => {
         this.removeFormActions();
+        this.clearValidationError();
         this.formActions = this.createFormActions();
         this.dom.prepend(this.formActions);
       },
