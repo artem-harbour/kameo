@@ -77,8 +77,8 @@
 }
 
 .km-form-error {
-  font-size: 13px;
-  line-height: 1.1;
+  font-size: 12px;
+  line-height: 1.2;
   color: red;
   position: absolute;
   top: calc(100% + 3px);
