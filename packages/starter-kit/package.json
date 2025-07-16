@@ -1,7 +1,7 @@
 {
   "name": "@kameo/starter-kit",
   "description": "starter kit for kameo",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,18 +21,18 @@
     "dist"
   ],
   "dependencies": {
-    "@kameo/core": "^0.0.31",
-    "@kameo/extension-blockquote": "^0.0.31",
-    "@kameo/extension-bold": "^0.0.31",
-    "@kameo/extension-document": "^0.0.31",
-    "@kameo/extension-heading": "^0.0.31",
-    "@kameo/extension-italic": "^0.0.31",
-    "@kameo/extension-paragraph": "^0.0.31",
-    "@kameo/extension-strike": "^0.0.31",
-    "@kameo/extension-text": "^0.0.31",
-    "@kameo/extension-underline": "^0.0.31",
-    "@kameo/extensions": "^0.0.31",
-    "@kameo/pm": "^0.0.31"
+    "@kameo/core": "^0.0.32",
+    "@kameo/extension-blockquote": "^0.0.32",
+    "@kameo/extension-bold": "^0.0.32",
+    "@kameo/extension-document": "^0.0.32",
+    "@kameo/extension-heading": "^0.0.32",
+    "@kameo/extension-italic": "^0.0.32",
+    "@kameo/extension-paragraph": "^0.0.32",
+    "@kameo/extension-strike": "^0.0.32",
+    "@kameo/extension-text": "^0.0.32",
+    "@kameo/extension-underline": "^0.0.32",
+    "@kameo/extensions": "^0.0.32",
+    "@kameo/pm": "^0.0.32"
   },
   "repository": {
     "type": "git",

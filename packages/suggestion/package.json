@@ -1,7 +1,7 @@
 {
   "name": "@kameo/suggestion",
   "description": "suggestion for kameo",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "license": "MIT",
   "keywords": [
     "kameo",
@@ -21,12 +21,12 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.31",
-    "@kameo/pm": "^0.0.31"
+    "@kameo/core": "^0.0.32",
+    "@kameo/pm": "^0.0.32"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.31",
-    "@kameo/pm": "^0.0.31"
+    "@kameo/core": "^0.0.32",
+    "@kameo/pm": "^0.0.32"
   },
   "repository": {
     "type": "git",

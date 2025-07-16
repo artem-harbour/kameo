@@ -1,5 +1,14 @@
 # @kameo/suggestion
 
+## 0.0.32
+
+### Patch Changes
+
+- 2323f36: bump version
+- Updated dependencies [2323f36]
+  - @kameo/core@0.0.32
+  - @kameo/pm@0.0.32
+
 ## 0.0.31
 
 ### Patch Changes
