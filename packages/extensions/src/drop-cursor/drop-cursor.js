@@ -11,7 +11,7 @@ export const Dropcursor = Extension.create({
 
   addOptions() {
     return {
-      color: '#7c3aed',
+      color: '#111827',
       width: 3,
       class: undefined,
     };
