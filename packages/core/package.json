@@ -6,7 +6,9 @@
   "license": "MIT",
   "keywords": [
     "kameo",
-    "form editor",
+    "wysiwyg",
+    "rich text",
+    "form builder",
     "text editor",
     "prosemirror"
   ],
