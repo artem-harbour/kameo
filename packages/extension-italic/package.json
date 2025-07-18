@@ -2,6 +2,7 @@
   "name": "@kameo/extension-italic",
   "description": "italic extension for kameo",
   "version": "0.0.32",
+  "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [
     "kameo",

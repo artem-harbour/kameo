@@ -2,6 +2,7 @@
   "name": "@kameo/extension-image",
   "description": "image extension for kameo",
   "version": "0.0.32",
+  "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [
     "kameo",

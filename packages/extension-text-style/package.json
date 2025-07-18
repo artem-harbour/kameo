@@ -2,6 +2,7 @@
   "name": "@kameo/extension-text-style",
   "description": "text style extension for kameo",
   "version": "0.0.32",
+  "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [
     "kameo",

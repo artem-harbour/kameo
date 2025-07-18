@@ -2,6 +2,7 @@
   "name": "@kameo/toolbar-form-fields",
   "description": "toolbar with draggable fields for kameo",
   "version": "0.0.32",
+  "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [
     "kameo",
