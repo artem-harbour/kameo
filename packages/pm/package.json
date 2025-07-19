@@ -1,7 +1,7 @@
 {
   "name": "@kameo/pm",
   "description": "prosemirror wrapper package for kameo",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [

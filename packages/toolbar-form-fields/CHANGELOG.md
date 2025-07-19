@@ -1,5 +1,11 @@
 # @kameo/toolbar-form-fields
 
+## 0.0.33
+
+### Patch Changes
+
+- a00f291: bump version
+
 ## 0.0.32
 
 ### Patch Changes

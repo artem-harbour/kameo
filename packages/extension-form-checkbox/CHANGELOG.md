@@ -1,5 +1,13 @@
 # @kameo/extension-form-checkbox
 
+## 0.0.33
+
+### Patch Changes
+
+- a00f291: bump version
+- Updated dependencies [a00f291]
+  - @kameo/core@0.0.33
+
 ## 0.0.32
 
 ### Patch Changes
