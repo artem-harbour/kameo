@@ -1,4 +1,5 @@
-import { LitElement, html, css, nothing } from 'lit';
+import { FormElement } from '@kameo/core';
+import { html, css, nothing } from 'lit';
 import SignaturePad from 'signature_pad';
 
 // https://github.com/szimek/signature_pad
@@ -6,7 +7,7 @@ import SignaturePad from 'signature_pad';
 
 export const FormSignatureName = 'km-form-signature';
 
-export class FormSignature extends LitElement {
+export class FormSignature extends FormElement {
   static properties = {
     value: {
       type: String,
