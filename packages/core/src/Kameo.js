@@ -13,18 +13,16 @@ import {
 } from './ui/index.js';
 import { FormManager } from './FormManager.js';
 
-// TODO: remove 'nanoid' from package.json
-
 export class Kameo extends Editor {
   formManager;
-
+  
   constructor({
     documentMode = 'edit',
     handlers = {},
     validationOptions = {},
     isHeadless = false,
     onSubmit = () => null,
-    onSubmitted = () => null,
+    onSubmitResult = () => null,
     ...opts
   } = {}) {
     const coreExtensions = [
@@ -40,7 +38,7 @@ export class Kameo extends Editor {
       validationOptions,
       isHeadless,
       onSubmit,
-      onSubmitted,
+      onSubmitResult,
       ...opts,
       // to include kameo core extensions.
       extensions: [
@@ -65,7 +63,7 @@ export class Kameo extends Editor {
     this.setDocumentMode(this.options.documentMode, { isInit: true });
 
     this.on('submit', this.options.onSubmit);
-    this.on('submitted', this.options.onSubmitted);
+    this.on('submit:result', this.options.onSubmitResult);
   }
 
   createFormManager() {
@@ -165,7 +163,7 @@ export class Kameo extends Editor {
   getJSON() {
     return super.getJSON();
   }
-
+  
   /**
    * Helper method for broadcasting node events.
    */

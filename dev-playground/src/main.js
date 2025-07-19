@@ -73,11 +73,17 @@ const listenKameoEvents = (kameo) => {
     });
   });
 
-  kameo.on('submitted', (event) => {
-    console.log(`on 'submitted' event`, { event });
+  kameo.on('submit:result', (event) => {
+    console.log(`on 'submit:result' event`, { event });
   });
 
-  // kameo.onNodeEvent('formInputText', 'input', (props) => console.log({ props }));
+  // kameo.on('update', ({ transaction }) => {
+  //   const meta = transaction.getMeta('formElementUpdate');
+  //   if (meta) {
+  //     const { nodeView } = meta;
+  //     console.log(nodeView.node);
+  //   }
+  // });
 };
 
 const attachEvents = (kameo) => {

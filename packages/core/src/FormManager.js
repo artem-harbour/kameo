@@ -28,6 +28,13 @@ export class FormManager {
     });
   }
 
+  setValidationOptions(options = {}) {
+    this.validation = {
+      ...this.validation,
+      ...options,
+    };
+  }
+  
   submit(props = {}) {
     const formData = this.getFormData();
 
@@ -46,7 +53,7 @@ export class FormManager {
       validationResult,
       props: { ...props },
       setSubmitResult: ({ success, message = '', submitProps = {} }) => {
-        this.editor.emit('submitted', {
+        this.editor.emit('submit:result', {
           formData,
           success,
           message,
@@ -86,7 +93,7 @@ export class FormManager {
       const result = elementView.validateElement({ 
         showErrors, 
         useReportValidity,
-        customValidator, 
+        customValidator,
       });
 
       results.push({ 
@@ -106,13 +113,6 @@ export class FormManager {
     };
   }
 
-  setValidationOptions(options = {}) {
-    this.validation = {
-      ...this.validation,
-      ...options,
-    };
-  }
-  
   getFormData() {
     return getFormData(this.editor.state);
   }

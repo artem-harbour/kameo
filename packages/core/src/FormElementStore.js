@@ -1,6 +1,8 @@
 export class FormElementStore {
   editor;
 
+  elementViews;
+
   constructor(props) {
     this.editor = props.editor;
     this.elementViews = new Map();

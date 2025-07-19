@@ -76,7 +76,7 @@ export class FormElementView {
     this.handleAction = this.handleAction.bind(this);
 
     this.editor.on('documentModeUpdate', this.onDocumentModeUpdate);
-
+    
     if (this.editor.isInitialized) {
       this.editor.formManager.addElementView(this.node.attrs.id, this);
     } else {

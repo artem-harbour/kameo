@@ -74,16 +74,16 @@ kameo.on('submit', (event) => {
   });
 });
 
-kameo.on('submitted', (event) => {
-  console.log(`on 'submitted' event`, { event });
+kameo.on('submit:result', (event) => {
+  console.log(`on 'submit:result' event`, { event });
 });
 ```
 
 Kameo is built on top of Tiptap (core). To better understand how to work with Kameo, we recommend familiarizing yourself with the Tiptap API documentation:
 
-- [Tiptap Editor API](https://next.tiptap.dev/docs/editor/api/editor)
-- [Core concepts](https://next.tiptap.dev/docs/editor/core-concepts/introduction)
-- [Custom extensions](https://next.tiptap.dev/docs/editor/extensions/custom-extensions)
+- [Tiptap Editor API](https://tiptap.dev/docs/editor/api/editor)
+- [Core concepts](https://tiptap.dev/docs/editor/core-concepts/introduction)
+- [Custom extensions](https://tiptap.dev/docs/editor/extensions/custom-extensions)
 
 ## License
 

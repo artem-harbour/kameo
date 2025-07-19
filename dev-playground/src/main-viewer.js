@@ -50,8 +50,8 @@ const listenKameoEvents = (kameo) => {
     });
   });
 
-  kameo.on('submitted', (event) => {
-    console.log(`on 'submitted' event`, { event });
+  kameo.on('submit:result', (event) => {
+    console.log(`on 'submit:result' event`, { event });
 
     if (!event.success) return;
 
