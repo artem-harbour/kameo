@@ -37,11 +37,12 @@ export class FormSettings extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.editor?.on('update', this._onEditorUpdate);
+    
   }
 
   disconnectedCallback() {
-    this.editor.off('update', this._onEditorUpdate);
     super.disconnectedCallback();
+    this.editor.off('update', this._onEditorUpdate);
   }
 
   willUpdate(changedProperties) {

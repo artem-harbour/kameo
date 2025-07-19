@@ -193,8 +193,6 @@ export class FormActions extends LitElement {
     }
 
     .form-actions-menu {
-      
-      
       flex-direction: column;
       position: absolute;
       top: 0;

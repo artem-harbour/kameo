@@ -27,7 +27,6 @@ export const FormDrop = Extension.create({
             const formField = event?.dataTransfer.getData('formField');
     
             if (formField) {
-    
               if (this.options.handleDropOutside) {
                 handleDropOutside({
                   formField,
