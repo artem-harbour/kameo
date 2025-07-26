@@ -79,8 +79,11 @@ kameo.on('submit:result', (event) => {
 });
 ```
 
-Kameo is built on top of Tiptap (core). To better understand how to work with Kameo, we recommend familiarizing yourself with the Tiptap API documentation:
+## Documentation
 
+For full documentation, visit [kameo.dev](https://kameo.dev/getting-started/introduction/).
+
+Kameo is built on top of Tiptap (core package). To better understand how to work with Kameo, we recommend familiarizing yourself with the Tiptap API documentation:
 - [Tiptap Editor API](https://tiptap.dev/docs/editor/api/editor)
 - [Core concepts](https://tiptap.dev/docs/editor/core-concepts/introduction)
 - [Custom extensions](https://tiptap.dev/docs/editor/extensions/custom-extensions)
