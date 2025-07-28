@@ -1,1 +1,5 @@
-export * from './bold.js';
+import { Bold } from '@tiptap/extension-bold';
+
+export * from '@tiptap/extension-bold';
+
+export default Bold;

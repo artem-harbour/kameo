@@ -29,6 +29,8 @@ export const baseConfig = ({
     ],
     external: [
       /@kameo\/pm\/.*/,
+      /@tiptap\/extensions\/.*/,
+      /@tiptap\/extension-text-style\/.*/,
     ],
     plugins: [
       autoExternal({

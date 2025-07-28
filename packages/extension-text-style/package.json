@@ -15,46 +15,17 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./background-color": {
-      "import": "./dist/background-color/index.js",
-      "require": "./dist/background-color/index.cjs"
-    },
-    "./color": {
-      "import": "./dist/color/index.js",
-      "require": "./dist/color/index.cjs"
-    },
-    "./font-family": {
-      "import": "./dist/font-family/index.js",
-      "require": "./dist/font-family/index.cjs"
-    },
-    "./font-size": {
-      "import": "./dist/font-size/index.js",
-      "require": "./dist/font-size/index.cjs"
-    },
-    "./line-height": {
-      "import": "./dist/line-height/index.js",
-      "require": "./dist/line-height/index.cjs"
-    },
-    "./text-style": {
-      "import": "./dist/text-style/index.js",
-      "require": "./dist/text-style/index.cjs"
-    },
-    "./text-style-kit": {
-      "import": "./dist/text-style-kit/index.js",
-      "require": "./dist/text-style-kit/index.cjs"
     }
   },
   "files": [
     "src",
     "dist"
   ],
-  "dependencies": {},
   "devDependencies": {
-    "@kameo/core": "^0.0.33"
+    "@tiptap/extension-text-style": "^3.0.7"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.33"
+    "@tiptap/extension-text-style": "^3.0.7"
   },
   "repository": {
     "type": "git",

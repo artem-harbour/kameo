@@ -22,6 +22,14 @@
   padding-left: 16px;
 }
 
+.kameo .is-empty:before {
+  position: absolute;
+  height: 0;
+  content: attr(data-placeholder);
+  opacity: 30%;
+  pointer-events: none;
+}
+
 .km-form-element-view {
   position: relative;
   margin: 26px 0;
@@ -82,12 +90,4 @@
   color: red;
   position: absolute;
   top: calc(100% + 3px);
-}
-
-.km-is-empty:before {
-  position: absolute;
-  height: 0;
-  content: attr(data-placeholder);
-  opacity: 30%;
-  pointer-events: none;
 }

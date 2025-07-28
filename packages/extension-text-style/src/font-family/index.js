@@ -1,5 +1,1 @@
-import { FontFamily } from './font-family.js';
-
-export * from './font-family.js';
-
-export default FontFamily;
+export * from '@tiptap/extension-text-style/font-family';

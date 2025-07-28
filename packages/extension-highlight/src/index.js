@@ -1,5 +1,5 @@
-import { Highlight } from './highlight.js';
+import { Highlight } from '@tiptap/extension-highlight';
 
-export * from './highlight.js';
+export * from '@tiptap/extension-highlight';
 
 export default Highlight;

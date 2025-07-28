@@ -1,5 +1,1 @@
-import { FontSize } from './font-size.js';
-
-export * from './font-size.js';
-
-export default FontSize;
+export * from '@tiptap/extension-text-style/font-size';

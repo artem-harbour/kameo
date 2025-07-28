@@ -1,1 +1,1 @@
-export * from './undo-redo.js';
+export * from '@tiptap/extensions/undo-redo';
