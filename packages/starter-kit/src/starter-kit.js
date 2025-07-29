@@ -4,6 +4,7 @@ import { Bold } from '@kameo/extension-bold';
 import { Document } from '@kameo/extension-document';
 import { Heading } from '@kameo/extension-heading';
 import { Italic } from '@kameo/extension-italic';
+import { Link } from '@kameo/extension-link';
 import { Paragraph } from '@kameo/extension-paragraph';
 import { Strike } from '@kameo/extension-strike';
 import { Text } from '@kameo/extension-text';
@@ -51,6 +52,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.italic !== false) {
       extensions.push(Italic.configure(this.options.italic));
+    }
+
+    if (this.options.link !== false) {
+      extensions.push(Link.configure(this.options?.link));
     }
 
     if (this.options.paragraph !== false) {
