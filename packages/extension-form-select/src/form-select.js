@@ -52,7 +52,12 @@ export const FormSelect = Node.create({
       value: { 
         default: '',
         parseHTML: (elem) => elem.getAttribute('value'),
-        rendered: false, // TODO: causes issue for multiple select.
+        renderHTML: (attrs) => {
+          if (attrs.multiple) return { value: '' };
+          return { 
+            value: attrs.value,
+          };
+        },
       },
       // { value: '', label: '', disabled: false }
       options: {
