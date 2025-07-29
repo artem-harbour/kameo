@@ -1,5 +1,11 @@
 # @kameo/extension-highlight
 
+## 0.0.35
+
+### Patch Changes
+
+- c1a3a81: bump version
+
 ## 0.0.34
 
 ### Patch Changes

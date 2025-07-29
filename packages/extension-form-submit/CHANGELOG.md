@@ -1,5 +1,13 @@
 # @kameo/extension-form-submit
 
+## 0.0.35
+
+### Patch Changes
+
+- c1a3a81: bump version
+- Updated dependencies [c1a3a81]
+  - @kameo/core@0.0.35
+
 ## 0.0.34
 
 ### Patch Changes
