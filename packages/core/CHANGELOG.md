@@ -1,5 +1,13 @@
 # @kameo/core
 
+## 0.0.34
+
+### Patch Changes
+
+- 0c98f9a: bump version
+- Updated dependencies [0c98f9a]
+  - @kameo/pm@0.0.34
+
 ## 0.0.33
 
 ### Patch Changes
