@@ -52,7 +52,7 @@ export class FormManager {
       valid,
       validationResult,
       props: { ...props },
-      setSubmitResult: ({ success, message = '', submitProps = {} }) => {
+      setResult: ({ success, message = '', submitProps = {} }) => {
         this.editor.emit('submit:result', {
           formData,
           success,

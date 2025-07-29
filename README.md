@@ -68,7 +68,7 @@ const kameo = new Kameo({
 kameo.on('submit', (event) => {
   console.log(`on 'submit' event`, { event, formData: event.formData });
 
-  event.setSubmitResult({
+  event.setResult({
     success: true,
     message: 'Form is submitted',
   });

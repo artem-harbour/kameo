@@ -36,7 +36,7 @@ const listenKameoEvents = (kameo) => {
     console.log(`on 'submit' event`, { event });
     
     if (!event.valid) {
-      event.setSubmitResult({
+      event.setResult({
         success: false,
         message: 'Form is not valid',
       });
@@ -44,7 +44,7 @@ const listenKameoEvents = (kameo) => {
     }
 
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    event.setSubmitResult({
+    event.setResult({
       success: true,
       message: 'Form is submitted',
     });
