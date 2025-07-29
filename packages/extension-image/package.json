@@ -22,10 +22,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.33"
+    "@tiptap/extension-image": "^3.0.7"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.33"
+    "@tiptap/extension-image": "^3.0.7"
   },
   "repository": {
     "type": "git",

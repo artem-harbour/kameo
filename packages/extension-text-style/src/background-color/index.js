@@ -1,5 +1,1 @@
-import { BackgroundColor } from './background-color.js';
-
-export * from './background-color.js';
-
-export default BackgroundColor;
+export * from '@tiptap/extension-text-style/background-color';

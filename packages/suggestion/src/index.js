@@ -1,6 +1,5 @@
-import { Suggestion } from './suggestion.js';
+import { Suggestion } from '@tiptap/suggestion';
 
-export * from './suggestion.js';
-export * from './findSuggestionMatch.js';
+export * from '@tiptap/suggestion';
 
 export default Suggestion;

@@ -1,1 +1,1 @@
-export * from './gap-cursor.js';
+export * from '@tiptap/extensions/gap-cursor';

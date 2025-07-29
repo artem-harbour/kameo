@@ -1,1 +1,1 @@
-export * from './placeholder.js';
+export * from '@tiptap/extensions/placeholder';

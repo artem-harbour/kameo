@@ -15,35 +15,17 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./drop-cursor": {
-      "import": "./dist/drop-cursor/index.js",
-      "require": "./dist/drop-cursor/index.cjs"
-    },
-    "./gap-cursor": {
-      "import": "./dist/gap-cursor/index.js",
-      "require": "./dist/gap-cursor/index.cjs"
-    },
-    "./undo-redo": {
-      "import": "./dist/undo-redo/index.js",
-      "require": "./dist/undo-redo/index.cjs"
-    },
-    "./placeholder": {
-      "import": "./dist/placeholder/index.js",
-      "require": "./dist/placeholder/index.cjs"
-    },
-    "./selection": {
-      "import": "./dist/selection/index.js",
-      "require": "./dist/selection/index.cjs"
     }
   },
   "files": [
     "src",
     "dist"
   ],
-  "dependencies": {
-    "@kameo/core": "^0.0.33",
-    "@kameo/pm": "^0.0.33"
+  "devDependencies": {
+    "@tiptap/extensions": "^3.0.7"
+  },
+  "peerDependencies": {
+    "@tiptap/extensions": "^3.0.7"
   },
   "repository": {
     "type": "git",

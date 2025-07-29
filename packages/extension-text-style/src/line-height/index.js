@@ -1,5 +1,1 @@
-import { LineHeight } from './line-height.js';
-
-export * from './line-height.js';
-
-export default LineHeight;
+export * from '@tiptap/extension-text-style/line-height';
