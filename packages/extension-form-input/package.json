@@ -22,11 +22,11 @@
     "dist"
   ],
   "devDependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.3",
+    "@awesome.me/webawesome": "^3.0.0-beta.4",
     "@kameo/core": "^0.0.35"
   },
   "peerDependencies": {
-    "@awesome.me/webawesome": "^3.0.0-beta.3",
+    "@awesome.me/webawesome": "^3.0.0-beta.4",
     "@kameo/core": "^0.0.35"
   },
   "repository": {
