@@ -23,11 +23,11 @@
   ],
   "devDependencies": {
     "@kameo/core": "^0.0.35",
-    "@tiptap/extension-list": "^3.0.7"
+    "@tiptap/extension-list": "^3.2.0"
   },
   "peerDependencies": {
     "@kameo/core": "^0.0.35",
-    "@tiptap/extension-list": "^3.0.7"
+    "@tiptap/extension-list": "^3.2.0"
   },
   "repository": {
     "type": "git",

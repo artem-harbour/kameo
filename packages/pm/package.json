@@ -177,7 +177,7 @@
     "view/**"
   ],
   "dependencies": {
-    "@tiptap/pm": "^3.0.7"
+    "@tiptap/pm": "^3.2.0"
   },
   "repository": {
     "type": "git",

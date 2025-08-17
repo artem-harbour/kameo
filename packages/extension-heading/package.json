@@ -22,10 +22,10 @@
     "dist"
   ],
   "devDependencies": {
-    "@tiptap/extension-heading": "^3.0.7"
+    "@tiptap/extension-heading": "^3.2.0"
   },
   "peerDependencies": {
-    "@tiptap/extension-heading": "^3.0.7"
+    "@tiptap/extension-heading": "^3.2.0"
   },
   "repository": {
     "type": "git",
