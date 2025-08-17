@@ -6,7 +6,7 @@ import { FontSize } from '../font-size/index.js';
 import { LineHeight } from '../line-height/index.js';
 import { TextStyle } from '../text-style/index.js';
 
-export const TextStyleKit = Extension.create<TextStyleKitOptions>({
+export const TextStyleKit = Extension.create({
   name: 'textStyleKit',
 
   addExtensions() {
