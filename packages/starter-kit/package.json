@@ -29,6 +29,7 @@
     "@kameo/extension-heading": "^0.0.35",
     "@kameo/extension-italic": "^0.0.35",
     "@kameo/extension-link": "^0.0.35",
+    "@kameo/extension-list": "^0.0.35",
     "@kameo/extension-paragraph": "^0.0.35",
     "@kameo/extension-strike": "^0.0.35",
     "@kameo/extension-text": "^0.0.35",

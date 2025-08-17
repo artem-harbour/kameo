@@ -8,7 +8,7 @@ export const ListKit = Extension.create({
   name: 'listKit',
 
   addExtensions() {
-    const extensions = []
+    const extensions = [];
 
     if (this.options.bulletList !== false) {
       extensions.push(BulletList.configure(this.options.bulletList));
@@ -28,4 +28,4 @@ export const ListKit = Extension.create({
 
     return extensions;
   },
-})
+});

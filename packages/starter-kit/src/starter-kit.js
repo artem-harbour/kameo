@@ -5,6 +5,7 @@ import { Document } from '@kameo/extension-document';
 import { Heading } from '@kameo/extension-heading';
 import { Italic } from '@kameo/extension-italic';
 import { Link } from '@kameo/extension-link';
+import { BulletList, ListItem, ListKeymap, OrderedList } from '@kameo/extension-list';
 import { Paragraph } from '@kameo/extension-paragraph';
 import { Strike } from '@kameo/extension-strike';
 import { Text } from '@kameo/extension-text';
@@ -28,6 +29,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.blockquote !== false) {
       extensions.push(Blockquote.configure(this.options.blockquote));
+    }
+
+    if (this.options.bulletList !== false) {
+      extensions.push(BulletList.configure(this.options.bulletList));
     }
 
     if (this.options.document !== false) {
@@ -54,8 +59,20 @@ export const StarterKit = Extension.create({
       extensions.push(Italic.configure(this.options.italic));
     }
 
+    if (this.options.listItem !== false) {
+      extensions.push(ListItem.configure(this.options.listItem));
+    }
+
+    if (this.options.listKeymap !== false) {
+      extensions.push(ListKeymap.configure(this.options?.listKeymap));
+    }
+
     if (this.options.link !== false) {
       extensions.push(Link.configure(this.options?.link));
+    }
+
+    if (this.options.orderedList !== false) {
+      extensions.push(OrderedList.configure(this.options.orderedList));
     }
 
     if (this.options.paragraph !== false) {
