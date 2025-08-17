@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-document",
   "description": "document extension for kameo",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [

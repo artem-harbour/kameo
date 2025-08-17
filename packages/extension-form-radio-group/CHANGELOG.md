@@ -1,5 +1,13 @@
 # @kameo/extension-form-radio-group
 
+## 0.0.36
+
+### Patch Changes
+
+- cd9cf33: bump version
+- Updated dependencies [cd9cf33]
+  - @kameo/core@0.0.36
+
 ## 0.0.35
 
 ### Patch Changes
