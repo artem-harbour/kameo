@@ -10,7 +10,7 @@ import { Paragraph } from '@kameo/extension-paragraph';
 import { Strike } from '@kameo/extension-strike';
 import { Text } from '@kameo/extension-text';
 import { Underline } from '@kameo/extension-underline';
-import { Dropcursor, Gapcursor, UndoRedo } from '@kameo/extensions';
+import { Dropcursor, Gapcursor, TrailingNode, UndoRedo } from '@kameo/extensions';
 
 /**
  * The starter kit is a collection of essential editor extensions.
@@ -89,6 +89,10 @@ export const StarterKit = Extension.create({
 
     if (this.options.underline !== false) {
       extensions.push(Underline.configure(this.options?.underline));
+    }
+
+    if (this.options.trailingNode !== false) {
+      extensions.push(TrailingNode.configure(this.options?.trailingNode));
     }
 
     return extensions;
