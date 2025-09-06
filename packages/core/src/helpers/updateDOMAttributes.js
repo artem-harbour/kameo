@@ -19,7 +19,7 @@ export function updateDOMAttributes(dom, attrs = {}, {
       return;
     }
     
-    if (value != null && value !== '') {
+    if (value != null) {
       dom.setAttribute(key, value);
     } else {
       dom.removeAttribute(key);
