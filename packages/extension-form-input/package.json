@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-input",
   "description": "form input extension for kameo",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [
@@ -23,11 +23,11 @@
   ],
   "devDependencies": {
     "@awesome.me/webawesome": "^3.0.0-beta.4",
-    "@kameo/core": "^0.0.36"
+    "@kameo/core": "^0.0.37"
   },
   "peerDependencies": {
     "@awesome.me/webawesome": "^3.0.0-beta.4",
-    "@kameo/core": "^0.0.36"
+    "@kameo/core": "^0.0.37"
   },
   "repository": {
     "type": "git",

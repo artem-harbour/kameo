@@ -1,5 +1,11 @@
 # @kameo/extension-text-align
 
+## 0.0.37
+
+### Patch Changes
+
+- ea3c1d1: bump version
+
 ## 0.0.36
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@kameo/extension-form-signature",
   "description": "form signature extension for kameo",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "homepage": "https://kameo.dev",
   "license": "MIT",
   "keywords": [
@@ -22,12 +22,12 @@
     "dist"
   ],
   "devDependencies": {
-    "@kameo/core": "^0.0.36",
+    "@kameo/core": "^0.0.37",
     "lit": "3.3.0",
     "signature_pad": "^5.0.7"
   },
   "peerDependencies": {
-    "@kameo/core": "^0.0.36",
+    "@kameo/core": "^0.0.37",
     "lit": "3.3.0",
     "signature_pad": "^5.0.7"
   },
