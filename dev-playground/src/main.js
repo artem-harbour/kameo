@@ -10,6 +10,7 @@ import { TextStyleKit } from '@kameo/extension-text-style';
 import { Image } from '@kameo/extension-image';
 import { SlashCommand, suggestion } from '@kameo/extension-slash-command';
 import { Placeholder } from '@kameo/extensions';
+import { PlaceholderField, placeholderFieldHelpers } from '@kameo/extension-placeholder-field';
 import { handleBaseForm } from './helpers/handleBaseForm.js';
 import { handleDocumentMode } from './helpers/handleDocumentMode.js';
 import { handleImportForm } from './helpers/handleImportForm.js';
@@ -34,6 +35,7 @@ const initKameo = () => {
       }),
       TextStyleKit,
       Image,
+      PlaceholderField,
       SlashCommand.configure({ suggestion }),
       Placeholder.configure({ placeholder: 'Press / for commands...' }),
     ],
